@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+
+// 1. 全記事のパス（URL）を自動生成する
+export async function getStaticPaths() {
+  const posts = await getCollection('journal');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+// 2. 記事のデータを取得する
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>{post.data.title}</title>
+    <style>
+      body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
+      .date { color: #666; }
+      img { max-width: 100%; height: auto; border-radius: 8px; }
+      .content { margin-top: 40px; }
+      a { color: #0066cc; }
+    </style>
+  </head>
+  <body>
+    <a href="/">← 一覧へ戻る</a>
+    <p class="date">{post.data.pubDate}</p>
+    <h1>{post.data.title}</h1>
+    <hr />
+    <div class="content">
+      <Content />
+    </div>
+  </body>
+</html>

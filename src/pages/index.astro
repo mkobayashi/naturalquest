@@ -1,0 +1,42 @@
+---
+// 1. 全記事を取得
+const posts = await Astro.glob('../content/journal/*.md');
+
+// 2. 安全な並び替え（日付がない記事があってもエラーにしない）
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.frontmatter.pubDate ? new Date(a.frontmatter.pubDate).getTime() : 0;
+  const dateB = b.frontmatter.pubDate ? new Date(b.frontmatter.pubDate).getTime() : 0;
+  return dateB - dateA;
+});
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Natural Quest Journal</title>
+    <style>
+      body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
+      h1 { border-bottom: 2px solid #333; padding-bottom: 10px; }
+      .post-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+      .date { font-size: 0.9em; color: #666; margin: 0; }
+      h2 { margin: 5px 0; font-size: 1.2em; }
+      a { color: #0066cc; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <h1>Natural Quest Journal</h1>
+    
+    <div class="post-list">
+      {sortedPosts.map((post) => (
+        <article class="post-item">
+          <p class="date">{post.frontmatter.pubDate || "日付未設定"}</p>
+          <h2>
+            <a href={post.url}>{post.frontmatter.title || "無題の記事"}</a>
+          </h2>
+        </article>
+      ))}
+    </div>
+  </body>
+</html>
