@@ -1,2 +1,30 @@
 @charset "utf-8";
 @import "tailwindcss";
+
+@theme {
+	--font-sans: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+	--font-serif: "Noto Serif JP", ui-serif, Georgia, serif;
+	--font-en-display: "DM Serif Display", "Noto Serif JP", serif;
+
+	--color-nq-bg: #fafaf8;
+	--color-nq-text: #2c2c2a;
+	--color-nq-accent: #6b7c5c;
+	--color-nq-accent-warm: #a0785a;
+	--color-nq-border: #e4e0d8;
+	--color-nq-muted: #8a8680;
+}
+
+@layer base {
+	html {
+		@apply antialiased;
+	}
+
+	body {
+		@apply bg-nq-bg text-nq-text font-sans text-base leading-relaxed;
+	}
+
+	:where(h1, h2, h3, h4, h5, h6) {
+		font-family: var(--font-serif);
+		@apply font-semibold text-nq-text tracking-tight;
+	}
+}

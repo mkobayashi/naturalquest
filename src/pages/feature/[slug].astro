@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const features = await getCollection('features');
+	return features.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout
+	title={`${entry.data.title} | Natural Quest`}
+	description={entry.data.description}
+	narrow
+>
+	<a
+		href="/"
+		class="mb-8 inline-block font-sans text-sm text-nq-muted underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+	>
+		← トップへ
+	</a>
+	<article>
+		<h1 class="font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+			{entry.data.title}
+		</h1>
+		<p class="mt-4 font-sans text-base leading-relaxed text-nq-muted">{entry.data.description}</p>
+		{entry.data.tags?.length ? (
+			<p class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 font-sans text-sm text-nq-muted">
+				<span class="shrink-0">関連タグ：</span>
+				{entry.data.tags.map((tag) => (
+					<a
+						href={`/tag/${encodeURIComponent(tag)}`}
+						class="text-nq-accent underline decoration-nq-border underline-offset-2 hover:decoration-nq-accent"
+					>
+						{tag}
+					</a>
+				))}
+			</p>
+		) : null}
+		<div
+			class="mt-10 max-w-none font-sans leading-[1.85] text-nq-text [&_p]:mb-4 [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6"
+		>
+			<Content />
+		</div>
+	</article>
+</Layout>

@@ -1,39 +1,154 @@
 ---
+import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-// 1. 全記事のパス（URL）を自動生成する
 export async function getStaticPaths() {
-  const posts = await getCollection('journal');
-  return posts.map(post => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+	const posts = await getCollection('journal');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: { post },
+	}));
 }
 
-// 2. 記事のデータを取得する
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+const allPosts = await getCollection('journal');
+const myTags = new Set(post.data.tags ?? []);
+const related =
+	myTags.size > 0
+		? allPosts
+				.filter((p) => p.slug !== post.slug)
+				.map((p) => {
+					const tags = p.data.tags ?? [];
+					const shared = tags.filter((t) => myTags.has(t)).length;
+					return { entry: p, shared };
+				})
+				.filter((x) => x.shared > 0)
+				.sort((a, b) => {
+					if (b.shared !== a.shared) return b.shared - a.shared;
+					const dateA = a.entry.data.pubDate ? new Date(a.entry.data.pubDate).getTime() : 0;
+					const dateB = b.entry.data.pubDate ? new Date(b.entry.data.pubDate).getTime() : 0;
+					return dateB - dateA;
+				})
+				.slice(0, 6)
+				.map((x) => x.entry)
+		: [];
+
+const categories = post.data.categories ?? [];
+const isSumuCategory = categories.includes('住む');
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <title>{post.data.title}</title>
-    <style>
-      body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.8; color: #333; }
-      .date { color: #666; }
-      img { max-width: 100%; height: auto; border-radius: 8px; }
-      .content { margin-top: 40px; }
-      a { color: #0066cc; }
-    </style>
-  </head>
-  <body>
-    <a href="/">← 一覧へ戻る</a>
-    <p class="date">{post.data.pubDate}</p>
-    <h1>{post.data.title}</h1>
-    <hr />
-    <div class="content">
-      <Content />
-    </div>
-  </body>
-</html>
+<Layout
+	title={post.data.title ? `${post.data.title} | Natural Quest` : 'Natural Quest'}
+	description={post.data.description}
+	narrow
+>
+	<a
+		href="/journal"
+		class="mb-8 inline-block font-sans text-sm text-nq-muted underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+	>
+		← ジャーナル一覧へ
+	</a>
+	<article>
+		{post.data.pubDate ? (
+			<p class="font-sans text-sm text-nq-muted">
+				{post.data.pubDate.toLocaleDateString('ja-JP', {
+					year: 'numeric',
+					month: 'long',
+					day: 'numeric',
+				})}
+			</p>
+		) : null}
+		<h1 class="mt-3 font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+			{post.data.title}
+		</h1>
+		{categories.length ? (
+			<p class="mt-4 flex flex-wrap gap-x-2 gap-y-1 font-sans text-xs text-nq-muted">
+				{categories.map((cat) => (
+					<a
+						href={`/category/${encodeURIComponent(cat)}`}
+						class="rounded-sm border border-nq-border px-2 py-0.5 text-nq-text transition-colors hover:border-nq-accent hover:text-nq-accent"
+					>
+						{cat}
+					</a>
+				))}
+			</p>
+		) : null}
+		{post.data.tags?.length ? (
+			<p class="mt-3 flex flex-wrap gap-x-2 gap-y-1 font-sans text-xs">
+				{post.data.tags.map((tag) => (
+					<a
+						href={`/tag/${encodeURIComponent(tag)}`}
+						class="text-nq-muted underline decoration-nq-border underline-offset-2 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+					>
+						#{tag}
+					</a>
+				))}
+			</p>
+		) : null}
+		<div
+			class="mt-10 max-w-none font-sans leading-[1.85] text-nq-text [&_a]:text-nq-accent [&_a]:underline [&_a]:decoration-nq-border [&_a]:underline-offset-2 [&_blockquote]:border-l-2 [&_blockquote]:border-nq-accent [&_blockquote]:pl-4 [&_blockquote]:text-nq-muted [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-2xl [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:font-serif [&_h3]:text-xl [&_img]:my-6 [&_img]:max-w-full [&_img]:rounded-md [&_li]:mb-1 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_strong]:font-semibold [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6"
+		>
+			<Content />
+		</div>
+
+		<aside
+			class:list={[
+				'mt-14 rounded-sm border p-6 font-sans text-sm leading-relaxed',
+				isSumuCategory
+					? 'border-nq-accent-warm/40 bg-nq-accent-warm/5 text-nq-text'
+					: 'border-nq-border bg-white/40 text-nq-muted',
+			]}
+			aria-labelledby="bristlecone-aside-heading"
+		>
+			<h2 id="bristlecone-aside-heading" class="font-serif text-base font-semibold text-nq-text">
+				{isSumuCategory ? '自然素材のリフォーム・ご相談' : 'パートナー'}
+			</h2>
+			<p class="mt-3">
+				漆喰・自然素材リフォームのご相談は
+				<a
+					href="https://bristlecone.jp"
+					class="font-medium text-nq-accent-warm underline decoration-nq-border underline-offset-2 transition-colors hover:decoration-nq-accent-warm"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					Bristlecone（ブリストルコーン）
+				</a>
+				へ。
+			</p>
+		</aside>
+
+		{related.length ? (
+			<section class="mt-16 border-t border-nq-border pt-12" aria-labelledby="related-heading">
+				<h2 id="related-heading" class="font-serif text-xl font-semibold tracking-tight sm:text-2xl">
+					関連記事
+				</h2>
+				<p class="mt-2 font-sans text-sm text-nq-muted">同じタグの記事</p>
+				<ul class="mt-8 space-y-8">
+					{related.map((p) => (
+						<li class="border-b border-nq-border pb-8 last:border-0">
+							<p class="font-sans text-sm text-nq-muted">
+								{p.data.pubDate
+									? p.data.pubDate.toLocaleDateString('ja-JP', {
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric',
+										})
+									: '日付未設定'}
+							</p>
+							<h3 class="mt-1 font-serif text-lg font-semibold">
+								<a
+									href={`/journal/${p.slug}`}
+									class="text-nq-text underline decoration-nq-border decoration-1 underline-offset-[6px] transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+								>
+									{p.data.title ?? '無題の記事'}
+								</a>
+							</h3>
+						</li>
+					))}
+				</ul>
+			</section>
+		) : null}
+	</article>
+</Layout>

@@ -1,42 +1,208 @@
 ---
-// 1. 全記事を取得
-const posts = await Astro.glob('../content/journal/*.md');
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// 2. 安全な並び替え（日付がない記事があってもエラーにしない）
+const posts = await getCollection('journal');
 const sortedPosts = posts.sort((a, b) => {
-  const dateA = a.frontmatter.pubDate ? new Date(a.frontmatter.pubDate).getTime() : 0;
-  const dateB = b.frontmatter.pubDate ? new Date(b.frontmatter.pubDate).getTime() : 0;
-  return dateB - dateA;
+	const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+	const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+	return dateB - dateA;
 });
+const latestPosts = sortedPosts.slice(0, 6);
+
+const featureEntries = await getCollection('features');
+const sortedFeatures = featureEntries.sort((a, b) => {
+	const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+	const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+	return dateB - dateA;
+});
+const latestFeatures = sortedFeatures.slice(0, 3);
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Natural Quest Journal</title>
-    <style>
-      body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
-      h1 { border-bottom: 2px solid #333; padding-bottom: 10px; }
-      .post-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-      .date { font-size: 0.9em; color: #666; margin: 0; }
-      h2 { margin: 5px 0; font-size: 1.2em; }
-      a { color: #0066cc; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-    </style>
-  </head>
-  <body>
-    <h1>Natural Quest Journal</h1>
-    
-    <div class="post-list">
-      {sortedPosts.map((post) => (
-        <article class="post-item">
-          <p class="date">{post.frontmatter.pubDate || "日付未設定"}</p>
-          <h2>
-            <a href={post.url}>{post.frontmatter.title || "無題の記事"}</a>
-          </h2>
-        </article>
-      ))}
-    </div>
-  </body>
-</html>
+<Layout title="Natural Quest" description="自分のナチュラルを見つける — Natural Quest">
+	<section
+		class="border-b border-nq-border pb-12 sm:pb-16 lg:pb-20"
+		aria-labelledby="hero-heading"
+	>
+		<p class="font-sans text-xs font-medium uppercase tracking-[0.2em] text-nq-accent">
+			Natural Quest
+		</p>
+		<h1
+			id="hero-heading"
+			class="mt-4 max-w-3xl font-serif text-[1.75rem] font-semibold leading-snug tracking-tight text-nq-text sm:text-3xl lg:text-4xl"
+		>
+			自分のナチュラルを見つける
+		</h1>
+		<p class="mt-6 max-w-2xl font-sans text-base leading-relaxed text-nq-muted">
+			コンテンツで気づきを、暮らしのヒントを。ライフと住むを軸に、ナチュラルな選択を探すためのジャーナルです。
+		</p>
+	</section>
+
+	<div class="mt-12 lg:mt-16 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:gap-y-0">
+		<div class="lg:col-span-8">
+			{latestFeatures.length > 0 ? (
+				<section class="mb-14" aria-labelledby="features-heading">
+					<div class="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-nq-border pb-4">
+						<h2 id="features-heading" class="font-serif text-xl font-semibold tracking-tight sm:text-2xl">
+							特集
+						</h2>
+					</div>
+					<ul class="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-1 xl:grid-cols-2">
+						{latestFeatures.map((f) => (
+							<li>
+								<a
+									href={`/feature/${f.slug}`}
+									class="group block h-full rounded-sm border border-nq-border bg-white/40 p-6 transition-colors hover:border-nq-accent hover:bg-white/80"
+								>
+									<h3 class="font-serif text-lg font-semibold tracking-tight text-nq-text group-hover:text-nq-accent">
+										{f.data.title}
+									</h3>
+									<p class="mt-3 font-sans text-sm leading-relaxed text-nq-muted line-clamp-3">
+										{f.data.description}
+									</p>
+									{f.data.pubDate ? (
+										<p class="mt-4 font-sans text-xs text-nq-muted">
+											{f.data.pubDate.toLocaleDateString('ja-JP', {
+												year: 'numeric',
+												month: 'long',
+												day: 'numeric',
+											})}
+										</p>
+									) : null}
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			) : null}
+
+			<section aria-labelledby="latest-heading">
+				<div class="mb-6 flex flex-wrap items-end justify-between gap-4 border-b border-nq-border pb-4">
+					<h2 id="latest-heading" class="font-serif text-xl font-semibold tracking-tight sm:text-2xl">
+						最新記事
+					</h2>
+					<a
+						href="/journal"
+						class="font-sans text-sm text-nq-accent underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:decoration-nq-accent"
+					>
+						すべて見る
+					</a>
+				</div>
+				<ul class="space-y-8">
+					{latestPosts.map((post) => (
+						<li class="flex gap-4 border-b border-nq-border pb-8 last:border-0 sm:gap-6">
+							{post.data.heroImage ? (
+								<a
+									href={`/journal/${post.slug}`}
+									class="shrink-0 overflow-hidden rounded-sm border border-nq-border"
+									aria-hidden="true"
+									tabindex="-1"
+								>
+									<img
+										src={post.data.heroImage}
+										alt=""
+										class="h-20 w-20 object-cover sm:h-24 sm:w-24"
+										loading="lazy"
+										decoding="async"
+									/>
+								</a>
+							) : null}
+							<div class="min-w-0 flex-1">
+								<p class="font-sans text-sm text-nq-muted">
+									{post.data.pubDate
+										? post.data.pubDate.toLocaleDateString('ja-JP', {
+												year: 'numeric',
+												month: 'long',
+												day: 'numeric',
+											})
+										: '日付未設定'}
+								</p>
+								<h3 class="mt-1 font-serif text-lg font-semibold leading-snug sm:text-xl">
+									<a
+										href={`/journal/${post.slug}`}
+										class="text-nq-text underline decoration-nq-border decoration-1 underline-offset-[6px] transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+									>
+										{post.data.title ?? '無題の記事'}
+									</a>
+								</h3>
+								{post.data.categories?.length ? (
+									<p class="mt-2 font-sans text-xs text-nq-muted">
+										{post.data.categories.slice(0, 3).join(' · ')}
+									</p>
+								) : null}
+							</div>
+						</li>
+					))}
+				</ul>
+			</section>
+		</div>
+
+		<aside class="mt-14 space-y-10 lg:col-span-4 lg:mt-0 lg:space-y-12" aria-label="サイトメニュー">
+			<section aria-labelledby="category-nav-heading">
+				<h2 id="category-nav-heading" class="font-serif text-lg font-semibold tracking-tight">
+					カテゴリ
+				</h2>
+				<nav class="mt-4 font-sans text-sm" aria-label="カテゴリ">
+					<ul class="flex flex-col gap-3">
+						<li>
+							<a
+								href="/category/ライフ"
+								class="inline-flex items-center text-nq-text underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+							>
+								ライフ
+								<span class="ml-2 text-xs text-nq-muted">食 · セルフケア · もの · カルチャー</span>
+							</a>
+						</li>
+						<li>
+							<a
+								href="/category/住む"
+								class="inline-flex flex-wrap items-baseline gap-x-2 text-nq-text underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+							>
+								住む
+								<span class="text-xs text-nq-muted">家づくり · 自然素材 · オフグリッド ほか</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</section>
+
+			<section
+				class="rounded-sm border border-nq-border bg-white/50 p-6"
+				aria-labelledby="aroma-heading"
+			>
+				<h2 id="aroma-heading" class="font-serif text-lg font-semibold tracking-tight">
+					アロマチャット
+				</h2>
+				<p class="mt-3 font-sans text-sm leading-relaxed text-nq-muted">
+					症状・気分・目的から精油のヒントを探せる対話型ガイド（準備中の機能もあります）。
+				</p>
+				<a
+					href="/aroma-chat"
+					class="mt-5 inline-flex items-center justify-center border border-nq-accent bg-nq-accent px-5 py-2.5 font-sans text-sm font-medium text-white transition-colors hover:bg-nq-text hover:border-nq-text"
+				>
+					アロマチャットへ
+				</a>
+			</section>
+
+			<section
+				class="rounded-sm border border-nq-accent-warm/30 bg-nq-accent-warm/5 p-6"
+				aria-labelledby="bristlecone-heading"
+			>
+				<h2 id="bristlecone-heading" class="font-serif text-lg font-semibold tracking-tight text-nq-text">
+					自然素材リフォームのご相談
+				</h2>
+				<p class="mt-3 font-sans text-sm leading-relaxed text-nq-muted">
+					漆喰・自然素材リフォームは、パートナーの Bristlecone（ブリストルコーン）へどうぞ。
+				</p>
+				<a
+					href="https://bristlecone.jp"
+					class="mt-5 inline-flex w-full items-center justify-center border border-nq-accent-warm bg-transparent px-5 py-2.5 font-sans text-sm font-medium text-nq-accent-warm transition-colors hover:bg-nq-accent-warm hover:text-white"
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					Bristlecone で相談する
+				</a>
+			</section>
+		</aside>
+	</div>
+</Layout>
