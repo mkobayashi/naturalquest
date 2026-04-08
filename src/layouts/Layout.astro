@@ -89,16 +89,16 @@ const navItems = [
 						width="200"
 						height="32"
 					/>
-					<span class="min-w-0 font-serif text-[0.6rem] leading-snug tracking-[0.14em] text-nq-muted sm:text-[0.7rem] md:text-xs">
+					<span class="min-w-0 translate-y-[-5px] font-serif text-[0.6rem] leading-none tracking-[0.14em] text-nq-muted sm:text-[0.7rem] md:text-xs">
 						自分のナチュラルを見つける
 					</span>
 				</a>
 
-				<nav class="hidden items-center gap-5 md:flex" aria-label="主要ナビゲーション">
+				<nav class="hidden items-center gap-8 md:flex" aria-label="主要ナビゲーション">
 					{navItems.map((item) => (
 						<a
 							href={item.href}
-							class="font-sans text-xs font-bold tracking-[0.06em] text-nq-ink/85 transition-colors hover:text-nq-accent"
+							class="font-sans text-[0.9rem] font-bold tracking-[0.06em] text-nq-ink/85 transition-colors hover:text-nq-accent"
 						>
 							{item.label}
 						</a>
