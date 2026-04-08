@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 	for (const category of names) {
 		const sorted = await getSortedPostsInCategory(category);
 		const tp = totalPagesFor(sorted.length);
-		for (let p = 2; p <= tp; p++) {
+		for (let p = 1; p <= tp; p++) {
 			paths.push({ params: { category, page: String(p) } });
 		}
 	}

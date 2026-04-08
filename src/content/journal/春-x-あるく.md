@@ -29,7 +29,7 @@ categories:
 そんな話をこないだヨガティーチャーをしている友だちに話したら「それはまさに歩行禅だね」と言われました。
 これは字のごとく、歩きながら禅を組む、瞑想するという意味があるそうで…。
 
-![](http://naturalquest.org/wp-content/uploads/2017/04/jinno_02.jpg)
+![](https://naturalquest.org/wp-content/uploads/2017/04/jinno_02.jpg)
 
 （4月中旬頃、雪が溶けはじめ山肌がのぞく。ひたすら前へ前へ！）
 

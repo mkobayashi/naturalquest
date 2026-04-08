@@ -66,7 +66,7 @@ categories:
 呼吸していることを思い出せる、のびのびとして空間で
 紡ぎだされる、生き生きとした音の連なりなのです。
 
-![](http://naturalquest.org/wp-content/uploads/2012/08/pict_02.jpg)
+![](https://naturalquest.org/wp-content/uploads/2012/08/pict_02.jpg)
 
 重松壮一郎さんのライブ情報、CDのお求めはWebサイトをご覧ください
 [http://www.livingthings.org](http://www.livingthings.org/)

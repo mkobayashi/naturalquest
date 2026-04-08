@@ -23,4 +23,4 @@ categories:
 **（４）**【A】の材料をなめらかになるまでスピードカッターにかけます。
 **（５）**耐熱皿に分量外のオリーブオイルを塗り、(4)の1/3量を混ぜた(3)を入れ、その上から残りの(4)をかけて、あらかじめ180℃に暖めたオーブンで15分ほど、焦げ目が付くまで焼きます。
 
-![](http://naturalquest.org/wp-content/uploads/2009/05/deko_pasta.jpg)
+![](https://naturalquest.org/wp-content/uploads/2009/05/deko_pasta.jpg)

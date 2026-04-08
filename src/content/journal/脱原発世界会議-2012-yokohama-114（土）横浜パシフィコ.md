@@ -26,7 +26,7 @@ categories:
 
 そうでした。いま進んでいる事態に比べると、会場のあまりに座り心地のよい座席に腰掛け、リアリティを忘れそうな弛緩にガツンと来ました。
 
-![](http://naturalquest.org/wp-content/uploads/2018/08/yokohama_01.jpg)
+![](https://naturalquest.org/wp-content/uploads/2018/08/yokohama_01.jpg)
 
 ヨルダンに原発を輸出しようとしている財界、民主政権。
 
@@ -42,7 +42,7 @@ categories:
 開会イベントでは、他にも前福島県知事の佐藤栄佐久氏、
 環境エネルギー政策研究所所長の飯田哲也氏、オーストラリア非核連合共同代表のピーター・ワッツ氏のスピーチがありました。
 
-![](http://naturalquest.org/wp-content/uploads/2012/01/yokohama_03.jpg)
+![](https://naturalquest.org/wp-content/uploads/2012/01/yokohama_03.jpg)
 
 そして、最年長の迫力。
 

@@ -31,7 +31,7 @@ categories:
 冬のように寒い山頂から降りてきて、
 こうした春のたよりを見つけると、やっぱり嬉しい。
 五感が刺激され、からだも喜ぶ。元気になる。
-![](http://naturalquest.org/wp-content/uploads/2017/05/haru_02.jpg)
+![](https://naturalquest.org/wp-content/uploads/2017/05/haru_02.jpg)
 
 （写真）一面にひろがるフキノトウ
 

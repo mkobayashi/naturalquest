@@ -22,7 +22,7 @@ categories:
 いつのまにか、日本が世界から取り残されていることを思い知って愕然。
 しかし、同時に「やっぱりこの方向だ」という確信も再び湧いてくる。
 
-![](http://naturalquest.org/wp-content/uploads/2017/03/1-photo-1200x229.jpg)
+![](https://naturalquest.org/wp-content/uploads/2017/03/1-photo-1200x229.jpg)
 
 ◎　上映情報
 

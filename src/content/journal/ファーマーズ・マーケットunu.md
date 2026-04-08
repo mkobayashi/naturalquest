@@ -12,13 +12,13 @@ categories:
 
 休日の青山・国連大学前にマーケットが出現。Farmer's Market@UNUです。
 
-![](http://naturalquest.org/wp-content/uploads/2018/07/021-1.jpg)
+![](https://naturalquest.org/wp-content/uploads/2018/07/021-1.jpg)
 
 ジョン・ムーアさんのお店で、ひよこ豆のペーストを購入。うまい！
 
 ジョンさんは、広告代理店など経て、外資系企業の支社長だったそうで、現在オーガニックフードなどの、多彩な活動をされています。
 
-![](http://naturalquest.org/wp-content/uploads/2009/11/03.jpg)
+![](https://naturalquest.org/wp-content/uploads/2009/11/03.jpg)
 
 埼玉県で有機農業を実践してらっしゃる、「愛足風土」の皆さん。ここで、好物の冬瓜を購入。
 
@@ -28,7 +28,7 @@ categories:
 
 福岡さんの著書がしっかり並んでいます。
 
-![](http://naturalquest.org/wp-content/uploads/2009/11/05.jpg)
+![](https://naturalquest.org/wp-content/uploads/2009/11/05.jpg)
 
 青森県の産品を並べるお店。
 
@@ -38,12 +38,12 @@ categories:
 
 東京中目黒のナチュラルレストラン「N-1155」で入手できるとのこと。
 
-![](http://naturalquest.org/wp-content/uploads/2009/11/07.jpg)
+![](https://naturalquest.org/wp-content/uploads/2009/11/07.jpg)
 
 おしゃれな「オーガニック市」を全国で運営している、マルシェ・ジャポンさんに拍手！
 
 札幌、新潟、東京、神奈川、大阪、福岡の公園や、オープンスペースで開催中。
 
-![](http://naturalquest.org/wp-content/uploads/2018/07/061-1.jpg)
+![](https://naturalquest.org/wp-content/uploads/2018/07/061-1.jpg)
 
 個人的に心残りだった品がこれ。質感からすると、相当よさげでした。

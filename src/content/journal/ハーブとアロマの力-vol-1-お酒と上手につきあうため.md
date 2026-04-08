@@ -45,14 +45,14 @@ categories:
 
 ターメリック(ウコン)小さじ1/2を150～180mlのお湯に溶かしたものや、ミルクシスルといった強肝作用のサプリメントを飲みましょう。肝臓を守ってくれます。
 
-![](http://naturalquest.org/wp-content/uploads/2010/07/turmeric.jpg)
+![](https://naturalquest.org/wp-content/uploads/2010/07/turmeric.jpg)
 Photo by [FOODISM360](https://unsplash.com/@foodism360?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/turmeric?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 #### ターメリック
 
 インド原産のスパイス。黄色の色素成分、クルクミンが肝臓の働きを強める。血液をきれいにし、美容効果も高い。
 
-![](http://naturalquest.org/wp-content/uploads/2017/02/milkthisle-1.jpg)
+![](https://naturalquest.org/wp-content/uploads/2017/02/milkthisle-1.jpg)
 
 #### ミルクシスル
 
@@ -63,7 +63,7 @@ Photo by [FOODISM360](https://unsplash.com/@foodism360?utm_source=unsplash&utm_m
 ハーブティー
 肝臓がアルコールを解毒するとき、大量にビタミンCを消費します。そこで飲んでおきたいのが、なんとレモンの約20～40倍のビタミンCを含有すると言われているローズヒップティー。さらに気持ちが悪いときはペパーミントティーを飲んでみて。スーッとした口当たりと健胃効果で心身をリフレッシュ。
 
-![](http://naturalquest.org/wp-content/uploads/2017/02/peppermint.jpg)
+![](https://naturalquest.org/wp-content/uploads/2017/02/peppermint.jpg)
 
 #### ペパーミント
 
@@ -72,7 +72,7 @@ Photo by [FOODISM360](https://unsplash.com/@foodism360?utm_source=unsplash&utm_m
 ##### 日頃からのケア
 
 アーティチョークやダンディライオンのハーブティーを1日2、3回飲むと、日頃から肝機能を強めることができます
-![](http://naturalquest.org/wp-content/uploads/2017/02/artichoke.jpg)
+![](https://naturalquest.org/wp-content/uploads/2017/02/artichoke.jpg)
 
 #### アーティチョーク
 
@@ -88,7 +88,7 @@ Photo by [FOODISM360](https://unsplash.com/@foodism360?utm_source=unsplash&utm_m
 
 お酒を飲んだ翌日は、血行をよくして代謝を促し、肝臓の働きを助けるアロマバスを試してみて。ローズマリーや利尿効果のあるジュニパーの精油を浴槽に4滴ほど入れて入浴しましょう。むくみの解消にもなります。
 
-##### ![](http://naturalquest.org/wp-content/uploads/2017/02/ofuro02.jpg)＜エッセンシャルオイル＞
+##### ![](https://naturalquest.org/wp-content/uploads/2017/02/ofuro02.jpg)＜エッセンシャルオイル＞
 ジュニパー
 
 松ヤニのような香りが特徴。アロマテラピーをすることで森林浴を行ったような効果が得られる。老廃物を洗い流す効果がある。

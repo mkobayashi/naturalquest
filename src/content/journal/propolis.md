@@ -23,7 +23,7 @@ categories:
 
 棚の奥にひっそりと忘れ去られていたが、“おぼれる者はわらをもすがる”もので、急遽、再登場となった。
 
-![](http://naturalquest.org/wp-content/uploads/2019/05/propolis_02-1200x800.jpg)
+![](https://naturalquest.org/wp-content/uploads/2019/05/propolis_02-1200x800.jpg)
 
 ### 研究論文も数多く、広く認められているプロポリスの効用
 
