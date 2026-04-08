@@ -1,9 +1,10 @@
 ---
 title: "春 × あるく"
 pubDate: 2017-04-06
-categories:
-  - "カルチャー"
 tags:
+  - "エッセイ"
+categories:
+  - "NOTE"
   - "エッセイ"
 ---
 

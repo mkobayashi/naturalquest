@@ -1,9 +1,10 @@
 ---
 title: "ファーマーズ・マーケット@UNU"
 pubDate: 2009-11-23
-categories:
-  - "カルチャー"
 tags:
+  - "おでかけ"
+categories:
+  - "食"
   - "おでかけ"
 ---
 

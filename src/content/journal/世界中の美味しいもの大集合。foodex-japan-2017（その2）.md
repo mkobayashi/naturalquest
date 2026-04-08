@@ -1,9 +1,10 @@
 ---
 title: "世界中の美味しいもの大集合。FOODEX JAPAN 2017（その2）"
 pubDate: 2017-03-29
-categories:
-  - "フード"
 tags:
+  - "おでかけ"
+categories:
+  - "NOTE"
   - "おでかけ"
 ---
 

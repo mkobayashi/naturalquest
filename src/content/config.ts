@@ -13,9 +13,13 @@ const journal = defineCollection({
 			description: z.string().optional(),
 			heroImage: z.string().optional(),
 		})
-		.transform(({ category, categories, ...rest }) => ({
+		.transform(({ category, categories, heroImage, ...rest }) => ({
 			...rest,
 			categories: categories?.length ? categories : (category ?? []),
+			heroImage:
+				heroImage && /^http:\/\/(www\.)?naturalquest\.org/i.test(heroImage)
+					? heroImage.replace(/^http:\/\//i, 'https://')
+					: heroImage,
 		})),
 });
 

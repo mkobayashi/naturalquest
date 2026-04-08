@@ -1,12 +1,15 @@
 ---
 title: "里芋のアンチョビバター蒸し by井口和泉"
 pubDate: 2013-10-09
-categories:
-  - "フード"
 tags:
   - "学び"
   - "手づくり"
   - "料理"
+categories:
+  - "食"
+  - "DIY"
+heroImage: "https://naturalquest.org/wp-content/uploads/2013/10/P1360645-1056x800.jpg"
+
 ---
 
 #### 庭の園芸ポットで里芋や生姜を育てる

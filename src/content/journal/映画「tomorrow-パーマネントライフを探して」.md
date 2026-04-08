@@ -1,11 +1,12 @@
 ---
 title: "映画「TOMORROW　パーマネントライフを探して」"
 pubDate: 2017-03-12
-categories:
-  - "カルチャー"
 tags:
   - "おでかけ"
   - "ソーシャル"
+categories:
+  - "NOTE"
+  - "読む・観る"
 ---
 
 [「TOMORROW　パーマネントライフを探して」](http://www.cetera.co.jp/tomorrow/)を渋谷のイメージフォーラムで見た。

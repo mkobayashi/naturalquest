@@ -1,11 +1,12 @@
 ---
 title: "ヴィジョンズの魔女に会いにいく"
 pubDate: 2016-11-18
-categories:
-  - "ブログ"
 tags:
   - "おでかけ"
   - "ペット"
+categories:
+  - "NOTE"
+  - "おでかけ"
 ---
 
 新月の翌日、

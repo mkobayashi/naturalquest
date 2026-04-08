@@ -11,16 +11,32 @@ const sortedPosts = posts.sort((a, b) => {
 ---
 
 <Layout title="ジャーナル | Natural Quest" description="Natural Quest の記事一覧です。">
-	<header class="mb-10 border-b border-nq-border pb-8">
-		<h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">ジャーナル</h1>
-		<p class="mt-3 max-w-2xl font-sans text-sm text-nq-muted">
+	<header class="mb-6 border-b border-nq-border pb-6" id="site-search">
+		<h1 class="font-serif text-2xl font-semibold tracking-tight text-nq-ink sm:text-3xl">ジャーナル</h1>
+		<p class="mt-2 max-w-2xl font-sans text-sm leading-relaxed text-nq-muted">
 			ライフと住むを中心に、ナチュラルな暮らしの記事を掲載しています。
 		</p>
+		<div class="mt-6">
+			<label for="journal-filter" class="mb-2 block font-sans text-xs font-bold text-nq-ink">
+				記事を検索
+			</label>
+			<input
+				type="search"
+				id="journal-filter"
+				name="q"
+				autocomplete="off"
+				placeholder="タイトルキーワードで絞り込み…"
+				class="w-full max-w-xl rounded-sm border border-nq-border bg-white px-4 py-3 font-sans text-sm text-nq-ink shadow-sm outline-none ring-0 transition-shadow placeholder:text-nq-muted focus:border-nq-accent focus:shadow-[0_0_0_1px_color-mix(in_srgb,var(--color-nq-accent)_45%,transparent)]"
+			/>
+		</div>
 	</header>
-	<ul class="space-y-8">
+	<ul id="journal-list" class="space-y-6">
 		{sortedPosts.map((post) => (
-			<li class="border-b border-nq-border pb-8 last:border-0">
-				<p class="font-sans text-sm text-nq-muted">
+			<li
+				class="journal-row border-b border-nq-border pb-6 last:border-0"
+				data-title={(post.data.title ?? '').toLowerCase()}
+			>
+				<p class="font-sans text-xs tabular-nums text-nq-muted">
 					{post.data.pubDate
 						? post.data.pubDate.toLocaleDateString('ja-JP', {
 								year: 'numeric',
@@ -29,10 +45,10 @@ const sortedPosts = posts.sort((a, b) => {
 							})
 						: '日付未設定'}
 				</p>
-				<h2 class="mt-2 font-serif text-xl font-semibold sm:text-2xl">
+				<h2 class="mt-1.5 font-serif text-lg font-semibold text-nq-ink sm:text-xl">
 					<a
 						href={`/journal/${post.slug}`}
-						class="text-nq-text underline decoration-nq-border decoration-1 underline-offset-[6px] transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+						class="underline decoration-nq-border decoration-1 underline-offset-[5px] transition-colors hover:text-nq-accent hover:decoration-nq-accent"
 					>
 						{post.data.title ?? '無題の記事'}
 					</a>
@@ -40,4 +56,39 @@ const sortedPosts = posts.sort((a, b) => {
 			</li>
 		))}
 	</ul>
+	<p id="journal-empty" class="hidden py-8 text-center font-sans text-sm text-nq-muted" hidden>
+		該当する記事がありません。
+	</p>
 </Layout>
+
+<script>
+	const input = document.getElementById('journal-filter') as HTMLInputElement | null;
+	const list = document.getElementById('journal-list');
+	const empty = document.getElementById('journal-empty');
+	const rows = list?.querySelectorAll<HTMLElement>('.journal-row');
+
+	function applyFilter() {
+		const q = (input?.value ?? '').trim().toLowerCase();
+		let visible = 0;
+		rows?.forEach((li) => {
+			const t = li.dataset.title ?? '';
+			const show = !q || t.includes(q);
+			li.classList.toggle('hidden', !show);
+			if (show) visible++;
+		});
+		if (empty) {
+			const hideEmpty = visible > 0;
+			empty.classList.toggle('hidden', hideEmpty);
+			empty.hidden = hideEmpty;
+		}
+	}
+
+	input?.addEventListener('input', applyFilter);
+
+	if (window.location.hash === '#site-search') {
+		requestAnimationFrame(() => {
+			document.getElementById('site-search')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			setTimeout(() => input?.focus(), 400);
+		});
+	}
+</script>

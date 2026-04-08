@@ -1,9 +1,10 @@
 ---
 title: "春 × かんじる"
 pubDate: 2017-05-03
-categories:
-  - "カルチャー"
 tags:
+  - "エッセイ"
+categories:
+  - "NOTE"
   - "エッセイ"
 ---
 

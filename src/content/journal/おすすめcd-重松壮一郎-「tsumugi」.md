@@ -1,10 +1,11 @@
 ---
 title: "おすすめCD 重松壮一郎 「tsumugi」"
 pubDate: 2012-08-04
-categories:
-  - "カルチャー"
 tags:
   - "音楽"
+categories:
+  - "NOTE"
+  - "エディターより"
 ---
 
 #### 生きるには音楽が必要

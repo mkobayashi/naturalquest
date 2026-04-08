@@ -1,10 +1,10 @@
 @charset "utf-8";
 @import "tailwindcss";
 
+/* 設計書カラーパレット */
 @theme {
 	--font-sans: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
-	--font-serif: "Noto Serif JP", ui-serif, Georgia, serif;
-	--font-en-display: "DM Serif Display", "Noto Serif JP", serif;
+	--font-serif: "Noto Serif JP", ui-serif, Georgia, "Hiragino Mincho ProN", serif;
 
 	--color-nq-bg: #fafaf8;
 	--color-nq-text: #2c2c2a;
@@ -12,6 +12,8 @@
 	--color-nq-accent-warm: #a0785a;
 	--color-nq-border: #e4e0d8;
 	--color-nq-muted: #8a8680;
+	/** 本文・見出し用（純黒よりややグレーの黒で可読性向上） */
+	--color-nq-ink: #33312e;
 }
 
 @layer base {
@@ -21,6 +23,10 @@
 
 	body {
 		@apply bg-nq-bg text-nq-text font-sans text-base leading-relaxed;
+	}
+
+	::selection {
+		background-color: color-mix(in srgb, var(--color-nq-accent) 28%, transparent);
 	}
 
 	:where(h1, h2, h3, h4, h5, h6) {

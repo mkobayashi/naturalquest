@@ -1,11 +1,12 @@
 ---
 title: "秋のライスサラダ by中島デコ"
 pubDate: 2009-05-25
-categories:
-  - "フード"
 tags:
   - "手づくり"
   - "料理"
+categories:
+  - "食"
+  - "DIY"
 ---
 
 ### 玄米と秋の味覚のサラダ

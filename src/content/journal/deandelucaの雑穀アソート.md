@@ -1,10 +1,11 @@
 ---
 title: "DEAN&DELUCAの雑穀アソート"
 pubDate: 2010-10-30
-categories:
-  - "フード"
 tags:
   - "料理"
+categories:
+  - "食"
+  - "おすすめ"
 ---
 
 #### NY生まれの「DEAN＆DELUCA」も注目する雑穀パワー

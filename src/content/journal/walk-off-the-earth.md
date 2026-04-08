@@ -2,7 +2,8 @@
 title: "伸び伸びカナダらしさ満点。Walk off the Earthの演奏"
 pubDate: 2021-02-02
 categories:
-  - "カルチャー"
+  - "NOTE"
+  - "読む・観る"
 ---
 
 コロナ緊急事態宣言が続く毎日、一般のテレビには飽き足らず、youtubeやネット動画配信サービスを

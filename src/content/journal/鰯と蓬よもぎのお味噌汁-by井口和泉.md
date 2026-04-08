@@ -1,11 +1,14 @@
 ---
 title: "鰯と蓬(よもぎ)のお味噌汁 by井口和泉"
 pubDate: 2013-04-16
-categories:
-  - "フード"
 tags:
   - "手づくり"
   - "料理"
+categories:
+  - "食"
+  - "DIY"
+heroImage: "https://naturalquest.org/wp-content/uploads/2013/04/noname-2-1067x800.jpg"
+
 ---
 
 #### 庭先でよもぎを摘む母が思い出した、祖母のお味噌汁

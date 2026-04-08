@@ -1,11 +1,12 @@
 ---
 title: "Vege&Fork Market in 柿生"
 pubDate: 2016-06-03
-categories:
-  - "ブログ"
 tags:
   - "おでかけ"
   - "環境"
+categories:
+  - "NOTE"
+  - "エディターより"
 ---
 
 街に日傘模様が賑わう五月の日曜日、川崎市麻生区柿生で開催されたベジ&フォークに出かけてきた。

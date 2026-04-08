@@ -1,11 +1,12 @@
 ---
 title: "ピタゴラスイーツ at 伊勢丹"
 pubDate: 2017-01-25
-categories:
-  - "ブログ"
 tags:
   - "おでかけ"
   - "スイーツ"
+categories:
+  - "NOTE"
+  - "おでかけ"
 ---
 
 ![](http://naturalquest.org/wp-content/uploads/2017/01/0125_03.jpg)

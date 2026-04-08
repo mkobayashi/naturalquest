@@ -14,7 +14,12 @@ const {
 	narrow = false,
 } = Astro.props;
 
-const canonicalBase = 'https://naturalquest.org';
+const navItems = [
+	{ label: '食', href: '/category/食' },
+	{ label: '健康', href: '/category/健康' },
+	{ label: '住環境', href: '/category/住環境' },
+	{ label: 'NOTE', href: '/category/NOTE' },
+] as const;
 ---
 
 <!doctype html>
@@ -29,93 +34,220 @@ const canonicalBase = 'https://naturalquest.org';
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=DM+Serif+Display&family=Noto+Sans+JP:wght@400;500;600&family=Noto+Serif+JP:wght@400;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+			rel="stylesheet"
+		/>
+		<style is:global>
+			.material-symbols-outlined {
+				font-size: 1.25rem;
+				font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+			}
+			#nav-menu-button .nav-icon-line {
+				transition:
+					transform 0.2s ease,
+					opacity 0.2s ease;
+				transform-origin: center;
+			}
+			#nav-menu-button.is-open .nav-icon-top {
+				transform: translateY(5px) rotate(45deg);
+			}
+			#nav-menu-button.is-open .nav-icon-mid {
+				opacity: 0;
+			}
+			#nav-menu-button.is-open .nav-icon-bot {
+				transform: translateY(-5px) rotate(-45deg);
+			}
+		</style>
 	</head>
-	<body class="flex min-h-screen flex-col text-nq-text">
+	<body class="flex min-h-screen flex-col text-nq-ink">
 		<a
 			href="#main"
-			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-nq-accent focus:px-3 focus:py-2 focus:text-white"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-nq-accent focus:px-3 focus:py-2 focus:text-white"
 		>
 			本文へスキップ
 		</a>
-		<header class="border-b border-nq-border bg-nq-bg">
+		<header
+			class="sticky top-0 z-50 border-b border-nq-border/80 bg-nq-bg/90 backdrop-blur-xl transition-colors"
+		>
 			<div
-				class="mx-auto flex max-w-[1200px] flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 lg:py-10"
+				class="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-3 px-3 py-3 sm:px-5"
 			>
-				<div class="min-w-0">
-					<a href="/" class="group block outline-none focus-visible:ring-2 focus-visible:ring-nq-accent focus-visible:ring-offset-2 focus-visible:ring-offset-nq-bg">
-						<span class="font-serif text-2xl font-semibold tracking-tight text-nq-text group-hover:text-nq-accent sm:text-[1.75rem]">
-							Natural Quest
-						</span>
-						<span class="mt-1 block font-sans text-sm font-normal tracking-wide text-nq-muted">
-							自分のナチュラルを見つける
-						</span>
+				<a
+					href="/"
+					aria-label="Natural Quest — 自分のナチュラルを見つける"
+					class="flex min-w-0 items-end gap-2 outline-none focus-visible:ring-2 focus-visible:ring-nq-accent focus-visible:ring-offset-2 focus-visible:ring-offset-nq-bg sm:gap-3"
+				>
+					<img
+						src="/logo.svg"
+						alt=""
+						class="h-6 w-auto shrink-0 object-contain object-left sm:h-8"
+						loading="eager"
+						width="200"
+						height="32"
+					/>
+					<span class="min-w-0 font-serif text-[0.6rem] leading-snug tracking-[0.14em] text-nq-muted sm:text-[0.7rem] md:text-xs">
+						自分のナチュラルを見つける
+					</span>
+				</a>
+
+				<nav class="hidden items-center gap-5 md:flex" aria-label="主要ナビゲーション">
+					{navItems.map((item) => (
+						<a
+							href={item.href}
+							class="font-sans text-xs font-bold tracking-[0.06em] text-nq-ink/85 transition-colors hover:text-nq-accent"
+						>
+							{item.label}
+						</a>
+					))}
+				</nav>
+
+				<div class="flex items-center gap-2 sm:gap-3">
+					<a
+						href="/journal#site-search"
+						class="material-symbols-outlined text-nq-ink/75 transition-colors hover:text-nq-accent"
+						aria-label="記事一覧・検索へ"
+					>
+						search
 					</a>
+					<button
+						type="button"
+						id="nav-menu-button"
+						class="rounded border border-nq-border bg-white/60 p-1.5 text-nq-ink transition-colors hover:border-nq-accent hover:text-nq-accent focus-visible:outline focus-visible:ring-2 focus-visible:ring-nq-accent md:hidden"
+						aria-expanded="false"
+						aria-controls="mobile-menu"
+						aria-label="メニューを開く"
+					>
+						<span class="block h-5 w-6" aria-hidden="true">
+							<svg
+								class="h-full w-full"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="1.75"
+								stroke-linecap="round"
+								viewBox="0 0 24 24"
+							>
+								<path class="nav-icon-line nav-icon-top" d="M4 7h16" />
+								<path class="nav-icon-line nav-icon-mid" d="M4 12h16" />
+								<path class="nav-icon-line nav-icon-bot" d="M4 17h16" />
+							</svg>
+						</span>
+					</button>
 				</div>
-				<nav aria-label="主要ナビゲーション" class="font-sans text-sm">
-					<ul class="flex flex-wrap items-center gap-x-6 gap-y-2 lg:justify-end">
-						<li>
-							<a
-								href="/journal"
-								class="text-nq-text underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
-							>
-								ジャーナル
-							</a>
-						</li>
-						<li class="text-nq-muted" aria-hidden="true">|</li>
-						<li>
-							<a
-								href="/category/ライフ"
-								class="text-nq-text underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
-							>
-								ライフ
-							</a>
-						</li>
-						<li>
-							<a
-								href="/category/住む"
-								class="text-nq-text underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
-							>
-								住む
-							</a>
-						</li>
+			</div>
+			<div
+				id="mobile-menu"
+				class="hidden border-t border-nq-border bg-nq-bg md:hidden"
+				hidden
+			>
+				<nav class="mx-auto max-w-[1200px] px-3 py-3 sm:px-5" aria-label="主要ナビゲーション（モバイル）">
+					<ul class="flex flex-col gap-0.5 font-sans text-sm">
+						{navItems.map((item) => (
+							<li>
+								<a
+									href={item.href}
+									class="block rounded-sm px-2 py-2.5 font-bold tracking-wide text-nq-ink transition-colors hover:bg-white/60 hover:text-nq-accent"
+								>
+									{item.label}
+								</a>
+							</li>
+						))}
 					</ul>
 				</nav>
 			</div>
 		</header>
+		<script is:inline>
+			(function () {
+				var btn = document.getElementById('nav-menu-button');
+				var panel = document.getElementById('mobile-menu');
+				if (!btn || !panel) return;
+
+				function setOpen(open) {
+					panel.classList.toggle('hidden', !open);
+					panel.hidden = !open;
+					btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+					btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+					document.body.style.overflow = open ? 'hidden' : '';
+					btn.classList.toggle('is-open', open);
+				}
+
+				btn.addEventListener('click', function () {
+					setOpen(panel.classList.contains('hidden'));
+				});
+
+				panel.querySelectorAll('a').forEach(function (a) {
+					a.addEventListener('click', function () {
+						setOpen(false);
+					});
+				});
+
+				document.addEventListener('keydown', function (e) {
+					if (e.key === 'Escape' && !panel.classList.contains('hidden')) setOpen(false);
+				});
+			})();
+		</script>
 		<main id="main" class="flex-1">
 			<div
 				class:list={[
-					'mx-auto px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16',
+					'mx-auto w-full px-3 py-6 sm:px-5 sm:py-8 lg:px-6 lg:py-10',
 					narrow ? 'max-w-[720px]' : 'max-w-[1200px]',
 				]}
 			>
 				<slot />
 			</div>
 		</main>
-		<footer class="mt-auto border-t border-nq-border bg-nq-bg">
-			<div class="mx-auto max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
-				<p class="font-sans text-sm leading-relaxed text-nq-muted">
-					漆喰・自然素材リフォームのご相談は
-					<a
-						href="https://bristlecone.jp"
-						class="text-nq-accent-warm underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:decoration-nq-accent-warm"
-						rel="noopener noreferrer"
-						target="_blank"
-					>
-						Bristlecone（ブリストルコーン）
-					</a>
-					へ。
-				</p>
-				<p class="mt-6 font-sans text-xs text-nq-muted">
-					© {new Date().getFullYear()} Natural Quest ·{' '}
-					<a href={canonicalBase} class="underline decoration-nq-border underline-offset-2 hover:text-nq-text">
-						naturalquest.org
-					</a>
+		<footer class="mt-auto border-t border-nq-border/50 bg-nq-text text-nq-bg">
+			<div class="mx-auto flex max-w-[1200px] flex-col items-center gap-8 px-4 py-10 sm:px-6">
+				<img
+					src="/logo.svg"
+					alt=""
+					class="h-8 w-auto max-w-[220px] object-contain opacity-90 invert"
+					width="220"
+					height="36"
+					loading="lazy"
+					decoding="async"
+				/>
+				<nav
+					class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-sans text-xs font-medium tracking-[0.06em] text-nq-bg/75"
+					aria-label="フッターリンク"
+				>
+					<a href="/privacy" class="transition-colors hover:text-nq-bg">プライバシー</a>
+					<span class="text-nq-bg/35" aria-hidden="true">|</span>
+					<a href="/terms" class="transition-colors hover:text-nq-bg">利用規約</a>
+					<span class="text-nq-bg/35" aria-hidden="true">|</span>
+					<a href="/about" class="transition-colors hover:text-nq-bg">about</a>
+				</nav>
+				<p class="w-full text-center font-sans text-[0.65rem] tracking-[0.12em] text-nq-bg/50">
+					Copyright © 2026 Natural Quest
 				</p>
 			</div>
 		</footer>
+		<button
+			type="button"
+			id="back-to-top"
+			class="fixed bottom-5 right-4 z-40 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-nq-text/85 text-nq-bg shadow-lg backdrop-blur-sm transition-opacity duration-200 hover:bg-nq-accent md:bottom-6 md:right-6"
+			aria-label="ページ上部へ戻る"
+			hidden
+		>
+			<span class="material-symbols-outlined !text-xl" aria-hidden="true">arrow_upward</span>
+		</button>
+		<script is:inline>
+			(function () {
+				var btn = document.getElementById('back-to-top');
+				if (!btn) return;
+				function onScroll() {
+					var y = window.scrollY || document.documentElement.scrollTop;
+					btn.hidden = y < 320;
+				}
+				window.addEventListener('scroll', onScroll, { passive: true });
+				onScroll();
+				btn.addEventListener('click', function () {
+					window.scrollTo({ top: 0, behavior: 'smooth' });
+				});
+			})();
+		</script>
 	</body>
 </html>
