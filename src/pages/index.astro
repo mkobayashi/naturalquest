@@ -2,19 +2,34 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
+/** 同日付の記事が複数あるとき、トップの並び（新着・HERO・カテゴリの最新にも影響） */
+const SAME_DAY_ORDER: string[] = [
+	'2026-04-08-sickhouse',
+	'2026-04-08-natural-paint-guide',
+	'2026-04-08-shikkui-materials-guide',
+];
+
 /** TOP 2ndエリア：手動ピックアップ（ジャーナル記事スラッグを最大4件） */
 const homePickSlugs: string[] = [
+	'2026-04-08-sickhouse',
+	'2026-04-08-natural-paint-guide',
+	'2026-04-08-shikkui-materials-guide',
 	'2026-04-04-shikkui',
-	'酵素',
-	'花粉充満',
-	'謹賀新年-2021',
 ];
 
 const posts = await getCollection('journal');
 const sorted = posts.sort((a, b) => {
 	const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
 	const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
-	return dateB - dateA;
+	if (dateB !== dateA) return dateB - dateA;
+	const ia = SAME_DAY_ORDER.indexOf(a.slug);
+	const ib = SAME_DAY_ORDER.indexOf(b.slug);
+	if (ia !== -1 || ib !== -1) {
+		if (ia === -1) return 1;
+		if (ib === -1) return -1;
+		return ia - ib;
+	}
+	return a.slug.localeCompare(b.slug, 'ja');
 });
 
 type JournalPost = CollectionEntry<'journal'>;
@@ -45,6 +60,9 @@ const newListFive = sorted.slice(1, 6);
 const homePicks = homePickSlugs.map(resolvePost).filter((p): p is JournalPost => p != null);
 
 const CATEGORY_ORDER = ['住環境', '食', '健康', 'NOTE'] as const;
+
+/** 後日 `true` にすると TOPICS（UI上の見出しは「PICK UP」）ブロックを表示 */
+const SHOW_TOPICS = false;
 
 /** カテゴリ名ラベル（全セクション共通） */
 const catLabelClass =
@@ -109,20 +127,14 @@ const catLabelClass =
 					<h2 class="font-sans text-xs font-bold tracking-[0.18em] text-nq-ink">新着</h2>
 					<span class="h-px flex-1 bg-nq-border" aria-hidden="true" />
 				</div>
-				<ol class="flex flex-col gap-0">
+				<ul class="flex flex-col">
 					{newListFive.map((post, i) => (
 						<li
 							class:list={[
-								'flex gap-2.5 border-b border-nq-border/50 py-2 first:pt-0',
+								'flex gap-3 border-b border-nq-border/45 py-3.5 first:pt-1',
 								i === newListFive.length - 1 && 'border-b-0 pb-0',
 							]}
 						>
-							<span
-								class="w-4 shrink-0 pt-0.5 font-serif text-sm font-semibold tabular-nums text-nq-muted"
-								aria-hidden="true"
-							>
-								{i + 1}
-							</span>
 							<a
 								href={`/journal/${post.slug}`}
 								class="relative aspect-square size-[4.5rem] shrink-0 overflow-hidden bg-nq-border/40 ring-1 ring-nq-border/50 sm:size-[5rem]"
@@ -152,60 +164,64 @@ const catLabelClass =
 							</div>
 						</li>
 					))}
-				</ol>
+				</ul>
 			</aside>
 		</section>
 
-		<!-- 2. PICK UP（4カラム均等・左サムネ／右テキスト） -->
-		<section class="mb-5 lg:mb-6">
-			<div class="relative mb-3 flex items-center gap-3">
-				<div class="h-px flex-1 bg-nq-border" aria-hidden="true" />
-				<h2 class="shrink-0 font-sans text-xs font-bold tracking-[0.22em] text-nq-muted">PICK UP</h2>
-				<div class="h-px flex-1 bg-nq-border" aria-hidden="true" />
-			</div>
-			{
-				homePicks.length ? (
-					<ul class="grid grid-cols-1 gap-0 divide-y divide-nq-border/80 md:grid-cols-2 md:gap-x-3 md:gap-y-5 md:divide-y-0 lg:grid-cols-4 lg:gap-x-3 lg:gap-y-0">
-						{homePicks.map((post) => (
-							<li class="min-w-0 py-3 first:pt-0 md:py-0">
-								<a href={`/journal/${post.slug}`} class="group flex h-full min-w-0 gap-2.5 sm:gap-3">
-									<div class="relative aspect-square size-[4.5rem] shrink-0 overflow-hidden bg-nq-border/40 ring-1 ring-nq-border/50 sm:size-[5rem]">
-										{post.data.heroImage ? (
-											<img
-												src={post.data.heroImage}
-												alt=""
-												class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-												loading="lazy"
-												decoding="async"
-											/>
-										) : (
-											<div
-												class="absolute inset-0 bg-gradient-to-br from-nq-border/70 via-nq-border/45 to-nq-border/25"
-												aria-hidden="true"
-											/>
-										)}
-									</div>
-									<div class="flex min-w-0 flex-1 flex-col gap-1">
-										<h3 class="line-clamp-3 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-[0.95rem]">
-											<span class="transition-colors group-hover:text-nq-accent-warm">{post.data.title ?? '無題'}</span>
-										</h3>
-										{post.data.description ? (
-											<p class="line-clamp-2 font-sans text-xs leading-relaxed text-nq-ink/78 sm:text-[13px]">
-												{post.data.description}
-											</p>
-										) : null}
-										<p class:list={[catLabelClass, 'mt-auto w-fit']}>{categoryLabel(post)}</p>
-										<p class="font-sans text-[11px] tabular-nums text-nq-muted">{formatDate(post)}</p>
-									</div>
-								</a>
-							</li>
-						))}
-					</ul>
-				) : (
-					<p class="font-sans text-sm text-nq-muted">ピックアップ記事が設定されていません。</p>
-				)
-			}
-		</section>
+		<!-- 2. TOPICS / PICK UP（SHOW_TOPICS が true のときのみ表示） -->
+		{
+			SHOW_TOPICS ? (
+				<section class="mb-5 lg:mb-6">
+					<div class="relative mb-3 flex items-center gap-3">
+						<div class="h-px flex-1 bg-nq-border" aria-hidden="true" />
+						<h2 class="shrink-0 font-sans text-xs font-bold tracking-[0.22em] text-nq-muted">TOPICS</h2>
+						<div class="h-px flex-1 bg-nq-border" aria-hidden="true" />
+					</div>
+					{
+						homePicks.length ? (
+							<ul class="grid grid-cols-1 gap-0 divide-y divide-nq-border/80 md:grid-cols-2 md:gap-x-3 md:gap-y-5 md:divide-y-0 lg:grid-cols-4 lg:gap-x-3 lg:gap-y-0">
+								{homePicks.map((post) => (
+									<li class="min-w-0 py-3 first:pt-0 md:py-0">
+										<a href={`/journal/${post.slug}`} class="group flex h-full min-w-0 gap-2.5 sm:gap-3">
+											<div class="relative aspect-square size-[4.5rem] shrink-0 overflow-hidden bg-nq-border/40 ring-1 ring-nq-border/50 sm:size-[5rem]">
+												{post.data.heroImage ? (
+													<img
+														src={post.data.heroImage}
+														alt=""
+														class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+														loading="lazy"
+														decoding="async"
+													/>
+												) : (
+													<div
+														class="absolute inset-0 bg-gradient-to-br from-nq-border/70 via-nq-border/45 to-nq-border/25"
+														aria-hidden="true"
+													/>
+												)}
+											</div>
+											<div class="flex min-w-0 flex-1 flex-col gap-1">
+												<h3 class="line-clamp-3 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-[0.95rem]">
+													<span class="transition-colors group-hover:text-nq-accent-warm">{post.data.title ?? '無題'}</span>
+												</h3>
+												{post.data.description ? (
+													<p class="line-clamp-2 font-sans text-xs leading-relaxed text-nq-ink/78 sm:text-[13px]">
+														{post.data.description}
+													</p>
+												) : null}
+												<p class:list={[catLabelClass, 'mt-auto w-fit']}>{categoryLabel(post)}</p>
+												<p class="font-sans text-[11px] tabular-nums text-nq-muted">{formatDate(post)}</p>
+											</div>
+										</a>
+									</li>
+								))}
+							</ul>
+						) : (
+							<p class="font-sans text-sm text-nq-muted">ピックアップ記事が設定されていません。</p>
+						)
+					}
+				</section>
+			) : null
+		}
 
 		<!-- 3. カテゴリ別（最新3件・コンパクト） -->
 		<div class="flex flex-col gap-5">
