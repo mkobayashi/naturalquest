@@ -1,0 +1,95 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	posts: CollectionEntry<'journal'>[];
+	/** 黒バッジに表示するラベル（一覧ページのカテゴリ名またはタグ名） */
+	pageLabel: string;
+	mode: 'category' | 'tag';
+}
+
+const { posts, pageLabel, mode } = Astro.props;
+
+function formatDateForbes(d: Date | undefined): string {
+	if (!d) return '—';
+	const dt = new Date(d);
+	return `${dt.getFullYear()}.${dt.getMonth() + 1}.${dt.getDate()}`;
+}
+---
+
+<ul class="flex flex-col divide-y divide-nq-border/70">
+	{
+		posts.map((post) => (
+			<li class="py-6 first:pt-0 last:pb-0 sm:py-7">
+				<article class="flex flex-row gap-3 sm:gap-5">
+					<a
+						href={`/journal/${post.slug}`}
+						class="relative aspect-video w-[min(38%,11rem)] shrink-0 overflow-hidden bg-nq-border/35 ring-1 ring-nq-border/40 transition-opacity hover:opacity-95 sm:w-[min(34%,13rem)]"
+					>
+						{post.data.heroImage ? (
+							<img
+								src={post.data.heroImage}
+								alt=""
+								class="absolute inset-0 h-full w-full object-cover"
+								loading="lazy"
+								decoding="async"
+							/>
+						) : (
+							<div
+								class="absolute inset-0 bg-gradient-to-br from-nq-border/60 via-nq-border/35 to-nq-border/15"
+								aria-hidden="true"
+							/>
+						)}
+					</a>
+					<div class="flex min-w-0 flex-1 flex-col justify-center gap-2">
+						<div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+							<span class="inline-flex max-w-full items-center bg-nq-text px-2 py-0.5 font-sans text-[10px] font-bold leading-none tracking-[0.06em] text-nq-bg sm:text-[11px]">
+								{pageLabel}
+							</span>
+							<time
+								class="font-sans text-[11px] tabular-nums text-nq-muted sm:text-xs"
+								datetime={post.data.pubDate ? post.data.pubDate.toISOString() : undefined}
+							>
+								{formatDateForbes(post.data.pubDate)}
+							</time>
+						</div>
+						<h2 class="font-serif text-[1.05rem] font-semibold leading-snug tracking-tight text-nq-ink sm:text-lg">
+							<a
+								href={`/journal/${post.slug}`}
+								class="transition-colors hover:text-nq-accent"
+							>
+								{post.data.title ?? '無題の記事'}
+							</a>
+						</h2>
+						{post.data.description ? (
+							<p class="line-clamp-2 font-sans text-[13px] leading-relaxed text-nq-ink/72 sm:text-sm">
+								{post.data.description}
+							</p>
+						) : null}
+						{mode === 'category' && post.data.tags?.length ? (
+							<p class="flex flex-wrap gap-x-2.5 gap-y-1 font-sans text-[11px] text-nq-muted">
+								{post.data.tags.slice(0, 6).map((t) => (
+									<a href={`/tag/${encodeURIComponent(t)}`} class="transition-colors hover:text-nq-accent">
+										#{t}
+									</a>
+								))}
+							</p>
+						) : null}
+						{mode === 'tag' && post.data.categories?.length ? (
+							<p class="flex flex-wrap gap-x-2.5 gap-y-1 font-sans text-[11px] text-nq-muted">
+								{post.data.categories.slice(0, 4).map((c) => (
+									<a
+										href={`/category/${encodeURIComponent(c)}`}
+										class="transition-colors hover:text-nq-accent"
+									>
+										{c}
+									</a>
+								))}
+							</p>
+						) : null}
+					</div>
+				</article>
+			</li>
+		))
+	}
+</ul>

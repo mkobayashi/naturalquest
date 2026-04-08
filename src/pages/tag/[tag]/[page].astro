@@ -1,0 +1,82 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import JournalForbesList from '../../../components/JournalForbesList.astro';
+import JournalPagination from '../../../components/JournalPagination.astro';
+import { getCollection } from 'astro:content';
+import {
+	getSortedPostsWithTag,
+	totalPagesFor,
+	LIST_PAGE_SIZE,
+} from '../../../lib/journalListing';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('journal');
+	const names = new Set<string>();
+	for (const p of posts) {
+		for (const t of p.data.tags ?? []) {
+			if (t) names.add(t);
+		}
+	}
+	const paths: { params: { tag: string; page: string } }[] = [];
+	for (const tag of names) {
+		const sorted = await getSortedPostsWithTag(tag);
+		const tp = totalPagesFor(sorted.length);
+		for (let p = 2; p <= tp; p++) {
+			paths.push({ params: { tag, page: String(p) } });
+		}
+	}
+	return paths;
+}
+
+const tagParam = Astro.params.tag;
+const pageParam = Astro.params.page;
+if (tagParam === undefined || pageParam === undefined) {
+	return Astro.redirect('/journal');
+}
+
+const pageNum = parseInt(pageParam, 10);
+if (pageNum === 1) {
+	return Astro.redirect(`/tag/${encodeURIComponent(tagParam)}`);
+}
+if (Number.isNaN(pageNum) || pageNum < 2) {
+	return Astro.redirect('/journal');
+}
+
+const tag = tagParam;
+
+const sorted = await getSortedPostsWithTag(tag);
+const totalPageCount = totalPagesFor(sorted.length);
+
+if (pageNum > totalPageCount) {
+	return Astro.redirect(`/tag/${encodeURIComponent(tag)}`);
+}
+
+const pagePosts = sorted.slice((pageNum - 1) * LIST_PAGE_SIZE, pageNum * LIST_PAGE_SIZE);
+
+const pageTitle = `タグ「${tag}」（${pageNum}/${totalPageCount}ページ）| Natural Quest`;
+const pageDescription = `「${tag}」の記事一覧 ${pageNum}/${totalPageCount}ページ — Natural Quest ジャーナル`;
+
+const listBasePath = `/tag/${encodeURIComponent(tag)}`;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+	<nav class="mb-5 font-sans text-xs tracking-wide text-nq-muted sm:text-sm" aria-label="パンくず">
+		<a href="/" class="transition-colors hover:text-nq-accent">トップ</a>
+		<span class="mx-1.5 text-nq-border" aria-hidden="true">›</span>
+		<a href="/journal" class="transition-colors hover:text-nq-accent">ジャーナル</a>
+		<span class="mx-1.5 text-nq-border" aria-hidden="true">›</span>
+		<a href={listBasePath} class="transition-colors hover:text-nq-accent">#{tag}</a>
+		<span class="mx-1.5 text-nq-border" aria-hidden="true">›</span>
+		<span class="text-nq-ink">{pageNum}ページ目</span>
+	</nav>
+
+	<header class="mb-6 border-b border-nq-border pb-5 sm:mb-8 sm:pb-6">
+		<h1 class="font-serif text-2xl font-semibold tracking-tight text-nq-ink sm:text-3xl">#{tag}</h1>
+		<p class="mt-2 font-sans text-xs text-nq-muted sm:text-sm">
+			{sorted.length} 件中 {(pageNum - 1) * LIST_PAGE_SIZE + 1}〜{Math.min(pageNum * LIST_PAGE_SIZE, sorted.length)} 件を表示（{pageNum} / {totalPageCount} ページ）
+		</p>
+	</header>
+
+	<JournalForbesList posts={pagePosts} pageLabel={tag} mode="tag" />
+	<JournalPagination currentPage={pageNum} totalPages={totalPageCount} basePath={listBasePath} />
+</Layout>

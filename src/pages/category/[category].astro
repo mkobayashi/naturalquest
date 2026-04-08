@@ -1,6 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import JournalForbesList from '../../components/JournalForbesList.astro';
+import JournalPagination from '../../components/JournalPagination.astro';
 import { getCollection } from 'astro:content';
+import {
+	getSortedPostsInCategory,
+	totalPagesFor,
+	LIST_PAGE_SIZE,
+} from '../../lib/journalListing';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('journal');
@@ -20,65 +27,42 @@ if (categoryParam === undefined) {
 
 const category = categoryParam;
 
-const allPosts = await getCollection('journal');
-const matching = allPosts.filter((p) => (p.data.categories ?? []).includes(category));
-const sorted = matching.sort((a, b) => {
-	const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
-	const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
-	return dateB - dateA;
-});
+const sorted = await getSortedPostsInCategory(category);
+const totalPageCount = totalPagesFor(sorted.length);
+const pagePosts = sorted.slice(0, LIST_PAGE_SIZE);
 
 const pageTitle = `カテゴリ「${category}」| Natural Quest`;
 const pageDescription = `「${category}」の記事一覧（${sorted.length}件）— Natural Quest ジャーナル`;
+
+const listBasePath = `/category/${encodeURIComponent(category)}`;
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-	<nav class="mb-8 font-sans text-sm text-nq-muted" aria-label="パンくず">
-		<a href="/" class="underline decoration-nq-border underline-offset-2 hover:text-nq-accent">トップ</a>
-		<span class="mx-2" aria-hidden="true">/</span>
-		<a href="/journal" class="underline decoration-nq-border underline-offset-2 hover:text-nq-accent">ジャーナル</a>
-		<span class="mx-2" aria-hidden="true">/</span>
-		<span class="text-nq-text">{category}</span>
+	<nav class="mb-5 font-sans text-xs tracking-wide text-nq-muted sm:text-sm" aria-label="パンくず">
+		<a href="/" class="transition-colors hover:text-nq-accent">トップ</a>
+		<span class="mx-1.5 text-nq-border" aria-hidden="true">›</span>
+		<a href="/journal" class="transition-colors hover:text-nq-accent">ジャーナル</a>
+		<span class="mx-1.5 text-nq-border" aria-hidden="true">›</span>
+		<span class="text-nq-ink">{category}</span>
 	</nav>
 
-	<header class="mb-10 border-b border-nq-border pb-8">
-		<h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">カテゴリ：{category}</h1>
-		<p class="mt-3 font-sans text-sm text-nq-muted">{sorted.length} 件の記事</p>
+	<header class="mb-6 border-b border-nq-border pb-5 sm:mb-8 sm:pb-6">
+		<h1 class="font-serif text-2xl font-semibold tracking-tight text-nq-ink sm:text-3xl">{category}</h1>
+		<p class="mt-2 font-sans text-xs text-nq-muted sm:text-sm">{sorted.length} 件</p>
 	</header>
 
-	<ul class="space-y-8">
-		{sorted.map((post) => (
-			<li class="border-b border-nq-border pb-8 last:border-0">
-				<p class="font-sans text-sm text-nq-muted">
-					{post.data.pubDate
-						? post.data.pubDate.toLocaleDateString('ja-JP', {
-								year: 'numeric',
-								month: 'long',
-								day: 'numeric',
-							})
-						: '日付未設定'}
-				</p>
-				<h2 class="mt-2 font-serif text-xl font-semibold sm:text-2xl">
-					<a
-						href={`/journal/${post.slug}`}
-						class="text-nq-text underline decoration-nq-border decoration-1 underline-offset-[6px] transition-colors hover:text-nq-accent hover:decoration-nq-accent"
-					>
-						{post.data.title ?? '無題の記事'}
-					</a>
-				</h2>
-				{post.data.tags?.length ? (
-					<p class="mt-2 flex flex-wrap gap-x-2 gap-y-1 font-sans text-xs text-nq-muted">
-						{post.data.tags.slice(0, 5).map((tag) => (
-							<a
-								href={`/tag/${encodeURIComponent(tag)}`}
-								class="text-nq-accent underline decoration-nq-border underline-offset-2 hover:decoration-nq-accent"
-							>
-								#{tag}
-							</a>
-						))}
-					</p>
-				) : null}
-			</li>
-		))}
-	</ul>
+	{
+		sorted.length ? (
+			<>
+				<JournalForbesList posts={pagePosts} pageLabel={category} mode="category" />
+				<JournalPagination
+					currentPage={1}
+					totalPages={totalPageCount}
+					basePath={listBasePath}
+				/>
+			</>
+		) : (
+			<p class="font-sans text-sm text-nq-muted">このカテゴリの記事はまだありません。</p>
+		)
+	}
 </Layout>
