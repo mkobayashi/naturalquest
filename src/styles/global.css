@@ -7,11 +7,11 @@
 	--font-serif: "Noto Serif JP", ui-serif, Georgia, "Hiragino Mincho ProN", serif;
 
 	--color-nq-bg: #fafaf8;
-	--color-nq-text: #2c2c2a;
+	--color-nq-text: #1a1a18;
 	--color-nq-accent: #6b7c5c;
 	--color-nq-accent-warm: #a0785a;
 	--color-nq-border: #e4e0d8;
-	--color-nq-muted: #8a8680;
+	--color-nq-muted: #6b6865;
 	/** 本文・見出し用（純黒よりややグレーの黒で可読性向上） */
 	--color-nq-ink: #33312e;
 }

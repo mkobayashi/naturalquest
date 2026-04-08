@@ -125,19 +125,19 @@ const catLabelClass =
 							</span>
 							<a
 								href={`/journal/${post.slug}`}
-								class="relative aspect-square h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden bg-nq-border/40 ring-1 ring-nq-border/50 sm:h-[5rem] sm:w-[5rem]"
+								class="relative aspect-square size-[4.5rem] shrink-0 overflow-hidden bg-nq-border/40 ring-1 ring-nq-border/50 sm:size-[5rem]"
 							>
 								{post.data.heroImage ? (
 									<img
 										src={post.data.heroImage}
 										alt=""
-										class="h-full w-full object-cover"
+										class="absolute inset-0 h-full w-full object-cover"
 										loading="lazy"
 										decoding="async"
 									/>
 								) : (
 									<div
-										class="h-full w-full bg-gradient-to-br from-nq-border/70 via-nq-border/45 to-nq-border/25"
+										class="absolute inset-0 bg-gradient-to-br from-nq-border/70 via-nq-border/45 to-nq-border/25"
 										aria-hidden="true"
 									/>
 								)}
@@ -169,18 +169,18 @@ const catLabelClass =
 						{homePicks.map((post) => (
 							<li class="min-w-0 py-3 first:pt-0 md:py-0">
 								<a href={`/journal/${post.slug}`} class="group flex h-full min-w-0 gap-2.5 sm:gap-3">
-									<div class="relative aspect-square h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden bg-nq-border/40 ring-1 ring-nq-border/50 sm:h-[5rem] sm:w-[5rem]">
+									<div class="relative aspect-square size-[4.5rem] shrink-0 overflow-hidden bg-nq-border/40 ring-1 ring-nq-border/50 sm:size-[5rem]">
 										{post.data.heroImage ? (
 											<img
 												src={post.data.heroImage}
 												alt=""
-												class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+												class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
 												loading="lazy"
 												decoding="async"
 											/>
 										) : (
 											<div
-												class="h-full w-full bg-gradient-to-br from-nq-border/70 via-nq-border/45 to-nq-border/25"
+												class="absolute inset-0 bg-gradient-to-br from-nq-border/70 via-nq-border/45 to-nq-border/25"
 												aria-hidden="true"
 											/>
 										)}
@@ -230,18 +230,18 @@ const catLabelClass =
 											href={`/journal/${post.slug}`}
 											class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
 										>
-											<div class="relative h-[5.25rem] w-full shrink-0 overflow-hidden bg-nq-border/30 sm:h-[5.5rem]">
+											<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
 												{post.data.heroImage ? (
 													<img
 														src={post.data.heroImage}
 														alt=""
-														class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+														class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
 														loading="lazy"
 														decoding="async"
 													/>
 												) : (
 													<div
-														class="h-full w-full bg-gradient-to-br from-nq-border/55 via-nq-border/35 to-nq-border/20"
+														class="absolute inset-0 bg-gradient-to-br from-nq-border/55 via-nq-border/35 to-nq-border/20"
 														aria-hidden="true"
 													/>
 												)}
