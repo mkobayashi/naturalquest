@@ -12,6 +12,20 @@ const journal = defineCollection({
 			tags: z.array(z.string()).optional(),
 			description: z.string().optional(),
 			heroImage: z.string().optional(),
+			articleType: z.enum(['default', 'catalog', 'list', 'immersive']).optional().default('default'),
+			items: z
+				.array(
+					z.object({
+						name: z.string(),
+						tag: z.string().optional(),
+						image: z.string().optional(),
+						specs: z.array(z.object({ key: z.string(), value: z.string() })).optional(),
+						body: z.string().optional(),
+						// 既存データ互換（必要なら後で削除可）
+						badge: z.string().optional(),
+					})
+				)
+				.optional(),
 		})
 		.transform(({ category, categories, heroImage, ...rest }) => ({
 			...rest,

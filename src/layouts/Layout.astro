@@ -74,22 +74,30 @@ const navItems = [
 			class="sticky top-0 z-50 border-b border-nq-border/80 bg-nq-bg/90 backdrop-blur-xl transition-colors"
 		>
 			<div
-				class="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-3 px-3 py-3 sm:px-5"
+				class="relative mx-auto flex w-full max-w-[1200px] items-center justify-center gap-3 px-3 py-3 sm:justify-between sm:px-5"
 			>
 				<a
 					href="/"
 					aria-label="Natural Quest — 自分のナチュラルを見つける"
-					class="flex min-w-0 items-end gap-2 outline-none focus-visible:ring-2 focus-visible:ring-nq-accent focus-visible:ring-offset-2 focus-visible:ring-offset-nq-bg sm:gap-3"
+					class="mx-auto flex min-w-0 flex-col items-center gap-1.5 outline-none focus-visible:ring-2 focus-visible:ring-nq-accent focus-visible:ring-offset-2 focus-visible:ring-offset-nq-bg sm:mx-0 sm:flex-row sm:items-end sm:gap-3"
 				>
 					<img
 						src="/logo.svg"
-						alt=""
-						class="h-6 w-auto shrink-0 object-contain object-left sm:h-8"
+						alt="Natural Quest"
+						class="hidden h-9 w-auto shrink-0 object-contain object-left sm:block"
 						loading="eager"
 						width="200"
 						height="32"
 					/>
-					<span class="min-w-0 translate-y-[-5px] font-serif text-[0.6rem] leading-none tracking-[0.14em] text-nq-muted sm:text-[0.7rem] md:text-xs">
+					<img
+						src="/logo-mobile.svg"
+						alt="Natural Quest"
+						class="block h-8 w-auto shrink-0 object-contain sm:hidden"
+						loading="eager"
+						width="200"
+						height="32"
+					/>
+					<span class="min-w-0 text-center font-serif text-[0.6rem] leading-none tracking-[0.14em] text-nq-ink/70 sm:translate-y-[-5px] sm:text-left sm:text-[0.7rem] md:text-xs">
 						自分のナチュラルを見つける
 					</span>
 				</a>
@@ -105,7 +113,7 @@ const navItems = [
 					))}
 				</nav>
 
-				<div class="flex items-center gap-2 sm:gap-3">
+				<div class="absolute right-3 flex items-center gap-2 sm:static sm:right-auto sm:gap-3">
 					<a
 						href="/journal#site-search"
 						class="material-symbols-outlined text-nq-ink/75 transition-colors hover:text-nq-accent"

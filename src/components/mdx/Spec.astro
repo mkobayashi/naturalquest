@@ -1,0 +1,19 @@
+---
+interface Props {
+	items: Array<{ key: string; value: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<div class="my-6 overflow-hidden rounded-sm border border-nq-border">
+	<dl>
+		{items.map((row) => (
+			<div class="grid grid-cols-[7.5rem_1fr] gap-3 border-b border-nq-border px-3 py-2 last:border-b-0">
+				<dt class="font-sans text-xs text-nq-muted">{row.key}</dt>
+				<dd class="min-w-0 font-sans text-xs text-nq-text">{row.value}</dd>
+			</div>
+		))}
+	</dl>
+</div>
+

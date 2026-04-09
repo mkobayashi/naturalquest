@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	post: CollectionEntry<'journal'>;
+	Content: any;
+	components?: Record<string, any>;
+}
+
+const { post, Content, components } = Astro.props;
+const introText = post.data.description;
+const items = post.data.items ?? [];
+---
+
+<div class="mt-10 py-2">
+	<div class="w-full">
+		{introText ? (
+			<p class="border-b border-nq-border pb-4 font-sans text-sm leading-relaxed text-nq-text sm:text-base">
+				{introText}
+			</p>
+		) : null}
+
+		{items.length ? (
+			<div class:list={['divide-y divide-nq-border', introText ? '' : 'border-t border-nq-border']}>
+				{items.map((item) => (
+					<article class="flex gap-3 py-5">
+						<div class="w-[80px] shrink-0 bg-nq-border/25">
+							<div class="aspect-square w-full">
+								{item.image ? (
+									<img
+										src={item.image}
+										alt=""
+										class="h-full w-full object-cover"
+										loading="lazy"
+										decoding="async"
+									/>
+								) : (
+									<div
+										class="h-full w-full bg-gradient-to-br from-nq-border/70 via-nq-border/40 to-nq-border/20"
+										aria-hidden="true"
+									/>
+								)}
+							</div>
+						</div>
+
+						<div class="min-w-0 px-3 py-3">
+							{item.tag ? (
+								<p class="mb-1">
+									<span class="inline-flex items-center rounded-sm border border-nq-green/20 bg-nq-green/10 px-2 py-0.5 font-sans text-[9px] font-bold leading-tight text-nq-green">
+										{item.tag}
+									</span>
+								</p>
+							) : null}
+
+							<p class="mb-1 font-sans text-sm font-semibold leading-snug text-nq-text">
+								{item.name}
+							</p>
+
+							{item.body ? (
+								<p class="font-sans text-xs leading-relaxed text-nq-muted">
+									{item.body}
+								</p>
+							) : null}
+						</div>
+					</article>
+				))}
+			</div>
+		) : (
+			<div class="mt-6 max-w-none font-sans leading-[1.85] text-nq-text">
+				<Content components={components} />
+			</div>
+		)}
+	</div>
+</div>
+

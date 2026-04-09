@@ -2,6 +2,15 @@
 import Layout from '../../layouts/Layout.astro';
 import JournalForbesList from '../../components/JournalForbesList.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import ArticleBodyDefault from '../../components/article/ArticleBodyDefault.astro';
+import ArticleBodyCatalog from '../../components/article/ArticleBodyCatalog.astro';
+import ArticleBodyList from '../../components/article/ArticleBodyList.astro';
+import ArticleBodyImmersive from '../../components/article/ArticleBodyImmersive.astro';
+import Point from '../../components/mdx/Point.astro';
+import Spec from '../../components/mdx/Spec.astro';
+import Label from '../../components/mdx/Label.astro';
+import Caption from '../../components/mdx/Caption.astro';
+import FullPhoto from '../../components/FullPhoto.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('journal');
@@ -12,7 +21,10 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await post.render({
+	components: { Point, Spec, Label, Caption, FullPhoto },
+});
+const articleType = post.data.articleType ?? 'default';
 
 const allPosts = await getCollection('journal');
 const myTags = new Set(post.data.tags ?? []);
@@ -131,11 +143,34 @@ const relatedListLabel = post.data.tags?.[0] ?? '関連';
 			) : null
 		}
 
-		<div
-			class="mt-10 max-w-none font-sans leading-[1.85] text-nq-text [&_a]:text-nq-accent [&_a]:underline [&_a]:decoration-nq-border [&_a]:underline-offset-2 [&_blockquote]:border-l-2 [&_blockquote]:border-nq-accent [&_blockquote]:pl-4 [&_blockquote]:text-nq-muted [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:font-serif [&_h2]:text-2xl [&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:font-serif [&_h3]:text-xl [&_img]:my-6 [&_img]:max-w-full [&_img]:rounded-md [&_li]:mb-1 [&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4 [&_strong]:font-semibold [&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6"
-		>
-			<Content />
-		</div>
+		{articleType === 'default' || !articleType ? (
+			<ArticleBodyDefault
+				post={post}
+				Content={Content}
+				components={{ Point, Spec, Label, Caption, FullPhoto }}
+			/>
+		) : null}
+		{articleType === 'immersive' ? (
+			<ArticleBodyImmersive
+				post={post}
+				Content={Content}
+				components={{ Point, Spec, Label, Caption, FullPhoto }}
+			/>
+		) : null}
+		{articleType === 'catalog' ? (
+			<ArticleBodyCatalog
+				post={post}
+				Content={Content}
+				components={{ Point, Spec, Label, Caption, FullPhoto }}
+			/>
+		) : null}
+		{articleType === 'list' ? (
+			<ArticleBodyList
+				post={post}
+				Content={Content}
+				components={{ Point, Spec, Label, Caption, FullPhoto }}
+			/>
+		) : null}
 
 		{
 			SHOW_PARTNER ? (

@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import mdx from '@astrojs/mdx';
 import { rehypeNaturalquestHttps } from './src/plugins/rehype-naturalquest-https.mjs';
 
 // https://astro.build/config
@@ -9,6 +10,7 @@ import { rehypeNaturalquestHttps } from './src/plugins/rehype-naturalquest-https
 export default defineConfig({
   output: 'static',
   site: 'https://naturalquest.org',
+  integrations: [mdx()],
   markdown: {
     rehypePlugins: [rehypeNaturalquestHttps],
   },

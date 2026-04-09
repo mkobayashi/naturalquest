@@ -1,0 +1,21 @@
+---
+interface Props {
+	items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="my-6 flex items-center border-l-2 border-nq-accent-warm pl-3">
+	<div class="flex flex-wrap items-center font-sans text-xs font-bold text-nq-text">
+		{items.map((item, i) => (
+			<>
+				<span>{item}</span>
+				{i < items.length - 1 && (
+					<span class="mx-2 font-light text-sm text-nq-accent-warm">|</span>
+				)}
+			</>
+		))}
+	</div>
+</div>
+

@@ -1,0 +1,12 @@
+---
+interface Props {
+	children?: string;
+}
+
+const { children } = Astro.props;
+---
+
+<span class="mb-4 mt-1 block border-l border-nq-border pl-2 font-sans text-[10px] leading-relaxed text-nq-muted">
+	{children ?? <slot />}
+</span>
+

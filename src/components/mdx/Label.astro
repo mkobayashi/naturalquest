@@ -1,0 +1,27 @@
+---
+interface Props {
+	variant?: 'filled' | 'terra' | 'terra-filled';
+	children?: string;
+}
+
+const { variant, children } = Astro.props;
+
+const variantClass =
+	variant === 'filled'
+		? 'bg-nq-accent/10 text-nq-accent'
+		: variant === 'terra'
+			? 'border border-nq-accent-warm text-nq-accent-warm'
+			: variant === 'terra-filled'
+				? 'bg-nq-accent-warm/10 text-nq-accent-warm'
+				: 'border border-nq-accent text-nq-accent';
+---
+
+<span
+	class:list={[
+		'inline-block font-sans text-[9px] tracking-wider px-2 py-0.5 rounded-sm mr-1.5 mb-1.5',
+		variantClass,
+	]}
+>
+	{children ?? <slot />}
+</span>
+
