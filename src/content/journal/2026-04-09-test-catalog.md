@@ -2,7 +2,7 @@
 title: "テスト：カタログ記事"
 pubDate: 2026-04-09
 categories: ["住む"]
-tags: ["漆喰", "自然素材"]
+tags: ["自然素材"]
 articleType: catalog
 description: "カタログレイアウトの表示テスト用記事です。"
 items:

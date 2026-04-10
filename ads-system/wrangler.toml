@@ -1,0 +1,17 @@
+name = "nq-ads"
+main = "worker/ads-worker.js"
+compatibility_date = "2025-01-01"
+
+# 本番: naturalquest.org/ads/* をこの Worker にルーティング
+# routes = [{ pattern = "naturalquest.org/ads/*", zone_name = "naturalquest.org" }]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nq-ads"
+database_id = "099032a3-92c5-47d8-8524-6ebf190d870b"
+
+# wrangler secret put ADMIN_KEY = nqAd$8vKm2xR7pWjL4tBn9QfYc6Zs3Uh
+# wrangler secret put IP_HASH_SALT = xP5rNw$kT9mJ2vQa7LdBf4YcZs8Ug6Re
+
+[vars]
+ENVIRONMENT = "production"

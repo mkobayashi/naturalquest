@@ -1,12 +1,13 @@
 ---
-title: "ぐっすり眠れない悩みに"
-pubDate: 2010-10-15
+title: ぐっすり眠れない悩みに
+pubDate: 2010-10-15T00:00:00.000Z
 tags:
-  - "健康"
-  - "学び"
+  - 健康
+  - 学び
 categories:
-  - "健康"
-  - "セルフケア"
+  - 健康
+  - セルフケア
+heroImage: 'https://naturalquest.org/wp-content/uploads/2010/12/img_040.jpg'
 ---
 
 #### 睡眠は元気の素

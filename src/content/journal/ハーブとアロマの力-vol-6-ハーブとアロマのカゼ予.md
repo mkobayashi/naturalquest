@@ -1,12 +1,13 @@
 ---
-title: "ハーブとアロマのカゼ予防レシピ"
-pubDate: 2010-11-19
+title: ハーブとアロマのカゼ予防レシピ
+pubDate: 2010-11-19T00:00:00.000Z
 tags:
-  - "健康"
-  - "学び"
+  - 健康
+  - 学び
 categories:
-  - "健康"
-  - "セルフケア"
+  - 健康
+  - セルフケア
+heroImage: 'https://naturalquest.org/wp-content/uploads/2010/12/img_013-1200x800.jpg'
 ---
 
 #### カゼを治すものは、自分自身の治癒力

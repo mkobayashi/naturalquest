@@ -1,9 +1,10 @@
 ---
-title: "2018 アリサン フードカーニバル　30周年スペシャル企画"
-pubDate: 2018-07-25
+title: 2018 アリサン フードカーニバル　30周年スペシャル企画
+pubDate: 2018-07-25T00:00:00.000Z
 categories:
-  - "食"
-  - "おでかけ"
+  - 食
+  - おでかけ
+heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/alishan_2018071404.jpg'
 ---
 
 ### 30周年を迎えたアリサン
@@ -54,6 +55,4 @@ categories:
 
 ![](https://naturalquest.org/wp-content/uploads/2018/07/alishan_2018071400.jpg)
 
-[title style="bold-center" text="アリサンカフェ 盛り付けギャラリー"]
 
-[ux_gallery ids="13671,13672,13673,13674,13675,13676,13677,13678,13679,13680,13681,13682" style="default" type="slider-full" slider_bullets="true" auto_slide="4000"]

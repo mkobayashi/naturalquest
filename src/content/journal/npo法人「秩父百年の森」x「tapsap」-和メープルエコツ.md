@@ -1,12 +1,13 @@
 ---
-title: "和メープルエコツアー IN 秩父"
-pubDate: 2016-04-07
+title: 和メープルエコツアー IN 秩父
+pubDate: 2016-04-07T00:00:00.000Z
 tags:
-  - "おでかけ"
-  - "地域活性"
+  - おでかけ
+  - 地域活性
 categories:
-  - "NOTE"
-  - "おでかけ"
+  - NOTE
+  - おでかけ
+heroImage: 'https://naturalquest.org/report_res/vol1/images/shimazaki.jpg'
 ---
 
 #### カエデの樹液は、芽吹きの準備が整った合図

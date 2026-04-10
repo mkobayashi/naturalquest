@@ -1,11 +1,12 @@
 ---
-title: "夏バテしないカラダを作ろう"
-pubDate: 2010-08-10
+title: 夏バテしないカラダを作ろう
+pubDate: 2010-08-10T00:00:00.000Z
 tags:
-  - "健康"
+  - 健康
 categories:
-  - "健康"
-  - "セルフケア"
+  - 健康
+  - セルフケア
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/02/natubate01.jpg'
 ---
 
 #### 夏バテは予防が大切

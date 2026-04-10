@@ -54,7 +54,7 @@ const listBasePath = `/category/${encodeURIComponent(category)}`;
 	{
 		sorted.length ? (
 			<>
-				<JournalForbesList posts={pagePosts} pageLabel={category} mode="category" />
+				<JournalForbesList posts={pagePosts} mode="category" />
 				<JournalPagination
 					currentPage={1}
 					totalPages={totalPageCount}

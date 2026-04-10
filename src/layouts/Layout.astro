@@ -6,12 +6,15 @@ interface Props {
 	description?: string;
 	/** 記事本文など max-width 720px */
 	narrow?: boolean;
+	/** 検索エンジンにインデックスさせない（非公開記事など） */
+	noindex?: boolean;
 }
 
 const {
 	title = 'Natural Quest',
 	description,
 	narrow = false,
+	noindex = false,
 } = Astro.props;
 
 const navItems = [
@@ -30,6 +33,7 @@ const navItems = [
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		{description ? <meta name="description" content={description} /> : null}
+		{noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

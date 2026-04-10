@@ -1,12 +1,13 @@
 ---
-title: "菜の花と茹で卵 by 井口和泉"
-pubDate: 2013-01-31
+title: 菜の花と茹で卵 by 井口和泉
+pubDate: 2013-01-31T00:00:00.000Z
 tags:
-  - "手づくり"
-  - "料理"
+  - 手づくり
+  - 料理
 categories:
-  - "食"
-  - "DIY"
+  - 食
+  - DIY
+heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/P1390692-1067x800.jpg'
 ---
 
 #### 菜の花の力強い生命力をいただく

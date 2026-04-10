@@ -1,12 +1,13 @@
 ---
-title: "肩こりは自分でケア"
-pubDate: 2010-12-17
+title: 肩こりは自分でケア
+pubDate: 2010-12-17T00:00:00.000Z
 tags:
-  - "健康"
-  - "手づくり"
+  - 健康
+  - 手づくり
 categories:
-  - "健康"
-  - "セルフケア"
+  - 健康
+  - セルフケア
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/02/01-e1487588961434.jpg'
 ---
 
 #### 人類の進化と肩こり

@@ -1,11 +1,12 @@
 ---
-title: "おすすめCD 重松壮一郎 「tsumugi」"
-pubDate: 2012-08-04
+title: おすすめCD 重松壮一郎 「tsumugi」
+pubDate: 2012-08-04T00:00:00.000Z
 tags:
-  - "音楽"
+  - 音楽
 categories:
-  - "NOTE"
-  - "エディターより"
+  - NOTE
+  - エディターより
+heroImage: 'https://naturalquest.org/wp-content/uploads/2012/08/pict_02.jpg'
 ---
 
 #### 生きるには音楽が必要

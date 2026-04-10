@@ -3,12 +3,12 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
 	posts: CollectionEntry<'journal'>[];
-	/** 黒バッジに表示するラベル（一覧ページのカテゴリ名またはタグ名） */
-	pageLabel: string;
 	mode: 'category' | 'tag';
+	currentTags?: string[];
 }
 
-const { posts, pageLabel, mode } = Astro.props;
+const { posts, mode, currentTags } = Astro.props;
+const currentTagSet = new Set(currentTags ?? []);
 
 function formatDateForbes(d: Date | undefined): string {
 	if (!d) return '—';
@@ -42,49 +42,41 @@ function formatDateForbes(d: Date | undefined): string {
 						)}
 					</a>
 					<div class="flex min-w-0 flex-1 flex-col justify-center gap-2">
-						<div class="flex flex-wrap items-center gap-x-2.5 gap-y-1">
-							<span class="inline-flex max-w-full items-center bg-nq-text px-2 py-0.5 font-sans text-[10px] font-bold leading-none tracking-[0.06em] text-nq-bg sm:text-[11px]">
-								{pageLabel}
-							</span>
-							<time
-								class="font-sans text-[11px] tabular-nums text-nq-muted sm:text-xs"
-								datetime={post.data.pubDate ? post.data.pubDate.toISOString() : undefined}
-							>
-								{formatDateForbes(post.data.pubDate)}
-							</time>
-						</div>
+						{post.data.tags?.length ? (
+							<div class="mb-2 flex flex-wrap gap-1">
+								{post.data.tags.map((t) => {
+									const isCommon = currentTagSet.has(t);
+									return (
+										<span
+											class:list={[
+												'font-sans text-[9px] tracking-wide px-1.5 py-0.5 rounded-sm border',
+												isCommon
+													? 'border-nq-accent text-nq-accent bg-nq-accent/20'
+													: 'border-nq-border text-nq-muted',
+											]}
+										>
+											{t}
+										</span>
+									);
+								})}
+							</div>
+						) : null}
+
 						<h2 class="font-serif text-[1.05rem] font-semibold leading-snug tracking-tight text-nq-ink sm:text-lg">
-							<a
-								href={`/journal/${post.slug}`}
-								class="transition-colors hover:text-nq-accent"
-							>
+							<a href={`/journal/${post.slug}`} class="transition-colors hover:text-nq-accent">
 								{post.data.title ?? '無題の記事'}
 							</a>
 						</h2>
+
+						<time
+							class="font-sans text-[11px] tabular-nums text-nq-muted sm:text-xs"
+							datetime={post.data.pubDate ? post.data.pubDate.toISOString() : undefined}
+						>
+							{formatDateForbes(post.data.pubDate)}
+						</time>
 						{post.data.description ? (
 							<p class="line-clamp-2 font-sans text-[13px] leading-relaxed text-nq-ink/72 sm:text-sm">
 								{post.data.description}
-							</p>
-						) : null}
-						{mode === 'category' && post.data.tags?.length ? (
-							<p class="flex flex-wrap gap-x-2.5 gap-y-1 font-sans text-[11px] text-nq-muted">
-								{post.data.tags.slice(0, 6).map((t) => (
-									<a href={`/tag/${encodeURIComponent(t)}`} class="transition-colors hover:text-nq-accent">
-										#{t}
-									</a>
-								))}
-							</p>
-						) : null}
-						{mode === 'tag' && post.data.categories?.length ? (
-							<p class="flex flex-wrap gap-x-2.5 gap-y-1 font-sans text-[11px] text-nq-muted">
-								{post.data.categories.slice(0, 4).map((c) => (
-									<a
-										href={`/category/${encodeURIComponent(c)}`}
-										class="transition-colors hover:text-nq-accent"
-									>
-										{c}
-									</a>
-								))}
 							</p>
 						) : null}
 					</div>

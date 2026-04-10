@@ -1,11 +1,12 @@
 ---
-title: "世界中の美味しいもの大集合。FOODEX JAPAN 2017（その1）"
-pubDate: 2017-03-11
+title: 世界中の美味しいもの大集合。FOODEX JAPAN 2017（その1）
+pubDate: 2017-03-11T00:00:00.000Z
 tags:
-  - "おでかけ"
+  - おでかけ
 categories:
-  - "NOTE"
-  - "おでかけ"
+  - NOTE
+  - おでかけ
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/03/foodex_02.jpg'
 ---
 
 約8万人が４日間の会期中に訪れる日本最大の国際食品見本市が、FOODEX JAPANです。

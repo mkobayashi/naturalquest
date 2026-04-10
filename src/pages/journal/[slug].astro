@@ -11,6 +11,8 @@ import Spec from '../../components/mdx/Spec.astro';
 import Label from '../../components/mdx/Label.astro';
 import Caption from '../../components/mdx/Caption.astro';
 import FullPhoto from '../../components/FullPhoto.astro';
+import AdBanner from '../../components/AdBanner.astro';
+import { isJournalPublic } from '../../lib/journalPublic';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('journal');
@@ -21,16 +23,25 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render({
-	components: { Point, Spec, Label, Caption, FullPhoto },
-});
+const isPublic = isJournalPublic(post);
+
 const articleType = post.data.articleType ?? 'default';
 
 const allPosts = await getCollection('journal');
+const publicPosts = allPosts.filter(isJournalPublic);
+
+let Content: Awaited<ReturnType<typeof post.render>>['Content'] | undefined;
+if (isPublic) {
+	const rendered = await post.render({
+		components: { Point, Spec, Label, Caption, FullPhoto },
+	});
+	Content = rendered.Content;
+}
+
 const myTags = new Set(post.data.tags ?? []);
 const related =
-	myTags.size > 0
-		? allPosts
+	isPublic && myTags.size > 0
+		? publicPosts
 				.filter((p) => p.slug !== post.slug)
 				.map((p) => {
 					const tags = p.data.tags ?? [];
@@ -58,8 +69,8 @@ const primaryCategory = categories[0];
 let prevInCategory: CollectionEntry<'journal'> | undefined;
 let nextInCategory: CollectionEntry<'journal'> | undefined;
 
-if (primaryCategory) {
-	const inCategory = allPosts
+if (isPublic && primaryCategory) {
+	const inCategory = publicPosts
 		.filter((p) => (p.data.categories ?? []).includes(primaryCategory))
 		.sort((a, b) => {
 			const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
@@ -73,13 +84,15 @@ if (primaryCategory) {
 	}
 }
 
-const relatedListLabel = post.data.tags?.[0] ?? '関連';
+const layoutTitle = post.data.title ? `${post.data.title} | Natural Quest` : 'Natural Quest';
+const layoutDescription = isPublic ? post.data.description : undefined;
 ---
 
 <Layout
-	title={post.data.title ? `${post.data.title} | Natural Quest` : 'Natural Quest'}
-	description={post.data.description}
+	title={layoutTitle}
+	description={layoutDescription}
 	narrow
+	noindex={!isPublic}
 >
 	<a
 		href="/journal"
@@ -88,195 +101,219 @@ const relatedListLabel = post.data.tags?.[0] ?? '関連';
 		← ジャーナル一覧へ
 	</a>
 	<article>
-		{post.data.pubDate ? (
-			<p class="font-sans text-sm text-nq-muted">
-				{post.data.pubDate.toLocaleDateString('ja-JP', {
-					year: 'numeric',
-					month: 'long',
-					day: 'numeric',
-				})}
-			</p>
-		) : null}
-		<h1 class="mt-3 font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
-			{post.data.title}
-		</h1>
-		{categories.length ? (
-			<p class="mt-4 flex flex-wrap gap-x-2 gap-y-1 font-sans text-xs text-nq-muted">
-				{categories.map((cat) => (
-					<a
-						href={`/category/${encodeURIComponent(cat)}`}
-						class="rounded-sm border border-nq-border px-2 py-0.5 text-nq-text transition-colors hover:border-nq-accent hover:text-nq-accent"
-					>
-						{cat}
-					</a>
-				))}
-			</p>
-		) : null}
-		{post.data.tags?.length ? (
-			<p class="mt-3 flex flex-wrap gap-x-2 gap-y-1 font-sans text-xs">
-				{post.data.tags.map((tag) => (
-					<a
-						href={`/tag/${encodeURIComponent(tag)}`}
-						class="text-nq-muted underline decoration-nq-border underline-offset-2 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
-					>
-						#{tag}
-					</a>
-				))}
-			</p>
-		) : null}
-
 		{
-			post.data.heroImage ? (
-				<div class="mt-8 w-full overflow-hidden rounded-sm bg-nq-border/25 ring-1 ring-nq-border/55">
-					<div class="aspect-[16/9] w-full sm:aspect-[2/1]">
-						<img
-							src={post.data.heroImage}
-							alt=""
-							class="h-full w-full object-cover"
-							loading="eager"
-							decoding="async"
-							width="1200"
-							height="675"
+			isPublic ? (
+				<>
+					{post.data.pubDate ? (
+						<p class="font-sans text-sm text-nq-muted">
+							{post.data.pubDate.toLocaleDateString('ja-JP', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})}
+						</p>
+					) : null}
+					<h1 class="mt-3 font-serif text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+						{post.data.title}
+					</h1>
+					{categories.length ? (
+						<p class="mt-4 flex flex-wrap gap-x-2 gap-y-1 font-sans text-xs text-nq-muted">
+							{categories.map((cat) => (
+								<a
+									href={`/category/${encodeURIComponent(cat)}`}
+									class="rounded-sm border border-nq-border px-2 py-0.5 text-nq-text transition-colors hover:border-nq-accent hover:text-nq-accent"
+								>
+									{cat}
+								</a>
+							))}
+						</p>
+					) : null}
+					{post.data.tags?.length ? (
+						<p class="mt-3 flex flex-wrap gap-x-2 gap-y-1 font-sans text-xs">
+							{post.data.tags.map((tag) => (
+								<a
+									href={`/tag/${encodeURIComponent(tag)}`}
+									class="text-nq-muted underline decoration-nq-border underline-offset-2 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+								>
+									#{tag}
+								</a>
+							))}
+						</p>
+					) : null}
+
+					{post.data.heroImage ? (
+						<div class="mt-8 w-full overflow-hidden rounded-sm bg-nq-border/25 ring-1 ring-nq-border/55">
+							<div class="aspect-[4/3] w-full sm:aspect-[16/9]">
+								<img
+									src={post.data.heroImage}
+									alt=""
+									class="h-full w-full object-cover"
+									loading="eager"
+									decoding="async"
+									width="1200"
+									height="675"
+								/>
+							</div>
+						</div>
+					) : null}
+
+					{articleType === 'default' || !articleType ? (
+						<ArticleBodyDefault
+							post={post}
+							Content={Content}
+							components={{ Point, Spec, Label, Caption, FullPhoto }}
 						/>
-					</div>
-				</div>
-			) : null
-		}
+					) : null}
+					{articleType === 'immersive' ? (
+						<ArticleBodyImmersive
+							post={post}
+							Content={Content}
+							components={{ Point, Spec, Label, Caption, FullPhoto }}
+						/>
+					) : null}
+					{articleType === 'catalog' ? (
+						<ArticleBodyCatalog
+							post={post}
+							Content={Content}
+							components={{ Point, Spec, Label, Caption, FullPhoto }}
+						/>
+					) : null}
+					{articleType === 'list' ? (
+						<ArticleBodyList
+							post={post}
+							Content={Content}
+							components={{ Point, Spec, Label, Caption, FullPhoto }}
+						/>
+					) : null}
 
-		{articleType === 'default' || !articleType ? (
-			<ArticleBodyDefault
-				post={post}
-				Content={Content}
-				components={{ Point, Spec, Label, Caption, FullPhoto }}
-			/>
-		) : null}
-		{articleType === 'immersive' ? (
-			<ArticleBodyImmersive
-				post={post}
-				Content={Content}
-				components={{ Point, Spec, Label, Caption, FullPhoto }}
-			/>
-		) : null}
-		{articleType === 'catalog' ? (
-			<ArticleBodyCatalog
-				post={post}
-				Content={Content}
-				components={{ Point, Spec, Label, Caption, FullPhoto }}
-			/>
-		) : null}
-		{articleType === 'list' ? (
-			<ArticleBodyList
-				post={post}
-				Content={Content}
-				components={{ Point, Spec, Label, Caption, FullPhoto }}
-			/>
-		) : null}
+					<AdBanner tags={post.data.tags ?? []} slug={post.slug} size="300x250" />
 
-		{
-			SHOW_PARTNER ? (
-				<aside
-					class:list={[
-						'mt-14 rounded-sm border p-6 font-sans text-sm leading-relaxed',
-						isSumuCategory
-							? 'border-nq-accent-warm/40 bg-nq-accent-warm/5 text-nq-text'
-							: 'border-nq-border bg-white/40 text-nq-muted',
-					]}
-					aria-labelledby="bristlecone-aside-heading"
-				>
-					<h2 id="bristlecone-aside-heading" class="font-serif text-base font-semibold text-nq-text">
-						{isSumuCategory ? '自然素材のリフォーム・ご相談' : 'パートナー'}
-					</h2>
-					<p class="mt-3">
-						漆喰・自然素材リフォームのご相談は
-						<a
-							href="https://bristlecone.jp"
-							class="font-medium text-nq-accent-warm underline decoration-nq-border underline-offset-2 transition-colors hover:decoration-nq-accent-warm"
-							rel="noopener noreferrer"
-							target="_blank"
+					{SHOW_PARTNER ? (
+						<aside
+							class:list={[
+								'mt-14 rounded-sm border p-6 font-sans text-sm leading-relaxed',
+								isSumuCategory
+									? 'border-nq-accent-warm/40 bg-nq-accent-warm/5 text-nq-text'
+									: 'border-nq-border bg-white/40 text-nq-muted',
+							]}
+							aria-labelledby="bristlecone-aside-heading"
 						>
-							Bristlecone（ブリストルコーン）
+							<h2 id="bristlecone-aside-heading" class="font-serif text-base font-semibold text-nq-text">
+								{isSumuCategory ? '自然素材のリフォーム・ご相談' : 'パートナー'}
+							</h2>
+							<p class="mt-3">
+								漆喰・自然素材リフォームのご相談は
+								<a
+									href="https://bristlecone.jp"
+									class="font-medium text-nq-accent-warm underline decoration-nq-border underline-offset-2 transition-colors hover:decoration-nq-accent-warm"
+									rel="noopener noreferrer"
+									target="_blank"
+								>
+									Bristlecone（ブリストルコーン）
+								</a>
+								へ。
+							</p>
+						</aside>
+					) : null}
+
+					{related.length ? (
+						<section class="mt-16 border-t border-nq-border pt-10" aria-labelledby="related-heading">
+							<h2 id="related-heading" class="font-serif text-xl font-semibold tracking-tight sm:text-2xl">
+								関連記事
+							</h2>
+							<p class="mt-2 font-sans text-sm text-nq-muted">同じタグの記事</p>
+							<div class="mt-6">
+								<JournalForbesList
+									posts={related}
+									mode="tag"
+									currentTags={post.data.tags ?? []}
+								/>
+							</div>
+						</section>
+					) : null}
+
+					{primaryCategory && (prevInCategory || nextInCategory) ? (
+						<nav
+							class="mt-14 border-t border-nq-border pt-10"
+							aria-label={`「${primaryCategory}」の前後の記事`}
+						>
+							<p class="mb-4 font-sans text-xs font-semibold tracking-[0.12em] text-nq-muted">
+								同じカテゴリ（{primaryCategory}）
+							</p>
+							<div class="grid gap-4 sm:grid-cols-2">
+								<div class="min-w-0">
+									{prevInCategory ? (
+										<a
+											href={`/journal/${prevInCategory.slug}`}
+											class="block rounded-sm border border-nq-border bg-white/30 p-4 transition-colors hover:border-nq-accent hover:bg-white/50"
+										>
+											<span class="font-sans text-[11px] font-medium tracking-wide text-nq-muted">
+												← 前の記事
+											</span>
+											<p class="mt-1.5 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-base">
+												{prevInCategory.data.title ?? '無題'}
+											</p>
+											{prevInCategory.data.pubDate ? (
+												<p class="mt-2 font-sans text-[11px] tabular-nums text-nq-muted">
+													{prevInCategory.data.pubDate.toLocaleDateString('ja-JP', {
+														year: 'numeric',
+														month: 'short',
+														day: 'numeric',
+													})}
+												</p>
+											) : null}
+										</a>
+									) : null}
+								</div>
+								<div class="min-w-0 sm:text-right">
+									{nextInCategory ? (
+										<a
+											href={`/journal/${nextInCategory.slug}`}
+											class="block rounded-sm border border-nq-border bg-white/30 p-4 transition-colors hover:border-nq-accent hover:bg-white/50 sm:ml-auto sm:max-w-full"
+										>
+											<span class="font-sans text-[11px] font-medium tracking-wide text-nq-muted">
+												次の記事 →
+											</span>
+											<p class="mt-1.5 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-base">
+												{nextInCategory.data.title ?? '無題'}
+											</p>
+											{nextInCategory.data.pubDate ? (
+												<p class="mt-2 font-sans text-[11px] tabular-nums text-nq-muted">
+													{nextInCategory.data.pubDate.toLocaleDateString('ja-JP', {
+														year: 'numeric',
+														month: 'short',
+														day: 'numeric',
+													})}
+												</p>
+											) : null}
+										</a>
+									) : null}
+								</div>
+							</div>
+						</nav>
+					) : null}
+				</>
+			) : (
+				<div class="rounded-sm border border-nq-border/80 bg-nq-border/10 px-5 py-8 sm:px-8">
+					<h1 class="font-serif text-2xl font-semibold leading-tight tracking-tight text-nq-ink sm:text-3xl">
+						{post.data.title ?? '無題'}
+					</h1>
+					<p class="mt-5 font-sans text-sm leading-relaxed text-nq-muted">
+						この記事は現在公開していません。
+					</p>
+					{post.data.description ? (
+						<p class="mt-4 font-sans text-sm leading-relaxed text-nq-ink/85">{post.data.description}</p>
+					) : null}
+					<p class="mt-8">
+						<a
+							href="/journal"
+							class="inline-flex items-center gap-1 border-b border-nq-ink/70 pb-0.5 font-sans text-sm font-medium text-nq-ink transition-colors hover:border-nq-accent hover:text-nq-accent"
+						>
+							ジャーナル一覧へ
 						</a>
-						へ。
 					</p>
-				</aside>
-			) : null
-		}
-
-		{
-			related.length ? (
-				<section class="mt-16 border-t border-nq-border pt-10" aria-labelledby="related-heading">
-					<h2 id="related-heading" class="font-serif text-xl font-semibold tracking-tight sm:text-2xl">
-						関連記事
-					</h2>
-					<p class="mt-2 font-sans text-sm text-nq-muted">同じタグの記事</p>
-					<div class="mt-6">
-						<JournalForbesList posts={related} pageLabel={relatedListLabel} mode="tag" />
-					</div>
-				</section>
-			) : null
-		}
-
-		{
-			primaryCategory && (prevInCategory || nextInCategory) ? (
-				<nav
-					class="mt-14 border-t border-nq-border pt-10"
-					aria-label={`「${primaryCategory}」の前後の記事`}
-				>
-					<p class="mb-4 font-sans text-xs font-semibold tracking-[0.12em] text-nq-muted">
-						同じカテゴリ（{primaryCategory}）
-					</p>
-					<div class="grid gap-4 sm:grid-cols-2">
-						<div class="min-w-0">
-							{prevInCategory ? (
-								<a
-									href={`/journal/${prevInCategory.slug}`}
-									class="block rounded-sm border border-nq-border bg-white/30 p-4 transition-colors hover:border-nq-accent hover:bg-white/50"
-								>
-									<span class="font-sans text-[11px] font-medium tracking-wide text-nq-muted">
-										← 前の記事
-									</span>
-									<p class="mt-1.5 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-base">
-										{prevInCategory.data.title ?? '無題'}
-									</p>
-									{prevInCategory.data.pubDate ? (
-										<p class="mt-2 font-sans text-[11px] tabular-nums text-nq-muted">
-											{prevInCategory.data.pubDate.toLocaleDateString('ja-JP', {
-												year: 'numeric',
-												month: 'short',
-												day: 'numeric',
-											})}
-										</p>
-									) : null}
-								</a>
-							) : null}
-						</div>
-						<div class="min-w-0 sm:text-right">
-							{nextInCategory ? (
-								<a
-									href={`/journal/${nextInCategory.slug}`}
-									class="block rounded-sm border border-nq-border bg-white/30 p-4 transition-colors hover:border-nq-accent hover:bg-white/50 sm:ml-auto sm:max-w-full"
-								>
-									<span class="font-sans text-[11px] font-medium tracking-wide text-nq-muted">
-										次の記事 →
-									</span>
-									<p class="mt-1.5 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-base">
-										{nextInCategory.data.title ?? '無題'}
-									</p>
-									{nextInCategory.data.pubDate ? (
-										<p class="mt-2 font-sans text-[11px] tabular-nums text-nq-muted">
-											{nextInCategory.data.pubDate.toLocaleDateString('ja-JP', {
-												year: 'numeric',
-												month: 'short',
-												day: 'numeric',
-											})}
-										</p>
-									) : null}
-								</a>
-							) : null}
-						</div>
-					</div>
-				</nav>
-			) : null
+				</div>
+			)
 		}
 	</article>
 </Layout>

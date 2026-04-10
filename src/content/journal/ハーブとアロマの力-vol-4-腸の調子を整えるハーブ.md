@@ -1,12 +1,13 @@
 ---
-title: "腸の調子を整えるハーブとアロマ"
-pubDate: 2010-10-15
+title: 腸の調子を整えるハーブとアロマ
+pubDate: 2010-10-15T00:00:00.000Z
 tags:
-  - "健康"
-  - "学び"
+  - 健康
+  - 学び
 categories:
-  - "健康"
-  - "セルフケア"
+  - 健康
+  - セルフケア
+heroImage: 'https://naturalquest.org/howto/harb_aroma/vol4/images/img_p3_001.jpg'
 ---
 
 #### カラダのトラブルはお腹から？

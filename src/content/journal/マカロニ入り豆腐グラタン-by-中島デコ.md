@@ -1,12 +1,13 @@
 ---
-title: "マカロニ入り豆腐グラタン by 中島デコ"
-pubDate: 2009-05-25
+title: マカロニ入り豆腐グラタン by 中島デコ
+pubDate: 2009-05-25T00:00:00.000Z
 tags:
-  - "手づくり"
-  - "料理"
+  - 手づくり
+  - 料理
 categories:
-  - "食"
-  - "DIY"
+  - 食
+  - DIY
+heroImage: 'https://naturalquest.org/wp-content/uploads/2009/05/deko_pasta02.jpg'
 ---
 
 #### デコさんおすすめ定番の一品

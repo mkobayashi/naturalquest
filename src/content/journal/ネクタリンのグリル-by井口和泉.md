@@ -1,13 +1,14 @@
 ---
-title: "ネクタリンのグリル by井口和泉"
-pubDate: 2013-08-09
+title: ネクタリンのグリル by井口和泉
+pubDate: 2013-08-09T00:00:00.000Z
 tags:
-  - "スイーツ"
-  - "手づくり"
-  - "料理"
+  - スイーツ
+  - 手づくり
+  - 料理
 categories:
-  - "食"
-  - "DIY"
+  - 食
+  - DIY
+heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/P1440197-1067x800.jpg'
 ---
 
 #### フランス南西部の杏は、瑞々しさとやわらかい酸味が特徴

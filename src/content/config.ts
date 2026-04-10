@@ -11,6 +11,8 @@ const journal = defineCollection({
 			category: z.array(z.string()).optional(),
 			tags: z.array(z.string()).optional(),
 			description: z.string().optional(),
+			/** `false` のとき一覧に出さず、個別URLは「非公開」表示のみ（本文は出さない） */
+			public: z.boolean().optional().default(true),
 			heroImage: z.string().optional(),
 			articleType: z.enum(['default', 'catalog', 'list', 'immersive']).optional().default('default'),
 			items: z

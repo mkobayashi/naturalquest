@@ -1,12 +1,13 @@
 ---
-title: "ヴィジョンズの魔女に会いにいく"
-pubDate: 2016-11-18
+title: ヴィジョンズの魔女に会いにいく
+pubDate: 2016-11-18T00:00:00.000Z
 tags:
-  - "おでかけ"
-  - "ペット"
+  - おでかけ
+  - ペット
 categories:
-  - "NOTE"
-  - "おでかけ"
+  - NOTE
+  - おでかけ
+heroImage: 'https://naturalquest.org/blog/wp-content/uploads/2016/11/111902.jpg'
 ---
 
 新月の翌日、

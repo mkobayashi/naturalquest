@@ -1,11 +1,12 @@
 ---
-title: "春 × あるく"
-pubDate: 2017-04-06
+title: 春 × あるく
+pubDate: 2017-04-06T00:00:00.000Z
 tags:
-  - "エッセイ"
+  - エッセイ
 categories:
-  - "NOTE"
-  - "エッセイ"
+  - NOTE
+  - エッセイ
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/04/jinno_02.jpg'
 ---
 
 （愛犬といっしょにのんびり山あるき）

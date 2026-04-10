@@ -1,0 +1,13 @@
+# Query: handleStats
+# ContextLines: 1
+
+2 results - 1 file
+
+ads-system/worker/ads-worker.js:
+   31        if (path === '/ads/stats' && request.method === 'GET') {
+   32:         return handleStats(request, env, url);
+   33        }
+
+  211  
+  212: async function handleStats(request, env, url) {
+  213    const period = url.searchParams.get('period') || '30d';

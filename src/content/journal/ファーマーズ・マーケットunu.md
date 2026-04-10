@@ -1,11 +1,12 @@
 ---
-title: "ファーマーズ・マーケット@UNU"
-pubDate: 2009-11-23
+title: ファーマーズ・マーケット@UNU
+pubDate: 2009-11-23T00:00:00.000Z
 tags:
-  - "おでかけ"
+  - おでかけ
 categories:
-  - "食"
-  - "おでかけ"
+  - 食
+  - おでかけ
+heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/0012-1.jpg'
 ---
 
 先週、仕事の打ち合わせで急いで通り過ぎたときは、ガランとした空間だったのですが。

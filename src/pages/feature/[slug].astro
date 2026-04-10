@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import AdBanner from '../../components/AdBanner.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -48,5 +49,7 @@ const { Content } = await entry.render();
 		>
 			<Content />
 		</div>
+
+		<AdBanner tags={entry.data.tags ?? []} slug={entry.slug} size="300x250" />
 	</article>
 </Layout>

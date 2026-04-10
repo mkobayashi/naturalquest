@@ -77,6 +77,6 @@ const listBasePath = `/tag/${encodeURIComponent(tag)}`;
 		</p>
 	</header>
 
-	<JournalForbesList posts={pagePosts} pageLabel={tag} mode="tag" />
+	<JournalForbesList posts={pagePosts} mode="tag" />
 	<JournalPagination currentPage={pageNum} totalPages={totalPageCount} basePath={listBasePath} />
 </Layout>

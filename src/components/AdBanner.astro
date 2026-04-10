@@ -1,0 +1,145 @@
+---
+/**
+ * 記事内バナー広告（Worker `/ads/serve` + クリックは `/ads/click/:id`）
+ */
+interface Props {
+	tags: string[];
+	/** 記事スラッグ（UTM・計測用）。未指定時は URL から推測 */
+	slug?: string;
+	size?: '300x250' | '728x90' | 'inline' | 'banner';
+	maxAds?: number;
+	class?: string;
+}
+
+const {
+	tags = [],
+	slug: slugProp,
+	size = '300x250',
+	maxAds = 2,
+	class: className = '',
+} = Astro.props;
+
+const base =
+	import.meta.env.PUBLIC_ADS_WORKER_URL ??
+	import.meta.env.ADS_WORKER_URL ??
+	'https://naturalquest.org';
+
+const slug =
+	slugProp ??
+	Astro.url.pathname.replace(/\/$/, '').split('/').pop() ??
+	'';
+
+let ads: Array<{
+	id: number;
+	title: string;
+	image_url: string;
+	click_url: string;
+	advertiser_name: string;
+	size: string;
+}> = [];
+
+try {
+	const params = new URLSearchParams({
+		tags: tags.join(','),
+		size,
+		limit: String(maxAds),
+	});
+	const res = await fetch(`${base.replace(/\/$/, '')}/ads/serve?${params}`);
+	if (res.ok) {
+		ads = await res.json();
+	}
+} catch {
+	/* ビルド時に Worker が未稼働でもビルドを止めない */
+}
+
+const sizeStyles: Record<string, string> = {
+	'300x250': 'max-width: 300px;',
+	'728x90': 'max-width: 728px; height: 90px;',
+	inline: 'max-width: 100%;',
+	banner: 'max-width: 100%;',
+};
+---
+
+{
+	ads.length > 0 && (
+		<aside
+			class:list={['nq-ad-container', `nq-ad-${size}`, className]}
+			data-ad-zone={size}
+		>
+			{ads.map((ad) => (
+				<a
+					href={`${ad.click_url}?slug=${encodeURIComponent(slug)}`}
+					class="nq-ad-link"
+					target="_blank"
+					rel="noopener sponsored"
+					data-ad-id={ad.id}
+				>
+					<img
+						src={ad.image_url}
+						alt={`${ad.advertiser_name} - ${ad.title}`}
+						class="nq-ad-image"
+						loading="lazy"
+						decoding="async"
+					/>
+					<span class="nq-ad-label">広告</span>
+				</a>
+			))}
+		</aside>
+	)
+}
+
+<style define:vars={{ adMaxWidth: sizeStyles[size] || 'max-width: 300px;' }}>
+	.nq-ad-container {
+		margin: 2rem auto;
+		text-align: center;
+	}
+
+	.nq-ad-link {
+		display: inline-block;
+		position: relative;
+		border-radius: 6px;
+		overflow: hidden;
+		transition: opacity 0.2s ease;
+		text-decoration: none;
+	}
+
+	.nq-ad-link:hover {
+		opacity: 0.92;
+	}
+
+	.nq-ad-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 6px;
+	}
+
+	.nq-ad-label {
+		position: absolute;
+		top: 4px;
+		right: 4px;
+		background: rgba(0, 0, 0, 0.55);
+		color: #fff;
+		font-size: 10px;
+		padding: 1px 6px;
+		border-radius: 3px;
+		letter-spacing: 0.05em;
+	}
+
+	.nq-ad-300x250 {
+		max-width: 300px;
+	}
+	.nq-ad-728x90 {
+		max-width: 728px;
+	}
+	.nq-ad-728x90 .nq-ad-image {
+		height: 90px;
+		object-fit: cover;
+	}
+	.nq-ad-inline {
+		max-width: 100%;
+	}
+	.nq-ad-banner {
+		max-width: 100%;
+	}
+</style>

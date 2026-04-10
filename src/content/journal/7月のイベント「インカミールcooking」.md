@@ -1,11 +1,13 @@
 ---
-title: "7月のイベント「インカミールCooking」"
-pubDate: 2017-07-07
+title: 7月のイベント「インカミールCooking」
+pubDate: 2017-07-07T00:00:00.000Z
 tags:
-  - "おでかけ"
+  - おでかけ
 categories:
-  - "食"
-  - "医食同源"
+  - 食
+  - 医食同源
+heroImage: >-
+  https://naturalquest.org/wp-content/uploads/2017/07/4e28b6d83b5e897b7daaacc0f38f56f0.jpg
 ---
 
 #### 話題のポリッジ（お粥）。グリーンフラスコ流アレンジレシピ

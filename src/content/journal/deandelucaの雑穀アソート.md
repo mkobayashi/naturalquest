@@ -1,11 +1,12 @@
 ---
-title: "DEAN&DELUCAの雑穀アソート"
-pubDate: 2010-10-30
+title: DEAN&DELUCAの雑穀アソート
+pubDate: 2010-10-30T00:00:00.000Z
 tags:
-  - "料理"
+  - 料理
 categories:
-  - "食"
-  - "おすすめ"
+  - 食
+  - おすすめ
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/02/D02.jpg'
 ---
 
 #### NY生まれの「DEAN＆DELUCA」も注目する雑穀パワー

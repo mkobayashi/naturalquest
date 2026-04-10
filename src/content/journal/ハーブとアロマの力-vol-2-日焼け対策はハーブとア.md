@@ -1,12 +1,13 @@
 ---
-title: "日焼け対策はハーブとアロマで"
-pubDate: 2010-07-26
+title: 日焼け対策はハーブとアロマで
+pubDate: 2010-07-26T00:00:00.000Z
 tags:
-  - "手づくり"
-  - "美容・コスメ"
+  - 手づくり
+  - 美容・コスメ
 categories:
-  - "健康"
-  - "セルフケア"
+  - 健康
+  - セルフケア
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/02/hiyake02.jpg'
 ---
 
 #### 日焼け止めクリームを塗るだけで大丈夫？

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { isJournalPublic } from '../lib/journalPublic';
 
 /** 同日付の記事が複数あるとき、トップの並び（新着・HERO・カテゴリの最新にも影響） */
 const SAME_DAY_ORDER: string[] = [
@@ -17,7 +18,9 @@ const homePickSlugs: string[] = [
 	'2026-04-04-shikkui',
 ];
 
-const posts = await getCollection('journal');
+const allPostsRaw = await getCollection('journal');
+const posts = allPostsRaw.filter(isJournalPublic);
+const allPosts = posts;
 const sorted = posts.sort((a, b) => {
 	const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
 	const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
@@ -55,9 +58,14 @@ function latestInCategory(cat: string, n: number): JournalPost[] {
 	return sorted.filter((p) => p.data.categories?.includes(cat)).slice(0, n);
 }
 
-const featured = sorted[0];
-const newListFive = sorted.slice(1, 6);
-const homePicks = homePickSlugs.map(resolvePost).filter((p): p is JournalPost => p != null);
+const FEATURED_SLUG = '2026-04-04-shikkui'; // ← 固定したい記事スラッグ
+
+const featuredFixed = allPosts.find((p) => p.slug === FEATURED_SLUG);
+const featured = featuredFixed ?? sorted[0] ?? undefined; // 非公開のみのときは空
+const newListFive = sorted.slice(1, 5);
+const homePicks = homePickSlugs
+	.map(resolvePost)
+	.filter((p): p is JournalPost => p != null && isJournalPublic(p));
 
 const CATEGORY_ORDER = ['住環境', '食', '健康', 'NOTE'] as const;
 
@@ -79,7 +87,7 @@ const catLabelClass =
 						<article class="flex flex-col gap-2.5">
 							<a
 								href={`/journal/${featured.slug}`}
-								class="relative left-1/2 block aspect-[5/3] min-h-[200px] w-screen -translate-x-1/2 overflow-hidden bg-nq-border/25 ring-1 ring-nq-border/60 sm:min-h-[240px] lg:left-auto lg:min-h-[280px] lg:w-full lg:translate-x-0 xl:min-h-[340px]"
+								class="relative left-1/2 block aspect-[4/3] w-screen -translate-x-1/2 overflow-hidden bg-nq-border/25 ring-1 ring-nq-border/60 min-h-[200px] sm:aspect-[5/3] sm:min-h-[240px] lg:aspect-[16/9] lg:left-auto lg:min-h-[280px] lg:w-full lg:translate-x-0 xl:min-h-[340px]"
 							>
 								{featured.data.heroImage ? (
 									<img

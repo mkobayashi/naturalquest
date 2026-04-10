@@ -1,12 +1,13 @@
 ---
-title: "お酒と上手につきあうためのハーブとアロマ"
-pubDate: 2010-07-02
+title: お酒と上手につきあうためのハーブとアロマ
+pubDate: 2010-07-02T00:00:00.000Z
 tags:
-  - "健康"
-  - "飲み物"
+  - 健康
+  - 飲み物
 categories:
-  - "健康"
-  - "セルフケア"
+  - 健康
+  - セルフケア
+heroImage: 'https://naturalquest.org/wp-content/uploads/2010/07/turmeric.jpg'
 ---
 
 #### お酒とのつきあい方を考えよう

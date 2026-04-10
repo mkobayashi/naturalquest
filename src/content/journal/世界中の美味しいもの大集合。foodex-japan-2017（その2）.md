@@ -1,11 +1,12 @@
 ---
-title: "世界中の美味しいもの大集合。FOODEX JAPAN 2017（その2）"
-pubDate: 2017-03-29
+title: 世界中の美味しいもの大集合。FOODEX JAPAN 2017（その2）
+pubDate: 2017-03-29T00:00:00.000Z
 tags:
-  - "おでかけ"
+  - おでかけ
 categories:
-  - "NOTE"
-  - "おでかけ"
+  - NOTE
+  - おでかけ
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/03/foodex_02_2-1.jpg'
 ---
 
 午後の半日だけでは、

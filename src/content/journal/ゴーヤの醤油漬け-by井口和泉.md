@@ -1,13 +1,14 @@
 ---
-title: "ゴーヤの醤油漬け by井口和泉"
-pubDate: 2013-06-20
+title: ゴーヤの醤油漬け by井口和泉
+pubDate: 2013-06-20T00:00:00.000Z
 tags:
-  - "学び"
-  - "手づくり"
-  - "料理"
+  - 学び
+  - 手づくり
+  - 料理
 categories:
-  - "食"
-  - "DIY"
+  - 食
+  - DIY
+heroImage: 'https://naturalquest.org/wp-content/uploads/2013/06/P1420037.jpg'
 ---
 
 #### 熟したゴーヤーは果皮が黄色くなる

@@ -1,12 +1,13 @@
 ---
-title: "映画「TOMORROW　パーマネントライフを探して」"
-pubDate: 2017-03-12
+title: 映画「TOMORROW　パーマネントライフを探して」
+pubDate: 2017-03-12T00:00:00.000Z
 tags:
-  - "おでかけ"
-  - "ソーシャル"
+  - おでかけ
+  - ソーシャル
 categories:
-  - "NOTE"
-  - "読む・観る"
+  - NOTE
+  - 読む・観る
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/03/1-photo-1200x229.jpg'
 ---
 
 [「TOMORROW　パーマネントライフを探して」](http://www.cetera.co.jp/tomorrow/)を渋谷のイメージフォーラムで見た。

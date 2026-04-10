@@ -1,9 +1,10 @@
 ---
-title: "風邪からの回復でプロポリスのよさを再認識"
-pubDate: 2019-05-02
+title: 風邪からの回復でプロポリスのよさを再認識
+pubDate: 2019-05-02T00:00:00.000Z
 categories:
-  - "健康"
-  - "セルフケア"
+  - 健康
+  - セルフケア
+heroImage: 'https://naturalquest.org/wp-content/uploads/2019/05/propolis_01.jpg'
 ---
 
 のど鼻の風邪でプロポリスを飲んだところ、回復が早かったので体験談として書いておこうと思う。

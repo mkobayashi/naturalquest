@@ -1,11 +1,12 @@
 ---
-title: "春 × かんじる"
-pubDate: 2017-05-03
+title: 春 × かんじる
+pubDate: 2017-05-03T00:00:00.000Z
 tags:
-  - "エッセイ"
+  - エッセイ
 categories:
-  - "NOTE"
-  - "エッセイ"
+  - NOTE
+  - エッセイ
+heroImage: 'https://naturalquest.org/wp-content/uploads/2017/05/haru_02.jpg'
 ---
 
 暖かい光が差す。4月、新潟県と群馬県にまたがる平標山で。

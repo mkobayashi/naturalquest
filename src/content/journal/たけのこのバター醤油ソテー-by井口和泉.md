@@ -1,12 +1,13 @@
 ---
-title: "たけのこのバター醤油ソテー by井口和泉"
-pubDate: 2013-03-28
+title: たけのこのバター醤油ソテー by井口和泉
+pubDate: 2013-03-28T00:00:00.000Z
 tags:
-  - "手づくり"
-  - "料理"
+  - 手づくり
+  - 料理
 categories:
-  - "食"
-  - "DIY"
+  - 食
+  - DIY
+heroImage: 'https://naturalquest.org/wp-content/uploads/2013/03/2013y03m29d_192549484.jpg'
 ---
 
 #### 新芽をいただくことで、春の生命力を身体にとりいれる

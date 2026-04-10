@@ -1,12 +1,13 @@
 ---
-title: "Vege&Fork Market in 柿生"
-pubDate: 2016-06-03
+title: Vege&Fork Market in 柿生
+pubDate: 2016-06-03T00:00:00.000Z
 tags:
-  - "おでかけ"
-  - "環境"
+  - おでかけ
+  - 環境
 categories:
-  - "NOTE"
-  - "エディターより"
+  - NOTE
+  - エディターより
+heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/0522_vege02.jpg'
 ---
 
 街に日傘模様が賑わう五月の日曜日、川崎市麻生区柿生で開催されたベジ&フォークに出かけてきた。

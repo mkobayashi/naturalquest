@@ -1,0 +1,73 @@
+{
+  "advertisers": [
+    {
+      "id": "tanaka-shikkui",
+      "name": "田中漆喰工業",
+      "contact_email": "ad@example.com",
+      "contract_type": "cpa",
+      "cpa_rate": 3000,
+      "note": "漆喰・左官材料メーカー。資料請求1件3,000円"
+    },
+    {
+      "id": "mori-lumber",
+      "name": "森の木材店",
+      "contact_email": "ad@example.com",
+      "contract_type": "hybrid",
+      "cpc_rate": 50,
+      "cpa_rate": 5000,
+      "note": "無垢材・自然素材建材。クリック50円+相談申込5,000円"
+    },
+    {
+      "id": "eco-reform",
+      "name": "エコリフォーム協会",
+      "contact_email": "ad@example.com",
+      "contract_type": "cpc",
+      "cpc_rate": 80,
+      "note": "自然素材リフォーム業者紹介。クリック80円"
+    }
+  ],
+  "ads": [
+    {
+      "advertiser_id": "tanaka-shikkui",
+      "title": "漆喰のある暮らし - 無料サンプル",
+      "image_url": "/ads/banners/tanaka-shikkui-300x250.webp",
+      "destination_url": "https://example.com/tanaka-shikkui/lp",
+      "size": "300x250",
+      "tags": ["漆喰", "左官", "自然素材", "リフォーム", "古民家", "DIY"],
+      "weight": 15
+    },
+    {
+      "advertiser_id": "tanaka-shikkui",
+      "title": "漆喰のある暮らし - 横長バナー",
+      "image_url": "/ads/banners/tanaka-shikkui-728x90.webp",
+      "destination_url": "https://example.com/tanaka-shikkui/lp",
+      "size": "728x90",
+      "tags": ["漆喰", "左官", "自然素材", "リフォーム"],
+      "weight": 15
+    },
+    {
+      "advertiser_id": "mori-lumber",
+      "title": "国産無垢材で建てる家",
+      "image_url": "/ads/banners/mori-lumber-300x250.webp",
+      "destination_url": "https://example.com/mori-lumber/catalog",
+      "size": "300x250",
+      "tags": ["無垢材", "木材", "自然素材", "新築", "リフォーム", "古民家"],
+      "weight": 10
+    },
+    {
+      "advertiser_id": "eco-reform",
+      "title": "自然素材リフォーム 無料相談",
+      "image_url": "/ads/banners/eco-reform-inline.webp",
+      "destination_url": "https://example.com/eco-reform/consult",
+      "size": "inline",
+      "tags": ["リフォーム", "自然素材", "エコ", "省エネ", "漆喰", "古民家再生"],
+      "weight": 8
+    }
+  ],
+  "_seed_sql": [
+    "INSERT INTO advertisers (id, name, contact_email, contract_type, cpc_rate, cpa_rate) VALUES ('tanaka-shikkui', '田中漆喰工業', 'ad@example.com', 'cpa', 0, 3000);",
+    "INSERT INTO advertisers (id, name, contact_email, contract_type, cpc_rate, cpa_rate) VALUES ('mori-lumber', '森の木材店', 'ad@example.com', 'hybrid', 50, 5000);",
+    "INSERT INTO advertisers (id, name, contact_email, contract_type, cpc_rate, cpa_rate) VALUES ('eco-reform', 'エコリフォーム協会', 'ad@example.com', 'cpc', 80, 0);",
+    "INSERT INTO ads (advertiser_id, title, image_url, destination_url, size, tags, weight) VALUES ('tanaka-shikkui', '漆喰のある暮らし', '/ads/banners/tanaka-shikkui-300x250.webp', 'https://example.com/lp', '300x250', '[\"漆喰\",\"左官\",\"自然素材\",\"リフォーム\",\"古民家\"]', 15);"
+  ]
+}

@@ -1,12 +1,13 @@
 ---
-title: "FAR EASTのドライフルーツ"
-pubDate: 2012-01-30
+title: FAR EASTのドライフルーツ
+pubDate: 2012-01-30T00:00:00.000Z
 tags:
-  - "スイーツ"
-  - "フェアトレード"
+  - スイーツ
+  - フェアトレード
 categories:
-  - "食"
-  - "おすすめ"
+  - 食
+  - おすすめ
+heroImage: 'https://naturalquest.org/wp-content/uploads/2012/01/vol9_img01.jpg'
 ---
 
 #### 濃厚な甘さ、ナチュラルな風味で人気のドライフルーツたち

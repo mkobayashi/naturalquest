@@ -1,8 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { isJournalPublic } from '../../lib/journalPublic';
 
-const posts = await getCollection('journal');
+const posts = (await getCollection('journal')).filter(isJournalPublic);
 const sortedPosts = posts.sort((a, b) => {
 	const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
 	const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;

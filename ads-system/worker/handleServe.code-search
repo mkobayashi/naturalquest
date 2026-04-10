@@ -1,0 +1,13 @@
+# Query: handleServe
+# ContextLines: 1
+
+2 results - 1 file
+
+ads-system/worker/ads-worker.js:
+   28        if (path === '/ads/serve' && request.method === 'GET') {
+   29:         return handleServe(request,env, url);
+   30        }
+
+  137  
+  138: async function handleServe(request,env, url) {
+  139    const tagsParam = url.searchParams.get('tags') || '';

@@ -1,12 +1,13 @@
 ---
-title: "脱原発世界会議 2012 YOKOHAMA 1/14（土）横浜パシフィコ"
-pubDate: 2012-01-14
+title: 脱原発世界会議 2012 YOKOHAMA 1/14（土）横浜パシフィコ
+pubDate: 2012-01-14T00:00:00.000Z
 tags:
-  - "学び"
-  - "環境"
+  - 学び
+  - 環境
 categories:
-  - "NOTE"
-  - "エディターより"
+  - NOTE
+  - エディターより
+heroImage: 'https://naturalquest.org/wp-content/uploads/2018/08/yokohama_01.jpg'
 ---
 
 冒頭の野中ともよさんの司会からして、熱くなるオープニング。

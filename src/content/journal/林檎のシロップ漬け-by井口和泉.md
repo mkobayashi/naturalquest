@@ -1,12 +1,13 @@
 ---
-title: "林檎のシロップ漬け by 井口和泉"
-pubDate: 2012-02-18
+title: 林檎のシロップ漬け by 井口和泉
+pubDate: 2012-02-18T00:00:00.000Z
 tags:
-  - "スイーツ"
-  - "手づくり"
+  - スイーツ
+  - 手づくり
 categories:
-  - "食"
-  - "DIY"
+  - 食
+  - DIY
+heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/img_051.jpg'
 ---
 
 #### 林檎の香りがもたらす豊穣な時間
