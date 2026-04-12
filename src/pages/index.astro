@@ -20,8 +20,8 @@ const homePickSlugs: string[] = [
 
 /** サイドバー：人気の記事（3件・手動指定） */
 const popularSlugs: string[] = [
-	'試しみた。【にんにくで、アホエンオイルづくり',
-	'「あなたと健康」主宰-東城百合子-2',
+	'試しみたにんにくでアホエンオイルづくり',
+	'ハーブアロマの手づくりレシピあずきとラベ',
 	'ハーブとアロマの力-vol-1-お酒と上手につきあうため',
 ];
 
@@ -29,9 +29,9 @@ const popularSlugs: string[] = [
 const selectionSlugs: string[] = [
 	'2026-04-04-shikkui',
 	'ヨモギの天恵緑汁を作ってみた',
-	'オレイン酸が豊富で肌にうれしい-ウガンダ産シア',
-	'古い梅酒',
-	'propolis',
+	'ハーブアロマの手づくりレシピあずきとラベ',
+	'林檎のシロップ漬け-by井口和泉',
+	'古来種野菜の写真展',
 	'気候変動待ったなし',
 ];
 
@@ -67,8 +67,14 @@ function formatDate(post: JournalPost): string {
 	});
 }
 
+function normalizeSlugKey(s: string): string {
+	const withoutExt = /\.mdx?$/i.test(s) ? s.replace(/\.mdx?$/i, '') : s;
+	return withoutExt.normalize('NFC');
+}
+
 function resolvePost(slug: string): JournalPost | undefined {
-	return sorted.find((p) => p.slug === slug);
+	const key = normalizeSlugKey(slug);
+	return sorted.find((p) => normalizeSlugKey(p.slug) === key);
 }
 
 function latestInCategory(cat: string, n: number): JournalPost[] {
@@ -155,8 +161,8 @@ const catLabelClass =
 			</div>
 
 			<aside class="lg:col-span-3" aria-label="人気の記事">
-				<div class="mb-2 flex items-center gap-2 border-b border-nq-border pb-1.5">
-					<h2 class="font-sans text-xs font-bold tracking-[0.18em] text-nq-ink">人気の記事</h2>
+				<div class="mb-2 flex items-center gap-2 pb-1.5">
+					<h2 class="shrink-0 font-sans text-xs font-bold tracking-[0.18em] text-nq-ink">人気の記事</h2>
 					<span class="h-px flex-1 bg-nq-border" aria-hidden="true" />
 				</div>
 				<ul class="flex flex-col">
@@ -256,17 +262,20 @@ const catLabelClass =
 		}
 
 		<!-- 3. 編集部セレクション（6記事・2列） -->
-		<section class="border-t border-nq-border pt-5">
+		<section class="pt-5">
 			<div class="mb-3 flex items-center justify-between">
 				<h2 class="font-serif text-base font-semibold tracking-tight text-nq-ink sm:text-lg">編集部セレクション</h2>
 			</div>
 			{
 				selectionPosts.length ? (
-					<ul class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+					<ul class="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-x-2.5">
 						{selectionPosts.map((post) => (
 							<li class="min-w-0">
-								<a href={`/journal/${post.slug}`} class="group flex min-w-0 gap-3 overflow-hidden">
-									<div class="relative aspect-video w-[7.5rem] shrink-0 overflow-hidden bg-nq-border/30 ring-1 ring-nq-border/50 sm:w-[8.5rem]">
+								<a
+									href={`/journal/${post.slug}`}
+									class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
+								>
+									<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
 										{post.data.heroImage ? (
 											<img
 												src={post.data.heroImage}
@@ -282,11 +291,12 @@ const catLabelClass =
 											/>
 										)}
 									</div>
-									<div class="flex min-w-0 flex-1 flex-col gap-1 py-0.5">
+									<div class="flex flex-1 flex-col gap-1 p-2">
 										<p class:list={[catLabelClass]}>{categoryLabel(post)}</p>
-										<h3 class="line-clamp-3 font-serif text-sm font-semibold leading-snug text-nq-ink transition-colors group-hover:text-nq-accent-warm">
+										<h3 class="line-clamp-2 font-serif text-[13px] font-semibold leading-snug text-nq-ink sm:text-sm">
 											{post.data.title ?? '無題'}
 										</h3>
+										<p class="mt-auto font-sans text-[11px] tabular-nums text-nq-muted">{formatDate(post)}</p>
 									</div>
 								</a>
 							</li>
