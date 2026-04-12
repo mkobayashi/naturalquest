@@ -8,6 +8,7 @@ tags:
   - "自然素材"
   - "DIY"
 description: "セクション見出しを A〜D で並べて比較する仮ページです（各スタイル1カード）。商品データは架空です。決まったら labelStyle を1種類にそろえてください。"
+public: false
 articleType: catalog
 layout: grid
 sections:
