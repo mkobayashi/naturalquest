@@ -8,7 +8,7 @@ const { src, caption } = Astro.props;
 ---
 
 <figure class="my-8 w-full">
-	<img src={src} alt="" class="w-full object-cover" style="max-height: 480px;" />
+	<img src={src} alt="" class="w-full object-cover object-center" style="max-height: 480px;" />
 	{caption ? (
 		<figcaption
 			class="mt-2 px-[8%] font-sans text-[10px] leading-relaxed text-nq-muted sm:px-[10%] lg:mx-auto lg:w-[65%]"

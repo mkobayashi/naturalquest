@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Open in Browser: journal page (dev)",
+			"type": "shell",
+			"command": "node",
+			"args": ["${workspaceFolder}/scripts/open-journal-in-browser.mjs", "${file}"],
+			"problemMatcher": [],
+			"presentation": { "reveal": "silent", "panel": "shared" },
+			"detail": "編集中のファイル名から /journal/<スラッグ> を開く（要: npm run dev）"
+		},
+		{
+			"label": "Open in Browser: site top (dev)",
+			"type": "shell",
+			"command": "node",
+			"args": ["${workspaceFolder}/scripts/open-journal-in-browser.mjs", "--top"],
+			"problemMatcher": [],
+			"presentation": { "reveal": "silent", "panel": "shared" },
+			"detail": "http://127.0.0.1:4321/ を開く"
+		}
+	]
+}

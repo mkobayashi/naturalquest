@@ -1,15 +1,15 @@
 ---
-title: "テスト：カタログ記事"
-pubDate: 2026-04-09
+title: "漆喰カタログ"
+pubDate: 2026-04-11
 categories: ["住む"]
 tags: ["自然素材"]
-public: false
 articleType: catalog
-description: "カタログレイアウトの表示テスト用記事です。"
+description: "漆喰の製品一覧です。"
+heroImage: ""
 items:
   - name: "本漆喰（石灰ベース）"
     tag: "自然素材"
-    image: ""
+    image: "/images/journal/2026/04/umaku.jpg"
     specs:
       - key: "主成分"
         value: "消石灰・すさ・海藻糊"
@@ -20,7 +20,7 @@ items:
     body: "古くから日本の土壁仕上げに使われてきた本漆喰。呼吸する壁として、室内環境を整える効果が高い。"
   - name: "既調合漆喰（DIY向け）"
     tag: "初心者向け"
-    image: ""
+    image: "/images/journal/2026/04/umaku.jpg"
     specs:
       - key: "主成分"
         value: "石灰・パーライト"

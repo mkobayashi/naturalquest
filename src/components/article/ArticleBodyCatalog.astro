@@ -8,84 +8,222 @@ interface Props {
 }
 
 const { post, Content, components } = Astro.props;
+const layout = post.data.layout ?? 'alternate';
 const introText = post.data.description;
 const items = post.data.items ?? [];
+const sections = post.data.sections ?? [];
+
+const showAlternate = layout === 'alternate' && items.length > 0;
+const showGrid =
+	layout === 'grid' && sections.some((s) => (s.items?.length ?? 0) > 0);
+const showFallback = !showAlternate && !showGrid;
+
+function chipClass(color?: 'green' | 'accent' | 'muted') {
+	switch (color) {
+		case 'accent':
+			return 'border-nq-accent/30 bg-nq-accent/10 text-nq-accent';
+		case 'muted':
+			return 'border-nq-border bg-nq-border/25 text-nq-muted';
+		default:
+			return 'border-nq-green/20 bg-nq-green/10 text-nq-green';
+	}
+}
 ---
 
-<div class="mt-10 py-2">
-	{introText ? (
-		<p class="mb-10 font-sans text-sm leading-relaxed text-nq-text sm:text-base">
-			{introText}
-		</p>
-	) : null}
+<div class="mt-8">
+	{
+		showAlternate ? (
+			<>
+				{introText ? (
+					<p class="mb-8 font-sans text-sm leading-[1.9] text-nq-text">
+						{introText}
+					</p>
+				) : null}
 
-	{items.length ? (
-		<div class="border-t border-nq-border">
-			{items.map((item, i) => (
-				<section class="border-b border-nq-border py-8">
-					<div
-						class:list={[
-							'flex flex-col gap-5 sm:flex-row sm:items-stretch sm:gap-8',
-							i % 2 === 1 && 'sm:flex-row-reverse',
-						]}
-					>
-						<div class="w-full sm:w-1/2">
-							<div class="aspect-[4/3] overflow-hidden rounded-sm bg-nq-border/25">
-								{item.image ? (
-									<img
-										src={item.image}
-										alt=""
-										class="h-full w-full object-cover"
-										loading="lazy"
-										decoding="async"
-									/>
-								) : (
-									<div
-										class="h-full w-full bg-gradient-to-br from-nq-border/70 via-nq-border/40 to-nq-border/20"
-										aria-hidden="true"
-									/>
-								)}
+				<div class="flex flex-col border-t border-nq-border">
+					{items.map((item, i) => (
+						<section
+							class:list={[
+								'border-b border-nq-border py-8',
+								'flex flex-col gap-6 sm:flex-row sm:items-stretch',
+								i % 2 === 1 && 'sm:flex-row-reverse',
+							]}
+						>
+							<div class="w-full shrink-0 sm:w-[45%]">
+								<div class="aspect-[4/3] overflow-hidden rounded-sm bg-nq-border/25">
+									{item.image ? (
+										<img
+											src={item.image}
+											alt=""
+											class="h-full w-full object-contain object-center"
+											loading="lazy"
+											decoding="async"
+										/>
+									) : (
+										<div
+											class="flex h-full w-full items-center justify-center bg-gradient-to-br from-nq-border/70 via-nq-border/40 to-nq-border/20"
+											aria-hidden="true"
+										>
+											<span class="font-sans text-xs text-nq-muted">No image</span>
+										</div>
+									)}
+								</div>
 							</div>
-						</div>
 
-						<div class="w-full sm:w-1/2">
-							<div class="flex h-full flex-col">
+							<div class="flex w-full flex-col justify-center gap-3 sm:w-[55%]">
 								{(item.tag ?? item.badge) ? (
-									<p class="mb-2">
-										<span class="inline-flex items-center rounded border border-nq-accent/35 bg-nq-accent/10 px-2 py-1 font-sans text-[11px] font-bold leading-tight tracking-[0.08em] text-nq-accent">
+									<p class="mb-0">
+										<span class="inline-block rounded-sm border border-nq-green/20 bg-nq-green/10 px-2 py-0.5 font-sans text-[9px] font-bold tracking-wide text-nq-green">
 											{item.tag ?? item.badge}
 										</span>
 									</p>
 								) : null}
 
-								<h2 class="font-serif text-lg font-semibold leading-snug text-nq-ink">{item.name}</h2>
+								<h2 class="font-sans text-base font-medium leading-snug text-nq-text">{item.name}</h2>
+
+								{item.body ? (
+									<p class="font-sans text-xs leading-relaxed text-nq-text">{item.body}</p>
+								) : null}
 
 								{item.specs?.length ? (
-									<dl class="mt-3 grid gap-2 font-sans text-xs leading-relaxed text-nq-text">
+									<dl class="mt-1 flex flex-col gap-1.5 font-sans text-xs leading-relaxed text-nq-text">
 										{item.specs.map((s) => (
-											<div class="grid grid-cols-[7.5rem_1fr] gap-3">
-												<dt class="text-nq-muted">{s.key}</dt>
-												<dd class="min-w-0">{s.value}</dd>
+											<div class="flex gap-2">
+												<dt class="min-w-[4rem] shrink-0 text-nq-muted">{s.key}</dt>
+												<dd class="min-w-0 font-sans text-xs font-medium">{s.value}</dd>
 											</div>
 										))}
 									</dl>
 								) : null}
-
-								{item.body ? (
-									<p class="mt-4 font-sans text-xs leading-relaxed text-nq-muted">
-										{item.body}
-									</p>
-								) : null}
 							</div>
-						</div>
-					</div>
-				</section>
-			))}
-		</div>
-	) : (
-		<div class="mt-10 max-w-none font-sans leading-[1.85] text-nq-text">
-			<Content components={components} />
-		</div>
-	)}
-</div>
+						</section>
+					))}
+				</div>
+			</>
+		) : showGrid ? (
+			<>
+				{introText ? (
+					<p class="mb-8 font-sans text-sm leading-[1.9] text-nq-text">{introText}</p>
+				) : null}
 
+				<div class="flex flex-col gap-10">
+					{sections.map((section, si) => {
+						const labelVariant = section.labelStyle ?? 'b';
+						return (
+						<section class="flex flex-col">
+							{labelVariant === 'a' ? (
+								<div class="mb-4">
+									<p class="font-sans text-[11px] font-semibold tracking-[0.18em] text-nq-text">
+										{section.label}
+									</p>
+									<div class="mt-2.5 h-px w-full bg-nq-border" aria-hidden="true" />
+								</div>
+							) : labelVariant === 'b' ? (
+								<div class="mb-4 border-l-2 border-nq-green pl-3">
+									<p class="font-sans text-xs font-medium leading-snug text-nq-text">{section.label}</p>
+								</div>
+							) : labelVariant === 'c' ? (
+								<div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:gap-5">
+									<span class="shrink-0 font-sans text-2xl font-medium tabular-nums leading-none text-nq-muted/40">
+										{String(si + 1).padStart(2, '0')}
+									</span>
+									<div class="min-w-0 flex-1 border-b border-nq-border pb-2">
+										<p class="font-sans text-xs font-medium leading-snug text-nq-text">{section.label}</p>
+									</div>
+								</div>
+							) : (
+								<div
+									class="-mx-4 mb-4 bg-nq-surface px-4 py-3 sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10"
+								>
+									<p class="font-sans text-xs font-medium leading-snug text-nq-text">{section.label}</p>
+								</div>
+							)}
+
+							<div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+								{section.items.map((item) => (
+									<div
+										class="relative flex flex-col gap-2 rounded-sm border border-nq-border p-4"
+									>
+										{item.image ? (
+											<div class="relative mb-1 aspect-[4/3] w-full overflow-hidden rounded-sm bg-nq-border/20">
+												<img
+													src={item.image}
+													alt=""
+													class="h-full w-full object-contain object-center"
+													loading="lazy"
+													decoding="async"
+												/>
+												{item.price ? (
+													<span class="absolute right-2 top-2 rounded-sm bg-nq-surface px-2 py-0.5 font-sans text-[10px] text-nq-muted">
+														{item.price}
+													</span>
+												) : null}
+											</div>
+										) : item.price ? (
+											<div class="flex justify-end">
+												<span class="rounded-sm bg-nq-surface px-2 py-0.5 font-sans text-[10px] text-nq-muted">
+													{item.price}
+												</span>
+											</div>
+										) : null}
+
+										{item.tag ? (
+											<span
+												class="inline-flex w-fit items-center rounded-sm border border-nq-green/20 bg-nq-green/10 px-2 py-0.5 font-sans text-[9px] text-nq-green"
+											>
+												{item.tag}
+											</span>
+										) : null}
+
+										<p class="font-sans text-base font-medium text-nq-text">{item.name}</p>
+
+										{item.maker ? (
+											<p class="font-sans text-xs text-nq-muted">{item.maker}</p>
+										) : null}
+
+										{item.body ? (
+											<p class="font-sans text-xs leading-relaxed text-nq-text">{item.body}</p>
+										) : null}
+
+										{item.specs?.length ? (
+											<dl class="flex flex-col gap-1 font-sans text-xs text-nq-text">
+												{item.specs.map((s) => (
+													<div class="flex gap-2">
+														<dt class="min-w-[3rem] shrink-0 text-nq-muted">{s.key}</dt>
+														<dd class="min-w-0 font-sans text-xs font-medium">{s.value}</dd>
+													</div>
+												))}
+											</dl>
+										) : null}
+
+										{item.tags?.length ? (
+											<ul class="mt-1 flex flex-wrap gap-1">
+												{item.tags.map((t) => (
+													<li>
+														<span
+															class:list={[
+																'inline-block rounded-sm border px-2 py-0.5 font-sans text-[9px]',
+																chipClass(t.color),
+															]}
+														>
+															{t.label}
+														</span>
+													</li>
+												))}
+											</ul>
+										) : null}
+									</div>
+								))}
+							</div>
+						</section>
+						);
+					})}
+				</div>
+			</>
+		) : showFallback ? (
+			<div class="mt-6 max-w-none font-sans leading-[1.85] text-nq-text">
+				<Content components={components} />
+			</div>
+		) : null
+	}
+</div>
