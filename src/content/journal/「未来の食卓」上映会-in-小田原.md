@@ -8,7 +8,7 @@ tags:
 categories:
   - 健康
   - 読む・観る
-heroImage: 'https://naturalquest.org/wp-content/uploads/2009/12/2.jpg'
+heroImage: 'https://old.naturalquest.org/wp-content/uploads/2009/12/2.jpg'
 ---
 
 オーガニック拡大の意識づくりに貢献しているフランス映画「未来の食卓」の上映会が小田原で行われました。
@@ -21,7 +21,7 @@ heroImage: 'https://naturalquest.org/wp-content/uploads/2009/12/2.jpg'
 
 日本でもフランスでも同じなのですね。オーガニック推進派と、いわゆる「現実主義」の慣行農法を続けたい人との食い違い。映画では、どちらが「現実的」で「利益をもたらしてくれるか」を明らかにしていきます。
 
-![](https://naturalquest.org/wp-content/uploads/2009/12/2.jpg)
+![](https://old.naturalquest.org/wp-content/uploads/2009/12/2.jpg)
 
 上映の後、シンポジウム「食で元気な子どもたち」が行われました。
 
@@ -35,13 +35,13 @@ heroImage: 'https://naturalquest.org/wp-content/uploads/2009/12/2.jpg'
 
 小田原では、地道に実践を重ねてきたオーガニック農家と、消費者・保護者、そして行政がつながって、オーガニックな食を広めようと連携を始めようとしています。小田原は、農水省の「有機農業モデルタウン」としての指定も受け、健康な食文化を根付かせようという意識がとても高まっているようです。
 
-![](https://naturalquest.org/wp-content/uploads/2009/12/3.jpg)
+![](https://old.naturalquest.org/wp-content/uploads/2009/12/3.jpg)
 
 山本洋子さんのお話では、高級ホテルから青山のカフェまで、高感度な店で玄米メニューの人気がますます高まっているとのこと。小田原は、消費地の近くにありながら、農業ができる恵まれたエリアと言えるかもしれません。
 
 一方で、高齢化のため放棄される懸念のある耕作地が増えており、新規就農者を積極的に受け入れていきたいと、加藤市長からは発言がありました。
 
-![](https://naturalquest.org/wp-content/uploads/2009/12/4.jpg)
+![](https://old.naturalquest.org/wp-content/uploads/2009/12/4.jpg)
 
 ロビーでは、オーガニックな食材が並び、売り切れ続出。
 

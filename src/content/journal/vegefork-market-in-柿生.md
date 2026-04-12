@@ -7,7 +7,7 @@ tags:
 categories:
   - NOTE
   - エディターより
-heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/0522_vege02.jpg'
+heroImage: 'https://old.naturalquest.org/wp-content/uploads/2018/07/0522_vege02.jpg'
 ---
 
 街に日傘模様が賑わう五月の日曜日、川崎市麻生区柿生で開催されたベジ&フォークに出かけてきた。
@@ -21,7 +21,7 @@ heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/0522_vege02.jpg'
 ジャスミンの成分が多くなり、香りも効き目もお得な石鹸ではあるのに、消費者には実際に見てもらってお話しをしないと伝わりにくい。
 ネット通販では伝えるのが難しいことは、時々このような場面で払拭していければいいんだろうな。
 
-![](https://naturalquest.org/wp-content/uploads/2018/07/0522_vege02.jpg)
+![](https://old.naturalquest.org/wp-content/uploads/2018/07/0522_vege02.jpg)
 
 思わず目を近づけて触りたくなったのは、こちらの瑞々しく元気なお野菜たち。
 なんと、山形出張中の友人が「お酒のつまみ」とメールしてきた写真にあった、”こしあぶら”がある！

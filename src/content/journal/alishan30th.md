@@ -4,19 +4,19 @@ pubDate: 2018-07-25T00:00:00.000Z
 categories:
   - 食
   - おでかけ
-heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/alishan_2018071404.jpg'
+heroImage: 'https://old.naturalquest.org/wp-content/uploads/2018/07/alishan_2018071404.jpg'
 ---
 
 ### 30周年を迎えたアリサン
 
 世界中のオーガニック食品を幅広く日本に紹介している商社、アリサンが設立30周年を迎えてスペシャル企画を催すということで7月半ば、久々に埼玉県日高市高麗にあるアリサン・オーガニックセンターを訪れました。
 
-![](https://naturalquest.org/wp-content/uploads/2018/07/alishan_2018071401-1.jpg)
+![](https://old.naturalquest.org/wp-content/uploads/2018/07/alishan_2018071401-1.jpg)
 
 代表ジョンさんの特別スピーチは、アリサンの生い立ち、これまでの歩みと、今後10年間の展望について。
 アリサンの活動を支えるスタッフたちに、娘さん息子さんも加わり、ますますパワー充実の体制です。
 
-![](https://naturalquest.org/wp-content/uploads/2018/07/alishan_peanuts.jpg)
+![](https://old.naturalquest.org/wp-content/uploads/2018/07/alishan_peanuts.jpg)
 
 ### 創業期ゆかりのピーナツバター
 
@@ -34,7 +34,7 @@ heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/alishan_20180714
 
 昔、ホームステイで滞在した若い米国人たち、おにぎり"ONIGIRI"も気に入ってくれたけれど、パンにピーナツバターとジャムを「そんなに塗るのか！」というくらい厚く盛って、うれしそうに持って出かけていたのを思い出します。
 
-![](https://naturalquest.org/wp-content/uploads/2018/07/alishan_201807140005.jpg.png)
+![](https://old.naturalquest.org/wp-content/uploads/2018/07/alishan_201807140005.jpg.png)
 
 ### 待ってました。ディナータイム
 
@@ -45,7 +45,7 @@ heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/alishan_20180714
 ベジ料理なのに、濃厚で満足感しっかり。
 これこそ、アリサンカフェの真骨頂です。盛り付けもスタイリッシュ、さらに「皆で集まる楽しさ」を表現している気がします。
 
-![](https://naturalquest.org/wp-content/uploads/2018/07/alishan_2018071405.jpg)
+![](https://old.naturalquest.org/wp-content/uploads/2018/07/alishan_2018071405.jpg)
 
 アリサン、ジョンさんの考えに響く人がどんどん増えていくと、楽しい気風がひろがっていく気がします。それは、一人ひとりの人間を認めて、尊重しあう精神があるからです。
 背景にあるジョンさんの考え方、生き様はインタビュー記事を読むと伝わる部分があると思います。
@@ -53,6 +53,6 @@ heroImage: 'https://naturalquest.org/wp-content/uploads/2018/07/alishan_20180714
 
 本当に良心的に、オーガニック、無農薬、化学添加物フリーにこだわって、なおかつ美味しいものを紹介してくれるアリサン、30周年おめでとうございます！！
 
-![](https://naturalquest.org/wp-content/uploads/2018/07/alishan_2018071400.jpg)
+![](https://old.naturalquest.org/wp-content/uploads/2018/07/alishan_2018071400.jpg)
 
 

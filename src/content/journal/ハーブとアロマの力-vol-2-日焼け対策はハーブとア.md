@@ -7,14 +7,14 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://naturalquest.org/wp-content/uploads/2017/02/hiyake02.jpg'
+heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/02/hiyake02.jpg'
 ---
 
 #### 日焼け止めクリームを塗るだけで大丈夫？
 
 灼熱の太陽が肌を照りつける夏。小麦色の肌を目指す人もいるとは思いますが、ここ最近の日本は“美白”がもっぱらの流行り。そんな“美白命！”の人は、どこへ行くにも日焼け対策のアイテムを手放せません。でも、いくらこまめにケアをしても「焼けているな」と感じること、ありますよね？　また、日焼け止めのことは気にしても、日焼け後のアフターケアを怠って気がつくとシミが増えていることはありませんか？ そこで今回は、日焼け止め効果を高めるのにおすすめの日常的なケアと、日焼け後の肌をやさしくいたわるアフターケアについてご紹介します。ハーブやエッセンシャルオイルを使うので、敏感肌の方にもやさしいケア方法です。
 
-#### ![](https://naturalquest.org/wp-content/uploads/2017/02/hiyake02.jpg)
+#### ![](https://old.naturalquest.org/wp-content/uploads/2017/02/hiyake02.jpg)
 
 #### 日焼けのメカニズムを知る
 
@@ -39,7 +39,7 @@ heroImage: 'https://naturalquest.org/wp-content/uploads/2017/02/hiyake02.jpg'
 
 もともと肌には紫外線の害に対処するチカラが備わっているのですが、肌が水分不足だとそのチカラも弱まります。つまり、常に肌が潤っていることが日焼け対策として大切なのです。さらに日焼け後の肌に美白を取り戻すためには、新陳代謝を促すケアが重要です。
 
-##### **![](https://naturalquest.org/wp-content/uploads/2017/02/hiyake03.jpg)**
+##### **![](https://old.naturalquest.org/wp-content/uploads/2017/02/hiyake03.jpg)**
 
 ##### **Daily／日頃からのケア**
 

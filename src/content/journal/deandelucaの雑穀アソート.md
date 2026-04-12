@@ -6,7 +6,7 @@ tags:
 categories:
   - 食
   - おすすめ
-heroImage: 'https://naturalquest.org/wp-content/uploads/2017/02/D02.jpg'
+heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/02/D02.jpg'
 ---
 
 #### NY生まれの「DEAN＆DELUCA」も注目する雑穀パワー
@@ -16,21 +16,21 @@ heroImage: 'https://naturalquest.org/wp-content/uploads/2017/02/D02.jpg'
 
 「DEAN＆DELUCA」が注目したのは、岩手県の雑穀。地元で雑穀の普及に熱心に努めてきた尾田川農園との出会いがあり、栽培方法や品質へのこだわりを認めて、商品化したということです。ご存知のとおり、雑穀は、白米よりもミネラル、たんぱく質、食物繊維が豊富なことで人気を高めていますが、このようにスタイリッシュになると、これまで関心のなかった層からも人気が高まるかもしれません。実際に、「DEAN＆DELUCA」の店でも、雑穀のリピーターが増加中だそうです。
 
-##### ![](https://naturalquest.org/wp-content/uploads/2017/02/D02.jpg)
+##### ![](https://old.naturalquest.org/wp-content/uploads/2017/02/D02.jpg)
 
 ##### (1) DEAN＆DELUCA　尾田川農園　四種の穀物
 
 ひえ、もちあわ、いなきび、アマランサスの４種をブレンド。小粒な品種ぞろいなので、サラダやスープにもマッチ。
 45g×6本　1,260円
 
-##### ![](https://naturalquest.org/wp-content/uploads/2017/02/D04.jpg)
+##### ![](https://old.naturalquest.org/wp-content/uploads/2017/02/D04.jpg)
 
 ##### (2) DEAN＆DELUCA　尾田川農園　七種の穀物
 
 押麦、丸麦、もちあわ、アマランサス、たかきび、ひえ、もろきびの7種をブレンド。しっかり水に漬けてお米とまぜ炊き込んで、麦と小粒種の食感を楽しみたい。
 45g×6本　1,260円
 
-#### ![](https://naturalquest.org/wp-content/uploads/2017/02/D03.jpg)
+#### ![](https://old.naturalquest.org/wp-content/uploads/2017/02/D03.jpg)
 
 ##### (3) DEAN＆DELUCA　尾田川農園　十種の穀物
 
