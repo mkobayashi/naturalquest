@@ -6,14 +6,14 @@ tags:
 categories:
   - NOTE
   - おでかけ
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02_2-1.jpg'
+heroImage: 'https://images.naturalquest.org/2017/03/foodex_02_2-1.jpg'
 ---
 
 午後の半日だけでは、
 おそらく1/4も廻れなかったので
 翌日も出向いたFOODEX JAPAN。
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02_2-1.jpg)
+![](https://images.naturalquest.org/2017/03/foodex_02_2-1.jpg)
 
  
 
@@ -31,7 +31,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02_2-
 と優美に語ってくれたのは、
 マダガスカルちかくのコモロ諸島からの女性たち、
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02_3-1-628x500.jpg)
+![](https://images.naturalquest.org/2017/03/foodex_02_3-1-628x500.jpg)
 
  
 
@@ -60,7 +60,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02_2-
 バニラビーンズが収穫できる島、
 しばし、想像してうっとりしてしまった。
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02_4-1.jpg)
+![](https://images.naturalquest.org/2017/03/foodex_02_4-1.jpg)
 
 こちらは、びっくり。
 鳥取県から出品された
@@ -78,7 +78,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02_2-
 
 女性目線バリバリで開発された商品、気分があがります。
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/03/egoma_oil-1.jpg)
+![](https://images.naturalquest.org/2017/03/egoma_oil-1.jpg)
 
 そして、最後は
 韓国からのエゴマ油、

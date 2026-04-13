@@ -7,7 +7,7 @@ tags:
 categories:
   - NOTE
   - 読む・観る
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/03/1-photo-1200x229.jpg'
+heroImage: 'https://images.naturalquest.org/2017/03/1-photo-1200x229.jpg'
 ---
 
 [「TOMORROW　パーマネントライフを探して」](http://www.cetera.co.jp/tomorrow/)を渋谷のイメージフォーラムで見た。
@@ -23,7 +23,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/03/1-photo-1200
 いつのまにか、日本が世界から取り残されていることを思い知って愕然。
 しかし、同時に「やっぱりこの方向だ」という確信も再び湧いてくる。
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/03/1-photo-1200x229.jpg)
+![](https://images.naturalquest.org/2017/03/1-photo-1200x229.jpg)
 
 ◎　上映情報
 

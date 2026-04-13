@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2010/12/img_040.jpg'
+heroImage: 'https://images.naturalquest.org/2010/12/img_040.jpg'
 ---
 
 #### 睡眠は元気の素
@@ -44,7 +44,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2010/12/img_040.jpg'
 
 ・芳香浴
 集中力を高めるレモンやレモングラスの精油を、ティーカップに入れた熱湯に3滴程度垂らして。蒸気を深く吸い込むことで、脳が活性化します。
-![](https://old.naturalquest.org/wp-content/uploads/2010/12/img_040.jpg)レモングラス
+![](https://images.naturalquest.org/2010/12/img_040.jpg)レモングラス
 
 スパなどでお馴染み、レモン風のすっきりした香りが脳を覚醒させてくれます。そのパワーは「ドライバーの精油」と言われていることからも歴然。
 
@@ -54,7 +54,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2010/12/img_040.jpg'
 
 ジャーマンカモミールはミルクティーにすると、自然の安定剤と言われているカルシウムがたっぷり入った牛乳との相乗効果で、さらによい眠りが期待できます。まず、お鍋に入れた牛乳200mlに、ジャーマンカモミールをティースプーン山盛り2杯加え、弱火にかけます。沸騰してきたら茶こしでこしてでき上がりです。・芳香浴ラベンダーやオレンジ、ベルガモットなど、リラックス効果があると言われている精油はたくさんありますが、まずはその中から、今一番落ち着くと思う香りをセレクトしましょう。そして、就寝15分前に熱湯を注いだティーカップにその精油を3滴たらして、部屋中に香りを漂わせます。ベッドの中で深呼吸をしていると、知らず知らずのうちに心地よい眠りが訪れてくるはず。
 
-![](https://old.naturalquest.org/wp-content/uploads/2010/12/img_014-1200x800.jpg)オレンジ
+![](https://images.naturalquest.org/2010/12/img_014-1200x800.jpg)オレンジ
 
 もの悲しい気分のときや寂しいときにおすすめ。柑橘系のオレンジの香りが、心を暖かく包み込んでくれます
 
@@ -69,4 +69,4 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2010/12/img_040.jpg'
 (3) アロマバスにする
 芳香浴と同様、その時に一番心地よいと感じた香りの精油をバスタブに3～4滴たらし、手でよくかき混ぜてから入浴します。一般的には、ローマンカモミールやクラリセージ、イランイランなどが適していると言われています。
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/02/MG_5888.jpg)
+![](https://images.naturalquest.org/2017/02/MG_5888.jpg)

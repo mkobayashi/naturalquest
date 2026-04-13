@@ -7,7 +7,7 @@ tags:
 categories:
   - NOTE
   - エディターより
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2018/08/yokohama_01.jpg'
+heroImage: 'https://images.naturalquest.org/2018/08/yokohama_01.jpg'
 ---
 
 冒頭の野中ともよさんの司会からして、熱くなるオープニング。
@@ -27,7 +27,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2018/08/yokohama_01.
 
 そうでした。いま進んでいる事態に比べると、会場のあまりに座り心地のよい座席に腰掛け、リアリティを忘れそうな弛緩にガツンと来ました。
 
-![](https://old.naturalquest.org/wp-content/uploads/2018/08/yokohama_01.jpg)
+![](https://images.naturalquest.org/2018/08/yokohama_01.jpg)
 
 ヨルダンに原発を輸出しようとしている財界、民主政権。
 
@@ -43,7 +43,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2018/08/yokohama_01.
 開会イベントでは、他にも前福島県知事の佐藤栄佐久氏、
 環境エネルギー政策研究所所長の飯田哲也氏、オーストラリア非核連合共同代表のピーター・ワッツ氏のスピーチがありました。
 
-![](https://old.naturalquest.org/wp-content/uploads/2012/01/yokohama_03.jpg)
+![](https://images.naturalquest.org/2012/01/yokohama_03.jpg)
 
 そして、最年長の迫力。
 

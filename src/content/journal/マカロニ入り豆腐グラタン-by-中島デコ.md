@@ -7,7 +7,7 @@ tags:
 categories:
   - 食
   - DIY
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2009/05/deko_pasta02.jpg'
+heroImage: 'https://images.naturalquest.org/2009/05/deko_pasta02.jpg'
 ---
 
 #### デコさんおすすめ定番の一品
@@ -24,4 +24,4 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2009/05/deko_pasta02
 **（４）**【A】の材料をなめらかになるまでスピードカッターにかけます。
 **（５）**耐熱皿に分量外のオリーブオイルを塗り、(4)の1/3量を混ぜた(3)を入れ、その上から残りの(4)をかけて、あらかじめ180℃に暖めたオーブンで15分ほど、焦げ目が付くまで焼きます。
 
-![](https://old.naturalquest.org/wp-content/uploads/2009/05/deko_pasta.jpg)
+![](https://images.naturalquest.org/2009/05/deko_pasta.jpg)

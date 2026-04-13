@@ -6,7 +6,7 @@ tags:
 categories:
   - NOTE
   - エディターより
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2012/08/pict_02.jpg'
+heroImage: 'https://images.naturalquest.org/2012/08/pict_02.jpg'
 ---
 
 #### 生きるには音楽が必要
@@ -67,7 +67,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2012/08/pict_02.jpg'
 呼吸していることを思い出せる、のびのびとして空間で
 紡ぎだされる、生き生きとした音の連なりなのです。
 
-![](https://old.naturalquest.org/wp-content/uploads/2012/08/pict_02.jpg)
+![](https://images.naturalquest.org/2012/08/pict_02.jpg)
 
 重松壮一郎さんのライブ情報、CDのお求めはWebサイトをご覧ください
 [http://www.livingthings.org](http://www.livingthings.org/)

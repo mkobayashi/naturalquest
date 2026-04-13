@@ -6,7 +6,7 @@ tags:
 categories:
   - NOTE
   - エッセイ
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/05/haru_02.jpg'
+heroImage: 'https://images.naturalquest.org/2017/05/haru_02.jpg'
 ---
 
 暖かい光が差す。4月、新潟県と群馬県にまたがる平標山で。
@@ -32,7 +32,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/05/haru_02.jpg'
 冬のように寒い山頂から降りてきて、
 こうした春のたよりを見つけると、やっぱり嬉しい。
 五感が刺激され、からだも喜ぶ。元気になる。
-![](https://old.naturalquest.org/wp-content/uploads/2017/05/haru_02.jpg)
+![](https://images.naturalquest.org/2017/05/haru_02.jpg)
 
 （写真）一面にひろがるフキノトウ
 

@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/02/01-e1487588961434.jpg'
+heroImage: 'https://images.naturalquest.org/2017/02/01-e1487588961434.jpg'
 ---
 
 #### 人類の進化と肩こり
@@ -42,7 +42,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/02/01-e14875889
 スポーツ選手も疲労回復や筋肉痛の予防のために、天然のスポーツドリンクとして飲んでいるそうです。
 また、眼の疲れからくる頭痛や肩こりを感じたときはクランベリーティーを飲んでみてください。
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/02/01-e1487588961434.jpg)クランベリー
+![](https://images.naturalquest.org/2017/02/01-e1487588961434.jpg)クランベリー
 
 アントシアニンという眼の疲れを回復してくれる成分が含まれています。毎日パソコンで眼を酷使している人に飲んでほしいハーブティーです。
 
@@ -51,7 +51,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/02/01-e14875889
 
 ・オイルマッサージ就寝前にやさしくオイルマッサージをすると、より血液循環を高められます。アロマバスの後などカラダが温まっているときに行うとより効果的です。
 肌になじみやすいマカデミアナッツ油9mlに新陳代謝を高める月見草油1mlを加え、ジュニパーの精油を2滴入れて、肩をマッサージします。
-![](https://old.naturalquest.org/wp-content/uploads/2010/12/img_019-1200x800.jpg)
+![](https://images.naturalquest.org/2010/12/img_019-1200x800.jpg)
 
 ジュニパー
 

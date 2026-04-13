@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2010/12/img_013-1200x800.jpg'
+heroImage: 'https://images.naturalquest.org/2010/12/img_013-1200x800.jpg'
 ---
 
 #### カゼを治すものは、自分自身の治癒力
@@ -41,7 +41,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2010/12/img_013-1200
 ハーブティーは、200mlのお湯にハーブをひとつまみ入れて3～5分蒸らせば完成です。
 **・芳香浴**
 抗菌、抗ウイルス作用を持つ精油を使って室内を浄化しましょう。熱湯を注いだティーカップにレモンやラベンダーの精油を3滴たらして、部屋中に香りを漂わせます。リラックス効果もある芳香浴は、ストレスなどでダメージを受けた免疫力を回復させる効果も期待できます。
-![](https://old.naturalquest.org/wp-content/uploads/2010/12/img_013-1200x800.jpg)エキナセア
+![](https://images.naturalquest.org/2010/12/img_013-1200x800.jpg)エキナセア
 
 免疫力を高め、抗炎症作用があるというデータが発表されています。日常的に飲んでおきたいハーブティーです。
 
@@ -54,7 +54,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2010/12/img_013-1200
 ・咳抗菌、鎮痙、去痰という3つの作用を持つタイムのハーブティーを飲みましょう。咳が止まらないときは、マカデミアナッツ油10mlにユーカリの精油を2滴混ぜたマッサージオイルを胸にすり込むと楽になります。咳による筋肉疲労が原因で起こるカラダの痛みには、ユーカリの代わりにローマンカモミールやラベンダーの精油を使ったマッサージオイルで痛む部分をマッサージしてください。
 
 ・ノドの痛みハチミツを適量入れたセージのハーブティーを飲みましょう。また、ハチミツはノドの乾燥を抑え、ウイルスの感染を防ぐと言われます。
-![](https://old.naturalquest.org/wp-content/uploads/2017/02/img_038.jpg)ユーカリ
+![](https://images.naturalquest.org/2017/02/img_038.jpg)ユーカリ
 
 抗菌作用を持つユーカリは、鼻水、咳、痰の症状を楽にしてくれる精油。掃除にも使えるので、1本常備しておくととっても便利です。
 

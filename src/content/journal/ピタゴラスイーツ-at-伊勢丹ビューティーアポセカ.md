@@ -7,10 +7,10 @@ tags:
 categories:
   - NOTE
   - おでかけ
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/01/0125_03.jpg'
+heroImage: 'https://images.naturalquest.org/2017/01/0125_03.jpg'
 ---
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/01/0125_03.jpg)
+![](https://images.naturalquest.org/2017/01/0125_03.jpg)
 ピタゴラスイーツの山崎友紀さんは、いつも名古屋のアトリエでお仕事をしているのですが、きょうは、新宿伊勢丹のビューティーアポセカリーというオーガニックコスメ、食品の専門フロアにお目見えです。
 
 伊勢丹と、ベジタリアン専門誌「Veggy」とのコラボ企画コーナーが、1/25（水）～2/4（土）まで開催される初日なので、自ら店頭に。
@@ -23,7 +23,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/01/0125_03.jpg'
 
  
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/01/1025_02-1078x800.jpg)
+![](https://images.naturalquest.org/2017/01/1025_02-1078x800.jpg)
 
 こだわりの商品がたくさん並び、壮観な中、ピタゴラスイーツさんのお菓子を食べたことのあるお客さんが、リピートでいらしていました。
 

@@ -6,19 +6,19 @@ tags:
 categories:
   - NOTE
   - おでかけ
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02.jpg'
+heroImage: 'https://images.naturalquest.org/2017/03/foodex_02.jpg'
 ---
 
 約8万人が４日間の会期中に訪れる日本最大の国際食品見本市が、FOODEX JAPANです。
 今年で42回目を迎えるこのイベント、年々出展数、来場者数が増えています。
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_02.jpg)
+![](https://images.naturalquest.org/2017/03/foodex_02.jpg)
 
 めざすは「オーガニック」エリアなのですが、年に１度の売り込みチャンスですから、
 国内はもちろん、海外からの輸入攻勢も盛んで、気合いのはいったブースが延々と会場いっぱいに続きます。
 ワイン、クラフトビール、食肉、水産物、フルーツ、木の実、植物油・・・全部あります。
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/03/foodex_03.jpg)
+![](https://images.naturalquest.org/2017/03/foodex_03.jpg)
 
 こちらは、行列ができているのでオージービーフかと思ったら、カンガルーの肉でした。
 食感は柔らかくジューシー。

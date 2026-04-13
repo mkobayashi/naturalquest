@@ -7,14 +7,14 @@ categories:
   - 食
   - 医食同源
 heroImage: >-
-  https://old.naturalquest.org/wp-content/uploads/2017/07/4e28b6d83b5e897b7daaacc0f38f56f0.jpg
+  https://images.naturalquest.org/2017/07/4e28b6d83b5e897b7daaacc0f38f56f0.jpg
 ---
 
 #### 話題のポリッジ（お粥）。グリーンフラスコ流アレンジレシピ
 ​開催日：7月15日（土）
 時間：13:00～14：15
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/07/4e28b6d83b5e897b7daaacc0f38f56f0.jpg)
+![](https://images.naturalquest.org/2017/07/4e28b6d83b5e897b7daaacc0f38f56f0.jpg)
 
 栄養価がずばぬけて高く、「完全食」と言われるインカ帝国（古代ペルー）由来の穀物を
 お粥にして食べる、クッキング講習会です。
@@ -25,7 +25,7 @@ heroImage: >-
 ​開催日：7月15日（土）
 時間：14:30～15：45
 
-![](https://old.naturalquest.org/wp-content/uploads/2017/07/12439ba1d77800236f4649471a589c3a.jpg)
+![](https://images.naturalquest.org/2017/07/12439ba1d77800236f4649471a589c3a.jpg)
 
 ドライフルーツやナッツなどの自然素材を原料に作られるボール状の菓子のことをブリスボールといいます。インカインチプロテインやナッツのたくさんいれて美味しいおやつを作りましょう！
 

@@ -4,7 +4,7 @@ pubDate: 2019-05-02T00:00:00.000Z
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://old.naturalquest.org/wp-content/uploads/2019/05/propolis_01.jpg'
+heroImage: 'https://images.naturalquest.org/2019/05/propolis_01.jpg'
 ---
 
 のど鼻の風邪でプロポリスを飲んだところ、回復が早かったので体験談として書いておこうと思う。
@@ -24,7 +24,7 @@ heroImage: 'https://old.naturalquest.org/wp-content/uploads/2019/05/propolis_01.
 
 棚の奥にひっそりと忘れ去られていたが、“おぼれる者はわらをもすがる”もので、急遽、再登場となった。
 
-![](https://old.naturalquest.org/wp-content/uploads/2019/05/propolis_02-1200x800.jpg)
+![](https://images.naturalquest.org/2019/05/propolis_02-1200x800.jpg)
 
 ### 研究論文も数多く、広く認められているプロポリスの効用
 
