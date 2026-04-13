@@ -8,7 +8,7 @@ tags:
 categories:
   - "食"
   - "DIY"
-heroImage: "https://images.naturalquest.org/2013/10/P1360645-1056x800.jpg"
+heroImage: "https://images.naturalquest.org/2013/10/P1360645.jpg"
 
 ---
 

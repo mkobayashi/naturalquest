@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://images.naturalquest.org/2010/12/img_013-1200x800.jpg'
+heroImage: 'https://images.naturalquest.org/2010/12/img_013.jpg'
 ---
 
 #### カゼを治すものは、自分自身の治癒力

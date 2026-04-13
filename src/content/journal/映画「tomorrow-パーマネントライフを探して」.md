@@ -7,7 +7,7 @@ tags:
 categories:
   - NOTE
   - 読む・観る
-heroImage: 'https://images.naturalquest.org/2017/03/1-photo-1200x229.jpg'
+heroImage: 'https://images.naturalquest.org/2017/03/1-photo.jpg'
 ---
 
 [「TOMORROW　パーマネントライフを探して」](http://www.cetera.co.jp/tomorrow/)を渋谷のイメージフォーラムで見た。

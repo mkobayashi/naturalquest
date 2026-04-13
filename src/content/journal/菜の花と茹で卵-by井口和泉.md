@@ -7,7 +7,7 @@ tags:
 categories:
   - 食
   - DIY
-heroImage: 'https://images.naturalquest.org/2018/07/P1390692-1067x800.jpg'
+heroImage: 'https://images.naturalquest.org/2018/07/P1390692.jpg'
 ---
 
 #### 菜の花の力強い生命力をいただく

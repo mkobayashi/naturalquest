@@ -8,7 +8,7 @@ tags:
 categories:
   - 食
   - DIY
-heroImage: 'https://images.naturalquest.org/2018/07/P1440197-1067x800.jpg'
+heroImage: 'https://images.naturalquest.org/2018/07/P1440197.jpg'
 ---
 
 #### フランス南西部の杏は、瑞々しさとやわらかい酸味が特徴
