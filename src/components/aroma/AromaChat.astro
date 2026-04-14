@@ -1,0 +1,437 @@
+---
+import OilCardTemplate from './OilCard.astro';
+
+type Oil = {
+	id: string;
+	name: string;
+	latin?: string;
+	note?: string;
+	scent_type?: string;
+	catch?: string;
+	effects?: string[];
+	indications?: string[];
+	lead?: string;
+	for_mind?: string;
+};
+
+const { oilsData } = Astro.props as {
+	oilsData: Oil[];
+};
+
+const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
+---
+
+<div class="nq-aroma-chat" id="aroma-chat">
+	<div class="nq-chat-messages" id="nq-chat-messages">
+		<div class="nq-bubble nq-ai">
+			<div class="nq-bubble-text">
+				こんにちは。今日はどんなことでお悩みですか？<br />
+				気になる症状、気分、目的などを教えてください。
+			</div>
+		</div>
+	</div>
+
+	<div class="nq-oil-results" id="nq-oil-results" hidden></div>
+
+	<div class="nq-chat-input">
+		<textarea
+			id="nq-chat-input"
+			placeholder="例：最近眠れなくて、頭もぼーっとしています"
+			rows="2"
+		></textarea>
+		<button id="nq-send-btn" class="nq-send-btn" type="button">送る</button>
+	</div>
+	<p class="nq-chat-note">※妊娠中・授乳中・持病のある方は専門家にご相談ください</p>
+
+	<OilCardTemplate />
+</div>
+
+<script define:vars={{ oilsData, workerUrl }}>
+	const WORKER_URL = workerUrl;
+
+	const messagesEl = document.getElementById('nq-chat-messages');
+	const resultsEl = document.getElementById('nq-oil-results');
+	const inputEl = document.getElementById('nq-chat-input');
+	const sendBtn = document.getElementById('nq-send-btn');
+	const tpl = document.getElementById('nq-oil-card-template');
+
+	if (!messagesEl || !resultsEl || !inputEl || !sendBtn || !tpl) {
+		throw new Error('AromaChat: required elements not found');
+	}
+
+	/** @type {{role:'user'|'assistant', content:string}[]} */
+	let history = [];
+
+	function escapeHtml(s) {
+		return String(s)
+			.replaceAll('&', '&amp;')
+			.replaceAll('<', '&lt;')
+			.replaceAll('>', '&gt;')
+			.replaceAll('"', '&quot;')
+			.replaceAll("'", '&#39;');
+	}
+
+	function appendBubble(role, text) {
+		const id = 'nq-bubble-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+		const div = document.createElement('div');
+		div.className = 'nq-bubble ' + (role === 'user' ? 'nq-user' : 'nq-ai');
+		div.id = id;
+		div.innerHTML = `<div class="nq-bubble-text">${escapeHtml(text).replaceAll('\n', '<br>')}</div>`;
+		messagesEl.appendChild(div);
+		messagesEl.scrollTop = messagesEl.scrollHeight;
+		return id;
+	}
+
+	function parseSuggestedIds(replyText) {
+		const jsonMatch = replyText.match(/```json\\s*\\n([\\s\\S]*?)\\n```/);
+		if (!jsonMatch) return { displayText: replyText.trim(), ids: [] };
+		let ids = [];
+		try {
+			const parsed = JSON.parse(jsonMatch[1]);
+			ids = Array.isArray(parsed?.suggestions) ? parsed.suggestions.map((s) => s?.id).filter(Boolean) : [];
+		} catch {
+			ids = [];
+		}
+		const displayText = replyText.replace(/```json[\\s\\S]*?```/, '').trim();
+		return { displayText, ids };
+	}
+
+	function makeTag(text, variant) {
+		const span = document.createElement('span');
+		span.className = 'nq-tag' + (variant ? ' ' + variant : '');
+		span.textContent = text;
+		return span;
+	}
+
+	function setText(el, text) {
+		el.textContent = text ?? '';
+	}
+
+	function renderOilCards(ids) {
+		resultsEl.hidden = false;
+		resultsEl.innerHTML = '';
+
+		ids.forEach((id) => {
+			const oil = oilsData.find((o) => o.id === id);
+			if (!oil) return;
+
+			const fragment = tpl.content.cloneNode(true);
+			const card = fragment.querySelector('.nq-oil-card');
+			if (!card) return;
+
+			const img = fragment.querySelector('[data-field="image"]');
+			if (img) {
+				img.src = `/images/oils/${oil.id}.png`;
+				img.alt = oil.name || '';
+				img.onerror = () => {
+					img.removeAttribute('src');
+					img.alt = '';
+				};
+			}
+
+			const meta = fragment.querySelector('[data-field="meta"]');
+			if (meta) {
+				const notePart = oil.note ? `${oil.note}ノート　` : '';
+				setText(meta, `${notePart}${oil.scent_type ?? ''}`.trim());
+			}
+
+			const name = fragment.querySelector('[data-field="name"]');
+			if (name) setText(name, oil.name ?? '');
+
+			const latin = fragment.querySelector('[data-field="latin"]');
+			if (latin) setText(latin, oil.latin ?? '');
+
+			const catchEl = fragment.querySelector('[data-field="catch"]');
+			if (catchEl) {
+				const v = oil.catch ?? '';
+				catchEl.hidden = !v;
+				setText(catchEl, v);
+			}
+
+			const effects = fragment.querySelector('[data-field="effects"]');
+			if (effects) {
+				(oil.effects ?? []).slice(0, 4).forEach((e) => effects.appendChild(makeTag(e)));
+			}
+
+			const indications = fragment.querySelector('[data-field="indications"]');
+			if (indications) {
+				(oil.indications ?? []).slice(0, 4).forEach((i) => indications.appendChild(makeTag(i, 'nq-tag-ind')));
+			}
+
+			const lead = fragment.querySelector('[data-field="lead"]');
+			if (lead) {
+				const v = oil.lead ?? '';
+				lead.hidden = !v;
+				setText(lead, v);
+			}
+
+			const mind = fragment.querySelector('[data-field="for_mind"]');
+			if (mind) {
+				const v = oil.for_mind ?? '';
+				mind.hidden = !v;
+				mind.innerHTML = v ? `<span>心に：</span>${escapeHtml(v)}` : '';
+			}
+
+			resultsEl.appendChild(fragment);
+		});
+
+		resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+
+	async function sendMessage() {
+		const text = inputEl.value.trim();
+		if (!text) return;
+
+		inputEl.value = '';
+		sendBtn.disabled = true;
+
+		appendBubble('user', text);
+		history.push({ role: 'user', content: text });
+
+		const loadingId = appendBubble('ai', '考えています...');
+
+		if (!WORKER_URL) {
+			document.getElementById(loadingId)?.remove();
+			appendBubble('ai', '現在、接続先（Workers URL）が未設定です。環境変数 PUBLIC_AROMA_WORKER_URL を設定してください。');
+			sendBtn.disabled = false;
+			return;
+		}
+
+		try {
+			const res = await fetch(WORKER_URL, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ messages: history, oilsData }),
+			});
+
+			const data = await res.json();
+			const reply = data?.content?.[0]?.text ?? '';
+
+			document.getElementById(loadingId)?.remove();
+
+			const { displayText, ids } = parseSuggestedIds(reply);
+			appendBubble('ai', displayText || '（回答を取得できませんでした）');
+
+			history.push({ role: 'assistant', content: reply || displayText });
+
+			if (ids.length > 0) renderOilCards(ids);
+		} catch {
+			document.getElementById(loadingId)?.remove();
+			appendBubble('ai', '申し訳ありません、エラーが発生しました。もう一度お試しください。');
+		}
+
+		sendBtn.disabled = false;
+		inputEl.focus();
+	}
+
+	sendBtn.addEventListener('click', sendMessage);
+	inputEl.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
+			e.preventDefault();
+			sendMessage();
+		}
+	});
+</script>
+
+<style>
+	.nq-aroma-chat {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.nq-chat-messages {
+		background: rgb(248 247 243 / 1);
+		border-radius: 12px;
+		padding: 1rem;
+		min-height: 220px;
+		max-height: 420px;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		border: 1px solid rgb(232 228 218 / 1);
+	}
+
+	.nq-bubble {
+		display: flex;
+	}
+	.nq-bubble.nq-user {
+		justify-content: flex-end;
+	}
+
+	.nq-bubble-text {
+		font-size: 0.875rem;
+		line-height: 1.7;
+		padding: 0.6rem 0.9rem;
+		border-radius: 12px;
+		max-width: 80%;
+	}
+
+	.nq-bubble.nq-ai .nq-bubble-text {
+		background: white;
+		border: 1px solid rgb(232 228 218 / 1);
+		border-radius: 4px 12px 12px 12px;
+		color: rgb(51 51 51 / 1);
+	}
+
+	.nq-bubble.nq-user .nq-bubble-text {
+		background: rgb(45 106 79 / 1);
+		color: white;
+		border-radius: 12px 4px 12px 12px;
+	}
+
+	.nq-oil-results {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.nq-oil-card {
+		flex: 1;
+		min-width: 240px;
+		max-width: 360px;
+		background: white;
+		border: 1px solid rgb(232 228 218 / 1);
+		border-radius: 12px;
+		overflow: hidden;
+	}
+
+	.nq-oil-card-img {
+		background: linear-gradient(135deg, rgb(240 237 230 / 1), rgb(234 244 238 / 1));
+	}
+
+	.nq-oil-card-img img {
+		width: 100%;
+		aspect-ratio: 3/4;
+		object-fit: cover;
+		display: block;
+	}
+
+	.nq-oil-card-body {
+		padding: 1rem;
+	}
+
+	.nq-oil-meta {
+		font-size: 0.7rem;
+		color: rgb(136 136 136 / 1);
+		margin-bottom: 0.25rem;
+		letter-spacing: 0.05em;
+	}
+
+	.nq-oil-name {
+		font-size: 1.1rem;
+		font-weight: 600;
+		margin-bottom: 0.15rem;
+		color: rgb(20 20 20 / 1);
+	}
+
+	.nq-oil-latin {
+		font-size: 0.75rem;
+		font-style: italic;
+		color: rgb(136 136 136 / 1);
+		margin-bottom: 0.5rem;
+	}
+
+	.nq-oil-catch {
+		font-size: 0.8rem;
+		color: rgb(45 106 79 / 1);
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		line-height: 1.5;
+	}
+
+	.nq-oil-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 4px;
+		margin-bottom: 0.4rem;
+	}
+
+	.nq-tag {
+		font-size: 0.7rem;
+		padding: 2px 8px;
+		background: rgb(234 244 238 / 1);
+		color: rgb(45 106 79 / 1);
+		border-radius: 999px;
+	}
+
+	.nq-tag.nq-tag-ind {
+		background: rgb(240 237 230 / 1);
+		color: rgb(122 106 79 / 1);
+	}
+
+	.nq-oil-lead {
+		font-size: 0.8rem;
+		line-height: 1.7;
+		color: rgb(85 85 85 / 1);
+		margin-top: 0.5rem;
+		border-top: 1px solid rgb(240 237 230 / 1);
+		padding-top: 0.5rem;
+	}
+
+	.nq-oil-mind {
+		font-size: 0.8rem;
+		line-height: 1.6;
+		color: rgb(85 85 85 / 1);
+		margin-top: 0.4rem;
+	}
+
+	.nq-oil-mind span {
+		font-weight: 600;
+		color: rgb(45 106 79 / 1);
+	}
+
+	.nq-chat-input {
+		display: flex;
+		gap: 0.5rem;
+		align-items: flex-end;
+	}
+
+	.nq-chat-input textarea {
+		flex: 1;
+		padding: 0.6rem 0.8rem;
+		border: 1px solid rgb(220 220 220 / 1);
+		border-radius: 8px;
+		font-size: 0.875rem;
+		line-height: 1.6;
+		resize: none;
+		font-family: inherit;
+		background: white;
+	}
+
+	.nq-send-btn {
+		padding: 0.6rem 1.2rem;
+		background: rgb(45 106 79 / 1);
+		color: white;
+		border: none;
+		border-radius: 8px;
+		font-size: 0.875rem;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+
+	.nq-send-btn:hover {
+		background: rgb(35 92 67 / 1);
+	}
+	.nq-send-btn:disabled {
+		opacity: 0.55;
+		cursor: not-allowed;
+	}
+
+	.nq-chat-note {
+		font-size: 0.7rem;
+		color: rgb(160 160 160 / 1);
+		text-align: center;
+	}
+
+	@media (max-width: 600px) {
+		.nq-oil-card {
+			min-width: 100%;
+		}
+		.nq-bubble-text {
+			max-width: 92%;
+		}
+	}
+</style>
+

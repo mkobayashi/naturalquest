@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AromaChat from '../../components/aroma/AromaChat.astro';
+import oilsData from '../../data/aroma_oils.json';
+---
+
+<Layout
+	title="精油を探す | Natural Quest"
+	description="症状・気分・目的を自由に入力すると、60種の精油データをもとにAIがあなたに合った香りを提案します。"
+	narrow
+>
+	<div class="space-y-6">
+		<header class="text-center">
+			<h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">精油を探す</h1>
+			<p class="mt-4 font-sans text-sm leading-relaxed text-nq-muted sm:text-base">
+				症状、気分、目的を自由に話しかけてください。<br />
+				精油データからあなたに合うものをご提案します。
+			</p>
+		</header>
+
+		<AromaChat oilsData={oilsData} />
+	</div>
+</Layout>
+
