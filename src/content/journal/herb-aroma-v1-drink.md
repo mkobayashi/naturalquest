@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://images.naturalquest.org/2010/07/turmeric.jpg'
+heroImage: 'https://images.naturalquest.org/2010/07/img_001.jpg'
 ---
 
 #### お酒とのつきあい方を考えよう
