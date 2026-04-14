@@ -5,13 +5,16 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "astro": "astro",
     "journal:hero-fill": "node scripts/fill-journal-hero-images.mjs",
     "journal:hero-fill:dry": "node scripts/fill-journal-hero-images.mjs --dry-run",
-    "browser:top": "node scripts/open-journal-in-browser.mjs --top"
+    "browser:top": "node scripts/open-journal-in-browser.mjs --top",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/mdx": "^4.3.14",
     "@astrojs/react": "^4.4.2",
     "@tailwindcss/vite": "^4.1.18",
@@ -22,6 +25,7 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "wrangler": "^4.82.2"
   }
 }
