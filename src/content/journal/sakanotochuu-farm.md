@@ -4,7 +4,7 @@ pubDate: 2018-01-09T00:00:00.000Z
 categories:
   - 食
   - 医食同源
-heroImage: 'https://images.naturalquest.org/2018/01/013.jpg'
+heroImage: 'https://images.naturalquest.org/2018/01/013-740x500.jpg'
 ---
 
 #### 野菜の宅配セットで、食卓のマンネリ化を打破！

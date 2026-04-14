@@ -6,6 +6,7 @@ tags:
 categories:
   - "住む"
   - "DIY"
+heroImage: "https://images.naturalquest.org/2016/07/image.jpg"
 ---
 
 コンポストとは、自然任せでなく、短期間のうちに生ゴミを堆肥にしたもので、生ゴミの発酵、堆肥化を促進する容器をコンポスターといいます。

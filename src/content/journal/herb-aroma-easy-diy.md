@@ -6,7 +6,7 @@ tags:
 categories:
   - 住む
   - DIY
-heroImage: 'https://images.naturalquest.org/2017/01/img_01-3.jpg'
+heroImage: 'https://images.naturalquest.org/2016/06/%E7%94%BB%E5%83%8F.jpg'
 ---
 
 #### キャンドルナイトをアロマで演出

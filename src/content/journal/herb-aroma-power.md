@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://images.naturalquest.org/2017/01/img_01-2.jpg'
+heroImage: 'https://images.naturalquest.org/2011/03/img_033.jpg'
 ---
 
 #### 気持ちよい香りの力で、スリムになる！

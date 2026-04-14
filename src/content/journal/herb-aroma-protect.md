@@ -7,7 +7,7 @@ tags:
 categories:
   - 住む
   - DIY
-heroImage: 'https://images.naturalquest.org/2017/02/img_068.jpg'
+heroImage: 'https://images.naturalquest.org/2011/11/img_063.jpg'
 ---
 
 #### 見逃さないで！ 身近な自然の恵み

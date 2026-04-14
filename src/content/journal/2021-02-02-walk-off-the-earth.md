@@ -4,6 +4,7 @@ pubDate: 2021-02-02
 categories:
   - "NOTE"
   - "読む・観る"
+heroImage: 'https://images.naturalquest.org/2021/02/2021y02m02d_184153294.jpg'
 ---
 
 コロナ緊急事態宣言が続く毎日、一般のテレビには飽き足らず、youtubeやネット動画配信サービスを

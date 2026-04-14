@@ -4,6 +4,7 @@ pubDate: 2019-09-25
 categories:
   - "NOTE"
   - "エディターより"
+heroImage: 'https://images.naturalquest.org/2019/09/markus-spiske-4ilIvlK3L14-unsplash.jpg'
 ---
 
 2019年9月23日、ニューヨークで開かれた国連気候行動サミットでのグレタ・トゥンベリさん演説全文を転載します。

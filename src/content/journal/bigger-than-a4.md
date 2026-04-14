@@ -6,6 +6,7 @@ tags:
 categories:
   - "住む"
   - "DIY"
+heroImage: "https://images.naturalquest.org/2010/08/8.13_seijo.jpg"
 ---
 
 整然と並ぶ家庭菜園。

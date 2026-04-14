@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://images.naturalquest.org/2017/01/img_01-1.jpg'
+heroImage: 'https://images.naturalquest.org/2011/02/img_058.jpg'
 ---
 
 #### 花粉症対策。薬に依存しないでつらさを和らげる
