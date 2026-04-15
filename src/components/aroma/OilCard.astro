@@ -5,14 +5,27 @@
 		</div>
 		<div class="nq-oil-card-body">
 			<p class="nq-oil-meta" data-field="meta"></p>
-			<h3 class="nq-oil-name" data-field="name"></h3>
+			<h3 class="nq-oil-name oil-name" data-field="name"></h3>
 			<p class="nq-oil-latin" data-field="latin"></p>
 			<p class="nq-oil-catch" data-field="catch" hidden></p>
 			<div class="nq-oil-tags" data-field="effects"></div>
 			<div class="nq-oil-tags" data-field="indications"></div>
 			<p class="nq-oil-lead" data-field="lead" hidden></p>
-			<p class="nq-oil-mind" data-field="for_mind" hidden></p>
+			<div class="oil-section" data-field="section-mind" hidden>
+				<span class="oil-section-label">心に：</span>
+				<div class="oil-section-text" data-field="for_mind"></div>
+			</div>
+			<div class="oil-section" data-field="section-body" hidden>
+				<span class="oil-section-label">カラダに：</span>
+				<div class="oil-section-text" data-field="for_body"></div>
+			</div>
+			<div class="oil-section oil-section-usage" data-field="section-purpose" hidden>
+				<div class="oil-usage-heading">
+					<span class="oil-section-label oil-usage-label">使い方：</span>
+					<span class="oil-usage-icons" data-field="usage-icons"></span>
+				</div>
+				<div class="oil-section-text" data-field="for_purpose"></div>
+			</div>
 		</div>
 	</article>
 </template>
-
