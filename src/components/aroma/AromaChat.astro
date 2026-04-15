@@ -65,14 +65,6 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		throw new Error('AromaChat: required elements not found');
 	}
 
-	let isComposing = false;
-	inputEl.addEventListener('compositionstart', () => {
-		isComposing = true;
-	});
-	inputEl.addEventListener('compositionend', () => {
-		isComposing = false;
-	});
-
 	const INITIAL_CHAT_MESSAGES_HTML = `<div class="nq-bubble nq-ai">
 			<div class="nq-bubble-text">
 				こんにちは。求める精油のイメージを、気分や症状、目的でAIに問いかけてください。
@@ -422,7 +414,7 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 
 	sendBtn.addEventListener('click', () => sendMessage());
 	inputEl.addEventListener('keydown', (e) => {
-		if (e.key === 'Enter' && !e.shiftKey && !isComposing && !e.isComposing) {
+		if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
 			e.preventDefault();
 			sendMessage();
 		}
