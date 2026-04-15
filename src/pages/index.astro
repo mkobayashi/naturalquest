@@ -141,19 +141,6 @@ const catLabelClass =
 									{featured.data.title ?? '無題の記事'}
 								</a>
 							</h1>
-							<section class="hero-aroma">
-								<img
-									src="/images/herbaroma.jpg"
-									alt="アロマAIチャット"
-									class="hero-aroma-img"
-									loading="lazy"
-									decoding="async"
-								/>
-								<div class="hero-aroma-text">
-									<p>精油選びに迷ったら</p>
-									<a href="/aroma/" class="hero-aroma-btn">アロマAIチャットを試す</a>
-								</div>
-							</section>
 							<p class:list={[catLabelClass]}>{categoryLabel(featured)}</p>
 							{featured.data.description ? (
 								<p class="line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
@@ -168,22 +155,7 @@ const catLabelClass =
 							</a>
 						</article>
 					) : (
-						<div class="contents">
-							<section class="hero-aroma">
-								<img
-									src="/images/herbaroma.jpg"
-									alt="アロマAIチャット"
-									class="hero-aroma-img"
-									loading="lazy"
-									decoding="async"
-								/>
-								<div class="hero-aroma-text">
-									<p>精油選びに迷ったら</p>
-									<a href="/aroma/" class="hero-aroma-btn">アロマAIチャットを試す</a>
-								</div>
-							</section>
-							<p class="font-sans text-sm text-nq-muted">記事がまだありません。</p>
-						</div>
+						<p class="font-sans text-sm text-nq-muted">記事がまだありません。</p>
 					)
 				}
 			</div>
@@ -400,76 +372,67 @@ const catLabelClass =
 		<!-- CATEGORY_SECTION_END -->
 
 		<!-- 4. アロマチャットバナー -->
-		<section class="mt-6 border-t border-nq-border pt-5" aria-label="精油辞典 アロマニカ">
-			<div
-				class="flex flex-col items-start justify-between gap-4 rounded-sm bg-nq-accent px-4 py-5 text-white sm:flex-row sm:items-center sm:px-6 sm:py-6"
-			>
-				<div class="space-y-2">
-					<p class="font-serif text-lg font-semibold tracking-tight text-white sm:text-xl">精油辞典　アロマニカ</p>
-					<p class="max-w-xl font-sans text-sm leading-relaxed text-white/92">
-						AIチャットで選ぶエッセンシャルオイル
+		<section class="mt-6 border-t border-nq-border pt-5" aria-label="アロマAIチャット">
+			<div class="hero-aroma">
+				<img
+					src="/images/herbaroma.jpg"
+					alt=""
+					class="hero-aroma-img"
+					loading="lazy"
+					decoding="async"
+				/>
+				<div class="hero-aroma-text">
+					<p class="font-sans text-[11px] font-light leading-snug tracking-wide text-nq-muted sm:text-xs">
+						精油選びに迷ったら
 					</p>
+					<p class="font-serif text-xl font-semibold tracking-tight text-nq-ink sm:text-2xl">アロマAIチャット</p>
+					<p class="max-w-xl font-sans text-sm leading-relaxed text-nq-text">
+						気分や症状を話しかけると、あなたに合う精油をご提案します。
+					</p>
+					<a
+						href="/aroma/"
+						class="inline-flex w-fit items-center justify-center rounded-[24px] bg-[#2d6a4f] px-6 py-3 font-sans text-xs font-bold tracking-[0.12em] text-white transition-opacity hover:opacity-92"
+					>
+						チャットを開く
+					</a>
 				</div>
-				<a
-					href="/aroma-chat"
-					class="inline-flex shrink-0 items-center justify-center border border-white/45 bg-white/12 px-6 py-3 font-sans text-xs font-bold tracking-[0.12em] text-white transition-colors hover:bg-white/22"
-				>
-					チャットを開く
-				</a>
 			</div>
 		</section>
 	</div>
 
 	<style>
 		.hero-aroma {
-			position: relative;
-			width: 100%;
-			margin: 2rem 0;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 0;
 			border-radius: 12px;
 			overflow: hidden;
 			background: #f5f2eb;
-			display: flex;
-			align-items: center;
-			gap: 2rem;
-			padding: 2rem;
+			min-height: 220px;
 		}
 
 		.hero-aroma-img {
-			width: 55%;
-			max-width: 480px;
+			width: 100%;
+			height: 100%;
 			object-fit: cover;
+			display: block;
 		}
 
 		.hero-aroma-text {
-			flex: 1;
+			padding: 2rem;
 			display: flex;
 			flex-direction: column;
+			justify-content: center;
 			gap: 1rem;
-		}
-
-		.hero-aroma-text p {
-			font-size: 1.1rem;
-			color: #555;
-		}
-
-		.hero-aroma-btn {
-			display: inline-block;
-			padding: 0.7rem 1.4rem;
-			background: #2d6a4f;
-			color: white;
-			border-radius: 24px;
-			font-size: 0.9rem;
-			text-decoration: none;
-			width: fit-content;
 		}
 
 		@media (max-width: 600px) {
 			.hero-aroma {
-				flex-direction: column;
-				padding: 1.5rem;
+				grid-template-columns: 1fr;
 			}
 			.hero-aroma-img {
-				width: 100%;
+				height: 180px;
+				object-fit: cover;
 			}
 		}
 	</style>

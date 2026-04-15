@@ -123,18 +123,21 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		const choices = options.choices ?? [];
 		const suggestionPrefix = options.suggestionHeading ? SUGGESTION_HEADING_HTML : '';
 
+		/** messagesEl 直下の追加ブロック（スクロール位置の基準） */
+		let bubble;
+
 		if (role === 'ai' && choices.length > 0) {
 			const block = document.createElement('div');
 			block.className = 'nq-ai-block';
 			block.id = id;
 
-			const bubble = document.createElement('div');
-			bubble.className = 'nq-bubble nq-ai';
+			const aiBubble = document.createElement('div');
+			aiBubble.className = 'nq-bubble nq-ai';
 			const inner = document.createElement('div');
 			inner.className = 'nq-bubble-text';
 			inner.innerHTML = suggestionPrefix + renderAiHtml(text || '');
-			bubble.appendChild(inner);
-			block.appendChild(bubble);
+			aiBubble.appendChild(inner);
+			block.appendChild(aiBubble);
 
 			const row = document.createElement('div');
 			row.className = 'nq-choice-row';
@@ -151,6 +154,7 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 			}
 			block.appendChild(row);
 			messagesEl.appendChild(block);
+			bubble = block;
 		} else {
 			const div = document.createElement('div');
 			div.className = 'nq-bubble ' + (role === 'user' ? 'nq-user' : 'nq-ai');
@@ -164,8 +168,10 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 			}
 			div.appendChild(inner);
 			messagesEl.appendChild(div);
+			bubble = div;
 		}
-		messagesEl.scrollTop = messagesEl.scrollHeight;
+		const bubbleTop = bubble.offsetTop - messagesEl.offsetTop;
+		messagesEl.scrollTop = bubbleTop;
 		return id;
 	}
 
@@ -550,6 +556,14 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		margin: 0.15em 0;
 	}
 
+	/* 本文内の太字（精油名など）：ゴシックのまま太すぎないようセリフ＋セミボールドで統一 */
+	.nq-aroma-chat .nq-bubble.nq-ai .nq-bubble-text strong {
+		font-family: var(--font-serif);
+		font-weight: 600;
+		color: var(--color-nq-ink);
+		letter-spacing: 0.02em;
+	}
+
 	.nq-aroma-chat .nq-bubble.nq-user .nq-bubble-text {
 		font-size: 16px;
 		line-height: 1.7;
@@ -605,10 +619,13 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 	}
 
 	.nq-aroma-chat .nq-oil-name.oil-name {
+		font-family: var(--font-serif);
 		font-size: 1.2rem;
 		font-weight: 600;
+		line-height: 1.35;
 		margin-bottom: 0.15rem;
-		color: rgb(20 20 20 / 1);
+		color: var(--color-nq-ink);
+		letter-spacing: 0.02em;
 	}
 
 	.nq-aroma-chat .nq-oil-latin {
