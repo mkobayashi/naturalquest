@@ -141,6 +141,19 @@ const catLabelClass =
 									{featured.data.title ?? '無題の記事'}
 								</a>
 							</h1>
+							<section class="hero-aroma">
+								<img
+									src="/images/herbaroma.jpg"
+									alt="アロマAIチャット"
+									class="hero-aroma-img"
+									loading="lazy"
+									decoding="async"
+								/>
+								<div class="hero-aroma-text">
+									<p>精油選びに迷ったら</p>
+									<a href="/aroma/" class="hero-aroma-btn">アロマAIチャットを試す</a>
+								</div>
+							</section>
 							<p class:list={[catLabelClass]}>{categoryLabel(featured)}</p>
 							{featured.data.description ? (
 								<p class="line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
@@ -155,7 +168,22 @@ const catLabelClass =
 							</a>
 						</article>
 					) : (
-						<p class="font-sans text-sm text-nq-muted">記事がまだありません。</p>
+						<div class="contents">
+							<section class="hero-aroma">
+								<img
+									src="/images/herbaroma.jpg"
+									alt="アロマAIチャット"
+									class="hero-aroma-img"
+									loading="lazy"
+									decoding="async"
+								/>
+								<div class="hero-aroma-text">
+									<p>精油選びに迷ったら</p>
+									<a href="/aroma/" class="hero-aroma-btn">アロマAIチャットを試す</a>
+								</div>
+							</section>
+							<p class="font-sans text-sm text-nq-muted">記事がまだありません。</p>
+						</div>
 					)
 				}
 			</div>
@@ -391,4 +419,58 @@ const catLabelClass =
 			</div>
 		</section>
 	</div>
+
+	<style>
+		.hero-aroma {
+			position: relative;
+			width: 100%;
+			margin: 2rem 0;
+			border-radius: 12px;
+			overflow: hidden;
+			background: #f5f2eb;
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+			padding: 2rem;
+		}
+
+		.hero-aroma-img {
+			width: 55%;
+			max-width: 480px;
+			object-fit: cover;
+		}
+
+		.hero-aroma-text {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		.hero-aroma-text p {
+			font-size: 1.1rem;
+			color: #555;
+		}
+
+		.hero-aroma-btn {
+			display: inline-block;
+			padding: 0.7rem 1.4rem;
+			background: #2d6a4f;
+			color: white;
+			border-radius: 24px;
+			font-size: 0.9rem;
+			text-decoration: none;
+			width: fit-content;
+		}
+
+		@media (max-width: 600px) {
+			.hero-aroma {
+				flex-direction: column;
+				padding: 1.5rem;
+			}
+			.hero-aroma-img {
+				width: 100%;
+			}
+		}
+	</style>
 </Layout>

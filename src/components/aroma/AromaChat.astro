@@ -24,10 +24,15 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 ---
 
 <div class="nq-aroma-chat" id="aroma-chat">
-	<div class="nq-chat-messages" id="nq-chat-messages">
-		<div class="nq-bubble nq-ai">
-			<div class="nq-bubble-text">
-				こんにちは。求める精油のイメージを、気分や症状、目的でAIに問いかけてください。
+	<div class="nq-chat-toolbar">
+		<button type="button" id="nq-reset-btn" class="nq-reset-btn">最初からやり直す</button>
+	</div>
+	<div class="nq-chat-messages-shell">
+		<div class="nq-chat-messages" id="nq-chat-messages">
+			<div class="nq-bubble nq-ai">
+				<div class="nq-bubble-text">
+					こんにちは。求める精油のイメージを、気分や症状、目的でAIに問いかけてください。
+				</div>
 			</div>
 		</div>
 	</div>
@@ -51,13 +56,20 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 	const WORKER_URL = workerUrl;
 
 	const messagesEl = document.getElementById('nq-chat-messages');
+	const resetBtn = document.getElementById('nq-reset-btn');
 	const inputEl = document.getElementById('nq-chat-input');
 	const sendBtn = document.getElementById('nq-send-btn');
 	const tpl = document.getElementById('nq-oil-card-template');
 
-	if (!messagesEl || !inputEl || !sendBtn || !tpl) {
+	if (!messagesEl || !resetBtn || !inputEl || !sendBtn || !tpl) {
 		throw new Error('AromaChat: required elements not found');
 	}
+
+	const INITIAL_CHAT_MESSAGES_HTML = `<div class="nq-bubble nq-ai">
+			<div class="nq-bubble-text">
+				こんにちは。求める精油のイメージを、気分や症状、目的でAIに問いかけてください。
+			</div>
+		</div>`;
 
 	/** @type {{role:'user'|'assistant', content:string}[]} */
 	let history = [];
@@ -186,19 +198,20 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		el.textContent = text ?? '';
 	}
 
-	/** for_purpose 本文から使い方アイコン用ファイル名を決定（重複なし・未該当は other） */
-	function pickUsageIconFiles(purposeText) {
-		const t = String(purposeText ?? '');
-		const files = [];
-		const push = (f) => {
-			if (!files.includes(f)) files.push(f);
-		};
-		if (/芳香|ディフューザー/.test(t)) push('usage_aroma.png');
-		if (/入浴|バス|お風呂/.test(t)) push('usage_bath.png');
-		if (/マッサージ|オイル/.test(t)) push('usage_oil.png');
-		if (/塗布|スキンケア|ヘアケア/.test(t)) push('usage_point.png');
-		if (files.length === 0) push('usage_other.png');
-		return files;
+	/** for_purpose と lead を併せたテキストから用法アイコン URL を1つ決定 */
+	function pickUsageIconSrc(oil) {
+		const usageText = (oil.for_purpose || '') + ' ' + (oil.lead || '');
+		let iconSrc = '/images/usage/usage_other.png';
+		if (/芳香|ディフューザー/.test(usageText)) {
+			iconSrc = '/images/usage/usage_aroma.png';
+		} else if (/入浴|バス|お風呂/.test(usageText)) {
+			iconSrc = '/images/usage/usage_bath.png';
+		} else if (/マッサージ|オイル/.test(usageText)) {
+			iconSrc = '/images/usage/usage_oil.png';
+		} else if (/塗布|スキンケア|ヘアケア/.test(usageText)) {
+			iconSrc = '/images/usage/usage_point.png';
+		}
+		return iconSrc;
 	}
 
 	/**
@@ -290,24 +303,35 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 			const purposeTextEl = fragment.querySelector('[data-field="for_purpose"]');
 			const usageIconsEl = fragment.querySelector('[data-field="usage-icons"]');
 			if (secPurpose && purposeTextEl && usageIconsEl) {
-				const v = oil.for_purpose ?? '';
-				const has = Boolean(v && String(v).trim());
-				secPurpose.hidden = !has;
-				if (has) {
+				const purposeStr = (oil.for_purpose && String(oil.for_purpose).trim()) || '';
+				const leadStr = (oil.lead && String(oil.lead).trim()) || '';
+				const showUsageSection = Boolean(purposeStr || leadStr);
+
+				secPurpose.hidden = !showUsageSection;
+				if (showUsageSection) {
 					usageIconsEl.innerHTML = '';
-					for (const file of pickUsageIconFiles(v)) {
-						const ic = document.createElement('img');
-						ic.src = `/images/usage/${file}`;
-						ic.alt = '';
-						ic.loading = 'lazy';
-						ic.decoding = 'async';
-						usageIconsEl.appendChild(ic);
-					}
-					purposeTextEl.innerHTML = escapeHtml(v).replace(/\n/g, '<br><br>');
+					const iconSrc = pickUsageIconSrc(oil);
+					const ic = document.createElement('img');
+					ic.src = iconSrc;
+					ic.width = 40;
+					ic.height = 40;
+					ic.setAttribute('style', 'object-fit:contain;');
+					ic.alt = '用法';
+					ic.loading = 'lazy';
+					ic.decoding = 'async';
+					usageIconsEl.appendChild(ic);
+
+					purposeTextEl.innerHTML = purposeStr
+						? escapeHtml(purposeStr).replace(/\n/g, '<br><br>')
+						: '';
 				} else {
 					usageIconsEl.innerHTML = '';
 					purposeTextEl.innerHTML = '';
 				}
+			}
+
+			if (card) {
+				console.log('[AromaChat] oil card innerHTML:', card.innerHTML);
 			}
 
 			wrapper.appendChild(fragment);
@@ -316,7 +340,6 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		if (!wrapper.childNodes.length) return;
 
 		anchor.insertAdjacentElement('afterend', wrapper);
-		messagesEl.scrollTop = messagesEl.scrollHeight;
 	}
 
 	async function sendMessage(prefill) {
@@ -375,6 +398,14 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		inputEl.focus();
 	}
 
+	resetBtn.addEventListener('click', () => {
+		history = [];
+		messagesEl.innerHTML = INITIAL_CHAT_MESSAGES_HTML;
+		inputEl.value = '';
+		sendBtn.disabled = false;
+		inputEl.focus();
+	});
+
 	sendBtn.addEventListener('click', () => sendMessage());
 	inputEl.addEventListener('keydown', (e) => {
 		if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
@@ -390,6 +421,27 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+	}
+
+	.nq-aroma-chat .nq-chat-toolbar {
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 6px;
+	}
+
+	.nq-aroma-chat .nq-chat-messages-shell {
+		width: 100%;
+	}
+
+	.nq-aroma-chat .nq-reset-btn {
+		font-size: 12px;
+		color: #888;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		text-decoration: underline;
+		padding: 4px 0;
+		font-family: inherit;
 	}
 
 	.nq-aroma-chat .nq-chat-messages {
