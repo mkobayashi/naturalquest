@@ -32,8 +32,6 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		</div>
 	</div>
 
-	<div class="nq-oil-results" id="nq-oil-results" hidden></div>
-
 	<div class="nq-chat-input">
 		<textarea
 			id="nq-chat-input"
@@ -53,12 +51,11 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 	const WORKER_URL = workerUrl;
 
 	const messagesEl = document.getElementById('nq-chat-messages');
-	const resultsEl = document.getElementById('nq-oil-results');
 	const inputEl = document.getElementById('nq-chat-input');
 	const sendBtn = document.getElementById('nq-send-btn');
 	const tpl = document.getElementById('nq-oil-card-template');
 
-	if (!messagesEl || !resultsEl || !inputEl || !sendBtn || !tpl) {
+	if (!messagesEl || !inputEl || !sendBtn || !tpl) {
 		throw new Error('AromaChat: required elements not found');
 	}
 
@@ -204,9 +201,16 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		return files;
 	}
 
-	function renderOilCards(ids) {
-		resultsEl.hidden = false;
-		resultsEl.innerHTML = '';
+	/**
+	 * @param {string[]} ids
+	 * @param {string} anchorAfterId appendBubble が返した AI ブロックの id（吹き出し直後にカードを差し込む）
+	 */
+	function renderOilCards(ids, anchorAfterId) {
+		const anchor = document.getElementById(anchorAfterId);
+		if (!anchor) return;
+
+		const wrapper = document.createElement('div');
+		wrapper.className = 'nq-oil-results';
 
 		ids.forEach((id) => {
 			const oil = oilsData.find((o) => o.id === id);
@@ -293,7 +297,6 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 					usageIconsEl.innerHTML = '';
 					for (const file of pickUsageIconFiles(v)) {
 						const ic = document.createElement('img');
-						ic.className = 'nq-oil-usage-icon';
 						ic.src = `/images/usage/${file}`;
 						ic.alt = '';
 						ic.loading = 'lazy';
@@ -307,10 +310,13 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 				}
 			}
 
-			resultsEl.appendChild(fragment);
+			wrapper.appendChild(fragment);
 		});
 
-		resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		if (!wrapper.childNodes.length) return;
+
+		anchor.insertAdjacentElement('afterend', wrapper);
+		messagesEl.scrollTop = messagesEl.scrollHeight;
 	}
 
 	async function sendMessage(prefill) {
@@ -350,15 +356,16 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 			const toShow = bodyText || (choices.length ? '' : fallback);
 			const suggestionHeading = ids.length > 0;
 
+			let aiBlockId;
 			if (choices.length > 0) {
-				appendBubble('ai', toShow, { choices, suggestionHeading });
+				aiBlockId = appendBubble('ai', toShow, { choices, suggestionHeading });
 			} else {
-				appendBubble('ai', displayText || fallback, { suggestionHeading });
+				aiBlockId = appendBubble('ai', displayText || fallback, { suggestionHeading });
 			}
 
 			history.push({ role: 'assistant', content: reply || displayText });
 
-			if (ids.length > 0) renderOilCards(ids);
+			if (ids.length > 0) renderOilCards(ids, aiBlockId);
 		} catch {
 			document.getElementById(loadingId)?.remove();
 			appendBubble('ai', '申し訳ありません、エラーが発生しました。もう一度お試しください。');
@@ -499,10 +506,14 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		border-radius: 12px 4px 12px 12px;
 	}
 
-	.nq-aroma-chat .nq-oil-results {
+	.nq-aroma-chat .nq-chat-messages .nq-oil-results {
 		display: flex;
 		gap: 1rem;
 		flex-wrap: wrap;
+		margin-top: 0.75rem;
+		max-width: 100%;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.nq-aroma-chat .nq-oil-card {
@@ -615,31 +626,36 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		color: #444;
 	}
 
-	.nq-aroma-chat .oil-section-usage .oil-usage-heading {
+	.nq-aroma-chat .oil-section-usage .oil-usage-header {
 		display: flex;
-		flex-wrap: wrap;
 		align-items: center;
-		gap: 0 4px;
-		margin-bottom: 4px;
+		gap: 10px;
+		margin-bottom: 6px;
 	}
 
-	.nq-aroma-chat .oil-section-usage .oil-usage-label {
+	.nq-aroma-chat .oil-section-usage .oil-usage-header .oil-section-label {
+		display: inline-block;
 		margin-bottom: 0;
+		flex-shrink: 0;
 	}
 
-	.nq-aroma-chat .oil-usage-icons {
-		display: inline-flex;
+	.nq-aroma-chat .oil-section-usage .oil-usage-icons {
+		display: flex;
+		gap: 8px;
 		flex-wrap: wrap;
 		align-items: center;
-		vertical-align: middle;
 	}
 
-	.nq-aroma-chat .nq-oil-usage-icon {
-		width: 36px;
-		height: 36px;
-		vertical-align: middle;
-		margin-right: 6px;
+	.nq-aroma-chat .oil-section-usage .oil-usage-icons img {
+		width: 40px;
+		height: 40px;
 		object-fit: contain;
+	}
+
+	.nq-aroma-chat .oil-section-usage .oil-usage-text {
+		font-size: 14px;
+		line-height: 1.7;
+		color: #444;
 	}
 
 	.nq-aroma-chat .nq-chat-input {
