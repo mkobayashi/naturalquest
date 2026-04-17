@@ -4,6 +4,7 @@ pubDate: 2026-04-11
 categories: ["住む"]
 tags: ["自然素材"]
 articleType: catalog
+public: false
 description: "漆喰の製品一覧です。"
 heroImage: ""
 items:

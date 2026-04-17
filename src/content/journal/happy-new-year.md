@@ -7,6 +7,7 @@ tags:
 categories:
   - "NOTE"
   - "エディターより"
+heroImage: 'https://images.naturalquest.org/2017/01/20170105.jpg'
 ---
 
 新年あけましておめでとうございます。

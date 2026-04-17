@@ -7,6 +7,7 @@ tags:
 categories:
   - "NOTE"
   - "エッセイ"
+heroImage: 'https://images.naturalquest.org/2016/12/yoshima_ume.jpg'
 ---
 
 週末の食事は不規則になることが多く、
