@@ -14,6 +14,10 @@ type Oil = {
 	for_mind?: string;
 	for_body?: string;
 	for_purpose?: string;
+	for_beauty?: string;
+	for_purpose_other?: string;
+	for_other?: string;
+	caution?: string;
 };
 
 const { oilsData } = Astro.props as {
@@ -241,7 +245,7 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 
 			const img = fragment.querySelector('[data-field="image"]');
 			if (img) {
-				img.src = `/images/oils/${oil.id}.png`;
+				img.src = `/images/oils/full_${oil.id}.png`;
 				img.alt = oil.name || '';
 				img.onerror = () => {
 					img.removeAttribute('src');
@@ -303,6 +307,30 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 				const v = oil.for_body ?? '';
 				secBody.hidden = !v;
 				setText(bodyText, v);
+			}
+
+			const secBeauty = fragment.querySelector('[data-field="section-beauty"]');
+			const beautyText = fragment.querySelector('[data-field="for_beauty"]');
+			if (secBeauty && beautyText) {
+				const v = (oil.for_beauty ?? '').trim();
+				secBeauty.hidden = !v;
+				setText(beautyText, v);
+			}
+
+			const secPurposeOther = fragment.querySelector('[data-field="section-purpose-other"]');
+			const purposeOtherText = fragment.querySelector('[data-field="for_purpose_other"]');
+			if (secPurposeOther && purposeOtherText) {
+				const v = String(oil.for_purpose_other ?? oil.for_other ?? '').trim();
+				secPurposeOther.hidden = !v;
+				setText(purposeOtherText, v);
+			}
+
+			const secCaution = fragment.querySelector('[data-field="section-caution"]');
+			const cautionTextEl = fragment.querySelector('[data-field="caution"]');
+			if (secCaution && cautionTextEl) {
+				const v = (oil.caution ?? '').trim();
+				secCaution.hidden = !v;
+				setText(cautionTextEl, v);
 			}
 
 			const secPurpose = fragment.querySelector('[data-field="section-purpose"]');
@@ -594,16 +622,17 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 
 	.nq-aroma-chat .nq-oil-card-img {
 		float: left;
-		width: 45%;
-		margin: 0 1rem 0.5rem 0;
-		aspect-ratio: 3/4;
-		background: linear-gradient(135deg, rgb(240 237 230 / 1), rgb(234 244 238 / 1));
+		width: 42%;
+		aspect-ratio: 3 / 4;
+		margin: 0 0.75rem 0.5rem 0;
+		background: transparent;
 	}
 
 	.nq-aroma-chat .nq-oil-card-img img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
+		object-fit: contain;
+		object-position: top;
 		display: block;
 	}
 
@@ -695,6 +724,18 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		color: #444;
 	}
 
+	.nq-aroma-chat .oil-section-caution {
+		background: #faeeda;
+	}
+
+	.nq-aroma-chat .oil-section-caution .oil-section-label {
+		color: #854f0b;
+	}
+
+	.nq-aroma-chat .oil-section-caution .oil-section-text {
+		color: #633806;
+	}
+
 	.nq-aroma-chat .oil-section-usage .oil-usage-header {
 		display: flex;
 		align-items: center;
@@ -777,7 +818,13 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		.nq-aroma-chat .nq-oil-card-img {
 			float: left;
 			width: 42%;
+			aspect-ratio: 3 / 4;
 			margin: 0 0.75rem 0.5rem 0;
+			background: transparent;
+		}
+		.nq-aroma-chat .nq-oil-card-img img {
+			object-fit: contain;
+			object-position: top;
 		}
 		.nq-aroma-chat .nq-bubble-text {
 			max-width: 92%;
