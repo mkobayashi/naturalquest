@@ -228,19 +228,19 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		el.textContent = text ?? '';
 	}
 
-	/** oil.usage の各ラベルに対応するアイコン（public/images/usage/ 配下） */
+	/** oil.usage の各ラベルに対応するアイコン */
 	const usageIconMap = {
-		芳香浴: 'usage_aroma.png',
-		アロマバス: 'usage_bath.png',
-		足浴: 'usage_bath.png',
-		オイルマッサージ: 'usage_oil.png',
-		軟膏: 'usage_point.png',
-		ヘアシャンプー: 'usage_point.png',
-		サシェ: 'usage_other.png',
-		'クリーニング（希釈液）': 'usage_other.png',
+		芳香浴: '/images/usage/usage_aroma.png',
+		アロマバス: '/images/usage/usage_bath.png',
+		オイルマッサージ: '/images/usage/usage_oil.png',
+		足浴: '/images/usage/usage_point.png',
+		サシェ: '/images/usage/usage_other.png',
+		軟膏: '/images/usage/usage_other.png',
+		ヘアシャンプー: '/images/usage/usage_other.png',
+		'クリーニング（希釈液）': '/images/usage/usage_other.png',
 	};
 
-	const USAGE_ICON_DIR = '/images/usage/';
+	const USAGE_ICON_FALLBACK = '/images/usage/usage_other.png';
 
 	/**
 	 * @param {string[]} ids
@@ -361,11 +361,10 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 				usageIconsEl.innerHTML = '';
 				if (showUsageSection) {
 					for (const label of usageList) {
-						const file = usageIconMap[label] ?? 'usage_other.png';
 						const item = document.createElement('div');
 						item.className = 'oil-usage-item';
 						const ic = document.createElement('img');
-						ic.src = USAGE_ICON_DIR + file;
+						ic.src = usageIconMap[label] ?? USAGE_ICON_FALLBACK;
 						ic.width = 44;
 						ic.height = 44;
 						ic.alt = label;
