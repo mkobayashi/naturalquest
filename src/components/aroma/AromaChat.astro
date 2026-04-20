@@ -1,5 +1,6 @@
 ---
 import OilCardTemplate from './OilCard.astro';
+import affiliateData from '../../data/aroma_affiliate.json';
 
 type Oil = {
 	id: string;
@@ -57,8 +58,9 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 
-<script define:vars={{ oilsData, workerUrl }}>
+<script define:vars={{ oilsData, workerUrl, affiliateData }}>
 	const WORKER_URL = workerUrl;
+	const AFFILIATE_DATA = affiliateData ?? {};
 
 	const messagesEl = document.getElementById('nq-chat-messages');
 	const resetBtn = document.getElementById('nq-reset-btn');
@@ -376,6 +378,34 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 						item.appendChild(cap);
 						usageIconsEl.appendChild(item);
 					}
+				}
+			}
+
+			// アフィリエイト（リンクがある精油のみボタン表示）
+			const affiliate = AFFILIATE_DATA?.[oil.id];
+			if (affiliate && affiliate.url) {
+				const body = fragment.querySelector('.nq-oil-card-body');
+				if (body) {
+					const box = document.createElement('div');
+					box.className = 'oil-affiliate';
+
+					const a = document.createElement('a');
+					a.href = String(affiliate.url);
+					a.target = '_blank';
+					a.rel = 'noopener noreferrer sponsored';
+					a.className = 'oil-buy-btn';
+
+					const label = document.createElement('span');
+					label.textContent = String(affiliate.label || 'Amazonで購入する');
+
+					const arrow = document.createElement('span');
+					arrow.className = 'oil-buy-arrow';
+					arrow.textContent = '→';
+
+					a.appendChild(label);
+					a.appendChild(arrow);
+					box.appendChild(a);
+					body.appendChild(box);
 				}
 			}
 
@@ -793,6 +823,33 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		width: 44px;
 		height: 44px;
 		object-fit: contain;
+	}
+
+	.nq-aroma-chat .oil-affiliate {
+		margin-top: 0.75rem;
+		padding-top: 0.75rem;
+		border-top: 0.5px solid #e8e4da;
+	}
+
+	.nq-aroma-chat .oil-buy-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		padding: 0.5rem 1rem;
+		background: #ff9900;
+		color: white;
+		border-radius: 20px;
+		font-size: 0.8rem;
+		font-weight: 500;
+		text-decoration: none;
+	}
+
+	.nq-aroma-chat .oil-buy-btn:hover {
+		background: #e68900;
+	}
+
+	.nq-aroma-chat .oil-buy-arrow {
+		font-size: 0.75rem;
 	}
 
 	.nq-aroma-chat .nq-chat-input {
