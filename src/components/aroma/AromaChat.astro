@@ -454,20 +454,24 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 
 	sendBtn.addEventListener('click', () => sendMessage());
 
-	/** IME 変換確定の Enter は compositionend の直後に keydown し、isComposing が false のまま送られることがある */
-	let blockEnterAfterComposition = false;
+	let isComposing = false;
+
+	inputEl.addEventListener('compositionstart', () => {
+		isComposing = true;
+	});
+
 	inputEl.addEventListener('compositionend', () => {
-		blockEnterAfterComposition = true;
+		// queueMicrotask で次のイベントループまでフラグを維持
 		queueMicrotask(() => {
-			blockEnterAfterComposition = false;
+			isComposing = false;
 		});
 	});
 
 	inputEl.addEventListener('keydown', (e) => {
-		if (e.key !== 'Enter' || e.shiftKey) return;
-		if (e.isComposing || blockEnterAfterComposition) return;
-		e.preventDefault();
-		sendMessage();
+		if (e.key === 'Enter' && !e.shiftKey && !isComposing) {
+			e.preventDefault();
+			sendMessage();
+		}
 	});
 </script>
 
