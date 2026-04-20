@@ -454,20 +454,27 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 	sendBtn.addEventListener('click', () => sendMessage());
 
 	let isComposing = false;
+	let compositionJustEnded = false;
 
 	inputEl.addEventListener('compositionstart', () => {
 		isComposing = true;
+		compositionJustEnded = false;
 	});
 
 	inputEl.addEventListener('compositionend', () => {
-		// queueMicrotask で次のイベントループまでフラグを維持
-		queueMicrotask(() => {
-			isComposing = false;
-		});
+		isComposing = false;
+		compositionJustEnded = true;
+		setTimeout(() => {
+			compositionJustEnded = false;
+		}, 50);
 	});
 
 	inputEl.addEventListener('keydown', (e) => {
-		if (e.key === 'Enter' && !e.shiftKey && !isComposing) {
+		if (e.key === 'Enter' && !e.shiftKey) {
+			if (isComposing || compositionJustEnded) {
+				e.preventDefault();
+				return;
+			}
 			e.preventDefault();
 			sendMessage();
 		}
