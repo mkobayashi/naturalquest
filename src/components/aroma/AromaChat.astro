@@ -18,6 +18,7 @@ type Oil = {
 	for_purpose_other?: string;
 	for_other?: string;
 	caution?: string;
+	usage?: string[];
 };
 
 const { oilsData } = Astro.props as {
@@ -180,21 +181,40 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 	}
 
 	function parseSuggestedIds(replyText) {
-		const jsonMatch = replyText.match(/```json\s*([\s\S]*?)```/);
+		const raw = String(replyText ?? '');
 		let ids = [];
-		if (jsonMatch) {
+
+		const parseSuggestionIds = (jsonStr) => {
 			try {
-				const parsed = JSON.parse(jsonMatch[1].trim());
-				ids = Array.isArray(parsed?.suggestions) ? parsed.suggestions.map((s) => s?.id).filter(Boolean) : [];
+				const parsed = JSON.parse(jsonStr.trim());
+				if (!Array.isArray(parsed?.suggestions)) return [];
+				return parsed.suggestions.map((s) => String(s?.id ?? '').trim()).filter(Boolean);
 			} catch {
-				ids = [];
+				return [];
 			}
+		};
+
+		// ```json / ```JSON / 言語なしフェンスのいずれにも対応
+		const fenced = raw.match(/```(?:json)?\s*([\s\S]*?)```/i);
+		if (fenced) {
+			ids = parseSuggestionIds(fenced[1]);
 		}
-		const displayText = replyText
-			.replace(/```json[\s\S]*?```/g, '')
-			.replace(/```[\s\S]*?```/g, '')
-			.trim();
+
+		// フェンスが欠ける・形式がずれた場合のフォールバック
+		if (!ids.length) {
+			const loose = raw.match(/\{\s*"suggestions"\s*:\s*\[[\s\S]*?\]\s*\}/);
+			if (loose) ids = parseSuggestionIds(loose[0]);
+		}
+
+		const displayText = raw.replace(/```(?:json)?\s*[\s\S]*?```/gi, '').trim();
 		return { displayText, ids };
+	}
+
+	function findOilBySuggestionId(rawId) {
+		const id = String(rawId ?? '').trim();
+		if (!id) return undefined;
+		const lower = id.toLowerCase();
+		return oilsData.find((o) => o.id === id || (o.id && String(o.id).toLowerCase() === lower));
 	}
 
 	function makeTag(text, variant) {
@@ -208,21 +228,19 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		el.textContent = text ?? '';
 	}
 
-	/** for_purpose と lead を併せたテキストから用法アイコン URL を1つ決定 */
-	function pickUsageIconSrc(oil) {
-		const usageText = (oil.for_purpose || '') + ' ' + (oil.lead || '');
-		let iconSrc = '/images/usage/usage_other.png';
-		if (/芳香|ディフューザー/.test(usageText)) {
-			iconSrc = '/images/usage/usage_aroma.png';
-		} else if (/入浴|バス|お風呂/.test(usageText)) {
-			iconSrc = '/images/usage/usage_bath.png';
-		} else if (/マッサージ|オイル/.test(usageText)) {
-			iconSrc = '/images/usage/usage_oil.png';
-		} else if (/塗布|スキンケア|ヘアケア/.test(usageText)) {
-			iconSrc = '/images/usage/usage_point.png';
-		}
-		return iconSrc;
-	}
+	/** oil.usage の各ラベルに対応するアイコン（public/images/usage/ 配下） */
+	const usageIconMap = {
+		芳香浴: 'usage_aroma.png',
+		アロマバス: 'usage_bath.png',
+		足浴: 'usage_bath.png',
+		オイルマッサージ: 'usage_oil.png',
+		軟膏: 'usage_point.png',
+		ヘアシャンプー: 'usage_point.png',
+		サシェ: 'usage_other.png',
+		'クリーニング（希釈液）': 'usage_other.png',
+	};
+
+	const USAGE_ICON_DIR = '/images/usage/';
 
 	/**
 	 * @param {string[]} ids
@@ -236,7 +254,7 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		wrapper.className = 'nq-oil-results';
 
 		ids.forEach((id) => {
-			const oil = oilsData.find((o) => o.id === id);
+			const oil = findOilBySuggestionId(id);
 			if (!oil) return;
 
 			const fragment = tpl.content.cloneNode(true);
@@ -334,38 +352,32 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 			}
 
 			const secPurpose = fragment.querySelector('[data-field="section-purpose"]');
-			const purposeTextEl = fragment.querySelector('[data-field="for_purpose"]');
 			const usageIconsEl = fragment.querySelector('[data-field="usage-icons"]');
-			if (secPurpose && purposeTextEl && usageIconsEl) {
-				const purposeStr = (oil.for_purpose && String(oil.for_purpose).trim()) || '';
-				const leadStr = (oil.lead && String(oil.lead).trim()) || '';
-				const showUsageSection = Boolean(purposeStr || leadStr);
+			if (secPurpose && usageIconsEl) {
+				const usageList = Array.isArray(oil.usage) ? oil.usage : [];
+				const showUsageSection = usageList.length > 0;
 
 				secPurpose.hidden = !showUsageSection;
+				usageIconsEl.innerHTML = '';
 				if (showUsageSection) {
-					usageIconsEl.innerHTML = '';
-					const iconSrc = pickUsageIconSrc(oil);
-					const ic = document.createElement('img');
-					ic.src = iconSrc;
-					ic.width = 40;
-					ic.height = 40;
-					ic.setAttribute('style', 'object-fit:contain;');
-					ic.alt = '用法';
-					ic.loading = 'lazy';
-					ic.decoding = 'async';
-					usageIconsEl.appendChild(ic);
-
-					purposeTextEl.innerHTML = purposeStr
-						? escapeHtml(purposeStr).replace(/\n/g, '<br><br>')
-						: '';
-				} else {
-					usageIconsEl.innerHTML = '';
-					purposeTextEl.innerHTML = '';
+					for (const label of usageList) {
+						const file = usageIconMap[label] ?? 'usage_other.png';
+						const item = document.createElement('div');
+						item.className = 'oil-usage-item';
+						const ic = document.createElement('img');
+						ic.src = USAGE_ICON_DIR + file;
+						ic.width = 44;
+						ic.height = 44;
+						ic.alt = label;
+						ic.loading = 'lazy';
+						ic.decoding = 'async';
+						const cap = document.createElement('span');
+						cap.textContent = label;
+						item.appendChild(ic);
+						item.appendChild(cap);
+						usageIconsEl.appendChild(item);
+					}
 				}
-			}
-
-			if (card) {
-				console.log('[AromaChat] oil card innerHTML:', card.innerHTML);
 			}
 
 			wrapper.appendChild(fragment);
@@ -441,11 +453,21 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 	});
 
 	sendBtn.addEventListener('click', () => sendMessage());
+
+	/** IME 変換確定の Enter は compositionend の直後に keydown し、isComposing が false のまま送られることがある */
+	let blockEnterAfterComposition = false;
+	inputEl.addEventListener('compositionend', () => {
+		blockEnterAfterComposition = true;
+		queueMicrotask(() => {
+			blockEnterAfterComposition = false;
+		});
+	});
+
 	inputEl.addEventListener('keydown', (e) => {
-		if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
-			e.preventDefault();
-			sendMessage();
-		}
+		if (e.key !== 'Enter' || e.shiftKey) return;
+		if (e.isComposing || blockEnterAfterComposition) return;
+		e.preventDefault();
+		sendMessage();
 	});
 </script>
 
@@ -736,36 +758,31 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		color: #633806;
 	}
 
-	.nq-aroma-chat .oil-section-usage .oil-usage-header {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		margin-bottom: 6px;
-	}
-
-	.nq-aroma-chat .oil-section-usage .oil-usage-header .oil-section-label {
-		display: inline-block;
+	.nq-aroma-chat .oil-section-usage .oil-usage-section .oil-section-label {
+		display: block;
 		margin-bottom: 0;
-		flex-shrink: 0;
 	}
 
 	.nq-aroma-chat .oil-section-usage .oil-usage-icons {
 		display: flex;
-		gap: 8px;
 		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 6px;
+	}
+
+	.nq-aroma-chat .oil-section-usage .oil-usage-item {
+		display: flex;
+		flex-direction: column;
 		align-items: center;
+		gap: 4px;
+		font-size: 11px;
+		color: #666;
 	}
 
-	.nq-aroma-chat .oil-section-usage .oil-usage-icons img {
-		width: 40px;
-		height: 40px;
+	.nq-aroma-chat .oil-section-usage .oil-usage-item img {
+		width: 44px;
+		height: 44px;
 		object-fit: contain;
-	}
-
-	.nq-aroma-chat .oil-section-usage .oil-usage-text {
-		font-size: 14px;
-		line-height: 1.7;
-		color: #444;
 	}
 
 	.nq-aroma-chat .nq-chat-input {
