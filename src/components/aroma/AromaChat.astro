@@ -389,22 +389,36 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 					const box = document.createElement('div');
 					box.className = 'oil-affiliate';
 
-					const a = document.createElement('a');
-					a.href = String(affiliate.url);
-					a.target = '_blank';
-					a.rel = 'noopener noreferrer sponsored';
-					a.className = 'oil-buy-btn';
+					const makeBuyBtn = (href, text, extraClass) => {
+						const a = document.createElement('a');
+						a.href = String(href);
+						a.target = '_blank';
+						a.rel = 'noopener noreferrer sponsored';
+						a.className = `oil-buy-btn${extraClass ? ' ' + extraClass : ''}`;
 
-					const label = document.createElement('span');
-					label.textContent = String(affiliate.label || 'Amazonで購入する');
+						const label = document.createElement('span');
+						label.textContent = String(text);
 
-					const arrow = document.createElement('span');
-					arrow.className = 'oil-buy-arrow';
-					arrow.textContent = '→';
+						const arrow = document.createElement('span');
+						arrow.className = 'oil-buy-arrow';
+						arrow.textContent = '→';
 
-					a.appendChild(label);
-					a.appendChild(arrow);
-					box.appendChild(a);
+						a.appendChild(label);
+						a.appendChild(arrow);
+						return a;
+					};
+
+					box.appendChild(makeBuyBtn(affiliate.url, affiliate.label || 'Amazonで購入する'));
+
+					if (affiliate.rakuten_url) {
+						box.appendChild(
+							makeBuyBtn(
+								affiliate.rakuten_url,
+								affiliate.rakuten_label || '楽天で探す',
+								'oil-buy-btn--rakuten',
+							),
+						);
+					}
 					body.appendChild(box);
 				}
 			}
@@ -826,6 +840,9 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 	}
 
 	.nq-aroma-chat .oil-affiliate {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
 		margin-top: 0.75rem;
 		padding-top: 0.75rem;
 		border-top: 0.5px solid #e8e4da;
@@ -846,6 +863,14 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 
 	.nq-aroma-chat .oil-buy-btn:hover {
 		background: #e68900;
+	}
+
+	.nq-aroma-chat .oil-buy-btn--rakuten {
+		background: #bf0000;
+	}
+
+	.nq-aroma-chat .oil-buy-btn--rakuten:hover {
+		background: #a00000;
 	}
 
 	.nq-aroma-chat .oil-buy-arrow {
