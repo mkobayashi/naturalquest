@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import AromaChat from '../../components/aroma/AromaChat.astro';
+import AromaGuide from '../../components/aroma/AromaGuide.astro';
 import oilsData from '../../data/aroma_oils.json';
 ---
 
@@ -20,6 +21,8 @@ import oilsData from '../../data/aroma_oils.json';
 		</header>
 
 		<AromaChat oilsData={oilsData} />
+
+		<AromaGuide />
 	</div>
 </Layout>
 
