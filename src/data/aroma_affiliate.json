@@ -1,12 +1,4 @@
 {
-  "es_53": {
-    "url": "https://www.amazon.co.jp/dp/B06VTSBH9X/?tag=naturalquesto-22",
-    "label": "プラナロムのラベンダー精油を見る（Amazon）",
-    "brand": "プラナロム",
-    "product": "プラナロム ラベンダーアングスティフォリア 10ml p-098",
-    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-98/?scid=af_pc_etc&sc2id=aroma-rakuten",
-    "rakuten_label": "楽天でラベンダー精油を見る"
-  },
   "es_28": {
     "url": "https://www.amazon.co.jp/dp/B0055586HO/?tag=naturalquesto-22",
     "label": "プラナロムのティートリー精油を見る（Amazon）",
@@ -41,10 +33,10 @@
   },
   "es_50": {
     "url": "https://www.amazon.co.jp/dp/B002BW4HAO/?tag=naturalquesto-22",
-    "label": "プラナロムのユーカリ・ラディアタ精油を見る（Amazon）",
+    "label": "Amazonでユーカリ・ラディアタ精油を見る",
     "brand": "プラナロム",
     "product": "プラナロム ユーカリラディアタ 10ml 並行輸入品",
-    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-70/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-70/?scid=af_pc_etc&sc2id=aroma-r",
     "rakuten_label": "楽天でユーカリ・ラディアタ精油を見る"
   },
   "es_05": {
@@ -118,5 +110,269 @@
     "product": "プラナロム サイプレス 10ml 並行輸入品",
     "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-55/?scid=af_pc_etc&sc2id=aroma-rakuten",
     "rakuten_label": "楽天でサイプレス精油を見る"
+  },
+  "es_21": {
+    "url": "https://www.amazon.co.jp/dp/B0CL2M9H2Q/?tag=naturalquesto-22",
+    "label": "Amazonでジャーマンカモミール精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム カモミールジャーマン 5ml 並行輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-108/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でジャーマンカモミール精油を見る"
+  },
+  "es_61": {
+    "url": "https://www.amazon.co.jp/dp/B0C68WZ435/?tag=naturalquesto-22",
+    "label": "Amazonでローマンカモミール精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム カモミールローマン 5ml 並行輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-30/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でローマンカモミール精油を見る"
+  },
+  "es_23": {
+    "url": "https://www.amazon.co.jp/dp/B011EJ3ZWK/?tag=naturalquesto-22",
+    "label": "Amazonでジュニパー精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ジュニパー 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-88/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でジュニパー精油を見る"
+  },
+  "es_24": {
+    "url": "https://www.amazon.co.jp/dp/B011EJ4YNY/?tag=naturalquesto-22",
+    "label": "Amazonでスイートマージョラム精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム マジョラム 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-136/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でスイートマージョラム精油を見る"
+  },
+  "es_34": {
+    "url": "https://www.amazon.co.jp/dp/B07PCZR646/?tag=naturalquesto-22",
+    "label": "Amazonでパチュリー精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム パチュリ 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-155/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でパチュリー精油を見る"
+  },
+  "es_29": {
+    "url": "https://www.amazon.co.jp/dp/B0035FWT06/?tag=naturalquesto-22",
+    "label": "Amazonでニアウリ精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ニアウリ BIO 10ml 並行輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-112/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でニアウリ精油を見る"
+  },
+  "es_37": {
+    "url": "https://www.amazon.co.jp/dp/B0BVBW28R5/?tag=naturalquesto-22",
+    "label": "Amazonでブラックペッパー精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ブラックペッパー 5ml 並行輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-153/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でブラックペッパー精油を見る"
+  },
+  "es_39": {
+    "url": "https://www.amazon.co.jp/dp/B0035G0THA/?tag=naturalquesto-22",
+    "label": "Amazonでベチバー精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ベチバー 5ml 並行輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-187/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でベチバー精油を見る"
+  },
+  "es_30": {
+    "url": "https://www.amazon.co.jp/dp/B0BV31WKL3/?tag=naturalquesto-22",
+    "label": "Amazonでネロリ精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ネロリ 2ml 並行輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-39/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でネロリ精油を見る"
+  },
+  "es_52": {
+    "url": "https://www.amazon.co.jp/dp/B01N3ZBGIS/?tag=naturalquesto-22",
+    "label": "Amazonでラバンジン精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ラベンダーグロッソ 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-96/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でラバンジン精油を見る"
+  },
+  "es_33": {
+    "url": "https://www.amazon.co.jp/dp/B011EJ4SEE/?tag=naturalquesto-22",
+    "label": "Amazonでバジル精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム バジル 10ml 正規輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-128/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でバジル精油を見る"
+  },
+  "es_27": {
+    "url": "https://www.amazon.co.jp/dp/B00861XQ60/?tag=naturalquesto-22",
+    "label": "Amazonでタイム精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム タイム・チモール 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/aromaoil/pranarom-thymus01/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でタイム精油を見る"
+  },
+  "es_46": {
+    "url": "https://www.amazon.co.jp/dp/B009B1LEFO/?tag=naturalquesto-22",
+    "label": "Amazonでマンダリン精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム マンダリン BIO 10ml 並行輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-45/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でマンダリン精油を見る"
+  },
+  "es_58": {
+    "url": "https://www.amazon.co.jp/dp/B00YSMBY1A/?tag=naturalquesto-22",
+    "label": "Amazonでローズウッド精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ローズウッド BIO 10ml 並行輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-10/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でローズウッド精油を見る"
+  },
+  "es_35": {
+    "url": "https://www.amazon.co.jp/dp/B004XYGTUO/?tag=naturalquesto-22",
+    "label": "Amazonでフェンネル精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム フェンネル 10ml 正規輸入品",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-73/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でフェンネル精油を見る"
+  },
+  "es_01": {
+    "url": "https://www.amazon.co.jp/dp/B001NYWVTA/?tag=naturalquesto-22",
+    "label": "Amazonでアトラスシダー精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム アトラスシダー 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-27/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でアトラスシダー精油を見る"
+  },
+  "es_06": {
+    "url": "https://www.amazon.co.jp/dp/B011EJ43WQ/?tag=naturalquesto-22",
+    "label": "Amazonでカユプテ精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム カユプテ 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-110/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でカユプテ精油を見る"
+  },
+  "es_07": {
+    "url": "https://www.amazon.co.jp/dp/B011EJ3KLG/?tag=naturalquesto-22",
+    "label": "Amazonでカルダモン精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム カルダモン 5ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-72/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でカルダモン精油を見る"
+  },
+  "es_09": {
+    "url": "https://www.amazon.co.jp/dp/B00HAHFFK6/?tag=naturalquesto-22",
+    "label": "Amazonでキャロットシード精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム キャロットシード 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-62/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でキャロットシード精油を見る"
+  },
+  "es_14": {
+    "url": "https://www.amazon.co.jp/dp/B011EJ3IGI/?tag=naturalquesto-22",
+    "label": "Amazonでクローブ精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム クローブ 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-71/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でクローブ精油を見る"
+  },
+  "es_16": {
+    "url": "https://www.amazon.co.jp/dp/B00861XUA2/?tag=naturalquesto-22",
+    "label": "Amazonでコリアンダー精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム コリアンダー 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-50/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でコリアンダー精油を見る"
+  },
+  "es_18": {
+    "url": "https://www.amazon.co.jp/dp/B0054VZES8/?tag=naturalquesto-22",
+    "label": "Amazonでサンダルウッド精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム サンダルウッド 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-166/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でサンダルウッド精油を見る"
+  },
+  "es_19": {
+    "url": "https://www.amazon.co.jp/dp/B06X8YHTFL/?tag=naturalquesto-22",
+    "label": "Amazonでシトロネラ精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム シトロネラ 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-60/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でシトロネラ精油を見る"
+  },
+  "es_20": {
+    "url": "https://www.amazon.co.jp/dp/B06WGN7DRW/?tag=naturalquesto-22",
+    "label": "Amazonでシナモン精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム シナモン 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-33/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でシナモン精油を見る"
+  },
+  "es_22": {
+    "url": "https://www.amazon.co.jp/dp/B0035FNRCK/?tag=naturalquesto-22",
+    "label": "Amazonでジャスミン精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ジャスミン 5ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-93/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でジャスミン精油を見る"
+  },
+  "es_25": {
+    "url": "https://www.amazon.co.jp/dp/B06X6DNFDB/?tag=naturalquesto-22",
+    "label": "Amazonでスペアミント精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム スペアミント 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-120/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でスペアミント精油を見る"
+  },
+  "es_36": {
+    "url": "https://www.amazon.co.jp/dp/B00861XSWC/?tag=naturalquesto-22",
+    "label": "Amazonでプチグレン精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム プチグレン 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-38/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でプチグレン精油を見る"
+  },
+  "es_43": {
+    "url": "https://www.amazon.co.jp/dp/B011EJ67AM/?tag=naturalquesto-22",
+    "label": "Amazonでベンゾイン精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ベンゾイン 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-171/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でベンゾイン精油を見る"
+  },
+  "es_49": {
+    "url": "https://www.amazon.co.jp/dp/B089YBTTRK/?tag=naturalquesto-22",
+    "label": "Amazonでヘリクリサム精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ヘリクリサム 5ml BIO",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-79/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でヘリクリサム精油を見る"
+  },
+  "es_48": {
+    "url": "https://www.amazon.co.jp/dp/B0035FPVHY/?tag=naturalquesto-22",
+    "label": "Amazonでメリッサ精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム メリッサ 5ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-115/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でメリッサ精油を見る"
+  },
+  "es_47": {
+    "url": "https://www.amazon.co.jp/dp/B06VTSBJJW/?tag=naturalquesto-22",
+    "label": "Amazonでミルラ精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ミルラ 10ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-48/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でミルラ精油を見る"
+  },
+  "es_57": {
+    "url": "https://www.amazon.co.jp/dp/B011EJ5QAY/?tag=naturalquesto-22",
+    "label": "Amazonでローズ精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ローズ 5ml",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-158/?scid=af_pc_etc&sc2id=aroma-rakuten",
+    "rakuten_label": "楽天でローズ精油を見る"
+  },
+  "es_53": {
+    "url": "https://www.amazon.co.jp/dp/B06VTSBH9X/?tag=naturalquesto-22",
+    "label": "Amazonでラベンダー精油を見る",
+    "brand": "プラナロム",
+    "product": "プラナロム ラベンダーアングスティフォリア 10ml p-098",
+    "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-98/?scid=af_pc_etc&sc2id=aroma-r",
+    "rakuten_label": "楽天でラベンダー精油を見る"
   }
 }
