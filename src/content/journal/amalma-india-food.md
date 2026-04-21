@@ -6,6 +6,7 @@ tags:
 categories:
   - "食"
   - "おすすめ"
+heroImage: 'https://images.naturalquest.org/2016/07/indo.jpg'
 ---
 
 アーユルヴェーダの理念をベースにした商品を開発・販売している「アマルマ」さんに久しぶりにご挨拶に行くと、なんと現在「カレーの商品を開発中とのこと」。
