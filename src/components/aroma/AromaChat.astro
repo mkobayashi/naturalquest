@@ -531,6 +531,10 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		width: 100%;
+		max-width: 100%;
+		overflow-x: hidden;
+		box-sizing: border-box;
 	}
 
 	.nq-aroma-chat .nq-chat-toolbar {
@@ -561,6 +565,8 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		min-height: 220px;
 		max-height: 420px;
 		overflow-y: auto;
+		overflow-x: hidden;
+		word-break: break-word;
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
@@ -690,6 +696,8 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		flex: 1;
 		min-width: 240px;
 		max-width: 360px;
+		overflow-x: hidden;
+		box-sizing: border-box;
 		background: white;
 		border: 1px solid rgb(232 228 218 / 1);
 		border-radius: 12px;
