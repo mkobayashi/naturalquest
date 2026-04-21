@@ -4,6 +4,7 @@ pubDate: 2010-02-17
 tags:
   - "おでかけ"
   - "学び"
+heroImage: 'https://images.naturalquest.org/2010/02/BPA.jpg'
 categories:
   - "健康"
   - "セルフケア"

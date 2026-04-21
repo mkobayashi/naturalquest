@@ -9,7 +9,7 @@ tags:
 categories:
   - NOTE
   - エディターより
-heroImage: 'https://images.naturalquest.org/2018/07/kodomo06.jpg'
+heroImage: 'https://images.naturalquest.org/2016/07/kodomo.jpg'
 ---
 
 全国で、そして身近な街で、子ども食堂の動きが起きていることは耳にしていました。

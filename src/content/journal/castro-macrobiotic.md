@@ -7,6 +7,7 @@ tags:
 categories:
   - "健康"
   - "医食同源"
+heroImage: 'https://images.naturalquest.org/2010/02/cuba.jpg'
 ---
 
 #### キューバといえば、革命と音楽。

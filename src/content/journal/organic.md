@@ -6,6 +6,7 @@ tags:
 categories:
   - "NOTE"
   - "エディターより"
+heroImage: 'https://images.naturalquest.org/2010/01/2010_nq.jpg'
 ---
 
 イラストは、2010年の年賀状のためにイラストレーターの小林郁さんが描いてくれたもの。

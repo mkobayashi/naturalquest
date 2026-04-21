@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - もの
-heroImage: 'https://images.naturalquest.org/2010/02/2.21_05.jpg'
+heroImage: 'https://images.naturalquest.org/2010/02/2.21_01.jpg'
 ---
 
 #### コットン畑の牧歌的イメージ。そして、現実の姿
