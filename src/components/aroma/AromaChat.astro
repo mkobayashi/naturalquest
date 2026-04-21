@@ -177,8 +177,15 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 			messagesEl.appendChild(div);
 			bubble = div;
 		}
-		const bubbleTop = bubble.offsetTop - messagesEl.offsetTop;
-		messagesEl.scrollTop = bubbleTop;
+		// モバイルで AI バブルの先頭が見切れないよう、ページ全体をスクロールする
+		if (role === 'ai') {
+			const bubbleTop = bubble.offsetTop;
+			const offset = 60; // ヘッダー分の余白
+			window.scrollTo({
+				top: bubbleTop - offset,
+				behavior: 'smooth',
+			});
+		}
 		return id;
 	}
 
