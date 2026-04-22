@@ -7,6 +7,7 @@ tags:
 categories:
   - "食"
   - "医食同源"
+heroImage: 'https://images.naturalquest.org/2016/10/yoshima-e1476781101129.jpg'
 ---
 
 子育てで、体力的に一番頑張ったな、、と

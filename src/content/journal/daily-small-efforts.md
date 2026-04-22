@@ -7,7 +7,7 @@ tags:
 categories:
   - NOTE
   - エッセイ
-heroImage: 'https://images.naturalquest.org/2017/02/0121_01-1.jpg'
+heroImage: 'https://images.naturalquest.org/2017/01/0121.jpg'
 ---
 
 しっくりときて、よい文章を見つけた。

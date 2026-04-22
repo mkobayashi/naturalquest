@@ -8,7 +8,7 @@ tags:
 categories:
   - 食
   - おすすめ
-heroImage: 'https://images.naturalquest.org/2016/09/blog_0901_02.jpg'
+heroImage: 'https://images.naturalquest.org/2016/09/blog_0901.jpg'
 ---
 
 高校二年生の夏は冷夏で薄曇りの日も多かった。
@@ -39,7 +39,7 @@ heroImage: 'https://images.naturalquest.org/2016/09/blog_0901_02.jpg'
 
 酸いも甘いも噛みしめてきた、この年代になってこそわかるもの、、、を実感した晩夏の一日だった。
 
-![](https://images.naturalquest.org/2016/09/blog_0901_02-750x297.jpg)
+![](https://images.naturalquest.org/2016/09/blog_0901_02.jpg)
 
 # &#x261d;
 

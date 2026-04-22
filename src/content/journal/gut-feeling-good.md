@@ -7,6 +7,7 @@ tags:
 categories:
   - "健康"
   - "医食同源"
+heroImage: 'https://images.naturalquest.org/2016/11/1122-2.jpg'
 ---
 
 以前のブログで、小田原ポタジェララさんのランチバイキングの様子を

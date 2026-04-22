@@ -8,7 +8,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://naturalquest.org/blog/wp-content/uploads/2016/09/0926.jpg'
+heroImage: 'https://images.naturalquest.org/2016/09/0926.jpg'
 ---
 
 中学の同級生たちとリバーサイド駅伝に出場するべく駅伝部を結成し、これを皮切りにランニングを始めた。

@@ -8,7 +8,7 @@ tags:
 categories:
   - 健康
   - 医食同源
-heroImage: 'https://images.naturalquest.org/2016/06/rr_02.jpg'
+heroImage: 'https://images.naturalquest.org/2016/06/rr_01.jpg'
 ---
 
 「ねえねえ、たまには一緒にお出かけしない？」とお友達べったりになってしまった高校生の娘に小田原トリップを提案してみた。

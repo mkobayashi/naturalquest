@@ -8,6 +8,7 @@ tags:
 categories:
   - "健康"
   - "おでかけ"
+heroImage: 'https://images.naturalquest.org/2017/02/1013.jpg'
 ---
 
 「今日は十三夜です。お月見団子はいかがですか？」
