@@ -1,0 +1,373 @@
+---
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>林 サオダ | ナチュラルクエスト インタビュー vol.11</title>
+<meta name="description" content="バッチフラワーレメディの日本での第一人者、林サオダさんのインタビュー。「自分らしく生き、汝自身を癒せ」。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080806;
+  --surface: #111108;
+  --text: #e8e2d4;
+  --text-muted: #8a8070;
+  --text-dim: #4a4438;
+  --accent: #c4935a;
+  --accent-light: #d9b07a;
+  --rule: rgba(196,147,90,0.25);
+  --serif-jp: 'Noto Serif JP', serif;
+  --serif-en: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif-jp);
+  font-weight: 300;
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px;
+  background: linear-gradient(to bottom, rgba(8,8,6,0.92) 0%, transparent 100%);
+  transition: background 0.4s;
+}
+.site-header.scrolled { background: rgba(8,8,6,0.96); backdrop-filter: blur(8px); }
+.header-logo { font-family: var(--serif-en); font-size: 13px; letter-spacing: 0.3em; color: var(--accent); text-decoration: none; text-transform: uppercase; }
+.header-vol { font-family: var(--serif-en); font-size: 11px; letter-spacing: 0.4em; color: var(--text-muted); text-transform: uppercase; }
+.hero { position: relative; height: 100vh; min-height: 640px; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-photo { position: absolute; inset: 0; background-image: url('https://images.naturalquest.org/interview/vol11/photo_01.jpg'); background-size: cover; background-position: center 30%; transform: scale(1.05); transition: transform 8s ease-out; }
+.hero-photo.loaded { transform: scale(1); }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,6,0.2) 0%, rgba(8,8,6,0.1) 30%, rgba(8,8,6,0.55) 65%, rgba(8,8,6,0.95) 100%); }
+.hero-content { position: relative; z-index: 2; width: 100%; padding: 0 80px 80px; max-width: 1200px; margin: 0 auto; }
+.hero-series { font-family: var(--serif-en); font-size: 11px; letter-spacing: 0.5em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; opacity: 0; animation: fadeUp 1s ease 0.4s forwards; }
+.hero-name { font-family: var(--serif-jp); font-size: clamp(42px, 6vw, 76px); font-weight: 300; letter-spacing: 0.15em; line-height: 1.2; color: #f5f0e6; margin-bottom: 12px; opacity: 0; animation: fadeUp 1s ease 0.7s forwards; }
+.hero-title { font-family: var(--serif-jp); font-size: clamp(14px, 2vw, 18px); font-weight: 300; color: var(--accent-light); letter-spacing: 0.12em; margin-bottom: 32px; opacity: 0; animation: fadeUp 1s ease 0.95s forwards; }
+.hero-tagline { font-family: var(--serif-jp); font-size: clamp(20px, 3vw, 30px); font-weight: 300; color: var(--text); letter-spacing: 0.08em; border-left: 2px solid var(--accent); padding-left: 20px; opacity: 0; animation: fadeUp 1s ease 1.2s forwards; }
+.hero-scroll { position: absolute; bottom: 30px; right: 80px; display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; animation: fadeIn 1s ease 2s forwards; }
+.hero-scroll span { font-family: var(--serif-en); font-size: 9px; letter-spacing: 0.4em; color: var(--text-muted); text-transform: uppercase; writing-mode: vertical-rl; }
+.scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scrollPulse 2s ease-in-out infinite 2.5s; }
+.intro-block { max-width: 720px; margin: 0 auto; padding: 100px 40px 80px; text-align: center; border-bottom: 1px solid var(--rule); }
+.intro-block .credits { font-family: var(--serif-en); font-size: 12px; letter-spacing: 0.3em; color: var(--text-muted); margin-bottom: 40px; }
+.intro-block .lead { font-size: clamp(14px, 1.8vw, 17px); line-height: 2.1; color: var(--text); text-align: justify; text-justify: inter-character; }
+.chapter { margin-top: 0; }
+.chapter-photo-wrap { position: relative; width: 100%; overflow: hidden; }
+.chapter-photo { width: 100%; height: clamp(320px, 45vw, 560px); background-size: cover; background-position: center; transform: scale(1.04); transition: transform 0.8s ease-out; }
+.chapter-photo.in-view { transform: scale(1); }
+.chapter-photo-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,8,6,0.7) 0%, rgba(8,8,6,0.2) 40%, rgba(8,8,6,0.2) 60%, rgba(8,8,6,0.85) 100%); }
+.chapter-number { position: absolute; top: 40px; left: 60px; font-family: var(--serif-en); font-size: clamp(80px, 12vw, 140px); font-weight: 300; color: rgba(196,147,90,0.12); line-height: 1; pointer-events: none; user-select: none; }
+.chapter-heading-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px 60px 40px; }
+.chapter-subhead { font-family: var(--serif-en); font-size: 11px; letter-spacing: 0.5em; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; }
+.chapter-heading { font-size: clamp(18px, 2.8vw, 30px); font-weight: 400; letter-spacing: 0.1em; color: #f5f0e6; line-height: 1.5; }
+.chapter-subheading { font-size: clamp(12px, 1.5vw, 15px); font-weight: 300; color: var(--accent-light); letter-spacing: 0.12em; margin-top: 8px; }
+.chapter-body { max-width: 780px; margin: 0 auto; padding: 70px 40px 80px; border-bottom: 1px solid var(--rule); }
+.chapter-body p { font-size: clamp(14px, 1.6vw, 16px); line-height: 2.1; color: var(--text); text-align: justify; text-justify: inter-character; margin-bottom: 28px; }
+.chapter-body p:last-child { margin-bottom: 0; }
+.pull-quote { margin: 48px 0; padding: 32px 40px; border-left: 3px solid var(--accent); background: rgba(196,147,90,0.04); }
+.pull-quote p { font-size: clamp(16px, 2.2vw, 20px) !important; font-weight: 400 !important; color: var(--accent-light) !important; line-height: 1.9 !important; letter-spacing: 0.06em; margin-bottom: 0 !important; }
+.profile-section { background: var(--surface); padding: 100px 40px; }
+.profile-inner { max-width: 900px; margin: 0 auto; }
+.profile-heading { font-family: var(--serif-en); font-size: 11px; letter-spacing: 0.5em; color: var(--accent); text-transform: uppercase; text-align: center; margin-bottom: 16px; }
+.profile-title { font-size: clamp(22px, 3vw, 32px); font-weight: 300; letter-spacing: 0.15em; text-align: center; color: #f0ead8; margin-bottom: 70px; }
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, transparent, var(--accent) 10%, var(--accent) 90%, transparent); }
+.timeline-item { position: relative; margin-bottom: 40px; display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: start; }
+.timeline-item::before { content: ''; position: absolute; left: -44px; top: 10px; width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--accent); background: var(--bg); }
+.timeline-year { font-family: var(--serif-en); font-size: 13px; letter-spacing: 0.15em; color: var(--accent); padding-top: 2px; }
+.timeline-text { font-size: 14px; line-height: 1.9; color: var(--text-muted); }
+.interview-footer { text-align: center; padding: 80px 40px; border-top: 1px solid var(--rule); }
+.footer-logo { font-family: var(--serif-en); font-size: 11px; letter-spacing: 0.5em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 12px; }
+.footer-copy { font-family: var(--serif-en); font-size: 11px; color: var(--text-dim); letter-spacing: 0.15em; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scrollPulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.35s; }
+/* TABLET */
+@media (max-width: 1024px) {
+  .hero-content { padding: 0 48px 72px; }
+  .chapter-heading-overlay { padding: 24px 48px 36px; }
+  .chapter-number { left: 48px; }
+  .chapter-body { padding: 60px 48px 72px; }
+  .intro-block { padding: 80px 48px 70px; }
+}
+/* MOBILE */
+@media (max-width: 767px) {
+  .site-header { padding: 14px 20px; }
+  .header-vol { display: none; }
+  .hero { height: auto; min-height: 0; flex-direction: column; align-items: stretch; }
+  .hero-photo { position: relative; height: 72vw; min-height: 260px; max-height: 440px; transform: none !important; }
+  .hero-overlay { background: linear-gradient(180deg, rgba(8,8,6,0.25) 0%, rgba(8,8,6,0.5) 80%, rgba(8,8,6,0.9) 100%); }
+  .hero-content { position: relative; z-index: 2; padding: 32px 24px 48px; background: var(--bg); }
+  .hero-series, .hero-name, .hero-title, .hero-tagline { animation: none; opacity: 1; }
+  .hero-name { font-size: clamp(36px, 9vw, 52px); }
+  .hero-title { font-size: 13px; }
+  .hero-tagline { font-size: clamp(16px, 4.5vw, 22px); }
+  .hero-scroll { display: none; }
+  .intro-block { padding: 52px 24px 48px; }
+  .intro-block .lead { font-size: 14px; }
+  .chapter-photo { height: 60vw; min-height: 200px; max-height: 320px; transform: none !important; }
+  .chapter-photo-overlay { background: linear-gradient(180deg, rgba(8,8,6,0.25) 0%, rgba(8,8,6,0.25) 50%, rgba(8,8,6,0.88) 100%); }
+  .chapter-heading-overlay { position: relative; padding: 28px 24px 20px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+  .chapter-number { top: 12px; left: auto; right: 16px; font-size: clamp(48px, 14vw, 80px); color: rgba(196,147,90,0.18); }
+  .chapter-heading { font-size: clamp(17px, 4.8vw, 24px); }
+  .chapter-subheading { font-size: 12px; }
+  .chapter-body { padding: 40px 24px 52px; }
+  .chapter-body p { font-size: 14px; line-height: 2.0; }
+  .pull-quote { padding: 24px 20px; margin: 36px 0; }
+  .pull-quote p { font-size: 15px !important; }
+  .profile-section { padding: 52px 24px; }
+  .profile-inner .chapter-photo-wrap { margin-bottom: 48px; }
+  .timeline { padding-left: 28px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 4px; margin-bottom: 32px; }
+  .timeline-item::before { left: -32px; }
+  .timeline-year { font-size: 12px; }
+  .timeline-text { font-size: 13px; }
+  .interview-footer { padding: 52px 24px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <a class="header-logo" href="/">Natural Quest</a>
+  <span class="header-vol">Interview Series — vol.11</span>
+</header>
+
+<section class="hero">
+  <div class="hero-photo" id="heroPhoto"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-series">Natural Quest Interview &nbsp;|&nbsp; vol .11</p>
+    <h1 class="hero-name">林 サオダ</h1>
+    <p class="hero-title">バッチホリスティック研究会理事　with BIEP Coordinator, BHK Trustee</p>
+    <p class="hero-tagline">自分らしく生き、「汝自身を癒せ」。</p>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="intro-block">
+  <p class="credits reveal">文＝阪本淳子&ensp;text by Junko Sakamoto&emsp;&emsp;写真＝見米康夫&ensp;photographs by Yasuo Mikome</p>
+  <p class="lead reveal reveal-delay-2">1930年代、英国の医師であり細菌学者であったエドワード・バッチ博士は、野の花や草木から作られたエッセンス（レメディ）を使って、心と感情のバランスを取り戻す植物療法を生み出した。バッチフラワーレメディの日本での第一人者であり、普及に力を尽くしてきた林サオダさんにお話しをうかがった。</p>
+</div>
+
+<section class="chapter">
+  <div class="chapter-photo-wrap">
+    <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_02.jpg');"></div>
+    <div class="chapter-photo-overlay"></div>
+    <div class="chapter-number">01</div>
+    <div class="chapter-heading-overlay">
+      <p class="chapter-subhead">Chapter One</p>
+      <h2 class="chapter-heading">学者肌の父と和の世界の母の間で。</h2>
+      <p class="chapter-subheading">実存主義にかぶれ、哲学科をめざすが挫折を味わう</p>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="reveal">「読書が大好きで、早熟な小学生でした」。父は、実業家として経営に携わっていたが、本来は芸術至上主義で西洋文化が好きな学者肌。一方、母は、船場の商家の孫娘として育った大衆的な人。そんな二人の間で、3人姉弟の長女の林は、父とクラシックを聴き、洋画を見て、母には時代劇映画や歌舞伎につれていってもらいと、異国と和の2つの文化を豊かに吸収して育った。とりわけ父は、子どもであっても一個の人間として扱ってくれたが、林は、ものの考え方や人としての基本は父から学んだと思っている。</p>
+    <p class="reveal reveal-delay-1">「腕に生まれつきの赤いアザがあるのです」。冬になるとアザは紫がかり、思い込みだろうと林は語るが、幼稚園で男の子と行進するときに手をつないでもらえなかったような記憶がある。黒板にものを書くときも、お茶を出すときも、アザが気になって仕方がない。「まわりからは快活に見えても、自分の中にどこか暗いものがあったように思います。三枚目で冗談をいって笑いをとろうとする自分とのギャップを常に抱えていました」。</p>
+    <div class="pull-quote reveal reveal-delay-2">
+      <p>「頭でっかちで、小生意気で変な女の子だったんでしょうね。実存主義にかぶれて、哲学科に入りたかったのだけれど、落ちてしまいました」</p>
+    </div>
+    <p class="reveal">区立中学から、才媛が集まる国立の高校に進んだが、「次第に落ちこぼれていった」と林はいう。好きなことには夢中になるが、それ以外は勉強しなかった。</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="chapter-photo-wrap">
+    <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_03.jpg');"></div>
+    <div class="chapter-photo-overlay"></div>
+    <div class="chapter-number">02</div>
+    <div class="chapter-heading-overlay">
+      <p class="chapter-subhead">Chapter Two</p>
+      <h2 class="chapter-heading">ニューエイジ、神秘主義との出会い</h2>
+      <p class="chapter-subheading">人智を超えたものを知ることで謙虚になる</p>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="reveal">好きだった英語を活かして通訳の勉強をし、仕事をはじめた林は、ビートニク、米国のニューエイジムーブメント、また、グルジェフ、ウスペンスキーの神秘主義思想にも触れていく。異文化への興味が旺盛で、外人の友だちがたくさんできた。NY出身の米国人を通じて、20歳のころに、それ以降生涯影響を受けるスピリチュアルなエクササイズに出会う。</p>
+    <p class="reveal reveal-delay-1">それまでの林は、女性であることへの肯定感が薄く、人間は頭がよくなくてはだめという観念に必要以上にとらわれていたという。大学受験をはじめ、物事が思うようにならず挫折も感じていた。しかし、このエクササイズを通じて、人智を超えたものを感じ謙虚になり、自分が女性であることを素直に受け入れるようになった。</p>
+    <div class="pull-quote reveal reveal-delay-2">
+      <p>「内側から自然にわき起こる"素の自分"を認め、生きることはすべてつながっていると思えるようになりました」</p>
+    </div>
+    <p class="reveal">「どこかこの世に着地していない自分でしたが、内側から自然にわき起こる"素の自分"を認め、生きることはすべてつながっていると思えるようになりました」。</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="chapter-photo-wrap">
+    <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_04.jpg');"></div>
+    <div class="chapter-photo-overlay"></div>
+    <div class="chapter-number">03</div>
+    <div class="chapter-heading-overlay">
+      <p class="chapter-subhead">Chapter Three</p>
+      <h2 class="chapter-heading">翻訳を通じてバッチフラワーレメディを知る。</h2>
+      <p class="chapter-subheading">英国バッチセンターの門を叩き、受講生となる</p>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="reveal">結婚して子供をもった後も、翻訳や通訳の仕事をしていたが、お金になっても興味のないものはやりたくなかった。そこで、セラピーやホリスティックな健康のテーマを対象に仕事をしているうちに、1992年に『癌のセルフヒーリング』という本を翻訳する。イギリスのブリストル癌ヘルプセンターに勤務していた看護師の著書で、そこにバッチ博士のフラワーレメディが紹介されていた。</p>
+    <div class="pull-quote reveal reveal-delay-1">
+      <p>「翻訳しながら、これは一体なんだろう？と思いました。しかし、この著者とは、偶然にもスピリチュアルエクササイズでのつながりもあり、不思議な縁も感じました」</p>
+    </div>
+    <p class="reveal reveal-delay-2">イギリスのバッチセンターでは、当時はまだ国外からの受講生は受け入れていなかったが、授業、試験や課題提出も全部英語で可能ならよいとなってコースを受講でき、修了後バッチセンターにプラクティショナーとして国際登録した。</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="chapter-photo-wrap">
+    <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_05.jpg');"></div>
+    <div class="chapter-photo-overlay"></div>
+    <div class="chapter-number">04</div>
+    <div class="chapter-heading-overlay">
+      <p class="chapter-subhead">Chapter Four</p>
+      <h2 class="chapter-heading">時代に先駆けて「人の感情」に注目したバッチ療法</h2>
+      <p class="chapter-subheading">バッチフラワーが自分自身の内面との対話を促す</p>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="reveal">「バッチフラワーレメディ」とは、1930年代に英国の医師エドワード・バッチ博士によって生み出された、野の花や草木から作られたエッセンス（レメディ）を使って、心や感情のバランスを取り戻そうとする自然療法だ。当時、最先端をいく腸内フローラ研究をしていた細菌学者であるバッチ博士は、一人一人の患者がそれぞれに異なった存在であり、機械的な一律の処方では対応できないこと、そして、腸内細菌のバランスが肉体と精神に影響していることに気づいた。</p>
+    <p class="reveal reveal-delay-1">ワクチンの研究開発に従事しながら、ホメオパシー医としても嘱望されていたバッチ博士は、1928年にまずホメオパシーの作り方で2種のフラワーレメディを作った。その後、試行錯誤の末に、澄んだ自然水を入れたガラスのボウルに花びらを浮かべ太陽の下に置き、花の持つ癒しのエネルギーを水に転写させる「太陽法」で次々にレメディの種類を増やしていく。後半は煮沸法も使い、最終的に博士は38種のレメディを完成した。</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="chapter-photo-wrap">
+    <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_06.jpg');"></div>
+    <div class="chapter-photo-overlay"></div>
+    <div class="chapter-number">05</div>
+    <div class="chapter-heading-overlay">
+      <p class="chapter-subhead">Chapter Five</p>
+      <h2 class="chapter-heading">60カ国以上で使用されるバッチフラワーレメディ</h2>
+      <p class="chapter-subheading">科学的には未解明ながら認められるバッチの存在感</p>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="reveal">心、感情の調和が、身体の健康と繋がっていると看破したバッチ博士が考案したフラワーレメディは、70年以上も使い続けられ、現在では60ヶ国以上の国々で医師や看護師、獣医などに使用されている。イギリスの看護大にはバッチフラワーの単位が選択できたり、ポーランド、ブラジル、オーストラリアの大学、教育機関ではバッチを学ぶことができる。また医療先進国のキューバでは行政がバッチフラワーをとりいれている。</p>
+    <div class="pull-quote reveal reveal-delay-1">
+      <p>「バッチフラワーがなぜ効くのかを解明する鍵は、最先端の物理学の中にあるのかもしれません」</p>
+    </div>
+    <p class="reveal reveal-delay-2">「バッチフラワーは医学ではないし、日本では薬ではなく健康食品として扱われます。しかも作られ方や有効性は、科学的にはいまだに解明されていないのです」。英国バッチセンターは、バッチ博士の「シンプルな方法を変えないで、そのまま伝えよ」という言葉を守り続けている。</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="chapter-photo-wrap">
+    <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_07.jpg');"></div>
+    <div class="chapter-photo-overlay"></div>
+    <div class="chapter-number">06</div>
+    <div class="chapter-heading-overlay">
+      <p class="chapter-subhead">Chapter Six</p>
+      <h2 class="chapter-heading">着実に増え続ける日本のバッチフラワー利用者</h2>
+      <p class="chapter-subheading">「たまねぎの皮をむくように」進む変容のプロセス</p>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="reveal">林はこの10年ぐらいの間に、日本でもバッチフラワーが、着実に浸透してきている手応えを感じている。「今は、セルフヘルプとかセルフケアが非常に求められている時代。役立ちそうなものは取り入れてみるという方にとって、バッチフラワーは禁忌がないし、あまり知識がなくても使いやすいのではないでしょうか」。</p>
+    <div class="pull-quote reveal reveal-delay-1">
+      <p>「自分の感情を見つめる必要があるので、結果的にセルフケア、セルフカウンセリングになっている。自分で自らを癒すのです」</p>
+    </div>
+    <p class="reveal reveal-delay-2">「バッチフラワーは、非常に穏やかな自然なもので飲む人に無理がない。私たちプラクティショナー（ガイド役）のコンサルテーションでは、相談者の気持ちを傾聴する過程で、本人が自分の内面のネガティブな感情に気づくサポートをして、その感情に対応したレメディを一緒に選びます」。それは、たまねぎの皮をむいていくように、無理なくその人のペースで進む変容の過程だ。</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="chapter-photo-wrap">
+    <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_08.jpg');"></div>
+    <div class="chapter-photo-overlay"></div>
+    <div class="chapter-number">07</div>
+    <div class="chapter-heading-overlay">
+      <p class="chapter-subhead">Chapter Seven</p>
+      <h2 class="chapter-heading">『よく生き、よく死ぬ』ということ</h2>
+      <p class="chapter-subheading">その人が自分らしくいることが何よりも大切</p>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="reveal">『汝自身を癒せ』とはバッチ博士が繰り返し述べ、著書名にもしたバッチフラワーレメディの哲学というべき言葉だ。「その人が自分らしくいることが何より大切です。バッチフラワーレメディが絶対というつもりもない。それを使い、自分の道が見つかればよい。自己発見の旅が深まるのが、バッチフラワーレメディのよいところです」。</p>
+    <div class="pull-quote reveal reveal-delay-1">
+      <p>「だからこそ、自分らしく『よく生き、よく死ぬ』ことが大切だと思うのです」</p>
+    </div>
+    <p class="reveal reveal-delay-2">「人間も大きな宇宙の一部であり、この世に生命をうけた魂が、自分がなんのために生きて行くのか、本当はどこか深いところで知っている」。林は娘のひとりをこれからが楽しみという年齢で病のために失っている。「でも、すべてはつながっていて、この世にいる自分だけがすべてではない。誰もが肉体に一度宿って死んでいくが、魂は死後も成長し続けると考えています」。</p>
+  </div>
+</section>
+
+<section class="chapter">
+  <div class="chapter-photo-wrap">
+    <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_09.jpg');"></div>
+    <div class="chapter-photo-overlay"></div>
+    <div class="chapter-number">08</div>
+    <div class="chapter-heading-overlay">
+      <p class="chapter-subhead">Chapter Eight</p>
+      <h2 class="chapter-heading">野に咲く花と植物が与えてくれる幸福へのヒント</h2>
+      <p class="chapter-subheading">バッチ普及を支える「大いなる世界を見すえる、自由で謙虚な魂たち」</p>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <p class="reveal">バッチフラワーレメディは、若い人がファッション感覚で楽しみながら、あれこれと選んでもよいし、精神科医が患者の心理状態にあわせて利用することもできる。日常の暮らしから医療現場まで、どんなケースでも対応できるのがバッチフラワーだと林はいう。</p>
+    <div class="pull-quote reveal reveal-delay-1">
+      <p>「"こうでなければならない"と決めつけることなく、いろいろな人が無理なくバッチフラワーレメディとつながっていけるといい」</p>
+    </div>
+    <p class="reveal reveal-delay-2">「今の日本にはいろいろな困難があるけれど、みんなが幸福に生きていけるように普及させたい。私自身も残りの人生を、自分そのものを生きたいと思っています」。バッチフラワー普及の陰には、「大いなる世界を見すえる、自由で謙虚な魂たち」の存在があった。</p>
+  </div>
+</section>
+
+<section class="profile-section">
+  <div class="profile-inner">
+    <div class="chapter-photo-wrap" style="margin-bottom: 70px; border-radius: 2px; overflow: hidden;">
+      <div class="chapter-photo" style="background-image: url('https://images.naturalquest.org/interview/vol11/photo_10.jpg'); height: clamp(220px, 30vw, 360px);"></div>
+      <div class="chapter-photo-overlay"></div>
+    </div>
+    <p class="profile-heading reveal">Profile</p>
+    <h2 class="profile-title reveal">林サオダの出来上がり方</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal"><div class="timeline-year">1946年</div><div class="timeline-text">東京に生まれる</div></div>
+      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-year">小学生時代</div><div class="timeline-text">読書が大好きな小学生。3人姉弟の長女</div></div>
+      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-year">中高生時代</div><div class="timeline-text">お茶の水女子大学付属高校に入学。実存主義とカウンターカルチャーに傾倒</div></div>
+      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-year">高校卒業後</div><div class="timeline-text">日本通訳養成所を卒業。演劇集団「しまぞう」参加。同人誌に創作発表</div></div>
+      <div class="timeline-item reveal"><div class="timeline-year">20代・30代</div><div class="timeline-text">翻訳・通訳等をしながら外国人とのネットワークができる。結婚・子育て・自主保育グループも結成</div></div>
+      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-year">1992年</div><div class="timeline-text">『がんのセルフヒーリング』を翻訳。バッチフラワー療法を知り、バッチ博士の哲学に惹かれる。医師の帯津良一氏と出会い、日本ホリスティック医学協会に入会</div></div>
+      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-year">1994年</div><div class="timeline-text">バッチフラワー友の会（ハーミア女史主宰）に参加</div></div>
+      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-year">2003年</div><div class="timeline-text">ハーミア女史よりバッチ国際教育プログラムの総括責任者を引き継ぐ</div></div>
+      <div class="timeline-item reveal"><div class="timeline-year">現在</div><div class="timeline-text">日本ホリスティック医学協会常任理事、バッチ財団登録プラクティショナー<br><em style="font-size:13px; color: var(--text-dim);">翻訳・監修：『バッチの花療法』メヒトヒルト・シェファー著、『バッチフラワーレメディ・ワークブック』ステファン・ポール著（フレグランスジャーナル社刊）他多数</em></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="interview-footer">
+  <p class="footer-logo">Natural Quest Interview Series</p>
+  <p class="footer-copy">copyright ©2012 Imagination co.,ltd. All rights reserved.</p>
+</footer>
+
+<script>
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+const photoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in-view'); });
+}, { threshold: 0.05 });
+document.querySelectorAll('.chapter-photo').forEach(el => photoObserver.observe(el));
+
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+document.getElementById('heroPhoto').classList.add('loaded');
+</script>
+</body>
+</html>

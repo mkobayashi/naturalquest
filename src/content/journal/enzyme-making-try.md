@@ -7,7 +7,7 @@ tags:
 categories:
   - 食
   - DIY
-heroImage: /images/2017/01/P1010395.jpg
+heroImage: 'https://images.naturalquest.org/2008/07/s1.jpg'
 ---
 
 #### 「酵素づくり」が気になって、実際に体験してきました

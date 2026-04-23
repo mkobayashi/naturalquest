@@ -6,6 +6,7 @@ tags:
 categories:
   - "食"
   - "DIY"
+heroImage: 'https://images.naturalquest.org/2008/04/8.6_kouso.jpg'
 ---
 
 この10年前からひどい花粉症に毎年悩まされてきました。

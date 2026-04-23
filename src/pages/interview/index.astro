@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="インタビュー | Natural Quest" description="Natural Quest のインタビュー一覧です。">
+	<header class="mb-6 border-b border-nq-border pb-6">
+		<h1 class="font-serif text-2xl font-semibold tracking-tight text-nq-ink sm:text-3xl">インタビュー</h1>
+	</header>
+
+	<ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		<li class="min-w-0">
+			<a
+				href="/interview/hayashi-saodah/"
+				class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
+			>
+				<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
+					<img
+						src="https://images.naturalquest.org/interview/vol11/photo_01.jpg"
+						alt=""
+						class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
+						loading="lazy"
+						decoding="async"
+					/>
+				</div>
+				<div class="flex flex-1 flex-col gap-1.5 p-3">
+					<h2 class="font-serif text-base font-semibold leading-snug text-nq-ink">林 サオダ</h2>
+					<p class="font-sans text-xs font-semibold tracking-wide text-nq-muted">バッチホリスティック研究会理事</p>
+					<p class="mt-1 line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
+						自分らしく生き、「汝自身を癒せ」。
+					</p>
+					<p class="mt-auto pt-2 font-sans text-[11px] font-semibold tracking-[0.12em] text-nq-muted transition-colors group-hover:text-nq-accent">
+						読む →
+					</p>
+				</div>
+			</a>
+		</li>
+	</ul>
+</Layout>

@@ -6,6 +6,7 @@ tags:
 categories:
   - "食"
   - "セルフケア"
+heroImage: 'https://images.naturalquest.org/2008/04/8.6_kouso.jpg'
 ---
 
 どんなにカラダによいといわれても、美味しくなければ飲み続けるのは難しいものです。
