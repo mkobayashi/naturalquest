@@ -1,0 +1,20 @@
+---
+const {} = Astro.props;
+---
+
+<div class="next-note">
+	<slot />
+</div>
+
+<style>
+	.next-note {
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 14px;
+		color: #5a5040;
+		background: #f7f4ee;
+		border-left: 3px solid #c4935a;
+		padding: 16px 20px;
+		margin: 40px 0;
+		line-height: 1.8;
+	}
+</style>

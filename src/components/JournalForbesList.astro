@@ -29,16 +29,15 @@ function formatDateForbes(d: Date | undefined): string {
 						{post.data.heroImage ? (
 							<img
 								src={post.data.heroImage}
-								alt=""
+								alt={post.data.title ?? ''}
 								class="absolute inset-0 h-full w-full object-cover object-center"
 								loading="lazy"
 								decoding="async"
 							/>
 						) : (
-							<div
-								class="absolute inset-0 bg-gradient-to-br from-nq-border/60 via-nq-border/35 to-nq-border/15"
-								aria-hidden="true"
-							/>
+							<div class="thumb-fallback" aria-hidden="true">
+								<img src="/logo.svg" alt="Natural Quest" />
+							</div>
 						)}
 					</a>
 					<div class="flex min-w-0 flex-1 flex-col justify-center gap-2">
@@ -85,3 +84,21 @@ function formatDateForbes(d: Date | undefined): string {
 		))
 	}
 </ul>
+
+<style>
+	.thumb-fallback {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		background: #f5f2eb;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.thumb-fallback img {
+		width: 48%;
+		max-width: 120px;
+		opacity: 0.45;
+	}
+</style>

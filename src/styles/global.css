@@ -38,3 +38,47 @@
 		@apply font-semibold text-nq-text tracking-tight;
 	}
 }
+
+/* サブタイトル（記事タイトル直下） */
+.article-body .subtitle {
+	font-family: 'Noto Sans JP', sans-serif;
+	font-size: 14px;
+	color: #7a7060;
+	letter-spacing: 0.05em;
+	margin-bottom: 32px;
+	margin-top: -12px;
+}
+
+/* 太陽光アフィリエイトCTA */
+.article-body .solar-cta {
+	font-family: 'Noto Sans JP', sans-serif;
+	font-size: 14px;
+	line-height: 1.9;
+	background: #f0f8f1;
+	border: 1px solid #b8dfc0;
+	border-radius: 3px;
+	padding: 28px 28px 24px;
+	margin-top: 48px;
+	color: #3a5c40;
+}
+.article-body .solar-cta strong {
+	display: block;
+	font-size: 15px;
+	margin-bottom: 8px;
+	color: #2a4a30;
+}
+.article-body .solar-cta a {
+	display: inline-block;
+	background: #2d7d3a;
+	color: #fff !important;
+	font-weight: 500;
+	padding: 12px 24px;
+	border-radius: 3px;
+	text-decoration: none !important;
+	margin: 14px 0 12px;
+}
+.article-body .solar-cta p:last-child {
+	font-size: 11px;
+	color: #888;
+	margin-top: 4px;
+}

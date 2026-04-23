@@ -10,6 +10,9 @@ import Point from '../../components/mdx/Point.astro';
 import Spec from '../../components/mdx/Spec.astro';
 import Label from '../../components/mdx/Label.astro';
 import Caption from '../../components/mdx/Caption.astro';
+import Note from '../../components/mdx/Note.astro';
+import MailCaption from '../../components/mdx/MailCaption.astro';
+import NextNote from '../../components/mdx/NextNote.astro';
 import FullPhoto from '../../components/FullPhoto.astro';
 import AdBanner from '../../components/AdBanner.astro';
 import { isJournalPublic } from '../../lib/journalPublic';
@@ -33,7 +36,7 @@ const publicPosts = allPosts.filter(isJournalPublic);
 let Content: Awaited<ReturnType<typeof post.render>>['Content'] | undefined;
 if (isPublic) {
 	const rendered = await post.render({
-		components: { Point, Spec, Label, Caption, FullPhoto },
+		components: { Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote },
 	});
 	Content = rendered.Content;
 }
@@ -161,28 +164,28 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 						<ArticleBodyDefault
 							post={post}
 							Content={Content}
-							components={{ Point, Spec, Label, Caption, FullPhoto }}
+							components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
 						/>
 					) : null}
 					{articleType === 'immersive' ? (
 						<ArticleBodyImmersive
 							post={post}
 							Content={Content}
-							components={{ Point, Spec, Label, Caption, FullPhoto }}
+							components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
 						/>
 					) : null}
 					{articleType === 'catalog' ? (
 						<ArticleBodyCatalog
 							post={post}
 							Content={Content}
-							components={{ Point, Spec, Label, Caption, FullPhoto }}
+							components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
 						/>
 					) : null}
 					{articleType === 'list' ? (
 						<ArticleBodyList
 							post={post}
 							Content={Content}
-							components={{ Point, Spec, Label, Caption, FullPhoto }}
+							components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
 						/>
 					) : null}
 

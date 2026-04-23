@@ -1,0 +1,24 @@
+---
+const {} = Astro.props;
+---
+
+<div class="article-note">
+	<slot />
+</div>
+
+<style>
+	.article-note {
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 13px;
+		line-height: 1.8;
+		color: #3a5c40;
+		background: #f0f8f1;
+		border-left: 3px solid #4a8c58;
+		padding: 12px 16px;
+		margin: 24px 0 32px;
+	}
+	.article-note a {
+		color: #2d7d3a;
+		text-decoration: underline;
+	}
+</style>

@@ -25,16 +25,6 @@ const popularSlugs: string[] = [
 	'herb-aroma-v1-drink',
 ];
 
-/** セレクション：編集部おすすめ（6件・手動指定） */
-const selectionSlugs: string[] = [
-	'2026-04-04-shikkui',
-	'herb-aroma-azuki',
-	'garlic-ajoene-oil',
-	'apple-syrup-preserve',
-	'2017-01-22-heirloom-veg-photo',
-	'2018-09-18-climate-urgent',
-];
-
 const allPostsRaw = await getCollection('journal');
 const posts = allPostsRaw.filter(isJournalPublic);
 const allPosts = posts;
@@ -93,7 +83,13 @@ const popularPosts = popularSlugs
 	.map(resolvePost)
 	.filter((p): p is JournalPost => p != null && isJournalPublic(p));
 
-const selectionPosts = selectionSlugs
+const SELECTION_SLUGS: string[] = [
+	'2026-04-23-solar-estimate-01',
+	'2026-04-04-shikkui',
+	'2018-09-18-climate-urgent',
+];
+
+const selectionPosts = SELECTION_SLUGS
 	.map(resolvePost)
 	.filter((p): p is JournalPost => p != null && isJournalPublic(p));
 
@@ -261,7 +257,7 @@ const catLabelClass =
 			) : null
 		}
 
-		<!-- 3. 編集部セレクション（6記事・2列） -->
+		<!-- 3. 編集部セレクション（最新3記事・1行グリッド） -->
 		<section class="pt-5">
 			<div class="mb-3 flex items-center justify-between">
 				<h2 class="font-serif text-base font-semibold tracking-tight text-nq-ink sm:text-lg">編集部セレクション</h2>
