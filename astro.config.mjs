@@ -8,12 +8,14 @@ import { rehypeNaturalquestHttps } from './src/plugins/rehype-naturalquest-https
 
 import cloudflare from "@astrojs/cloudflare";
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 // Cloudflare Pages: 静的アセットは `dist/` をルートにデプロイ（adapter 不要）
 export default defineConfig({
   output: 'static',
   site: 'https://naturalquest.org',
-  integrations: [mdx(), react()],
+  integrations: [mdx(), react(), sitemap()],
 
   markdown: {
     rehypePlugins: [rehypeNaturalquestHttps],
