@@ -10,8 +10,9 @@ import {
   CtaBox, Disclaimer, StatsBar,
 } from "./WizardShell.jsx";
 
-// ─── 東京ガスアフィリエイトURL（本番申請後に差し替え）─────────────────────
-const AFFILIATE_URL = "https://example.com/tokyogas-affiliate"; // ← 要差し替え
+// ─── 東京ガスアフィリエイト（A8.net）────────────────────────────────────────
+const AFFILIATE_URL = "https://px.a8.net/svt/ejp?a8mat=4B1SPV+11IBW2+5T60+5YRHE";
+const AFFILIATE_PIXEL = "https://www16.a8.net/0.gif?a8mat=4B1SPV+11IBW2+5T60+5YRHE";
 
 // ─── DATA（実測値・2026年4月調査）────────────────────────────────────────────
 const MUNICIPALITIES = [
@@ -344,6 +345,8 @@ export default function SubsidyWizard() {
             btnLabel="東京ガスで無料見積もりを依頼する →"
             href={AFFILIATE_URL}
           />
+          {/* A8.net トラッキングピクセル */}
+          <img border="0" width="1" height="1" src={AFFILIATE_PIXEL} alt="" style={{ display:"block" }} />
 
           <Disclaimer>
             <strong style={{ color:"#555" }}>ご利用上の注意：</strong>掲載情報は2025〜2026年度の調査に基づきます。補助金制度は予算の消化状況により受付終了となる場合があります。申請前に各自治体の公式サイトで最新情報を必ずご確認ください。東京都の補助金（都レベル）と区市町村補助金は、多くの場合で併用可能です。<br />
