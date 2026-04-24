@@ -71,7 +71,7 @@ function latestInCategory(cat: string, n: number): JournalPost[] {
 	return sorted.filter((p) => p.data.categories?.includes(cat)).slice(0, n);
 }
 
-const FEATURED_SLUG = '2026-04-04-shikkui'; // ← 固定したい記事スラッグ
+const FEATURED_SLUG = '2026-04-23-solar-estimate-01'; // ← 固定したい記事スラッグ
 
 const featuredFixed = allPosts.find((p) => p.slug === FEATURED_SLUG);
 const featured = featuredFixed ?? sorted[0] ?? undefined; // 非公開のみのときは空

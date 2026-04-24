@@ -1,0 +1,69 @@
+---
+// src/components/SolarSubsidyBanner.astro
+// naturalquest.org TOPページ用バナー
+// Layout.astro のヘッダー直下に <SolarSubsidyBanner /> で配置
+---
+
+<a href="/solar-subsidy/" class="subsidy-banner">
+  <span class="subsidy-banner__badge">2026年度</span>
+  <span class="subsidy-banner__text">
+    太陽光・蓄電池の補助金、あなたはいくらもらえる？
+  </span>
+  <span class="subsidy-banner__cta">無料で診断 →</span>
+</a>
+
+<style>
+  .subsidy-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, #1B5E20 0%, #388E3C 100%);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    transition: opacity 0.15s;
+  }
+
+  .subsidy-banner:hover {
+    opacity: 0.9;
+  }
+
+  .subsidy-banner__badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+
+  .subsidy-banner__text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    flex: 1;
+    line-height: 1.4;
+  }
+
+  .subsidy-banner__cta {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: #F9A825;
+    color: #1B3A05;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* スマホでは2行に */
+  @media (max-width: 480px) {
+    .subsidy-banner {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .subsidy-banner__text {
+      width: 100%;
+    }
+  }
+</style>

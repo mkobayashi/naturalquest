@@ -1,0 +1,69 @@
+---
+// src/pages/solar-subsidy.astro
+// naturalquest.org — 太陽光・蓄電池補助金かんたん診断
+
+import Layout from "../layouts/Layout.astro";
+import SubsidyWizard from "../components/wizards/SubsidyWizard.jsx";
+
+const meta = {
+  title: "太陽光・蓄電池 補助金かんたん診断｜2026年度 東京都版",
+  description:
+    "東京都・23区・市区町村の太陽光・蓄電池補助金を5つの質問で診断。国・都・自治体の組み合わせ概算と申請順序をボタン選択だけで確認できます。",
+  ogImage: "/images/solar-subsidy-ogp.jpg", // 要作成
+  canonical: "https://naturalquest.org/solar-subsidy/",
+};
+---
+
+<Layout
+  title={meta.title}
+  description={meta.description}
+  ogImage={meta.ogImage}
+  canonical={meta.canonical}
+>
+  <!--
+    ウィザードはページ全幅で表示。
+    Layout の max-width・padding をリセットするため
+    slot に直接 SubsidyWizard を置く。
+    サイドバー・パンくず等は表示しない。
+  -->
+  <div class="wizard-page">
+    <SubsidyWizard client:load />
+  </div>
+
+  <!--
+    記事への導線（ウィザード下部）
+    体験記事公開後に有効化する
+  -->
+  <!--
+  <div class="wizard-footer">
+    <p>
+      筆者の体験談：
+      <a href="/住む/東京ガス-太陽光-見積もり/">
+        東京ガスに見積もりを頼んでみた
+      </a>
+    </p>
+  </div>
+  -->
+</Layout>
+
+<style>
+  /* Layout の内側 padding / max-width を無効化してウィザードを全幅に */
+  .wizard-page {
+    margin: 0 calc(-1 * var(--content-padding, 1rem));
+    /* Layout.astro の padding 変数名に合わせて調整 */
+  }
+
+  .wizard-footer {
+    max-width: 560px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-size: 0.875rem;
+    color: #666;
+    text-align: center;
+  }
+
+  .wizard-footer a {
+    color: #388e3c;
+    text-decoration: underline;
+  }
+</style>

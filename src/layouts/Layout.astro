@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SolarSubsidyBanner from '../components/wizards/SolarSubsidyBanner.astro';
 
 interface Props {
 	title?: string;
@@ -183,6 +184,10 @@ const navItems = [
 				</nav>
 			</div>
 		</header>
+
+		<!-- ▼ 補助金診断バナー（全ページ表示・ヘッダー直下） -->
+		<SolarSubsidyBanner />
+
 		<script is:inline>
 			(function () {
 				var btn = document.getElementById('nav-menu-button');
