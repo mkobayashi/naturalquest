@@ -70,15 +70,33 @@ const navItems = [
 		</style>
 
 		<!-- Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-X3F13LQ43K"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-			gtag('config', 'G-X3F13LQ43K');
-		</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X3F13LQ43K"></script>
+<script is:inline>
+    // ?internal=true でアクセスするとlocalStorageにフラグ保存
+    (function () {
+        try {
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('internal') === 'true') {
+                localStorage.setItem('nq_internal', 'true');
+            }
+            if (params.get('internal') === 'false') {
+                localStorage.removeItem('nq_internal');
+            }
+        } catch (e) {}
+
+        var isInternal = false;
+        try {
+            isInternal = localStorage.getItem('nq_internal') === 'true';
+        } catch (e) {}
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-X3F13LQ43K', {
+            traffic_type: isInternal ? 'internal' : undefined
+        });
+    })();
+</script>
 	</head>
 	<body class="flex min-h-screen flex-col text-nq-ink">
 		<a
