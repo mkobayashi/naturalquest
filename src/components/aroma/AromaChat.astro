@@ -81,6 +81,15 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 	/** @type {{role:'user'|'assistant', content:string}[]} */
 	let history = [];
 
+	// ─── GA4 ヘルパー ────────────────────────────────────────────────────────
+	function ga4(eventName, params) {
+		try {
+			if (typeof gtag === 'function') {
+				gtag('event', eventName, params);
+			}
+		} catch (_) {}
+	}
+
 	function escapeHtml(s) {
 		return String(s)
 			.replaceAll('&', '&amp;')
@@ -262,6 +271,14 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		const wrapper = document.createElement('div');
 		wrapper.className = 'nq-oil-results';
 
+		// ── GA4: 精油カード表示イベント ────────────────────────────────────
+		const suggestedNames = ids.map((id) => findOilBySuggestionId(id)?.name ?? id).filter(Boolean);
+		ga4('aroma_oil_suggested', {
+			oil_ids: ids.join(','),
+			oil_names: suggestedNames.join(','),
+			oil_count: ids.length,
+		});
+
 		ids.forEach((id) => {
 			const oil = findOilBySuggestionId(id);
 			if (!oil) return;
@@ -396,12 +413,21 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 					const box = document.createElement('div');
 					box.className = 'oil-affiliate';
 
-					const makeBuyBtn = (href, text, extraClass) => {
+					const makeBuyBtn = (href, text, extraClass, shop) => {
 						const a = document.createElement('a');
 						a.href = String(href);
 						a.target = '_blank';
 						a.rel = 'noopener noreferrer sponsored';
 						a.className = `oil-buy-btn${extraClass ? ' ' + extraClass : ''}`;
+
+						// ── GA4: アフィリエイトクリックイベント ──────────────
+						a.addEventListener('click', () => {
+							ga4('aroma_affiliate_click', {
+								oil_id: oil.id,
+								oil_name: oil.name,
+								shop: shop ?? 'amazon',
+							});
+						});
 
 						const label = document.createElement('span');
 						label.textContent = String(text);
@@ -415,7 +441,7 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 						return a;
 					};
 
-					box.appendChild(makeBuyBtn(affiliate.url, affiliate.label || 'Amazonで購入する'));
+					box.appendChild(makeBuyBtn(affiliate.url, affiliate.label || 'Amazonで購入する', null, 'amazon'));
 
 					if (affiliate.rakuten_url) {
 						box.appendChild(
@@ -423,6 +449,7 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 								affiliate.rakuten_url,
 								affiliate.rakuten_label || '楽天で探す',
 								'oil-buy-btn--rakuten',
+								'rakuten',
 							),
 						);
 					}
@@ -447,6 +474,12 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 
 		appendBubble('user', text);
 		history.push({ role: 'user', content: text });
+
+		// ── GA4: 質問送信イベント ─────────────────────────────────────────
+		ga4('aroma_chat_query', {
+			query_text: text.slice(0, 100), // GA4は100文字まで
+			turn_count: history.filter((m) => m.role === 'user').length,
+		});
 
 		const loadingId = appendBubble('ai', '考えています...');
 
@@ -673,7 +706,6 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		margin: 0.15em 0;
 	}
 
-	/* 本文内の太字（精油名など）：ゴシックのまま太すぎないようセリフ＋セミボールドで統一 */
 	.nq-aroma-chat .nq-bubble.nq-ai .nq-bubble-text strong {
 		font-family: var(--font-serif);
 		font-weight: 600;
@@ -955,4 +987,3 @@ const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
 		}
 	}
 </style>
-
