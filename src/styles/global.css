@@ -82,3 +82,14 @@
 	color: #888;
 	margin-top: 4px;
 }
+
+/* 記事本文の小見出し：ウェイトを強化 */
+.article-body h2 {
+	font-weight: 700;
+  }
+  .article-body h3 {
+	font-weight: 700;
+  }
+  .article-body h4 {
+	font-weight: 700;
+  }
