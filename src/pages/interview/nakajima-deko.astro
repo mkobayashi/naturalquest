@@ -230,6 +230,23 @@ const photoObs = new IntersectionObserver(entries => {
 }, {threshold:0.25});
 document.querySelectorAll('.photo-wrap, .photo-fade').forEach(el => photoObs.observe(el));
 
+// photo-fade クロスフェード（4秒ごとに切り替え）
+const faders = document.querySelectorAll('.photo-fade');
+const faderObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const el = entry.target;
+    if(entry.isIntersecting) {
+      if(!el._timer) {
+        el._timer = setInterval(() => el.classList.toggle('show-b'), 4000);
+      }
+    } else {
+      clearInterval(el._timer);
+      el._timer = null;
+    }
+  });
+}, {threshold:0.3});
+faders.forEach(el => faderObs.observe(el));
+
 // ヘッダースクロール
 const hd = document.getElementById('hd');
 window.addEventListener('scroll', () => hd.classList.toggle('scrolled', scrollY > 50), {passive:true});
