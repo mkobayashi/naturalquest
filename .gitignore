@@ -1,3 +1,6 @@
+# generated from src/styles/interview.css (see package.json predev / prebuild)
+public/styles/interview.css
+
 # build output
 dist/
 

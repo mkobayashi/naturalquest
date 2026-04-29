@@ -3,7 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "predev": "mkdir -p public/styles && cp src/styles/interview.css public/styles/interview.css",
     "dev": "astro dev",
+    "prebuild": "mkdir -p public/styles && cp src/styles/interview.css public/styles/interview.css",
     "build": "astro build",
     "preview": "npm run build && wrangler dev",
     "astro": "astro",
