@@ -35,7 +35,7 @@
 </section>
 
 <div class="intro">
-  <p class="intro-credit rv">文＝阪本淳子&ensp;&emsp;写真＝見米康夫&ensp;</p>
+  <p class="intro-credits rv">文＝阪本淳子&ensp;&emsp;写真＝見米康夫&ensp;</p>
   <p class="intro-lead rv d1">1930年代、英国の医師であり細菌学者であったエドワード・バッチ博士は、野の花や草木から作られたエッセンス（レメディ）を使って、心と感情のバランスを取り戻す植物療法を生み出した。バッチフラワーレメディの日本での第一人者であり、普及に力を尽くしてきた林サオダさんにお話しをうかがった。</p>
 </div>
 
@@ -166,29 +166,7 @@
   <p class="footer-copy">©Natural Quest</p>
 </footer>
 
-<script>
-// 本文フェードイン（.rv → .on）
-const obs = new IntersectionObserver(e => e.forEach(x => {
-  if(x.isIntersecting) x.target.classList.add('on');
-}), {threshold:0.1, rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.rv').forEach(el => obs.observe(el));
-
-// サブ見出しスライドイン + 章タイトルフェードイン
-const photoObs = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('seen');
-      const title = entry.target.closest('.chapter')?.querySelector('.ch-title');
-      if(title) title.classList.add('on');
-    }
-  });
-}, {threshold:0.25});
-document.querySelectorAll('.photo-wrap, .photo-fade').forEach(el => photoObs.observe(el));
-
-// ヘッダースクロール
-const hd = document.getElementById('hd');
-window.addEventListener('scroll', () => hd.classList.toggle('scrolled', scrollY > 50), {passive:true});
-</script>
+<script src="/scripts/interview.js" defer></script>
 
 </body>
 </html>
