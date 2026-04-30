@@ -26,7 +26,8 @@ const { oilsData } = Astro.props as {
 	oilsData: Oil[];
 };
 
-const workerUrl = import.meta.env.PUBLIC_AROMA_WORKER_URL ?? '';
+const workerUrl =
+	import.meta.env.PUBLIC_AROMA_WORKER_URL || 'https://aroma-api.kobayashi-ece.workers.dev';
 ---
 
 <div class="nq-aroma-chat" id="aroma-chat">
