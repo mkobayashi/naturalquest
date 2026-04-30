@@ -113,12 +113,12 @@
 }
 
 .tab-content {
-  font-size: 0.875rem;
-  line-height: 1.8;
-  color: #444;
-  max-height: 320px;
+  max-height: 600px;
   overflow-y: auto;
   padding-right: 0.5rem;
+  line-height: 1.8;
+  font-size: 0.9rem;
+  color: #444;
 }
 
 .tab-content.hidden {
@@ -150,6 +150,12 @@
 
 .tab-content li {
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .tab-content {
+    max-height: 400px;
+  }
 }
 </style>
 
