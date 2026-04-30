@@ -64,6 +64,14 @@ body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--te
 .photo-fade.show-b .fa{opacity:0}
 .photo-fade.show-b .fb{opacity:1}
 
+/* Chapter 7 — 08b は横方向に中央（composite 向け） */
+#f7 .fb{
+  background-size:contain;
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-color:var(--bg);
+}
+
 /* Chapter header */
 /* Sub box overlaid on photo */
 .ch-sub-box{
