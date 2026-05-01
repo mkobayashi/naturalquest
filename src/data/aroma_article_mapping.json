@@ -23,6 +23,10 @@
       { "slug": "herb-aroma-v6-neck", "title": "肩こりは自分でケア" },
       { "slug": "herb-aroma-v6-cold", "title": "ハーブとアロマのカゼ予防レシピ" }
     ],
+    "es_21": [
+      { "slug": "herb-aroma-autumn", "title": "秋風で乾燥した肌を癒す" },
+      { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" }
+    ],
     "es_22": [{ "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }],
     "es_26": [
       { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" },

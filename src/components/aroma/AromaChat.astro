@@ -463,7 +463,6 @@ const workerUrl =
 				if (articles.length > 0) {
 					const MAX_SHOW = 4;
 					const shown = articles.slice(0, MAX_SHOW);
-					const rest = articles.slice(MAX_SHOW);
 
 					const articlesWrap = document.createElement('div');
 					articlesWrap.className = 'oil-articles';
@@ -490,16 +489,6 @@ const workerUrl =
 						link.textContent = truncateTitle(a?.title ?? '');
 						li.appendChild(link);
 						ul.appendChild(li);
-					}
-
-					if (rest.length > 0) {
-						const liMore = document.createElement('li');
-						liMore.className = 'oil-articles-more';
-						const moreLink = document.createElement('a');
-						moreLink.href = '/journal/';
-						moreLink.textContent = `もっと見る（${rest.length}件）`;
-						liMore.appendChild(moreLink);
-						ul.appendChild(liMore);
 					}
 
 					articlesWrap.appendChild(ul);
@@ -1030,10 +1019,6 @@ const workerUrl =
 		font-size: 0.8rem;
 		color: #2d6a4f;
 		text-decoration: underline;
-	}
-
-	.nq-aroma-chat .oil-articles-more a {
-		color: #888;
 	}
 
 	.nq-aroma-chat .oil-affiliate {
