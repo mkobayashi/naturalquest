@@ -1,0 +1,161 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import shopData from '../../../data/aroma_shop_data.json';
+
+const oils = Object.entries(shopData as Record<string, { name: string; products: unknown[] }>).map(
+	([id, data]) => ({
+		id,
+		...data,
+	}),
+);
+---
+
+<Layout
+	title="精油の選び方・購入ガイド | Natural Quest"
+	description="品質重視のブランドを中心に、用途別におすすめの精油と購入リンクをまとめています。"
+	narrow={false}
+>
+	<div class="shop-page">
+		<h1>精油を選ぶ</h1>
+		<p class="shop-lead">品質重視のブランドを中心に、用途別におすすめの精油をご紹介します。</p>
+
+		{
+			oils.map((oil) => (
+				<section class="oil-section" id={oil.id}>
+					<h2>{oil.name}</h2>
+					<div class="product-grid">
+						{oil.products.map((p: {
+							brand: string;
+							quality?: string;
+							name: string;
+							volume: string;
+							amazon_url?: string;
+							rakuten_url?: string;
+						}) => (
+							<div class="product-card">
+								<div class="product-header">
+									<span class="brand">{p.brand}</span>
+									{p.quality ? <span class="quality">{p.quality}</span> : null}
+								</div>
+								<p class="product-name">{p.name}</p>
+								<p class="product-vol">{p.volume}</p>
+								<div class="product-links">
+									{p.amazon_url ? (
+										<a
+											href={p.amazon_url}
+											target="_blank"
+											rel="noopener noreferrer sponsored"
+											class="btn-amazon"
+										>
+											Amazon
+										</a>
+									) : null}
+									{p.rakuten_url ? (
+										<a
+											href={p.rakuten_url}
+											target="_blank"
+											rel="noopener noreferrer sponsored"
+											class="btn-rakuten"
+										>
+											楽天
+										</a>
+									) : null}
+								</div>
+							</div>
+						))}
+					</div>
+				</section>
+			))
+		}
+	</div>
+</Layout>
+
+<style>
+	.shop-page {
+		max-width: 860px;
+		margin: 0 auto;
+		padding: 2rem 1rem;
+	}
+	.shop-page h1 {
+		font-size: 1.6rem;
+		font-weight: 500;
+		margin-bottom: 0.5rem;
+	}
+	.shop-lead {
+		font-size: 0.9rem;
+		color: #666;
+		margin-bottom: 2.5rem;
+	}
+	.oil-section {
+		margin-bottom: 3rem;
+	}
+	.oil-section h2 {
+		font-size: 1.1rem;
+		font-weight: 500;
+		border-left: 3px solid #2d6a4f;
+		padding-left: 0.75rem;
+		margin-bottom: 1rem;
+	}
+	.product-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+		gap: 12px;
+	}
+	.product-card {
+		background: white;
+		border: 0.5px solid #e8e4da;
+		border-radius: 10px;
+		padding: 12px;
+	}
+	.product-header {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		margin-bottom: 6px;
+	}
+	.brand {
+		font-size: 10px;
+		font-weight: 500;
+		color: #2d6a4f;
+		letter-spacing: 0.05em;
+	}
+	.quality {
+		font-size: 10px;
+		padding: 1px 6px;
+		background: #eaf3de;
+		color: #3b6d11;
+		border-radius: 10px;
+	}
+	.product-name {
+		font-size: 12px;
+		font-weight: 500;
+		color: #333;
+		margin-bottom: 4px;
+		line-height: 1.4;
+	}
+	.product-vol {
+		font-size: 11px;
+		color: #888;
+		margin-bottom: 10px;
+	}
+	.product-links {
+		display: flex;
+		gap: 6px;
+	}
+	.btn-amazon {
+		font-size: 11px;
+		padding: 4px 10px;
+		background: #ff9900;
+		color: white;
+		border-radius: 20px;
+		text-decoration: none;
+	}
+	.btn-rakuten {
+		font-size: 11px;
+		padding: 4px 10px;
+		background: #bf0000;
+		color: white;
+		border-radius: 20px;
+		text-decoration: none;
+	}
+</style>

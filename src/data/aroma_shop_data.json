@@ -1,0 +1,613 @@
+{
+  "es_28": {
+    "name": "ティートリー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ティートリー 10ml p-109",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0055586HO/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/naturallife/pron_esoil_tito/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_38": {
+    "name": "フランキンセンス",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "フランキンセンス 10ml プラナロム社精油 正規輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B00861XQPG/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-20/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_55": {
+    "name": "レモン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "レモン 10ml ケモタイプ精油",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B06X17DSFQ/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-42/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_40": {
+    "name": "ペパーミント",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "精油 ペパーミント 10ml p-119",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ4E02/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-119/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_50": {
+    "name": "ユーカリ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ユーカリラディアタ 10ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B002BW4HAO/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-70/?scid=af_pc_etc&sc2id=aroma-r"
+      }
+    ]
+  },
+  "es_05": {
+    "name": "オレンジ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "オレンジ・スイート（果皮）10ml プラナロム社精油",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B00861XTUI/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-47/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_26": {
+    "name": "ゼラニウム",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "精油 ゼラニウム・エジプト 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ52EO/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-141/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_59": {
+    "name": "ローズウッド",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "エッセンシャルオイル ローズマリー・シネオール 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B000FQRMRI/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-160/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_41": {
+    "name": "ベルガモット",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "精油 ベルガモット 10ml p-40",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ2D0U/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-40/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_56": {
+    "name": "レモングラス",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "エッセンシャルオイル レモングラス 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B000FQRMQY/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-57/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_04": {
+    "name": "イランイラン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "イランイラン 10ml プラナロム社精油 正規輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B00861XQT2/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-23/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_12": {
+    "name": "クラリセージ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "クラリセージ 10ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B086B7QPJ2/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-165/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_13": {
+    "name": "グレープフルーツ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "グレープフルーツ BIO 10ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0035ALZS8/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-44/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_17": {
+    "name": "サイプレス",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "サイプレス 10ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B086B77PTG/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-55/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_21": {
+    "name": "ジャーマンカモミール",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "カモミールジャーマン 5ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0CL2M9H2Q/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-108/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_61": {
+    "name": "ローマンカモミール",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "カモミールローマン 5ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0C68WZ435/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-30/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_23": {
+    "name": "ジュニパー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ジュニパー 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ3ZWK/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-88/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_24": {
+    "name": "スイートマージョラム",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "マジョラム 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ4YNY/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-136/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_34": {
+    "name": "パチュリー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "パチュリ 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B07PCZR646/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-155/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_29": {
+    "name": "ニアウリ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ニアウリ BIO 10ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0035FWT06/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-112/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_37": {
+    "name": "ブラックペッパー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ブラックペッパー 5ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0BVBW28R5/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-153/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_39": {
+    "name": "ベチバー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ベチバー 5ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0035G0THA/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-187/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_30": {
+    "name": "ネロリ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ネロリ 2ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0BV31WKL3/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-39/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_52": {
+    "name": "ラバンジン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ラベンダーグロッソ 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B01N3ZBGIS/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-96/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_33": {
+    "name": "バジル",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "バジル 10ml 正規輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ4SEE/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-128/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_27": {
+    "name": "タイム",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "タイム・チモール 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B00861XQ60/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/aromaoil/pranarom-thymus01/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_46": {
+    "name": "マンダリン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "マンダリン BIO 10ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B009B1LEFO/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-45/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_58": {
+    "name": "ローズオットー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ローズウッド BIO 10ml 並行輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B00YSMBY1A/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-10/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_35": {
+    "name": "フェンネル",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "フェンネル 10ml 正規輸入品",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B004XYGTUO/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-73/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_01": {
+    "name": "アトラスシダーウッド",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "アトラスシダー 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B001NYWVTA/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-27/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_06": {
+    "name": "カユプテ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "カユプテ 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ43WQ/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-110/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_07": {
+    "name": "カルダモン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "カルダモン 5ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ3KLG/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-72/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_09": {
+    "name": "キャロットシード",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "キャロットシード 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B00HAHFFK6/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-62/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_14": {
+    "name": "クローブ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "クローブ 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ3IGI/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-71/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_16": {
+    "name": "コリアンダー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "コリアンダー 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B00861XUA2/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-50/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_18": {
+    "name": "サンダルウッド",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "サンダルウッド 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0054VZES8/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-166/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_19": {
+    "name": "シトロネラ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "シトロネラ 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B06X8YHTFL/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-60/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_20": {
+    "name": "シナモン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "シナモン 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B06WGN7DRW/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-33/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_22": {
+    "name": "ジャスミン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ジャスミン 5ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0035FNRCK/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-93/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_25": {
+    "name": "スペアミント",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "スペアミント 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B06X6DNFDB/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-120/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_36": {
+    "name": "プチグレン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "プチグレン 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B00861XSWC/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-38/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_43": {
+    "name": "ベンゾイン",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ベンゾイン 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ67AM/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-171/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_49": {
+    "name": "ヤロー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ヘリクリサム 5ml BIO",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B089YBTTRK/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-79/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_48": {
+    "name": "メリッサ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "メリッサ 5ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0035FPVHY/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-115/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_47": {
+    "name": "ミルラ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ミルラ 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B06VTSBJJW/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-48/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_57": {
+    "name": "ローズ",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ローズ 5ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B011EJ5QAY/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-158/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
+  "es_53": {
+    "name": "ラベンダー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "ラベンダーアングスティフォリア 10ml p-098",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B06VTSBH9X/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-98/?scid=af_pc_etc&sc2id=aroma-r"
+      }
+    ]
+  }
+}

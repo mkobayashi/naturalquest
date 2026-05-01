@@ -2,6 +2,9 @@
 import OilCardTemplate from './OilCard.astro';
 import affiliateData from '../../data/aroma_affiliate.json';
 import articleMapping from '../../data/aroma_article_mapping.json';
+import shopData from '../../data/aroma_shop_data.json';
+
+const shopOilIds = Object.keys(shopData as Record<string, unknown>);
 
 type Oil = {
 	id: string;
@@ -60,13 +63,14 @@ const workerUrl =
 
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 
-<script define:vars={{ oilsData, workerUrl, affiliateData, articleMapping }}>
+<script define:vars={{ oilsData, workerUrl, affiliateData, articleMapping, shopOilIds }}>
 	const WORKER_URL = workerUrl;
 	const AFFILIATE_DATA = affiliateData ?? {};
 	const oilToArticlesMap =
 		articleMapping?.oil_to_articles && typeof articleMapping.oil_to_articles === 'object'
 			? articleMapping.oil_to_articles
 			: articleMapping ?? {};
+	const SHOP_OIL_IDS = new Set(Array.isArray(shopOilIds) ? shopOilIds : []);
 
 	const messagesEl = document.getElementById('nq-chat-messages');
 	const resetBtn = document.getElementById('nq-reset-btn');
@@ -494,6 +498,15 @@ const workerUrl =
 					articlesWrap.appendChild(ul);
 					body.appendChild(articlesWrap);
 				}
+			}
+
+			const bodyForShop = fragment.querySelector('.nq-oil-card-body');
+			if (bodyForShop && SHOP_OIL_IDS.has(oil.id)) {
+				const compareLink = document.createElement('a');
+				compareLink.href = `/aroma/shop/#${oil.id}`;
+				compareLink.className = 'oil-compare-link';
+				compareLink.textContent = '複数ブランドを比較する →';
+				bodyForShop.appendChild(compareLink);
 			}
 
 			// アフィリエイト（リンクがある精油のみボタン表示）
@@ -1019,6 +1032,14 @@ const workerUrl =
 		font-size: 0.8rem;
 		color: #2d6a4f;
 		text-decoration: underline;
+	}
+
+	.nq-aroma-chat .oil-compare-link {
+		display: block;
+		font-size: 0.8rem;
+		color: #2d6a4f;
+		text-decoration: underline;
+		margin-bottom: 8px;
 	}
 
 	.nq-aroma-chat .oil-affiliate {
