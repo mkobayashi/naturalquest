@@ -502,63 +502,11 @@ const workerUrl =
 
 			const bodyForShop = fragment.querySelector('.nq-oil-card-body');
 			if (bodyForShop && SHOP_OIL_IDS.has(oil.id)) {
-				const compareLink = document.createElement('a');
-				compareLink.href = `/aroma/shop/${oil.id}/`;
-				compareLink.className = 'oil-compare-link';
-				compareLink.textContent = '複数ブランドを比較する →';
-				bodyForShop.appendChild(compareLink);
-			}
-
-			// アフィリエイト（リンクがある精油のみボタン表示）
-			const affiliate = AFFILIATE_DATA?.[oil.id];
-			if (affiliate && affiliate.url) {
-				const body = fragment.querySelector('.nq-oil-card-body');
-				if (body) {
-					const box = document.createElement('div');
-					box.className = 'oil-affiliate';
-
-					const makeBuyBtn = (href, text, extraClass, shop) => {
-						const a = document.createElement('a');
-						a.href = String(href);
-						a.target = '_blank';
-						a.rel = 'noopener noreferrer sponsored';
-						a.className = `oil-buy-btn${extraClass ? ' ' + extraClass : ''}`;
-
-						// ── GA4: アフィリエイトクリックイベント ──────────────
-						a.addEventListener('click', () => {
-							ga4('aroma_affiliate_click', {
-								oil_id: oil.id,
-								oil_name: oil.name,
-								shop: shop ?? 'amazon',
-							});
-						});
-
-						const label = document.createElement('span');
-						label.textContent = String(text);
-
-						const arrow = document.createElement('span');
-						arrow.className = 'oil-buy-arrow';
-						arrow.textContent = '→';
-
-						a.appendChild(label);
-						a.appendChild(arrow);
-						return a;
-					};
-
-					box.appendChild(makeBuyBtn(affiliate.url, affiliate.label || 'Amazonで購入する', null, 'amazon'));
-
-					if (affiliate.rakuten_url) {
-						box.appendChild(
-							makeBuyBtn(
-								affiliate.rakuten_url,
-								affiliate.rakuten_label || '楽天で探す',
-								'oil-buy-btn--rakuten',
-								'rakuten',
-							),
-						);
-					}
-					body.appendChild(box);
-				}
+				const shopLink = document.createElement('a');
+				shopLink.href = `/aroma/shop/${oil.id}/`;
+				shopLink.className = 'oil-shop-btn';
+				shopLink.textContent = `${oil.name}精油を探す →`;
+				bodyForShop.appendChild(shopLink);
 			}
 
 			wrapper.appendChild(fragment);
@@ -1034,50 +982,19 @@ const workerUrl =
 		text-decoration: underline;
 	}
 
-	.nq-aroma-chat .oil-compare-link {
-		display: block;
-		font-size: 0.8rem;
-		color: #2d6a4f;
-		text-decoration: underline;
-		margin-bottom: 8px;
-	}
-
-	.nq-aroma-chat .oil-affiliate {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 8px;
+	.nq-aroma-chat .oil-shop-btn {
+		display: inline-block;
 		margin-top: 0.75rem;
-		padding-top: 0.75rem;
-		border-top: 0.5px solid #e8e4da;
-	}
-
-	.nq-aroma-chat .oil-buy-btn {
-		display: inline-flex;
-		align-items: center;
-		gap: 6px;
-		padding: 0.5rem 1rem;
-		background: #ff9900;
+		padding: 0.6rem 1.2rem;
+		background: #2d6a4f;
 		color: white;
-		border-radius: 20px;
-		font-size: 0.8rem;
-		font-weight: 500;
+		border-radius: 24px;
+		font-size: 0.875rem;
 		text-decoration: none;
 	}
 
-	.nq-aroma-chat .oil-buy-btn:hover {
-		background: #e68900;
-	}
-
-	.nq-aroma-chat .oil-buy-btn--rakuten {
-		background: #bf0000;
-	}
-
-	.nq-aroma-chat .oil-buy-btn--rakuten:hover {
-		background: #a00000;
-	}
-
-	.nq-aroma-chat .oil-buy-arrow {
-		font-size: 0.75rem;
+	.nq-aroma-chat .oil-shop-btn:hover {
+		background: #235c43;
 	}
 
 	.nq-aroma-chat .nq-chat-input {
