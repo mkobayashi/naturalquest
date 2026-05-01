@@ -1,6 +1,7 @@
 ---
 import OilCardTemplate from './OilCard.astro';
 import affiliateData from '../../data/aroma_affiliate.json';
+import articleMapping from '../../data/aroma_article_mapping.json';
 
 type Oil = {
 	id: string;
@@ -59,9 +60,10 @@ const workerUrl =
 
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 
-<script define:vars={{ oilsData, workerUrl, affiliateData }}>
+<script define:vars={{ oilsData, workerUrl, affiliateData, articleMapping }}>
 	const WORKER_URL = workerUrl;
 	const AFFILIATE_DATA = affiliateData ?? {};
+	const ARTICLE_MAPPING = articleMapping ?? {};
 
 	const messagesEl = document.getElementById('nq-chat-messages');
 	const resetBtn = document.getElementById('nq-reset-btn');
@@ -403,6 +405,25 @@ const workerUrl =
 						item.appendChild(cap);
 						usageIconsEl.appendChild(item);
 					}
+				}
+			}
+
+			const body = fragment.querySelector('.nq-oil-card-body');
+			if (body) {
+				const articleList = ARTICLE_MAPPING?.[oil.id];
+				const firstArticle =
+					Array.isArray(articleList) && articleList.length > 0 ? articleList[0] : null;
+				const articleSlug = firstArticle?.slug != null ? String(firstArticle.slug).trim() : '';
+				const articleTitle = firstArticle?.title != null ? String(firstArticle.title).trim() : '';
+				if (articleSlug && articleTitle) {
+					const articlesWrap = document.createElement('div');
+					articlesWrap.className = 'oil-articles';
+					const articleLink = document.createElement('a');
+					articleLink.href = `/journal/${articleSlug}`;
+					articleLink.className = 'oil-article-link';
+					articleLink.textContent = `📖 ${articleTitle}を読む`;
+					articlesWrap.appendChild(articleLink);
+					body.appendChild(articlesWrap);
 				}
 			}
 
@@ -885,6 +906,14 @@ const workerUrl =
 		width: 44px;
 		height: 44px;
 		object-fit: contain;
+	}
+
+	.nq-aroma-chat .oil-article-link {
+		display: inline-block;
+		font-size: 0.8rem;
+		color: #2d6a4f;
+		text-decoration: underline;
+		margin-bottom: 0.5rem;
 	}
 
 	.nq-aroma-chat .oil-affiliate {
