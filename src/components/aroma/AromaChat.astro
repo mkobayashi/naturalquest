@@ -63,7 +63,10 @@ const workerUrl =
 <script define:vars={{ oilsData, workerUrl, affiliateData, articleMapping }}>
 	const WORKER_URL = workerUrl;
 	const AFFILIATE_DATA = affiliateData ?? {};
-	const ARTICLE_MAPPING = articleMapping ?? {};
+	const oilToArticlesMap =
+		articleMapping?.oil_to_articles && typeof articleMapping.oil_to_articles === 'object'
+			? articleMapping.oil_to_articles
+			: articleMapping ?? {};
 
 	const messagesEl = document.getElementById('nq-chat-messages');
 	const resetBtn = document.getElementById('nq-reset-btn');
@@ -456,19 +459,50 @@ const workerUrl =
 
 			const body = fragment.querySelector('.nq-oil-card-body');
 			if (body) {
-				const articleList = ARTICLE_MAPPING?.[oil.id];
-				const firstArticle =
-					Array.isArray(articleList) && articleList.length > 0 ? articleList[0] : null;
-				const articleSlug = firstArticle?.slug != null ? String(firstArticle.slug).trim() : '';
-				const articleTitle = firstArticle?.title != null ? String(firstArticle.title).trim() : '';
-				if (articleSlug && articleTitle) {
+				const articles = oilToArticlesMap?.[oil.id] || [];
+				if (articles.length > 0) {
+					const MAX_SHOW = 4;
+					const shown = articles.slice(0, MAX_SHOW);
+					const rest = articles.slice(MAX_SHOW);
+
 					const articlesWrap = document.createElement('div');
 					articlesWrap.className = 'oil-articles';
-					const articleLink = document.createElement('a');
-					articleLink.href = `/journal/${articleSlug}`;
-					articleLink.className = 'oil-article-link';
-					articleLink.textContent = `📖 ${articleTitle}を読む`;
-					articlesWrap.appendChild(articleLink);
+
+					const label = document.createElement('p');
+					label.className = 'oil-articles-label';
+					label.textContent = '関連記事';
+					articlesWrap.appendChild(label);
+
+					const ul = document.createElement('ul');
+					ul.className = 'oil-articles-list';
+
+					const truncateTitle = (t) => {
+						const s = String(t ?? '');
+						return s.length > 22 ? s.slice(0, 22) + '…' : s;
+					};
+
+					for (const a of shown) {
+						const slug = a?.slug != null ? String(a.slug).trim() : '';
+						if (!slug) continue;
+						const li = document.createElement('li');
+						const link = document.createElement('a');
+						link.href = `/journal/${slug}`;
+						link.textContent = truncateTitle(a?.title ?? '');
+						li.appendChild(link);
+						ul.appendChild(li);
+					}
+
+					if (rest.length > 0) {
+						const liMore = document.createElement('li');
+						liMore.className = 'oil-articles-more';
+						const moreLink = document.createElement('a');
+						moreLink.href = '/journal/';
+						moreLink.textContent = `もっと見る（${rest.length}件）`;
+						liMore.appendChild(moreLink);
+						ul.appendChild(liMore);
+					}
+
+					articlesWrap.appendChild(ul);
 					body.appendChild(articlesWrap);
 				}
 			}
@@ -969,12 +1003,37 @@ const workerUrl =
 		object-fit: contain;
 	}
 
-	.nq-aroma-chat .oil-article-link {
-		display: inline-block;
+	.nq-aroma-chat .oil-articles {
+		margin-top: 0.75rem;
+		padding-top: 0.75rem;
+		border-top: 0.5px solid #e8e4da;
+	}
+
+	.nq-aroma-chat .oil-articles-label {
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.06em;
+		color: #2d6a4f;
+		margin-bottom: 6px;
+	}
+
+	.nq-aroma-chat .oil-articles-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.nq-aroma-chat .oil-articles-list a {
 		font-size: 0.8rem;
 		color: #2d6a4f;
 		text-decoration: underline;
-		margin-bottom: 0.5rem;
+	}
+
+	.nq-aroma-chat .oil-articles-more a {
+		color: #888;
 	}
 
 	.nq-aroma-chat .oil-affiliate {
