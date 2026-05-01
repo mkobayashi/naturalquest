@@ -102,6 +102,11 @@ const workerUrl =
 			.replaceAll("'", '&#39;');
 	}
 
+	function clampChatScrollTop() {
+		const maxTop = Math.max(0, messagesEl.scrollHeight - messagesEl.clientHeight);
+		messagesEl.scrollTop = Math.min(messagesEl.scrollTop, maxTop);
+	}
+
 	/** 「- 」で始まる行が3行以上連続する最初のブロックを抜き出し、選択肢として返す */
 	function extractChoiceList(displayText) {
 		const lines = displayText.split('\n');
@@ -133,9 +138,56 @@ const workerUrl =
 		'<p class="suggestion-label">〔 あなたにおすすめの精油 〕</p>';
 
 	/**
+	 * 最新 AI ブロックの先頭がチャット枠の表示上端付近に来るよう調整する（PCで読み始め位置を固定）。
+	 * 内部は scrollTop 直接代入（smooth だと未完了のまま次処理が走りがち）、数フレーム後に再調整してレイアウト確定後も追従。
+	 */
+	function scrollAiResponseIntoView(bubbleEl) {
+		if (!bubbleEl || !messagesEl) return;
+
+		const shell = messagesEl;
+		const shellPad = 6;
+		const headerOffset = 56;
+
+		const alignShellToBubbleTop = () => {
+			for (let i = 0; i < 8; i++) {
+				const br = bubbleEl.getBoundingClientRect();
+				const sr = shell.getBoundingClientRect();
+				const err = br.top - sr.top - shellPad;
+				if (Math.abs(err) < 1.25) break;
+				shell.scrollTop += err;
+			}
+		};
+
+		const alignWindowToBubbleTop = () => {
+			const br = bubbleEl.getBoundingClientRect();
+			const y = Math.max(0, br.top + window.scrollY - headerOffset);
+			try {
+				window.scrollTo({ left: 0, top: y, behavior: 'instant' });
+			} catch {
+				window.scrollTo(0, y);
+			}
+		};
+
+		const run = () => {
+			alignShellToBubbleTop();
+			alignWindowToBubbleTop();
+		};
+
+		requestAnimationFrame(() => {
+			run();
+			requestAnimationFrame(() => {
+				run();
+				setTimeout(run, 0);
+				setTimeout(run, 48);
+				setTimeout(run, 160);
+			});
+		});
+	}
+
+	/**
 	 * @param {'user'|'ai'} role
 	 * @param {string} text
-	 * @param {{ choices?: string[], suggestionHeading?: boolean }} [options]
+	 * @param {{ choices?: string[], suggestionHeading?: boolean, skipScroll?: boolean }} [options]
 	 */
 	function appendBubble(role, text, options = {}) {
 		const id = 'nq-bubble-' + Date.now() + '-' + Math.random().toString(16).slice(2);
@@ -189,14 +241,8 @@ const workerUrl =
 			messagesEl.appendChild(div);
 			bubble = div;
 		}
-		// モバイルで AI バブルの先頭が見切れないよう、ページ全体をスクロールする
-		if (role === 'ai') {
-			const bubbleTop = bubble.offsetTop;
-			const offset = 60; // ヘッダー分の余白
-			window.scrollTo({
-				top: bubbleTop - offset,
-				behavior: 'smooth',
-			});
+		if (role === 'ai' && !options.skipScroll) {
+			scrollAiResponseIntoView(bubble);
 		}
 		return id;
 	}
@@ -507,6 +553,7 @@ const workerUrl =
 
 		if (!WORKER_URL) {
 			document.getElementById(loadingId)?.remove();
+			clampChatScrollTop();
 			appendBubble('ai', '現在、接続先（Workers URL）が未設定です。環境変数 PUBLIC_AROMA_WORKER_URL を設定してください。');
 			sendBtn.disabled = false;
 			return;
@@ -522,7 +569,9 @@ const workerUrl =
 			const data = await res.json();
 			const reply = data?.content?.[0]?.text ?? '';
 
-			document.getElementById(loadingId)?.remove();
+			const loadingEl = document.getElementById(loadingId);
+			if (loadingEl) loadingEl.remove();
+			clampChatScrollTop();
 
 			const { displayText, ids } = parseSuggestedIds(reply);
 			const { content: bodyText, choices } = extractChoiceList(displayText);
@@ -532,21 +581,28 @@ const workerUrl =
 
 			let aiBlockId;
 			if (choices.length > 0) {
-				aiBlockId = appendBubble('ai', toShow, { choices, suggestionHeading });
+				aiBlockId = appendBubble('ai', toShow, { choices, suggestionHeading, skipScroll: true });
 			} else {
-				aiBlockId = appendBubble('ai', displayText || fallback, { suggestionHeading });
+				aiBlockId = appendBubble('ai', displayText || fallback, { suggestionHeading, skipScroll: true });
 			}
 
 			history.push({ role: 'assistant', content: reply || displayText });
 
 			if (ids.length > 0) renderOilCards(ids, aiBlockId);
+			const aiAnchor = document.getElementById(aiBlockId);
+			if (aiAnchor) scrollAiResponseIntoView(aiAnchor);
 		} catch {
 			document.getElementById(loadingId)?.remove();
+			clampChatScrollTop();
 			appendBubble('ai', '申し訳ありません、エラーが発生しました。もう一度お試しください。');
 		}
 
 		sendBtn.disabled = false;
-		inputEl.focus();
+		try {
+			inputEl.focus({ preventScroll: true });
+		} catch {
+			inputEl.focus();
+		}
 	}
 
 	resetBtn.addEventListener('click', () => {
@@ -554,7 +610,11 @@ const workerUrl =
 		messagesEl.innerHTML = INITIAL_CHAT_MESSAGES_HTML;
 		inputEl.value = '';
 		sendBtn.disabled = false;
-		inputEl.focus();
+		try {
+			inputEl.focus({ preventScroll: true });
+		} catch {
+			inputEl.focus();
+		}
 	});
 
 	sendBtn.addEventListener('click', () => sendMessage());
@@ -624,8 +684,9 @@ const workerUrl =
 		background: rgb(248 247 243 / 1);
 		border-radius: 12px;
 		padding: 1rem;
-		min-height: 220px;
-		max-height: 420px;
+		min-height: 240px;
+		/* 内容に応じて縦に伸び、画面の高さを超えたら内部スクロール（固定 420px より会話を追いやすい） */
+		max-height: min(72vh, 780px);
 		overflow-y: auto;
 		overflow-x: hidden;
 		word-break: break-word;
@@ -998,6 +1059,9 @@ const workerUrl =
 	}
 
 	@media (max-width: 600px) {
+		.nq-aroma-chat .nq-chat-messages {
+			max-height: min(62dvh, 720px);
+		}
 		.nq-aroma-chat .nq-oil-card {
 			min-width: 100%;
 		}
