@@ -601,6 +601,27 @@
     "name": "ラベンダー",
     "products": [
       {
+        "brand": "フロリハナ",
+        "quality": "オーガニック",
+        "name": "ラベンダー・ヴェラ（栽培種）精油",
+        "volume": "約5.68ml（ほかサイズあり）",
+        "amazon_url": "https://www.amazon.co.jp/dp/B07CMXS134/?tag=naturalquesto-22"
+      },
+      {
+        "brand": "ニールズヤードレメディーズ",
+        "quality": "オーガニック",
+        "name": "エッセンシャルオイル ラベンダー",
+        "volume": "5ml（ほかサイズあり）",
+        "amazon_url": "https://www.amazon.co.jp/dp/B005JVV8RE/?tag=naturalquesto-22"
+      },
+      {
+        "brand": "生活の木",
+        "quality": "ケモタイプ",
+        "name": "ラベンダー（フランス産）精油",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B0CTHNWDTJ/?tag=naturalquesto-22"
+      },
+      {
         "brand": "プラナロム",
         "quality": "ケモタイプ",
         "name": "ラベンダーアングスティフォリア 10ml p-098",
