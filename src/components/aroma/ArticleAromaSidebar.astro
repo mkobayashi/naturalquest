@@ -61,6 +61,13 @@ const oils = oilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[id] }));
 		font-size: 0.85rem;
 	}
 
+	@media (min-width: 768px) {
+		.article-aroma-sidebar {
+			width: 200px;
+			font-size: 0.8rem;
+		}
+	}
+
 	.sidebar-label {
 		font-size: 11px;
 		font-weight: 500;
@@ -74,6 +81,7 @@ const oils = oilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[id] }));
 		margin-bottom: 10px;
 		padding-bottom: 10px;
 		border-bottom: 0.5px solid #f0ede6;
+		text-align: left;
 	}
 
 	.sidebar-oil-item:last-of-type {
@@ -83,27 +91,33 @@ const oils = oilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[id] }));
 	}
 
 	.sidebar-oil-name {
-		margin: 0 0 8px;
-		font-size: 0.9rem;
+		font-size: 12px;
 		font-weight: 500;
+		margin: 0 0 4px;
 		color: #1f2937;
 	}
 
 	.sidebar-shop-btn {
 		display: inline-block;
-		width: 100%;
-		padding: 10px 12px;
-		border-radius: 10px;
+		padding: 4px 10px;
+		font-size: 10px;
+		border-radius: 16px;
 		background: #FF9900;
 		color: white;
-		font-size: 0.85rem;
 		text-decoration: none;
-		text-align: center;
+		white-space: nowrap;
 		transition: background 0.15s ease;
 	}
 
 	.sidebar-shop-btn:hover {
 		background: #e68900;
+	}
+
+	@media (max-width: 767px) {
+		.sidebar-shop-btn {
+			width: auto;
+			text-align: left;
+		}
 	}
 
 	.sidebar-chat-box {

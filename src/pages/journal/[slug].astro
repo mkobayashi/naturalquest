@@ -145,25 +145,25 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 						</p>
 					) : null}
 
-					{post.data.heroImage ? (
-						<div class="mt-8 w-full overflow-hidden rounded-sm bg-nq-border/25 ring-1 ring-nq-border/55">
-							<div class="aspect-[4/3] w-full sm:aspect-[16/9]">
-								<img
-									src={post.data.heroImage}
-									alt=""
-									class="h-full w-full object-cover object-center"
-									loading="eager"
-									decoding="async"
-									width="1200"
-									height="675"
-								/>
-							</div>
-						</div>
-					) : null}
+					<div class="journal-article-layout mt-10">
+						<div class="journal-article-main min-w-0">
+							<div class="mx-auto w-full max-w-[720px] md:mx-0 md:max-w-none">
+								{post.data.heroImage ? (
+									<div class="mt-8 w-full overflow-hidden rounded-sm bg-nq-border/25 ring-1 ring-nq-border/55">
+										<div class="aspect-[4/3] w-full sm:aspect-[16/9]">
+											<img
+												src={post.data.heroImage}
+												alt=""
+												class="h-full w-full object-cover object-center"
+												loading="eager"
+												decoding="async"
+												width="1200"
+												height="675"
+											/>
+										</div>
+									</div>
+								) : null}
 
-					<div class="mt-10 grid gap-10 lg:grid-cols-12 lg:items-start">
-						<div class="min-w-0 lg:col-span-8">
-							<div class="mx-auto w-full max-w-[720px] lg:mx-0 lg:max-w-none">
 								{articleType === 'default' || !articleType ? (
 									<ArticleBodyDefault
 										post={post}
@@ -308,8 +308,8 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 							</div>
 						</div>
 
-						<aside class="lg:col-span-4">
-							<div class="sticky top-24">
+						<aside class="journal-article-sidebar min-w-0">
+							<div class="md:sticky md:top-24">
 								<ArticleAromaSidebar slug={post.slug} />
 							</div>
 						</aside>
@@ -339,3 +339,18 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 		}
 	</article>
 </Layout>
+
+<style>
+	.journal-article-layout {
+		display: grid;
+		gap: 2.5rem;
+		align-items: start;
+		grid-template-columns: 1fr;
+	}
+
+	@media (min-width: 768px) {
+		.journal-article-layout {
+			grid-template-columns: 1fr 240px;
+		}
+	}
+</style>
