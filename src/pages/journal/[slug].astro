@@ -15,6 +15,7 @@ import MailCaption from '../../components/mdx/MailCaption.astro';
 import NextNote from '../../components/mdx/NextNote.astro';
 import FullPhoto from '../../components/FullPhoto.astro';
 import AdBanner from '../../components/AdBanner.astro';
+import ArticleAromaSidebar from '../../components/aroma/ArticleAromaSidebar.astro';
 import { isJournalPublic } from '../../lib/journalPublic';
 
 export async function getStaticPaths() {
@@ -94,7 +95,7 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 <Layout
 	title={layoutTitle}
 	description={layoutDescription}
-	narrow
+	narrow={false}
 	noindex={!isPublic}
 >
 	<a
@@ -160,141 +161,159 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 						</div>
 					) : null}
 
-					{articleType === 'default' || !articleType ? (
-						<ArticleBodyDefault
-							post={post}
-							Content={Content}
-							components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
-						/>
-					) : null}
-					{articleType === 'immersive' ? (
-						<ArticleBodyImmersive
-							post={post}
-							Content={Content}
-							components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
-						/>
-					) : null}
-					{articleType === 'catalog' ? (
-						<ArticleBodyCatalog
-							post={post}
-							Content={Content}
-							components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
-						/>
-					) : null}
-					{articleType === 'list' ? (
-						<ArticleBodyList
-							post={post}
-							Content={Content}
-							components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
-						/>
-					) : null}
+					<div class="mt-10 grid gap-10 lg:grid-cols-12 lg:items-start">
+						<div class="min-w-0 lg:col-span-8">
+							<div class="mx-auto w-full max-w-[720px] lg:mx-0 lg:max-w-none">
+								{articleType === 'default' || !articleType ? (
+									<ArticleBodyDefault
+										post={post}
+										Content={Content}
+										components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
+									/>
+								) : null}
+								{articleType === 'immersive' ? (
+									<ArticleBodyImmersive
+										post={post}
+										Content={Content}
+										components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
+									/>
+								) : null}
+								{articleType === 'catalog' ? (
+									<ArticleBodyCatalog
+										post={post}
+										Content={Content}
+										components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
+									/>
+								) : null}
+								{articleType === 'list' ? (
+									<ArticleBodyList
+										post={post}
+										Content={Content}
+										components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
+									/>
+								) : null}
 
-					<AdBanner tags={post.data.tags ?? []} slug={post.slug} size="300x250" />
+								<AdBanner tags={post.data.tags ?? []} slug={post.slug} size="300x250" />
 
-					{SHOW_PARTNER ? (
-						<aside
-							class:list={[
-								'mt-14 rounded-sm border p-6 font-sans text-sm leading-relaxed',
-								isSumuCategory
-									? 'border-nq-accent-warm/40 bg-nq-accent-warm/5 text-nq-text'
-									: 'border-nq-border bg-white/40 text-nq-muted',
-							]}
-							aria-labelledby="bristlecone-aside-heading"
-						>
-							<h2 id="bristlecone-aside-heading" class="font-serif text-base font-semibold text-nq-text">
-								{isSumuCategory ? '自然素材のリフォーム・ご相談' : 'パートナー'}
-							</h2>
-							<p class="mt-3">
-								漆喰・自然素材リフォームのご相談は
-								<a
-									href="https://bristlecone.jp"
-									class="font-medium text-nq-accent-warm underline decoration-nq-border underline-offset-2 transition-colors hover:decoration-nq-accent-warm"
-									rel="noopener noreferrer"
-									target="_blank"
-								>
-									Bristlecone（ブリストルコーン）
-								</a>
-								へ。
-							</p>
+								{SHOW_PARTNER ? (
+									<aside
+										class:list={[
+											'mt-14 rounded-sm border p-6 font-sans text-sm leading-relaxed',
+											isSumuCategory
+												? 'border-nq-accent-warm/40 bg-nq-accent-warm/5 text-nq-text'
+												: 'border-nq-border bg-white/40 text-nq-muted',
+										]}
+										aria-labelledby="bristlecone-aside-heading"
+									>
+										<h2
+											id="bristlecone-aside-heading"
+											class="font-serif text-base font-semibold text-nq-text"
+										>
+											{isSumuCategory ? '自然素材のリフォーム・ご相談' : 'パートナー'}
+										</h2>
+										<p class="mt-3">
+											漆喰・自然素材リフォームのご相談は
+											<a
+												href="https://bristlecone.jp"
+												class="font-medium text-nq-accent-warm underline decoration-nq-border underline-offset-2 transition-colors hover:decoration-nq-accent-warm"
+												rel="noopener noreferrer"
+												target="_blank"
+											>
+												Bristlecone（ブリストルコーン）
+											</a>
+											へ。
+										</p>
+									</aside>
+								) : null}
+
+								{related.length ? (
+									<section class="mt-16 border-t border-nq-border pt-10" aria-labelledby="related-heading">
+										<h2
+											id="related-heading"
+											class="font-serif text-xl font-semibold tracking-tight sm:text-2xl"
+										>
+											関連記事
+										</h2>
+										<p class="mt-2 font-sans text-sm text-nq-muted">同じタグの記事</p>
+										<div class="mt-6">
+											<JournalForbesList
+												posts={related}
+												mode="tag"
+												currentTags={post.data.tags ?? []}
+											/>
+										</div>
+									</section>
+								) : null}
+
+								{primaryCategory && (prevInCategory || nextInCategory) ? (
+									<nav
+										class="mt-14 border-t border-nq-border pt-10"
+										aria-label={`「${primaryCategory}」の前後の記事`}
+									>
+										<p class="mb-4 font-sans text-xs font-semibold tracking-[0.12em] text-nq-muted">
+											同じカテゴリ（{primaryCategory}）
+										</p>
+										<div class="grid gap-4 sm:grid-cols-2">
+											<div class="min-w-0">
+												{prevInCategory ? (
+													<a
+														href={`/journal/${prevInCategory.slug}`}
+														class="block rounded-sm border border-nq-border bg-white/30 p-4 transition-colors hover:border-nq-accent hover:bg-white/50"
+													>
+														<span class="font-sans text-[11px] font-medium tracking-wide text-nq-muted">
+															← 前の記事
+														</span>
+														<p class="mt-1.5 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-base">
+															{prevInCategory.data.title ?? '無題'}
+														</p>
+														{prevInCategory.data.pubDate ? (
+															<p class="mt-2 font-sans text-[11px] tabular-nums text-nq-muted">
+																{prevInCategory.data.pubDate.toLocaleDateString('ja-JP', {
+																	year: 'numeric',
+																	month: 'short',
+																	day: 'numeric',
+																})}
+															</p>
+														) : null}
+													</a>
+												) : null}
+											</div>
+											<div class="min-w-0 sm:text-right">
+												{nextInCategory ? (
+													<a
+														href={`/journal/${nextInCategory.slug}`}
+														class="block rounded-sm border border-nq-border bg-white/30 p-4 transition-colors hover:border-nq-accent hover:bg-white/50 sm:ml-auto sm:max-w-full"
+													>
+														<span class="font-sans text-[11px] font-medium tracking-wide text-nq-muted">
+															次の記事 →
+														</span>
+														<p class="mt-1.5 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-base">
+															{nextInCategory.data.title ?? '無題'}
+														</p>
+														{nextInCategory.data.pubDate ? (
+															<p class="mt-2 font-sans text-[11px] tabular-nums text-nq-muted">
+																{nextInCategory.data.pubDate.toLocaleDateString('ja-JP', {
+																	year: 'numeric',
+																	month: 'short',
+																	day: 'numeric',
+																})}
+															</p>
+														) : null}
+													</a>
+												) : null}
+											</div>
+										</div>
+									</nav>
+								) : null}
+							</div>
+						</div>
+
+						<aside class="lg:col-span-4">
+							<div class="sticky top-24">
+								<ArticleAromaSidebar slug={post.slug} />
+							</div>
 						</aside>
-					) : null}
-
-					{related.length ? (
-						<section class="mt-16 border-t border-nq-border pt-10" aria-labelledby="related-heading">
-							<h2 id="related-heading" class="font-serif text-xl font-semibold tracking-tight sm:text-2xl">
-								関連記事
-							</h2>
-							<p class="mt-2 font-sans text-sm text-nq-muted">同じタグの記事</p>
-							<div class="mt-6">
-								<JournalForbesList
-									posts={related}
-									mode="tag"
-									currentTags={post.data.tags ?? []}
-								/>
-							</div>
-						</section>
-					) : null}
-
-					{primaryCategory && (prevInCategory || nextInCategory) ? (
-						<nav
-							class="mt-14 border-t border-nq-border pt-10"
-							aria-label={`「${primaryCategory}」の前後の記事`}
-						>
-							<p class="mb-4 font-sans text-xs font-semibold tracking-[0.12em] text-nq-muted">
-								同じカテゴリ（{primaryCategory}）
-							</p>
-							<div class="grid gap-4 sm:grid-cols-2">
-								<div class="min-w-0">
-									{prevInCategory ? (
-										<a
-											href={`/journal/${prevInCategory.slug}`}
-											class="block rounded-sm border border-nq-border bg-white/30 p-4 transition-colors hover:border-nq-accent hover:bg-white/50"
-										>
-											<span class="font-sans text-[11px] font-medium tracking-wide text-nq-muted">
-												← 前の記事
-											</span>
-											<p class="mt-1.5 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-base">
-												{prevInCategory.data.title ?? '無題'}
-											</p>
-											{prevInCategory.data.pubDate ? (
-												<p class="mt-2 font-sans text-[11px] tabular-nums text-nq-muted">
-													{prevInCategory.data.pubDate.toLocaleDateString('ja-JP', {
-														year: 'numeric',
-														month: 'short',
-														day: 'numeric',
-													})}
-												</p>
-											) : null}
-										</a>
-									) : null}
-								</div>
-								<div class="min-w-0 sm:text-right">
-									{nextInCategory ? (
-										<a
-											href={`/journal/${nextInCategory.slug}`}
-											class="block rounded-sm border border-nq-border bg-white/30 p-4 transition-colors hover:border-nq-accent hover:bg-white/50 sm:ml-auto sm:max-w-full"
-										>
-											<span class="font-sans text-[11px] font-medium tracking-wide text-nq-muted">
-												次の記事 →
-											</span>
-											<p class="mt-1.5 font-serif text-sm font-semibold leading-snug text-nq-ink sm:text-base">
-												{nextInCategory.data.title ?? '無題'}
-											</p>
-											{nextInCategory.data.pubDate ? (
-												<p class="mt-2 font-sans text-[11px] tabular-nums text-nq-muted">
-													{nextInCategory.data.pubDate.toLocaleDateString('ja-JP', {
-														year: 'numeric',
-														month: 'short',
-														day: 'numeric',
-													})}
-												</p>
-											) : null}
-										</a>
-									) : null}
-								</div>
-							</div>
-						</nav>
-					) : null}
+					</div>
 				</>
 			) : (
 				<div class="rounded-sm border border-nq-border/80 bg-nq-border/10 px-5 py-8 sm:px-8">

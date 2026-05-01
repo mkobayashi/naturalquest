@@ -1,0 +1,130 @@
+---
+import articleMapping from '../../data/aroma_article_mapping.json';
+import shopData from '../../data/aroma_shop_data.json';
+
+const { slug } = Astro.props as { slug: string };
+
+type ArticleRef = { slug: string; title?: string };
+type ArticleMapping = { oil_to_articles?: Record<string, ArticleRef[]> };
+type Product = {
+	brand: string;
+	quality?: string;
+	name: string;
+	volume: string;
+	amazon_url?: string;
+	rakuten_url?: string;
+};
+type OilShop = { name: string; products: Product[] };
+
+const mapping = articleMapping as ArticleMapping;
+const shop = shopData as Record<string, OilShop>;
+
+// この記事に登場する精油IDを取得
+const oilIds = mapping.oil_to_articles
+	? Object.entries(mapping.oil_to_articles)
+			.filter(([, articles]) => articles.some((a) => a.slug === slug))
+			.map(([id]) => id)
+	: [];
+
+// ショップデータがある精油だけ絞り込む
+const oils = oilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[id] }));
+---
+
+{
+	oils.length ? (
+		<aside class="article-aroma-sidebar" aria-label="この記事で使った精油">
+			<p class="sidebar-label">この記事で使った精油</p>
+			{oils.map((oil) => (
+				<div class="sidebar-oil-item">
+					<p class="sidebar-oil-name">{oil.name}</p>
+					<a href={`/aroma/shop/${oil.id}/`} class="sidebar-shop-btn">
+						{oil.name}精油を選ぶ →
+					</a>
+				</div>
+			))}
+			<div class="sidebar-chat-box">
+				<p class="sidebar-chat-lead">他の精油も気になる方は</p>
+				<a href="/aroma/" class="sidebar-chat-link">
+					アロマAIチャットで相談する
+				</a>
+			</div>
+		</aside>
+	) : null
+}
+
+<style>
+	.article-aroma-sidebar {
+		background: white;
+		border: 0.5px solid #e8e4da;
+		border-radius: 12px;
+		padding: 16px;
+		font-size: 0.85rem;
+	}
+
+	.sidebar-label {
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.06em;
+		color: #2d6a4f;
+		margin-bottom: 12px;
+		text-transform: uppercase;
+	}
+
+	.sidebar-oil-item {
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 0.5px solid #f0ede6;
+	}
+
+	.sidebar-oil-item:last-of-type {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
+	.sidebar-oil-name {
+		margin: 0 0 8px;
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: #1f2937;
+	}
+
+	.sidebar-shop-btn {
+		display: inline-block;
+		width: 100%;
+		padding: 10px 12px;
+		border-radius: 10px;
+		background: #FF9900;
+		color: white;
+		font-size: 0.85rem;
+		text-decoration: none;
+		text-align: center;
+		transition: background 0.15s ease;
+	}
+
+	.sidebar-shop-btn:hover {
+		background: #e68900;
+	}
+
+	.sidebar-chat-box {
+		margin-top: 14px;
+		padding-top: 12px;
+		border-top: 0.5px solid #f0ede6;
+	}
+
+	.sidebar-chat-lead {
+		margin: 0 0 6px;
+		color: #6b7280;
+		font-size: 0.8rem;
+	}
+
+	.sidebar-chat-link {
+		color: #2d6a4f;
+		text-decoration: underline;
+		font-size: 0.85rem;
+	}
+	.sidebar-chat-link:hover {
+		color: #235c43;
+	}
+</style>
+
