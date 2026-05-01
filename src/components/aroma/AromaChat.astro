@@ -503,7 +503,7 @@ const workerUrl =
 			const bodyForShop = fragment.querySelector('.nq-oil-card-body');
 			if (bodyForShop && SHOP_OIL_IDS.has(oil.id)) {
 				const compareLink = document.createElement('a');
-				compareLink.href = `/aroma/shop/#${oil.id}`;
+				compareLink.href = `/aroma/shop/${oil.id}/`;
 				compareLink.className = 'oil-compare-link';
 				compareLink.textContent = '複数ブランドを比較する →';
 				bodyForShop.appendChild(compareLink);
