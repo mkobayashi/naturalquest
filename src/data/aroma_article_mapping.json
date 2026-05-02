@@ -14,7 +14,6 @@
     "es_13": [{ "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }],
     "es_19": [
       { "slug": "herb-aroma-pet", "title": "アロマでペットを癒す" },
-      { "slug": "herb-aroma-v1-drink", "title": "お酒と上手につきあうためのハーブとアロマ" },
       { "slug": "herb-aroma-v6-neck", "title": "肩こりは自分でケア" }
     ],
     "es_20": [
@@ -28,6 +27,9 @@
       { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" }
     ],
     "es_22": [{ "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }],
+    "es_23": [
+      { "slug": "herb-aroma-v1-drink", "title": "お酒と上手につきあうためのハーブとアロマ" }
+    ],
     "es_26": [
       { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" },
       { "slug": "herb-aroma-pet", "title": "アロマでペットを癒す" },
@@ -65,9 +67,7 @@
       { "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" },
       { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }
     ],
-    "es_60": [
-      { "slug": "herb-aroma-power", "title": "アロマの力でダイエット" },
-      { "slug": "herb-aroma-v4-gut", "title": "腸の調子を整えるハーブとアロマ" },
+    "es_59": [
       { "slug": "herb-aroma-v1-drink", "title": "お酒と上手につきあうためのハーブとアロマ" }
     ],
     "es_61": [
