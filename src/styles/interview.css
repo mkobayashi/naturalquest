@@ -47,8 +47,9 @@ body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--te
 /* Interview (Tojo Yuriko vol.08-2) — hero box right aligned */
 .tojo-yuriko-2 .hero-body{display:flex;justify-content:flex-end}
 
-/* john-bayles — ヒーロー「ジョン・ベリス」カタカナの字詰め（共通 .hero-name は 0.12em） */
-.john-bayles .hero-name{letter-spacing:0.065em}
+/* john-bayles / everett-kennedy-brown — ヒーロー氏名（カタカナ等）の字詰め（共通 .hero-name は 0.12em） */
+.john-bayles .hero-name,
+.everett-kennedy-brown .hero-name{letter-spacing:0.04em}
 
 /* ── INTRO ── */
 .intro{max-width:640px;margin:0 auto;padding:80px 40px 68px;text-align:center;border-bottom:1px solid var(--rule)}
@@ -173,6 +174,17 @@ body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--te
     transform:translateX(48px);
     padding:10px 18px 10px 14px;
     max-width:92%;
+  }
+  /* john-bayles Ch.3 のみ — ポートレートの目が隠れないよう、モバイルでも左下（デスクトップ同等） */
+  .john-bayles #john-bayles-ch3 .ch-sub-box{
+    top:auto;
+    right:auto;
+    bottom:24px;
+    left:4%;
+    transform:translateX(-48px);
+  }
+  .john-bayles #john-bayles-ch3 .photo-wrap.seen .ch-sub-box{
+    transform:translateX(0);
   }
   .ch-header{padding:24px 24px 22px}
   .ch-title{font-size:clamp(16px,4.5vw,20px)}

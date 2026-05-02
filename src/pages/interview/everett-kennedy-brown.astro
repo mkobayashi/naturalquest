@@ -1,0 +1,364 @@
+---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+/** CDN: interview/vol10 配下（他 vol と同形式）。Ch1・2・9 は単枚、Ch3〜8 は photo-fade。 */
+const PHOTO = 'https://images.naturalquest.org/interview/vol10';
+
+const interviewTitle = 'エバレット・ブラウン | Natural Quest Interview';
+const interviewDesc =
+	'国際フォトジャーナリスト・エバレット・ケネディ・ブラウン氏のインタビュー。写真表現の根っこ、ブラウンズフィールドの思い、日本へのまなざし。2011年取材。';
+const imgMain = `${PHOTO}/everett-kennedy-brown_main.jpg`;
+const interviewOg = imgMain;
+const imgHero = imgMain;
+const imgChapter = (suffix: string) => `${PHOTO}/everett-kennedy-brown_${suffix}.jpg`;
+const fadePair = (num: string) => ({
+	a: `${PHOTO}/everett-kennedy-brown_${num}a.jpg`,
+	b: `${PHOTO}/everett-kennedy-brown_${num}b.jpg`,
+});
+const imgProfile = `${PHOTO}/everett-kennedy-brown_profile.jpg`;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{interviewTitle}</title>
+		<meta name="description" content={interviewDesc} />
+		<SeoHeadTags
+			title={interviewTitle}
+			description={interviewDesc}
+			path={Astro.url.pathname}
+			ogImage={interviewOg}
+			ogType="article"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/styles/interview.css" />
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: interviewTitle,
+				description: interviewDesc,
+				image: interviewOg,
+				datePublished: '2011-12-01',
+				dateModified: '2026-05-02',
+				inLanguage: 'ja-JP',
+				author: { '@type': 'Person', name: '小林正廣' },
+				publisher: {
+					'@type': 'Organization',
+					name: 'Natural Quest',
+					url: 'https://naturalquest.org',
+				},
+				mentions: {
+					'@type': 'Person',
+					name: 'エバレット・ケネディ・ブラウン',
+					alternateName: 'Everett Kennedy Brown',
+					jobTitle: '国際フォトジャーナリスト',
+					knowsAbout: [
+						'フォトジャーナリズム',
+						'日本文化',
+						'ブラウンズフィールド',
+						'民俗学',
+						'古道',
+					],
+				},
+			})}
+		></script>
+	</head>
+	<body class="everett-kennedy-brown">
+		<header class="hd" id="hd">
+			<a class="hd-logo" href="/">NQ Interview</a>
+			<span class="hd-vol">2011</span>
+		</header>
+
+		<section class="hero">
+			<div class="hero-img" id="heroImg" style={`background:url('${imgHero}') center 30%/cover no-repeat`}></div>
+			<div class="hero-grad"></div>
+			<div class="hero-body">
+				<div class="hero-box">
+					<p class="hero-series">Natural Quest Interview</p>
+					<h1 class="hero-name">エバレット・ブラウン</h1>
+					<p class="hero-role">国際フォトジャーナリスト</p>
+					<p class="hero-tagline">未来への古地図。</p>
+					<p class="hero-desc">
+						中島デコ著『生きているだけでいいんじゃない』の写真を撮った写真家。松岡正剛氏が「日本人以上に日本の未来を感じさせる思索力や観察力をもったガイジン」と評する日本通。ブラウンズフィールドで2011年取材。
+					</p>
+				</div>
+			</div>
+			<a class="hero-scroll" href="#ch1"><div class="hero-scroll-bar"></div><span>Scroll</span></a>
+		</section>
+
+		<div class="intro">
+			<p class="intro-credits rv">文＝小林正廣&ensp;&emsp;写真＝見米康夫&ensp;</p>
+			<p class="intro-lead rv d1">
+				中島デコの著書「生きているだけでいいんじゃない」（近代映画社刊）に使われている素晴らしい写真に以前から魅せられていた。撮影したのは夫のエバレット・ブラウンだ。国際フォトジャーナリストとして活動するエバレットは、日本の知のカリスマ、松岡正剛が「まるで日本人以上に日本の未来を感じさせる思索力や観察力をもったガイジン」と評するほどの日本通でもある。生き生きとした写真表現の根っこにあるもの、そして農場ブラウンズフィールドに込められた思いをお聞きした。
+			</p>
+		</div>
+
+		<article class="chapter" id="ch1">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('01')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 01</p>
+					<p class="ch-sub">自分の心の声に耳を澄ませる人たち</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">11歳、家族旅行でカメラに夢中になる</h2>
+				<p class="rv">
+					エバレット・ブラウンは、米国ワシントン州の牧師の息子として生まれた。祖先はウェルズとスコットランドの出身で、農民らしいつつましさと信仰心を持ち、そして何よりも自分自身の心の声を耳を澄ませて聞こうとする人たちだった。父親は第二次大戦の従軍で、敗戦間もない焦土と化した日本を訪れたことがあり、その悲惨な光景を見た経験から牧師を志したという。両親に伸び伸び育てられたエバレットは、幼い頃から、偏見や先入観の強い保守的な人間に出会うと、すぐに肌で違いを感じる子どもだった。
+				</p>
+				<p class="rv d1">
+					11歳の時、父母と3人で旅行にいった。エバレットは旅の写真撮影を任された。ファインダーごしに初めてのぞく世界は、肉眼とはまったく違う様相で表れた。撮影に夢中になったエバレットは、今まで知らなかった別人格の自分が現れることを感じていた。「そうして写真にものすごくはまって、家に帰ってすぐに安い一眼レフカメラを買ったのです。14歳の時に画家の絵を撮影する仕事ではじめてお金をもらいました。出来栄えに満足してくれて、続けて注文してくれたからそれはうれしかった」
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('02')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 02</p>
+					<p class="ch-sub">「君は将来、マグナムに入るだろう」と先生は言った</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">写真家に不可欠な「被写体との信頼感覚」を体得する</h2>
+				<p class="rv">
+					写真を撮り始めてすぐに、フットボール試合の写真が学生コンクールで入賞した。一芸秀でることが賞賛される活気ある学校だったから、写真はエバレットに自信を与えた。写真を教えてくれていた学校の先生は、エバレットに言った。「君は将来、『マグナム』に入るだろう」。『マグナム』とはロバート・キャパなど歴史に残る写真家を輩出した、世界的フォトジャーナリスト集団のことだ。エバレットの写真家になろうという意志はさらに固いものになった。
+				</p>
+				<p class="rv d1">
+					ある日、父親が出張先から電話をかけてきて「明日、ジョージアに来い」という。おそらく、現地の様子が興味深いのでエバレットの格好の被写体になるだろうと気をまわしてくれたのだ。南部都市の黒人街を白人の14歳の子どもが、カメラを首からぶら下げて一人で写真を撮り歩く。それは、黒人と白人の対立が厳しかった当時はとても危険なことだった。
+				</p>
+				<p class="rv d2">
+					「でも怖がらないで、こちらが相手を信頼して目をちゃんと合わせれば平気だった。今でもその感覚はとても大切で、ずっと同じように仕事をしています」
+				</p>
+				<p class="rv">
+					一流の写真家の条件である「被写体と信頼関係を結ぶ力」を、エバレットは早い時期からみずみずしい感性で体得してゆく。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="ekb-f3">
+				<div class="fa" style={`background-image:url('${fadePair('03').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('03').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 03</p>
+					<p class="ch-sub">高橋竹山の映画を見て、日本に「魂が呼ばれる」</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">偶然の重なり。そして日本への最初の旅立ち</h2>
+				<p class="rv">
+					敬愛する写真家ユージン・スミスに会いたくて、サンフランシスコにいる姉のもとを頼って一人旅に出たのは16歳のことだ。ユージン・スミスはすでに体調を崩していたけれど、事務所のスタッフはエバレットを可愛がってくれた。「写真は一瞬のうちに、いろいろなことを凝縮した表現ができる。刻々と変わる時間の中で、決定的な瞬間をつかまえられるかどうか、先を読まなくてはならない。それが好きなんですよ」。写真を教えてくれた高校教師は、座禅に打ち込んでいて、毎年夏休みには参禅に日本を訪れるような人だった。
+				</p>
+				<p class="rv d1">
+					大学では津軽三味線の名人、高橋竹山のドキュメンタリー映画を見た。厳しい東北の自然を放浪する高橋竹山と三弦の音。“魂が呼ばれる“気がして、いつか日本に行きたいと思った。文化人類学を学んで大学を卒業、いよいよ日本に行く時が来た。すると、偶然道端でばったりと友人の詩人ロバート・ブライと会う。これから日本に行くところだというと、ブライは「それなら会わせたい人がいる！」といい、禅宗の米国人尼僧を紹介してくれた。尼僧は、「日本に行くなら、東京に泊まらないで、地方の漁村にしばらく滞在してこれからの事を考えればいい」と助言してくれた。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="ekb-f4">
+				<div class="fa" style={`background-image:url('${fadePair('04').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('04').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 04</p>
+					<p class="ch-sub">“日本体験の原点”となった下北半島への旅</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">下北のおばあちゃんたちは、エバレットに優しかった</h2>
+				<p class="rv">
+					青森県下北半島の地に着くと雨だった。眺めが気にいった無人の海岸でテントを張り、3日間ばかり中にこもって寂しい東北の自然の趣にひたる。雨がなかなかやまないので、移動することに決め、日に数本しかない電車を待っていると、近所のお店のおばあちゃんがやってきて、牛乳とパンを持ってきてくれた。その優しさにエバレットはいたく感激した。それから電車に乗り、目的地だった恐山に行った。地元のおばあちゃんたちは、エバレットをなんの隔てもなく受け入れてくれた。イタコとも仲良しになった。夜は、おばあちゃんたちと食事し、お酒も飲んだりした。それは、昔から恐山に根づいたコミュニティだった。
+				</p>
+				<p class="rv d1">
+					明治生まれのおばあちゃんたちの所作はとても美しく、風呂敷の扱いひとつでも何ともいえず洗練されていた。エバレットは、地方の村の暮らしを見たとき、これこそが芸術的な暮らしだと思った。「それから、毎年、ぼくはあの古いお寺で彼女たちに会ったんです。お酒と踊りと祈り。実は彼女たちの文化が、ぼくの日本の原点なんです。」（『日本力』PARCO出版刊より）
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="ekb-f5">
+				<div class="fa" style={`background-image:url('${fadePair('05').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('05').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 05</p>
+					<p class="ch-sub">旅で世界の精神文化と医療伝承を見聞する</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">異文化の地でも、目と目と合わせれば心は伝わる</h2>
+				<p class="rv">
+					子どもの頃から世界を旅するのが夢だったというエバレットの旅行体験は50ヶ国を超える。20代の頃はインドでアーユルヴェーダを、中国と日本では経絡や気血の巡りなどの東洋医学を学んだ。チベットでは高僧から言葉を超えた直感的なアドバイスをもらったおかげで体調を持ち直す経験もした。偏見や先入観とは無縁のエバレットは、世界中のさまざまな精神文化や伝承医学に関する見聞を深めた。
+				</p>
+				<p class="rv d1">
+					大学生の頃、インド旅行に行った時のこと。到着すると早朝のイスラム寺院から礼拝の音が聞こえてくる。エバレットは居ても立ってもいられず、寺院に行こうと仲間を誘うが、一緒にいた秀才学生は「イスラム寺院に外人は絶対入れてくれない、それに危険すぎる」と反対して動こうとしない。だが、エバレットに恐怖心はなかった。「寺院の入り口で待ち、やってきたお年寄りと目を合わせて、『中に入りたい』と意思を伝えました。老人は私を無言で受け入れ、一緒に中に入れてくれました」。五感を研ぎ澄まして、心の声に従う。エバレットの信条であり生き方だ。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="ekb-f6">
+				<div class="fa" style={`background-image:url('${fadePair('06').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('06').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 06</p>
+					<p class="ch-sub">写真家を志した少年は夢をかなえた</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">世界の主要メディアに写真を発表しながら、日本の文化を探る</h2>
+				<p class="rv">
+					エバレットはフォトジャーナリストとして実績を積みながら、29歳の頃から日本に定住する。2000年には、世界的な写真展「Moments of Intimacy, Laughter and Kinship」（M.I.L.K）で1万7000人の応募作品の中から入選を果たし、作品選集「LOVE」の表紙を、妻の中島デコとモンゴル人男性の味わいあるツーショットが飾った。ドイツのグラフィック誌「GEO」では、「ピクチャー・オブ・イヤー」に選ばれたほか、渋谷の若い女子たちの姿をとらえた著書「ガングロガールズ」が日本と欧米で話題を呼んだ。現在では、ドイツの報道写真通信社であるepa通信社の日本支社長を務め、日本、アジアを中心に活動している。
+				</p>
+				<p class="rv d1">
+					11歳で写真への道を志した少年は、タイム、ニューズウィーク、ニューヨーク・タイムズ、ロンドン・タイムズ、ル・モンドなど、世界の主要メディアで定期的に写真を発表する国際フォトジャーナリスト、写真家となったのだ。
+				</p>
+				<p class="rv d2">
+					驚くような余談もある。エバレットの遠い先祖にエリファレット・ブラウンという人物がおり、幕末にペリーの黒船で来航し、日本の風物、人物を写真に残したのだという。確かにエバレットは「日本に呼ばれた人」であることに間違いないという気がしてくる。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="ekb-f7">
+				<div class="fa" style={`background-image:url('${fadePair('07').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('07').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 07</p>
+					<p class="ch-sub">生活そのものが芸術になることが理想</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">キーワードは「クリエイティビティとコミュニティ」</h2>
+				<p class="rv">
+					「若い頃は芸術家になりたかった。でも、エゴや自分にとらわれている表現、芸術ではなくて、生活そのものが芸術になるほうが理想だとある時思った。小説を書きたいのではなくて、小説のような暮らしをしたい。私は欲が深いんですよ」（笑）。恐山で、美しい所作を見せてくれたおばあちゃんたちは、昔ながらの暗黙の了解で互いのつながりを大切にし、コミュニティをつくっていた。しかし、経済合理性にひた走るニッポンは、お金では代えられないコミュニティをあちこちで破壊し続けた。
+				</p>
+				<p class="rv d1">
+					「バブル期の観光政策で、宿泊施設の認可がないお寺の部屋には、おばあちゃんたちが宿泊禁止になったのです。がっくりした何人ものおばあちゃんがその年に亡くなったそうです」。生命もクリエイティビティのある暮らしもコミュニティなしには育まれない。エバレットはここ数年、仕事の合間に明治時代の房総半島の古地図を県立図書館で手に入れて、それを頼りに古道を探索している。房総には弘法大師も修行したという修験道などが残っており、古道を踏みしめて巡り、カメラのシャッターを押すとその土地と一体になれる瞬間があるという。日本人が足早に通り過ぎてしまった『足下の宝物』をエバレットは見つけ、私たちに指し示しそうとしている。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="ekb-f8">
+				<div class="fa" style={`background-image:url('${fadePair('08').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('08').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 08</p>
+					<p class="ch-sub">少人数でも本当に意識が変われば社会が変わる</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">政府の「クールジャパン官民有識者会議」に参加する</h2>
+				<p class="rv">
+					民俗学の幅広い知識を持ち、古道を訪ね歩くエバレットは、かたや経済産業省の主導でスタートした『クール・ジャパン官民有識者会議』の参加メンバーでもある。＜「新しい日本の創造」～「文化と産業」「日本と海外」をつなぐために～＞をテーマに提言をまとめた有識者会議にとって、見識豊かなエバレットの意見は貴重なものであったはずだ。政府、民間の要職につくキーマンたちが、ブラウンズ・フィールドを会合場所として集結したこともあるというが、彼らが古民家で玄米ごはんを噛みしめている光景を想像するのは、少し愉快な気がする。
+				</p>
+				<p class="rv d1">
+					政治家の小競り合いと、官僚と財界の既得権益エゴは、日本のあらゆる分野で変革の動や成長への活力を削いでいるように見えるが、中堅と若い世代を中心に、新しい動きへの兆しが見られるとエバレットはいう。「“何かしないとこの国の未来がない”と、いろいろな分野のリーダーや政府の中堅・若手の人が考え動き始めています。いまの日本のリーダーたちの5割は変わらないかもしれないけれど、3割の“何かできないか”という新しい動きに注目しています。少人数でも本当に意識が変われば社会が変わるはずです」
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('09')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 09</p>
+					<p class="ch-sub">自分がもっているビジョン、わくわくすることに進んでいくしかない</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">日本の仕切りなおし。腐ったものを捨て、よいところを生かしていく</h2>
+				<p class="rv">
+					農場ブラウンズ・フィールドでは、多彩なワークショップを開催し、自然に沿ったライフスタイルのセンター的存在になりつつある。5月には、原発問題に詳しい環境活動家の田中優氏を招いて講演会もおこなった。
+				</p>
+				<p class="rv d1">
+					「今がここ10年間で一番大変な時。でも、地震や原発の問題はあるけれど、それを恐れて立ちすくむのではなく、とりあえず僕たちが持っているビジョン、心からわくわくすることに向かって進むしかない。まずみんなで元気に、楽しくなることをやっていくこと。これからは日本の仕切り直しの時期になってくる。日本の腐ったところは捨てて、よいものだけ生かせればよい」
+				</p>
+				<p class="rv d2">
+					“日本再生のヒントは？”とたずねると、エバレットは少し考えてから口を開いた。「日本人一人ひとりが、自分の先祖をたどれば、必ず何かがつかめるはずです。これからの生き方、コミュニティのあり方がきっと見えてくるでしょう」
+				</p>
+				<p class="rv">
+					“先祖”という言葉を聞いて衝撃を覚えた。私たちの先祖たちは、途方もなく汚された郷土を見て何を思うだろう。自然の恵みに感謝を忘れることのなかった彼らは、遠い未来の子孫のことまで思い、朝に夕に大地を耕してくれていたはずだ。エバレットの澄んだ瞳は、それでもしなやかに生まれ変わる日本の未来への古地図を見すえている。
+				</p>
+			</div>
+		</article>
+
+		<section class="profile">
+			<div
+				class="profile-img rv"
+				style={`background-image:url('${imgProfile}');background-position:center 25%;background-size:cover;`}
+			>
+			</div>
+			<div class="profile-in">
+				<span class="profile-label rv">Profile</span>
+				<h2 class="profile-title rv">エバレット・ブラウンの歩み</h2>
+				<div class="tl">
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■出生</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1959年</div><div class="tl-txt">米国ワシントン州に生まれる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">小学校時代</div><div class="tl-txt">11歳の時、初めてカメラと出会い、写真撮影に熱中する</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">中高生時代</div><div class="tl-txt">ユージン・スミスと出会う。フォト・ジャーナリストになると決心する</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">大学生時代</div><div class="tl-txt">文化人類学を学ぶ。インド、中国、その他世界各国を旅する</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■フォト・ジャーナリストへの歩み</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">20代</div><div class="tl-txt">世界の六大陸50ヶ国以上を旅行し、多様な文化を学びながら写真の実績を積む</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1988年</div><div class="tl-txt">日本に定住し、活動の本拠地とする</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1999年</div><div class="tl-txt">妻の中島デコ、子どもたちと共に千葉県いすみ市へ移住</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">2000年</div><div class="tl-txt">世界的写真展「M.I.L.K：Moments of Intimacy, Laughter &amp; Kinship」で入賞する。作品展の開催多数。著書を多数発表する</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">2011年現在</div><div class="tl-txt">epa通信社日本支局長。ブラウンズフィールド代表。「Kyoto Journal」寄稿編集者</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr"></div><div class="tl-txt">
+							<strong>＜著書＞</strong>『ガングロガールズ』、『俺たちのニッポン』、『生きているだけでいいんじゃない』（中島デコ共著）、『日本力』（松岡正剛との共著）など多数
+						</div>
+					</div>
+				</div>
+				<p class="rv d2" style="margin-top: 16px; font-size: 12px; color: #7a6858">
+					◎ このインタビューは2011年にブラウンズフィールドで行なわれた。
+				</p>
+				<a class="book rv" href="/interview/nakajima-deko/">
+					<span class="book-label">関連インタビュー</span>
+					<p>
+						妻・中島デコのインタビュー<br />
+						<strong>>> 読む</strong>
+					</p>
+				</a>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<p class="footer-copy">©Natural Quest</p>
+		</footer>
+
+		<script src="/scripts/interview.js" defer></script>
+	</body>
+</html>
