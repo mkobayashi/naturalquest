@@ -1,168 +1,129 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const SITE = 'https://naturalquest.org';
+
+const pageDescription =
+	'Natural Quest のインタビュー一覧。オーガニック食品やウェルネスに関わる方々との対話を掲載。ジョン・ベリス（アリサン代表）、林サオダ、中島デコ、東城百合子、宮川明子など。';
+
+const ogImageInterview = 'https://images.naturalquest.org/interview/vol05/alisan_main.jpg';
+
+const interviews = [
+	{
+		href: '/interview/john-bayles/',
+		thumb: ogImageInterview,
+		imgAlt: 'ジョン・ベリス（アリサン代表）',
+		title: 'ジョン・ベリス',
+		role: 'アリサン代表',
+		tagline: '人と人との幸福なつながりに役立ちたい。',
+	},
+	{
+		href: '/interview/hayashi-saodah/',
+		thumb: 'https://images.naturalquest.org/interview/vol11/photo_01.jpg',
+		imgAlt: '林サオダ',
+		title: '林 サオダ',
+		role: 'バッチホリスティック研究会理事',
+		tagline: '自分らしく生き、「汝自身を癒せ」。',
+	},
+	{
+		href: '/interview/nakajima-deko/',
+		thumb: 'https://images.naturalquest.org/interview/vol09/deko_main.jpg',
+		imgAlt: '中島デコ',
+		title: '中島デコ',
+		role: 'マクロビオティック料理研究家',
+		tagline: '食を正せば、思いは叶う。',
+	},
+	{
+		href: '/interview/tojo-yuriko-1/',
+		thumb: 'https://images.naturalquest.org/interview/vol8/1_tojo_main.jpg',
+		imgAlt: '東城百合子',
+		title: '東城百合子',
+		role: '「あなたと健康」主宰',
+		tagline: '生活、料理、そして心の根。',
+	},
+	{
+		href: '/interview/tojo-yuriko-2/',
+		thumb: 'https://images.naturalquest.org/interview/vol08-2/2_tojo_main.jpg',
+		imgAlt: '東城百合子（後編）',
+		title: '東城百合子（後編）',
+		role: '「あなたと健康」主宰',
+		tagline: '生活、料理。そして心の根。',
+	},
+	{
+		href: '/interview/miyakawa-akiko/',
+		thumb: 'https://images.naturalquest.org/interview/vol03/miyakawa_002.jpg',
+		imgAlt: '宮川明子',
+		title: '宮川明子',
+		role: 'セラピスト／鍼灸師',
+		tagline: 'あらゆる"マザー"の味方。',
+	},
+] as const;
+
+const itemListLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: 'Natural Quest インタビュー一覧',
+	description: pageDescription,
+	numberOfItems: interviews.length,
+	itemListElement: interviews.map((item, i) => {
+		const url = new URL(item.href, SITE).href;
+		return {
+			'@type': 'ListItem',
+			position: i + 1,
+			item: {
+				'@type': 'WebPage',
+				'@id': url,
+				url,
+				name: item.title,
+			},
+		};
+	}),
+};
 ---
 
-<Layout title="インタビュー | Natural Quest" description="Natural Quest のインタビュー一覧です。">
+<Layout
+	title="インタビュー | Natural Quest"
+	description={pageDescription}
+	ogImage={ogImageInterview}
+	ogType="website"
+>
+	<script type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
+
 	<header class="mb-6 border-b border-nq-border pb-6">
 		<h1 class="font-serif text-2xl font-semibold tracking-tight text-nq-ink sm:text-3xl">インタビュー</h1>
+		<p class="mt-2 max-w-2xl font-sans text-sm leading-relaxed text-nq-ink/75">
+			取材時の語りを長く読めるようにまとめたページです。オーガニック、マクロビオ、アロマ、自然な暮らしなど、テーマはさまざまです。
+		</p>
 	</header>
 
 	<ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-		<li class="min-w-0">
-			<a
-				href="/interview/john-bayles/"
-				class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
-			>
-				<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
-					<img
-						src="https://images.naturalquest.org/interview/vol05/alisan_main.jpg"
-						alt=""
-						class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
-				<div class="flex flex-1 flex-col gap-1.5 p-3">
-					<h2 class="font-serif text-base font-semibold leading-snug text-nq-ink">ジョン・ベリス</h2>
-					<p class="font-sans text-xs font-semibold tracking-wide text-nq-muted">アリサン代表</p>
-					<p class="mt-1 line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
-						人と人との幸福なつながりに役立ちたい。
-					</p>
-					<p class="mt-auto pt-2 font-sans text-[11px] font-semibold tracking-[0.12em] text-nq-muted transition-colors group-hover:text-nq-accent">
-						読む →
-					</p>
-				</div>
-			</a>
-		</li>
-		<li class="min-w-0">
-			<a
-				href="/interview/hayashi-saodah/"
-				class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
-			>
-				<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
-					<img
-						src="https://images.naturalquest.org/interview/vol11/photo_01.jpg"
-						alt=""
-						class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
-				<div class="flex flex-1 flex-col gap-1.5 p-3">
-					<h2 class="font-serif text-base font-semibold leading-snug text-nq-ink">林 サオダ</h2>
-					<p class="font-sans text-xs font-semibold tracking-wide text-nq-muted">バッチホリスティック研究会理事</p>
-					<p class="mt-1 line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
-						自分らしく生き、「汝自身を癒せ」。
-					</p>
-					<p class="mt-auto pt-2 font-sans text-[11px] font-semibold tracking-[0.12em] text-nq-muted transition-colors group-hover:text-nq-accent">
-						読む →
-					</p>
-				</div>
-			</a>
-		</li>
-		<li class="min-w-0">
-			<a
-				href="/interview/nakajima-deko/"
-				class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
-			>
-				<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
-					<img
-						src="https://images.naturalquest.org/interview/vol09/deko_main.jpg"
-						alt=""
-						class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
-				<div class="flex flex-1 flex-col gap-1.5 p-3">
-					<h2 class="font-serif text-base font-semibold leading-snug text-nq-ink">中島デコ</h2>
-					<p class="font-sans text-xs font-semibold tracking-wide text-nq-muted">マクロビオティック料理研究家</p>
-					<p class="mt-1 line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
-						食を正せば、思いは叶う。
-					</p>
-					<p class="mt-auto pt-2 font-sans text-[11px] font-semibold tracking-[0.12em] text-nq-muted transition-colors group-hover:text-nq-accent">
-						読む →
-					</p>
-				</div>
-			</a>
-		</li>
-		<li class="min-w-0">
-			<a
-				href="/interview/tojo-yuriko-1/"
-				class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
-			>
-				<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
-					<img
-						src="https://images.naturalquest.org/interview/vol8/1_tojo_main.jpg"
-						alt=""
-						class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
-				<div class="flex flex-1 flex-col gap-1.5 p-3">
-					<h2 class="font-serif text-base font-semibold leading-snug text-nq-ink">東城百合子</h2>
-					<p class="font-sans text-xs font-semibold tracking-wide text-nq-muted">「あなたと健康」主宰</p>
-					<p class="mt-1 line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
-						生活、料理、そして心の根。
-					</p>
-					<p class="mt-auto pt-2 font-sans text-[11px] font-semibold tracking-[0.12em] text-nq-muted transition-colors group-hover:text-nq-accent">
-						読む →
-					</p>
-				</div>
-			</a>
-		</li>
-		<li class="min-w-0">
-			<a
-				href="/interview/tojo-yuriko-2/"
-				class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
-			>
-				<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
-					<img
-						src="https://images.naturalquest.org/interview/vol08-2/2_tojo_main.jpg"
-						alt=""
-						class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
-				<div class="flex flex-1 flex-col gap-1.5 p-3">
-					<h2 class="font-serif text-base font-semibold leading-snug text-nq-ink">東城百合子（後編）</h2>
-					<p class="font-sans text-xs font-semibold tracking-wide text-nq-muted">「あなたと健康」主宰</p>
-					<p class="mt-1 line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
-						生活、料理。そして心の根。
-					</p>
-					<p class="mt-auto pt-2 font-sans text-[11px] font-semibold tracking-[0.12em] text-nq-muted transition-colors group-hover:text-nq-accent">
-						読む →
-					</p>
-				</div>
-			</a>
-		</li>
-		<li class="min-w-0">
-			<a
-				href="/interview/miyakawa-akiko/"
-				class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
-			>
-				<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
-					<img
-						src="https://images.naturalquest.org/interview/vol03/miyakawa_002.jpg"
-						alt=""
-						class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
-						loading="lazy"
-						decoding="async"
-					/>
-				</div>
-				<div class="flex flex-1 flex-col gap-1.5 p-3">
-					<h2 class="font-serif text-base font-semibold leading-snug text-nq-ink">宮川明子</h2>
-					<p class="font-sans text-xs font-semibold tracking-wide text-nq-muted">セラピスト／鍼灸師</p>
-					<p class="mt-1 line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">
-						あらゆる"マザー"の味方。
-					</p>
-					<p class="mt-auto pt-2 font-sans text-[11px] font-semibold tracking-[0.12em] text-nq-muted transition-colors group-hover:text-nq-accent">
-						読む →
-					</p>
-				</div>
-			</a>
-		</li>
+		{
+			interviews.map((item) => (
+				<li class="min-w-0">
+					<a
+						href={item.href}
+						class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border/80 bg-white/40 transition-colors hover:border-nq-accent/50"
+					>
+						<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-nq-border/30">
+							<img
+								src={item.thumb}
+								alt={item.imgAlt}
+								class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.02]"
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
+						<div class="flex flex-1 flex-col gap-1.5 p-3">
+							<h2 class="font-serif text-base font-semibold leading-snug text-nq-ink">{item.title}</h2>
+							<p class="font-sans text-xs font-semibold tracking-wide text-nq-muted">{item.role}</p>
+							<p class="mt-1 line-clamp-3 font-sans text-sm leading-relaxed text-nq-ink/80">{item.tagline}</p>
+							<p class="mt-auto pt-2 font-sans text-[11px] font-semibold tracking-[0.12em] text-nq-muted transition-colors group-hover:text-nq-accent">
+								読む →
+							</p>
+						</div>
+					</a>
+				</li>
+			))
+		}
 	</ul>
 </Layout>
