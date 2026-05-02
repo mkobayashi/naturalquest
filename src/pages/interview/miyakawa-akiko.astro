@@ -1,14 +1,24 @@
 ---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+const interviewTitle = '宮川明子 | Natural Quest Interview';
+const interviewDesc =
+	'あらゆるマザーと、いずれマザーとなる女性の強き味方。鍼灸師であり、日本のアロマテラピーの第一人者の一人として活躍する宮川明子のインタビュー。';
+const interviewOg = 'https://images.naturalquest.org/interview/vol03/miyakawa_002.jpg';
 ---
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>宮川明子 | Natural Quest Interview</title>
-		<meta
-			name="description"
-			content="あらゆるマザーと、いずれマザーとなる女性の強き味方。鍼灸師であり、日本のアロマテラピーの第一人者の一人として活躍する宮川明子のインタビュー。"
+		<title>{interviewTitle}</title>
+		<meta name="description" content={interviewDesc} />
+		<SeoHeadTags
+			title={interviewTitle}
+			description={interviewDesc}
+			path={Astro.url.pathname}
+			ogImage={interviewOg}
+			ogType="article"
 		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link
@@ -16,6 +26,34 @@
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="/styles/interview.css" />
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: '宮川明子 | Natural Quest Interview',
+				description: interviewDesc,
+				image: interviewOg,
+				datePublished: '2009-01-01',
+				dateModified: '2026-05-01',
+				inLanguage: 'ja-JP',
+				author: {
+					'@type': 'Person',
+					name: '阪本淳子',
+				},
+				publisher: {
+					'@type': 'Organization',
+					name: 'Natural Quest',
+					url: 'https://naturalquest.org',
+				},
+				mentions: {
+					'@type': 'Person',
+					name: '宮川明子',
+					jobTitle: '鍼灸師・アロマテラピスト',
+					knowsAbout: ['アロマテラピー', '鍼灸', '母乳育児', '産前産後ケア', 'オキシトシン'],
+				},
+			})}
+		></script>
 	</head>
 
 	<body>
@@ -38,7 +76,8 @@
 					<p class="hero-role">セラピスト／鍼灸師</p>
 					<p class="hero-tagline">あらゆる”マザー”の味方</p>
 					<p class="hero-desc">
-						妊娠・出産・育児を通じて学び、感じ、経験したことを、今日も訪れる女性たちに惜しみなく提供し続けている。
+						宮川明子は日本のアロマテラピー、オルタネイティヴセラピー分野に多大な影響を与えた草分けだ。このインタビューは2009年当時あった東京中野のマザーズオフィスで行われた。宮川が語ったオキシトシンと産後ケアの関係、
+  アロマテラピーの臨床応用は、今日の周産期医療においても広く支持されている。
 					</p>
 				</div>
 			</div>
@@ -56,7 +95,7 @@
 			<div class="photo-wrap">
 				<div
 					class="photo-img"
-					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_03.jpg')"
+					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_002.jpg')"
 				></div>
 				<div class="ch-sub-box">
 					<p class="ch-num">Chapter 01</p>
@@ -100,7 +139,7 @@
 			<div class="photo-wrap">
 				<div
 					class="photo-img"
-					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_04.jpg')"
+					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_03.jpg')"
 				></div>
 				<div class="ch-sub-box">
 					<p class="ch-num">Chapter 03</p>
@@ -128,7 +167,7 @@
 			<div class="photo-wrap">
 				<div
 					class="photo-img"
-					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_05.jpg')"
+					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_04.jpg')"
 				></div>
 				<div class="ch-sub-box">
 					<p class="ch-num">Chapter 04</p>
@@ -156,7 +195,7 @@
 			<div class="photo-wrap">
 				<div
 					class="photo-img"
-					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_06.jpg')"
+					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_05.jpg')"
 				></div>
 				<div class="ch-sub-box">
 					<p class="ch-num">Chapter 05</p>
@@ -178,7 +217,7 @@
 			<div class="photo-wrap">
 				<div
 					class="photo-img"
-					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_07.jpg')"
+					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_06.jpg')"
 				></div>
 				<div class="ch-sub-box">
 					<p class="ch-num">Chapter 06</p>
@@ -200,7 +239,7 @@
 			<div class="photo-wrap">
 				<div
 					class="photo-img"
-					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_08.jpg')"
+					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_07.jpg')"
 				></div>
 				<div class="ch-sub-box">
 					<p class="ch-num">Chapter 07</p>
@@ -222,7 +261,7 @@
 			<div class="photo-wrap">
 				<div
 					class="photo-img"
-					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_09.jpg')"
+					style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_08.jpg')"
 				></div>
 				<div class="ch-sub-box">
 					<p class="ch-num">Chapter 08</p>
@@ -243,7 +282,7 @@
 		<section class="profile">
 			<div
 				class="profile-img rv"
-				style="background-image: linear-gradient(135deg, rgba(45, 106, 79, 0.18), rgba(255, 255, 255, 1)); background-position:center 25%;"
+				style="background-image:url('https://images.naturalquest.org/interview/vol03/miyakawa_09.jpg');background-position:center 25%;background-size:cover;"
 			></div>
 			<div class="profile-in">
 				<span class="profile-label rv">Profile</span>

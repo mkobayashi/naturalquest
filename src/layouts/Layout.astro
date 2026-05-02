@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SolarSubsidyBanner from '../components/wizards/SolarSubsidyBanner.astro';
+import SeoHeadTags from '../components/SeoHeadTags.astro';
 
 interface Props {
 	title?: string;
@@ -9,6 +10,9 @@ interface Props {
 	narrow?: boolean;
 	/** 検索エンジンにインデックスさせない（非公開記事など） */
 	noindex?: boolean;
+	/** OGP / Twitter 用（相対なら naturalquest.org からの絶対 URL に解決） */
+	ogImage?: string;
+	ogType?: 'website' | 'article';
 }
 
 const {
@@ -16,6 +20,8 @@ const {
 	description,
 	narrow = false,
 	noindex = false,
+	ogImage,
+	ogType,
 } = Astro.props;
 
 const navItems = [
@@ -38,6 +44,13 @@ const navItems = [
 		{description ? <meta name="description" content={description} /> : null}
 		{noindex ? <meta name="robots" content="noindex, nofollow" /> : null}
 		<title>{title}</title>
+		<SeoHeadTags
+			title={title}
+			description={description}
+			path={Astro.url.pathname}
+			ogImage={ogImage}
+			ogType={ogType ?? 'website'}
+		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link

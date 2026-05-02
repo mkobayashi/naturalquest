@@ -1,12 +1,19 @@
 ---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+const interviewTitle = '林 サオダ | Natural Quest Interview vol.11';
+const interviewDesc =
+	'バッチフラワーレメディの日本での第一人者、林サオダさんのインタビュー。「自分らしく生き、汝自身を癒せ」。';
+const interviewOg = 'https://images.naturalquest.org/interview/vol11/photo_01.jpg';
 ---
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>林 サオダ | Natural Quest Interview vol.11</title>
-<meta name="description" content="バッチフラワーレメディの日本での第一人者、林サオダさんのインタビュー。「自分らしく生き、汝自身を癒せ」。">
+<title>{interviewTitle}</title>
+<meta name="description" content={interviewDesc}>
+<SeoHeadTags title={interviewTitle} description={interviewDesc} path={Astro.url.pathname} ogImage={interviewOg} ogType="article" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/interview.css">

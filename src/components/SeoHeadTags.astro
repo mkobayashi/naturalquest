@@ -1,0 +1,44 @@
+---
+/**
+ * canonical・OGP・Twitter Card（全ページ共通の雛形）
+ * 本番サイト: https://naturalquest.org（astro.config.mjs の site と一致）
+ */
+interface Props {
+	title: string;
+	description?: string;
+	/** 先頭スラッシュ付きのパス（例: /interview/miyakawa-akiko/） */
+	path: string;
+	/** 絶対 URL またはサイトルートからのパス（未指定時はサイト共通デフォルト画像） */
+	ogImage?: string;
+	ogType?: 'website' | 'article';
+}
+
+const SITE = 'https://naturalquest.org';
+
+const pathRaw = Astro.props.path.startsWith('/') ? Astro.props.path : `/${Astro.props.path}`;
+const canonicalHref = new URL(pathRaw, SITE).href;
+
+const ogType = Astro.props.ogType ?? 'website';
+
+const DEFAULT_OG = `${SITE}/images/herbaroma.jpg`;
+let ogImageHref = DEFAULT_OG;
+const raw = Astro.props.ogImage?.trim();
+if (raw) {
+	ogImageHref = raw.startsWith('http') ? raw : new URL(raw.startsWith('/') ? raw : `/${raw}`, SITE).href;
+}
+
+const { title, description } = Astro.props;
+---
+
+<link rel="canonical" href={canonicalHref} />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:site_name" content="Natural Quest" />
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+{description ? <meta property="og:description" content={description} /> : null}
+<meta property="og:url" content={canonicalHref} />
+<meta property="og:image" content={ogImageHref} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+{description ? <meta name="twitter:description" content={description} /> : null}
+<meta name="twitter:image" content={ogImageHref} />

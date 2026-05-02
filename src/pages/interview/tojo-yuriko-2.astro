@@ -1,12 +1,24 @@
+---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+const interviewTitle = '東城百合子（後編） | Natural Quest Interview vol.08';
+const interviewDesc =
+	'80万部のロングセラー『家庭でできる自然療法』の著者、東城百合子さん（「あなたと健康」主宰）に聞く。生活、料理、そして心の根。＜後編＞';
+const interviewOg = 'https://images.naturalquest.org/interview/vol08-2/2_tojo_main.jpg';
+---
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>東城百合子（後編） | Natural Quest Interview vol.08</title>
-  <meta
-    name="description"
-    content="80万部のロングセラー『家庭でできる自然療法』の著者、東城百合子さん（「あなたと健康」主宰）に聞く。生活、料理、そして心の根。＜後編＞"
+  <title>{interviewTitle}</title>
+  <meta name="description" content={interviewDesc} />
+  <SeoHeadTags
+    title={interviewTitle}
+    description={interviewDesc}
+    path={Astro.url.pathname}
+    ogImage={interviewOg}
+    ogType="article"
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link

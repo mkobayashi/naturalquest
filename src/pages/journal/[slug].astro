@@ -97,6 +97,8 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 	description={layoutDescription}
 	narrow={false}
 	noindex={!isPublic}
+	ogImage={post.data.heroImage}
+	ogType="article"
 >
 	<a
 		href="/journal"

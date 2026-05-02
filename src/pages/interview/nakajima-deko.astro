@@ -1,12 +1,19 @@
 ---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+const interviewTitle = '中島デコ | Natural Quest Interview vol.09';
+const interviewDesc =
+	'マクロビオティック料理研究家・中島デコさんのインタビュー。千葉・ブラウンズフィールドで食と暮らしの原点を語る。';
+const interviewOg = 'https://images.naturalquest.org/interview/vol09/deko_main.jpg';
 ---
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中島デコ | Natural Quest Interview vol.09</title>
-<meta name="description" content="マクロビオティック料理研究家・中島デコさんのインタビュー。千葉・ブラウンズフィールドで食と暮らしの原点を語る。">
+<title>{interviewTitle}</title>
+<meta name="description" content={interviewDesc}>
+<SeoHeadTags title={interviewTitle} description={interviewDesc} path={Astro.url.pathname} ogImage={interviewOg} ogType="article" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/interview.css">
