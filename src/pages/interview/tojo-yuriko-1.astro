@@ -17,6 +17,31 @@ const interviewOg = 'https://images.naturalquest.org/interview/vol8/1_tojo_main.
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/interview.css">
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: interviewTitle,
+		description: interviewDesc,
+		image: interviewOg,
+		datePublished: '2010-01-01',
+		dateModified: '2026-05-01',
+		inLanguage: 'ja-JP',
+		author: { '@type': 'Person', name: '小林正廣' },
+		publisher: {
+			'@type': 'Organization',
+			name: 'Natural Quest',
+			url: 'https://naturalquest.org',
+		},
+		mentions: {
+			'@type': 'Person',
+			name: '東城百合子',
+			jobTitle: '自然療法研究家・著述家',
+			knowsAbout: ['自然療法', '玄米菜食', '食養', '野草療法', '栄養学', '家庭医療', '自然食'],
+		},
+	})}
+></script>
 </head>
 <body>
 

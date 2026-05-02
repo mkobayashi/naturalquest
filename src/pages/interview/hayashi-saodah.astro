@@ -17,6 +17,39 @@ const interviewOg = 'https://images.naturalquest.org/interview/vol11/photo_01.jp
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/interview.css">
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: interviewTitle,
+		description: interviewDesc,
+		image: interviewOg,
+		datePublished: '2013-01-01',
+		dateModified: '2026-05-01',
+		inLanguage: 'ja-JP',
+		author: { '@type': 'Person', name: '阪本淳子' },
+		publisher: {
+			'@type': 'Organization',
+			name: 'Natural Quest',
+			url: 'https://naturalquest.org',
+		},
+		mentions: {
+			'@type': 'Person',
+			name: '林サオダ',
+			jobTitle: 'バッチホリスティック研究会理事',
+			knowsAbout: [
+				'バッチフラワーレメディ',
+				'フラワーエッセンス',
+				'ホリスティック医療',
+				'セルフヒーリング',
+				'感情療法',
+				'自然療法',
+				'植物療法',
+			],
+		},
+	})}
+></script>
 </head>
 
 <body>
@@ -35,7 +68,7 @@ const interviewOg = 'https://images.naturalquest.org/interview/vol11/photo_01.jp
       <h1 class="hero-name">林 サオダ</h1>
       <p class="hero-role">バッチホリスティック研究会理事　with BIEP Coordinator, BHK Trustee</p>
       <p class="hero-tagline">自分らしく生き、「汝自身を癒せ」。</p>
-      <p class="hero-desc">バッチフラワーレメディの日本での第一人者。「汝自身を癒せ」という哲学を生きる。</p>
+      <p class="hero-desc">根強い人気を集め続けるバッチフラワーレメディの日本での第一人者。「汝自身を癒せ」という哲学を生きる。2012年取材。</p>
     </div>
   </div>
   <a class="scroll-cue" href="#ch1"><span class="scroll-line"></span><span class="scroll-txt">Scroll</span></a>
