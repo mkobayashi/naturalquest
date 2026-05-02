@@ -1,0 +1,342 @@
+---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+/** vol05 配下。Ch1・2・3・8 は単枚（photo-wrap）。Ch2 は alisan_02b のみフェード無し。Ch4〜7 は photo-fade。 */
+const PHOTO = 'https://images.naturalquest.org/interview/vol05';
+
+const interviewTitle = 'ジョン・ベリス | Natural Quest Interview';
+const interviewDesc =
+	'アリサンを創業したジョン・ベリス氏のインタビュー。オーガニックとベジタリアンのカルチャーを日本に広めてきた起業とスピリット。2009年取材。';
+const imgMain = `${PHOTO}/alisan_main.jpg`;
+const interviewOg = imgMain;
+const imgHero = imgMain;
+const imgChapter = (suffix: string) => `${PHOTO}/alisan_${suffix}.jpg`;
+const fadePair = (num: string) => ({
+	a: `${PHOTO}/alisan_${num}a.jpg`,
+	b: `${PHOTO}/alisan_${num}b.jpg`,
+});
+const imgProfile = `${PHOTO}/alisan_profile.jpg`;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{interviewTitle}</title>
+		<meta name="description" content={interviewDesc} />
+		<SeoHeadTags
+			title={interviewTitle}
+			description={interviewDesc}
+			path={Astro.url.pathname}
+			ogImage={interviewOg}
+			ogType="article"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/styles/interview.css" />
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: interviewTitle,
+				description: interviewDesc,
+				image: interviewOg,
+				datePublished: '2009-11-01',
+				dateModified: '2026-05-01',
+				inLanguage: 'ja-JP',
+				author: { '@type': 'Person', name: '小林正廣' },
+				publisher: {
+					'@type': 'Organization',
+					name: 'Natural Quest',
+					url: 'https://naturalquest.org',
+				},
+				mentions: {
+					'@type': 'Person',
+					name: 'ジョン・ベリス',
+					jobTitle: 'アリサン代表',
+					knowsAbout: [
+						'オーガニック食品',
+						'フェアトレード',
+						'ベジタリアン',
+						'環境問題',
+						'輸入販売',
+					],
+				},
+			})}
+		></script>
+	</head>
+	<body>
+		<header class="hd" id="hd">
+			<a class="hd-logo" href="/">NQ Interview</a>
+			<span class="hd-vol">2009</span>
+		</header>
+
+		<section class="hero">
+			<div
+				class="hero-img"
+				id="heroImg"
+				style={`background:url('${imgHero}') center 25%/cover no-repeat`}
+			>
+			</div>
+			<div class="hero-grad"></div>
+			<div class="hero-body">
+				<div class="hero-box">
+					<p class="hero-series">Natural Quest Interview</p>
+					<h1 class="hero-name">ジョン・ベリス</h1>
+					<p class="hero-role">アリサン代表</p>
+					<p class="hero-tagline">人と人との幸福なつながりに役立ちたい。</p>
+					<p class="hero-desc">
+						2009年に取材した、世界のオーガニック食品を日本に紹介する食品専門商社・アリサンのジョン・ベリス社長へのインタビュー。オーガニック・フェアトレードへの揺るぎない実践は圧倒的な支持を集め続けている。
+					</p>
+				</div>
+			</div>
+			<a class="scroll-cue" href="#ch1"><span class="scroll-line"></span><span class="scroll-txt">Scroll</span></a>
+		</section>
+
+		<div class="intro">
+			<p class="intro-credits rv">文＝小林正廣&ensp;&emsp;写真＝見米康夫&ensp;</p>
+			<p class="intro-lead rv d1">
+				「僕のお気に入りの場所がここ、船の中みたいな気分になれるよ」世界のオーガニック食品を日本に紹介する食品専門商社・アリサンのジョン・ベリス社長は、自宅の木の床に寝そべり、高い屋根天井を眺めるのが好きだ。美しい木造の柱や梁、大きな窓は、確かに航海中の帆船のような雰囲気がしないでもない。世界中を旅した後、日本に碇を下ろし、オーガニックとベジタリアンのカルチャーをこの地に広めてきたジャックにこれまでの歩み、人生哲学を語ってもらおう。
+			</p>
+		</div>
+
+		<article class="chapter" id="ch1">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('01')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 01</p>
+					<p class="ch-sub">1950年代。古きよき米国家庭の食卓で</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">毎週、一族が集まるサンデー・ディナーと手作りクッキーの味がアリサンの原点</h2>
+				<p class="rv">
+					アリサンのジョン・ベリス社長（以下、ベリス）は、米国北東部コネチカット州に生まれた。ベリス家は、エンジニアの父と、専業主婦の母親が温かく子どもを見守る1950年代の堅実な米国中流家庭だった。
+				</p>
+				<p class="rv d1">
+					「毎週日曜日には、祖母の家に家族と親族縁者がサンデー・ディナーに集まったものさ。いまではすたれてしまったが、当時は大きな食卓でみんな一緒に伝統的な家庭料理を食べ、一族の絆を確かめるのが慣わしだった」ウイークデイも、父親を含む家族全員で夕食をとるのが当たり前だったという。
+				</p>
+				<p class="rv d2">
+					「それと、母がつくるクッキーのおいしかったこと。数年前彼女が亡くなったときには、葬儀に集まったみんなが、『お母さんのクッキーは本当においしかった』と懐かしんでいたよ」
+				</p>
+				<p class="rv">
+					手間をかけて準備し、一族が集う古きよきサンデー・ディナーのぬくもり、そしてホームメイドクッキーの忘れがたい味は、アリサンのオーガニック食品の原点になっている。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('02b')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 02</p>
+					<p class="ch-sub">「ノー」と決めつけることのない両親／大学で動物学を専攻。</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">ヒッピームーブメントの中、世界放浪の旅へ</h2>
+				<p class="rv">
+					高校から大学に進学すると、ベリスは動物学を専攻し3年で4年間分の単位を取得してしまう。しかし、長い間夢見ていた動物学の道をこのまま進むべきか？　しだいに迷いが出てくる。家畜の飼育現場について詳しく知るにつれ、動物にも人にも不健康で、環境汚染をもたらす畜産システムに疑問をいだくようになったのだ。そして、21歳のベリス青年は、世界放浪の旅に出る。
+				</p>
+				<div class="pull rv d1">
+					<p>
+						「父も母も、子どもにノーと頭ごなしに否定することがなかった。意見が違うときは、とことん話し合おうとする。いまにしてみると、それは自分の人生に大きな影響があったと思える」
+					</p>
+				</div>
+				<p class="rv d2">
+					伸びやかな家庭の気風、そして当時爆発していたヒッピームーブメントの影響もあっただろうか。アフリカ、ヨーロッパを経てインド、アジアへ。若者たちの合言葉は「自由」「平和」「愛」。世界各地での得がたい体験。“なんとかなるさ”という楽観主義。ヒッピー体験から、たくましく前に進む力を青年ジャックは培っていく。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('03')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 03</p>
+					<p class="ch-sub">環境、エコロジーに関心を持つのは自然なことだった</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">大気汚染調査にも従事。そして、満を持した2回目の旅</h2>
+				<p class="rv">
+					米国に戻ったベリスは、大気汚染調査など政府関連の仕事をしながら、ハーバード大のカレッジで勉強した。もともと野菜が大好きだったが、ベジタリアンとしての生き方がはっきりしたのもこの頃だ。オーガニックな食、環境・エネルギー、フェアトレードなどのテーマへの志向も明確になっていく。
+				</p>
+				<p class="rv d1">
+					「高校時代、母はレイチェル・カーソンの『沈黙の春』の読書会を学校で手伝っていたし、タービン機関の設計に携わる父親は、いかにエネルギー効率の高さが重要か日頃から力説していたからね。環境や省エネに関心を持つのは、ごく自然なことだった」ハーバードで接する情報も刺激となり、ベリスは環境問題を学びながら、社会に役立つ仕事を実際にしたいと考えるようになる。そして、29歳の時、再びベリスは世界放浪の旅に出る。向かったヨーロッパでは、第1回の“アースデイ”にも参加。今度は自分探しではない、自らの実践の場を求めての旅だ。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="john-bayles-f4">
+				<div class="fa" style={`background-image:url('${fadePair('04').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('04').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 04</p>
+					<p class="ch-sub">森に囲まれた故郷コネチカットにも似た高麗（こま）の地へ</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">グラノーラの個人輸入から今日のすべてがはじまった</h2>
+				<p class="rv">
+					2回目の世界放浪は、アフリカ、パキスタン北部、ネパール、インド、そして東南アジアへと巡る。長い辺境暮らしの後、バンコクにたどりついたベリスは、成長ペースを早めている日本に興味を持つ。そして、米国に戻る途中に寄った日本の田園の美しさと都会の活気が気に入り、１ヶ月後には日本に舞い戻る。埼玉県日高市の高麗は、コネチカット州の豊かな自然、台湾で出会い妻となるフェイさんの出身地にある「阿里山」（アリサン）の風景と非常に似ており、二人はこの土地に魅せられる。
+				</p>
+				<p class="rv d1">
+					仲間たちと山小屋をつくり、拠点にする。古家具や民芸品を集めては、アメリカに輸出。そうしているうちに、ベジタリアンの朝食に欠かせないグラノーラが欲しくなる。友人と注文をまとめ個人輸入を開始。アメリカに商品を送る輸送コンテナが、帰りにはグラノーラを積んで戻ってくるサイクルがはじまる。これが通販会社「テングナチュラルフーズ」で、現在のアリサンにつながる。社名の由来は、「厳しい自然環境にそびえる美しい山“阿里山”と、その地の人々が皆助けあい暮らしている姿から、そんな場所をつくりたいという思いを込めた」とベリスは語る。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="john-bayles-f5">
+				<div class="fa" style={`background-image:url('${fadePair('05').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('05').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 05</p>
+					<p class="ch-sub">ジャックの流儀。考えすぎずに“Just Do It”</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">アメリカスクールでの完売。グラノーラは在日外国人の間で評判を呼んだ</h2>
+				<p class="rv">
+					最初に、本格的な商いをしたのは、アメリカンスクールのクリスマスフェアだった。グラノーラはあっという間に完売。米国人をはじめとする在日外国人たちは、アリサンのオーガニック・グラノーラに飛びついた。ホームパーティなどでグラノーラを目にすると、「どこで手に入れたの？」と大騒ぎになる。口コミで通信販売の顧客リストは増え続けた。次に引き寄せられてきたのが、海外生活が長く、グラノーラの味を覚えた日本人たち。そして、しだいに国内の自然食品店からの引きあいが、アリサンに集まってくるようになる。
+				</p>
+				<div class="pull rv d1">
+					<p>
+						「成功した秘訣は何？とよく聞かれる。幸運もあるけれど、とにかく“Just Do It”でやってきたこと。失敗を恐れ、考えすぎて何もしない人が多いけれど、正しいかどうか悩んでやらないよりも、カタチにとらわれないで、とにかく実行してみることが大事だよ」
+					</p>
+				</div>
+				<p class="rv d2">
+					オーガニックのこだわりも評判を呼び、注文は爆発。当初5年間は毎年2倍の売り上げがつづいたという。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="john-bayles-f6">
+				<div class="fa" style={`background-image:url('${fadePair('06').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('06').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 06</p>
+					<p class="ch-sub">フェアトレード、本物のオーガニックが共通の価値観</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">ヒッピー世代のネットワークが、信頼できる生産物のルートに</h2>
+				<p class="rv">
+					いまでは、自然食品店のあちこちで、ハーブティ、穀物コーヒー、豆、穀類、加工品など多岐にわたるアリサンの商品と出会える。また、オーガニック小麦粉を生産者との直接取引でバルク（大量）輸入し、日本中の素材にこだわるベーカリーに供給できる体制も整った。オーガニック食品という特殊性もベースにあるが、アリサンと世界各地のオーガニックな生産者との信頼関係は強力だ。
+				</p>
+				<p class="rv d1">
+					「もう15年以上、直接取引でつきあいのあるオーガニック農家もある」。ベリスは“ヒッピー世代同士のつきあい”とも表現するが、利益至上の大量生産で質を落とすことを拒み、あくまでも誠実にクオリティの高い生産物を供給してくれるパートナーたちの存在は、かけがえのない財産だ。アリサンの仕入れ先は、米国をはじめヨーロッパ、インド、アジア諸国まで広がりを見せているが、いずれもフェアトレード、本物のオーガニックを共通の価値観としたネットワークだ。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="john-bayles-f7">
+				<div class="fa" style={`background-image:url('${fadePair('07').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('07').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 07</p>
+					<p class="ch-sub">自分と家族、従業員がエンジョイできることが最も大事</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">自分が愛することを続ける。それがエネルギーのもとになる</h2>
+				<p class="rv">
+					アリサンを成功に導いた、その根底にあるエネルギーのもとはいったい何だろうか？「本当にやりたいこと、自分が愛せることを一生懸命にやることです。自分は何が一番好きか？と自分に問いかけて欲しい。それは本当に大切なことです」お金をつくることは難しくない、しかし、家族、従業員がエンジョイして仕事をすることのほうが大事なことだと、ベリスは繰り返し強調する。
+				</p>
+				<p class="rv d1">
+					「大きなスーパーと取引したこともあったけれど、しばらくしてやめた。商品のよさを理解し、共鳴してくれるお店のほうがお互いにうまくいくんだ」これまで大変だったことはないのだろうか？「世の中には、2種類の人間がいる。過去の悪いことをいつまでも覚えている人、そんなことは忘れてしまう人。わたしはもちろん後者」ちなみに、ベリスの好きな日本語は「一生懸命」だ。「石の上にも3年は本当だと思う」。同じ言葉でも、ただ好きなこと、自分にとって大切で、愛することまっしぐらの喜びが周囲に伝わってくる。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('08')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 08</p>
+					<p class="ch-sub">アリサンが人々を惹きつけてやまない秘密</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">「人と人との幸福なつながり」に役立つことがアリサンの仕事</h2>
+				<p class="rv">
+					試食屋台が並び、大勢の人が集まるアリサンのフードカーニバルをはじめて訪れた時、そこに流れる余裕、ゆるい心地よさはいったい何なのだろうと思った。インタビューを終えた今、それが理解できた気がする。「人と人の幸福なつながりに役立つことがアリサンの仕事。本物の食をみんなで集まっておいしく食べる。そうやって、幸せが広がるきっかけを提供すること自体が楽しいんだ」
+				</p>
+				<p class="rv d1">
+					アリサンは年中さまざまなイベントで訪れる人を楽しませている。料理教室、ヨガなどのワークショップも盛んだ。“ノーと押しつぶさない家庭”で育ったベリスは、ベジタリアン主義を他人に押しつけない。「○○じゃないとだめ」という決めつけはしない。
+				</p>
+				<p class="rv d2">
+					もし、あなたが「自分が本当に好きなことは何だったろう？」と自問したくなったら、アリサンカフェの明るい窓から木々を見ながら思いにふけることをおすすめする。そして時間が来たら、ショップで何かを買って帰るといい。ホームメイドクッキーとヒッピー精神に育まれた、温かくパワフルなエネルギーが商品を通じてあなたに届くに違いないから。
+				</p>
+			</div>
+		</article>
+
+		<section class="profile">
+			<div
+				class="profile-img rv"
+				style={`background-image:url('${imgProfile}');background-position:center 25%;background-size:cover;`}
+			>
+			</div>
+			<div class="profile-in">
+				<span class="profile-label rv">Profile</span>
+				<h2 class="profile-title rv">ジョン・ベリスの出来上がり方</h2>
+				<div class="tl">
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■出生</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1951年</div><div class="tl-txt">米国コネチカット州に生まれる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">小学生時代</div><div class="tl-txt">「ボートも自分で作る父」「クッキー上手な母」のもとで育つ</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">中高生時代</div><div class="tl-txt">動物が好きで、動物学を志す</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">大学生時代</div><div class="tl-txt">動物学を3年間で単位修了。19歳のとき、世界放浪の旅に出る</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■オーガニック、ベジタリアン事業家への歩み</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">20代</div><div class="tl-txt">ハーバード大のカレッジに通いながら、政府の大気汚染調査に携わる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">29歳</div><div class="tl-txt">再び、世界放浪の旅。ヨーロッパで実施された初の「アースデイ」に参加する</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1981年</div><div class="tl-txt">アフリカ、インド、ヨーロッパを経て日本にやってくる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1982年</div><div class="tl-txt">日本の古民具、民芸品を米国に輸出するかたわら、グラノーラの輸入を開始</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1986年</div><div class="tl-txt">「テング・ナチュラル・フーズ」オープン。1988年にはアリサン有限会社を設立</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">2009年現在</div><div class="tl-txt">海外を中心に300種以上のオーガニック食品を輸入販売。個人向け通販のほか、レストラン、ベーカリーなど国内1000以上の業者にも卸売で食材を提供している</div>
+					</div>
+				</div>
+				<p class="rv d2" style="margin-top: 16px; font-size: 12px; color: #7a6858">
+					◎ 2009年11月、埼玉県日高市高麗のアリサン本社、アリサンカフェでインタビューを実施。
+				</p>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<p class="footer-copy">©Natural Quest</p>
+		</footer>
+
+		<script src="/scripts/interview.js" defer></script>
+	</body>
+</html>
