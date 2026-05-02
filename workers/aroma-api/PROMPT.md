@@ -137,3 +137,16 @@
 cd ~/Desktop/naturalquest/workers/aroma-api
 wrangler deploy --config wrangler.toml
 ```
+
+---
+
+## ID運用メモ（変更禁止）
+
+開発経緯により以下のIDは
+aroma_oils.json の記載と運用上の扱いが異なる：
+
+- es_59：aroma_oils.json上はローズウッドだが
+  shop・affiliate・mappingではローズマリーとして運用
+- es_58：ローズウッドとして統一済み
+
+この不一致は意図的なものであり修正しない。

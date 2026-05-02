@@ -26,6 +26,8 @@ const oilIds = mapping.oil_to_articles
 			.map(([id]) => id)
 	: [];
 
+console.log('[ArticleAromaSidebar] oilIds', JSON.stringify({ slug, oilIds }));
+
 // ショップデータがある精油だけ絞り込む
 const oils = oilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[id] }));
 ---
