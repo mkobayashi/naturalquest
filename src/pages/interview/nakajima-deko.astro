@@ -5,6 +5,8 @@ const interviewTitle = '中島デコ | Natural Quest Interview vol.09';
 const interviewDesc =
 	'マクロビオティック料理研究家・中島デコさんのインタビュー。千葉・ブラウンズフィールドで食と暮らしの原点を語る。';
 const interviewOg = 'https://images.naturalquest.org/interview/vol09/deko_main.jpg';
+const datePublished = '2011-01-01';
+const dateModified = '2026-05-01';
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -17,6 +19,34 @@ const interviewOg = 'https://images.naturalquest.org/interview/vol09/deko_main.j
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/interview.css">
+<script
+	type="application/ld+json"
+	set:html={JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: interviewTitle,
+		description: interviewDesc,
+		image: interviewOg,
+		datePublished: datePublished,
+		dateModified: dateModified,
+		inLanguage: 'ja-JP',
+		author: {
+			'@type': 'Person',
+			name: '小林正廣',
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: 'Natural Quest',
+			url: 'https://naturalquest.org',
+		},
+		mentions: {
+			'@type': 'Person',
+			name: '中島デコ',
+			jobTitle: 'マクロビオティック料理研究家',
+			knowsAbout: ['マクロビオティック', '玄米菜食', '自然出産', '地方移住', '自給農業', 'コミュニティ育児'],
+		},
+	})}
+></script>
 </head>
 <body>
 
@@ -33,7 +63,8 @@ const interviewOg = 'https://images.naturalquest.org/interview/vol09/deko_main.j
       <p class="hero-series">Natural Quest Interview &nbsp;|&nbsp; vol.09</p>
       <h1 class="hero-name">中島デコ</h1>
       <p class="hero-role">マクロビオティック料理研究家</p>
-      <p class="hero-desc">健康な食と暮らし、地方移住のこと。2011年、千葉県いすみ市のブラウンズフィールドで取材。</p>
+      <p class="hero-desc">2011年、千葉県いすみ市のブラウンズフィールドで取材。中島デコとパートナーのエバレット・ブラウンが実践してきた「地方移住・食の自給・開かれたコラボレーション」は、
+今日の移住・自給ブームをひと回り先取りした選択だった。</p>
     </div>
   </div>
   <a class="hero-scroll" href="#ch1"><div class="hero-scroll-bar"></div><span>Scroll</span></a>
