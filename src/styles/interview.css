@@ -47,6 +47,9 @@ body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--te
 /* Interview (Tojo Yuriko vol.08-2) — hero box right aligned */
 .tojo-yuriko-2 .hero-body{display:flex;justify-content:flex-end}
 
+/* john-bayles — ヒーロー「ジョン・ベリス」カタカナの字詰め（共通 .hero-name は 0.12em） */
+.john-bayles .hero-name{letter-spacing:0.065em}
+
 /* ── INTRO ── */
 .intro{max-width:640px;margin:0 auto;padding:80px 40px 68px;text-align:center;border-bottom:1px solid var(--rule)}
 .intro-credits{font-family:var(--en);font-size:13px;letter-spacing:0.2em;color:var(--text-light);margin-bottom:36px;font-weight:700}
