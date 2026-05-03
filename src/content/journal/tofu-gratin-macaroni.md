@@ -10,7 +10,7 @@ categories:
 heroImage: 'https://images.naturalquest.org/2009/05/deko_pasta02.jpg'
 ---
 
-#### デコさんおすすめ定番の一品
+## デコさんおすすめ定番の一品
 
 ホワイトソースは豆腐でつくります。飽きが来ないおいしさで人気です。
 

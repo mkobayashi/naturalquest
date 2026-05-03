@@ -1,49 +1,55 @@
 {
   "oil_to_articles": {
     "es_03": [{ "slug": "herb-aroma-getto", "title": "月桃と青森ヒバで虫よけ・消臭" }],
+    "es_04": [{ "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" }],
     "es_05": [
       { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" },
       { "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" }
     ],
-    "es_08": [{ "slug": "herb-aroma-power", "title": "アロマの力でダイエット" }, { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }],
+    "es_08": [{ "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }],
     "es_11": [{ "slug": "herb-aroma-getto", "title": "月桃と青森ヒバで虫よけ・消臭" }],
-    "es_12": [
-      { "slug": "herb-aroma-thyme", "title": "タイムとセージのマウスウォッシュ" },
-      { "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" }
+    "es_12": [{ "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" }],
+    "es_13": [
+      { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" },
+      { "slug": "herb-aroma-power", "title": "アロマの力でダイエット" }
     ],
-    "es_13": [{ "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }],
-    "es_19": [
-      { "slug": "herb-aroma-pet", "title": "アロマでペットを癒す" },
-      { "slug": "herb-aroma-v6-neck", "title": "肩こりは自分でケア" }
+    "es_60": [
+      { "slug": "herb-aroma-power", "title": "アロマの力でダイエット" },
+      { "slug": "herb-aroma-v4-gut", "title": "腸の調子を整えるハーブとアロマ" }
     ],
-    "es_20": [
-      { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" },
-      { "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" },
-      { "slug": "herb-aroma-v6-neck", "title": "肩こりは自分でケア" },
-      { "slug": "herb-aroma-v6-cold", "title": "ハーブとアロマのカゼ予防レシピ" }
-    ],
+    "es_19": [{ "slug": "herb-aroma-pet", "title": "アロマでペットを癒す" }],
+    "es_20": [{ "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" }],
     "es_21": [
       { "slug": "herb-aroma-autumn", "title": "秋風で乾燥した肌を癒す" },
       { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" }
     ],
     "es_22": [{ "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }],
     "es_23": [
-      { "slug": "herb-aroma-v1-drink", "title": "お酒と上手につきあうためのハーブとアロマ" }
+      { "slug": "herb-aroma-v1-drink", "title": "お酒と上手につきあうためのハーブとアロマ" },
+      { "slug": "herb-aroma-power", "title": "アロマの力でダイエット" }
     ],
+    "es_17": [{ "slug": "herb-aroma-power", "title": "アロマの力でダイエット" }],
     "es_26": [
       { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" },
       { "slug": "herb-aroma-pet", "title": "アロマでペットを癒す" },
       { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }
     ],
-    "es_27": [{ "slug": "herb-aroma-thyme", "title": "タイムとセージのマウスウォッシュ" }],
     "es_28": [{ "slug": "herb-aroma-essential", "title": "精油を使って｢花粉症対策｣" }],
-    "es_30": [{ "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" }],
-    "es_38": [{ "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" }, { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }],
+    "es_30": [
+      { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" },
+      { "slug": "herb-aroma-autumn", "title": "秋風で乾燥した肌を癒す" }
+    ],
+    "es_38": [
+      { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" },
+      { "slug": "herb-aroma-autumn", "title": "秋風で乾燥した肌を癒す" },
+      { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }
+    ],
     "es_40": [
       { "slug": "herb-aroma-pet", "title": "アロマでペットを癒す" },
       { "slug": "herb-aroma-v4-gut", "title": "腸の調子を整えるハーブとアロマ" },
       { "slug": "herb-aroma-essential", "title": "精油を使って｢花粉症対策｣" }
     ],
+    "es_41": [{ "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" }],
     "es_44": [{ "slug": "herb-aroma-essential", "title": "精油を使って｢花粉症対策｣" }],
     "es_50": [
       { "slug": "herb-aroma-essential", "title": "精油を使って｢花粉症対策｣" },
@@ -54,9 +60,11 @@
       { "slug": "lavender-skin-care", "title": "ラベンダーで美肌を育てる" },
       { "slug": "herb-aroma-azuki", "title": "あずきとラベンダーのアイピロー" },
       { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" },
+      { "slug": "herb-aroma-v2-sun", "title": "日焼け対策はハーブとアロマで" },
       { "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" },
       { "slug": "herb-aroma-v6-cold", "title": "ハーブとアロマのカゼ予防レシピ" },
       { "slug": "herb-aroma-v6-neck", "title": "肩こりは自分でケア" },
+      { "slug": "herb-aroma-v4-gut", "title": "腸の調子を整えるハーブとアロマ" },
       { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }
     ],
     "es_55": [
@@ -72,9 +80,11 @@
     ],
     "es_61": [
       { "slug": "herb-aroma-sunburn", "title": "日焼け後の肌を精油でリセット" },
+      { "slug": "herb-aroma-v2-sun", "title": "日焼け対策はハーブとアロマで" },
       { "slug": "herb-aroma-v5-sleep", "title": "ぐっすり眠れない悩みに" },
       { "slug": "herb-aroma-v6-neck", "title": "肩こりは自分でケア" },
       { "slug": "herb-aroma-v6-cold", "title": "ハーブとアロマのカゼ予防レシピ" },
+      { "slug": "herb-aroma-v4-gut", "title": "腸の調子を整えるハーブとアロマ" },
       { "slug": "herb-aroma-oil", "title": "精油でつくるマイフレグランス" }
     ]
   }

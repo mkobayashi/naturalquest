@@ -19,6 +19,13 @@ type OilShop = { name: string; products: Product[] };
 const mapping = articleMapping as ArticleMapping;
 const shop = shopData as Record<string, OilShop>;
 
+/** oil_to_articles のキー順では希望順にならない記事のみ指定 */
+const SIDEBAR_OIL_ORDER_BY_SLUG: Record<string, string[]> = {
+	'herb-aroma-v4-gut': ['es_40', 'es_60', 'es_61', 'es_53'],
+	/** 記事見出し順: 朝の芳香浴 → Night → アロマバス */
+	'herb-aroma-v5-sleep': ['es_56', 'es_55', 'es_53', 'es_05', 'es_41', 'es_61', 'es_12', 'es_04'],
+};
+
 // この記事に登場する精油IDを取得
 const oilIds = mapping.oil_to_articles
 	? Object.entries(mapping.oil_to_articles)
@@ -26,10 +33,15 @@ const oilIds = mapping.oil_to_articles
 			.map(([id]) => id)
 	: [];
 
-console.log('[ArticleAromaSidebar] oilIds', JSON.stringify({ slug, oilIds }));
+const order = SIDEBAR_OIL_ORDER_BY_SLUG[slug];
+const orderedOilIds = order
+	? [...order.filter((id) => oilIds.includes(id)), ...oilIds.filter((id) => !order.includes(id))]
+	: oilIds;
+
+console.log('[ArticleAromaSidebar] oilIds', JSON.stringify({ slug, oilIds: orderedOilIds }));
 
 // ショップデータがある精油だけ絞り込む
-const oils = oilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[id] }));
+const oils = orderedOilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[id] }));
 ---
 
 {

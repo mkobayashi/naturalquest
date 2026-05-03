@@ -1,0 +1,335 @@
+---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+/** vol06 配下 */
+const PHOTO = 'https://images.naturalquest.org/interview/vol06';
+
+const interviewTitle = 'ジョン・ムーア | Natural Quest Interview';
+const interviewDesc =
+	'社会企業家ジョン・ムーア氏へのインタビュー。『100%オーガニック』を掲げ、哲学としてのオーガニックと学びの場を広げる取り組み。2010年取材。';
+const imgMain = `${PHOTO}/moore_main.jpg`;
+const interviewOg = imgMain;
+const imgHero = imgMain;
+const imgChapter = (n: string) => `${PHOTO}/moore_${n}.jpg`;
+const fadePair = (num: string) => ({
+	a: `${PHOTO}/moore_${num}a.jpg`,
+	b: `${PHOTO}/moore_${num}b.jpg`,
+});
+const imgProfile = `${PHOTO}/moore_profile.jpg`;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{interviewTitle}</title>
+		<meta name="description" content={interviewDesc} />
+		<SeoHeadTags
+			title={interviewTitle}
+			description={interviewDesc}
+			path={Astro.url.pathname}
+			ogImage={interviewOg}
+			ogType="article"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/styles/interview.css" />
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: interviewTitle,
+				description: interviewDesc,
+				image: interviewOg,
+				datePublished: '2010-12-01',
+				dateModified: '2026-05-03',
+				inLanguage: 'ja-JP',
+				author: { '@type': 'Person', name: '阪本淳子' },
+				publisher: {
+					'@type': 'Organization',
+					name: 'Natural Quest',
+					url: 'https://naturalquest.org',
+				},
+				mentions: {
+					'@type': 'Person',
+					name: 'ジョン・ムーア',
+					jobTitle: '社会企業家',
+					knowsAbout: [
+						'100%オーガニック',
+						'オーガニック農法',
+						'ラーニング・オーガニゼーション',
+						'社会企業',
+						'種子保存',
+						'自由大学',
+					],
+				},
+			})}
+		></script>
+	</head>
+	<body class="john-moore">
+		<header class="hd" id="hd">
+			<a class="hd-logo" href="/">NQ Interview</a>
+			<span class="hd-vol">2010</span>
+		</header>
+
+		<section class="hero">
+			<div
+				class="hero-img"
+				id="heroImg"
+				style={`background:url('${imgHero}') center 25%/cover no-repeat`}
+			>
+			</div>
+			<div class="hero-grad"></div>
+			<div class="hero-body">
+				<div class="hero-box">
+					<p class="hero-series">Natural Quest Interview</p>
+					<h1 class="hero-name">ジョン・ムーア</h1>
+					<p class="hero-role">社会企業家</p>
+					<p class="hero-tagline">『100%オーガニック』という意識革命。</p>
+					<p class="hero-desc">
+						ジョン・ムーア氏に出会ったのは表参道の国連大学前のマルシェでだった。独特の「100%オーガニック」の夢は誰をも魅了する。2010年の取材記事である。
+					</p>
+				</div>
+			</div>
+			<a class="scroll-cue" href="#ch1"><span class="scroll-line"></span><span class="scroll-txt">Scroll</span></a>
+		</section>
+
+		<div class="intro">
+			<p class="intro-credits rv">文＝阪本淳子&ensp;&emsp;写真＝見米康夫&ensp;</p>
+			<p class="intro-lead rv d1">
+				広告業界でコピーライターとしてカンヌ国際広告賞をはじめとする数々の賞を取り、外資系企業の日本支社長としてもラーニング・オーガニゼーションづくりに取り組むなど、ビジネスの第一線で活躍してきたジョン・ムーア氏。そんな彼が今、社会企業家としてかかげるキーワードは「100%オーガニック」。「オーガニックは哲学であり生き方」と語るジョン・ムーア氏に話を聞いた。
+			</p>
+		</div>
+
+		<article class="chapter" id="ch1">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('01')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 01</p>
+					<p class="ch-sub">アイルランド、イギリス伝統のハーブカルチャーに育まれて</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">周りすべては自分の庭。5歳から自分でハーブティーをいれた</h2>
+				<p class="rv">
+					ジョン・ムーアは、アイルランドの南、クリスタルで有名なウォーターフォードのとなり村に生まれた。海に近い村の人々は、漁業と農業だけで生活している。母系文化で、女性が力を持っていた。
+				</p>
+				<p class="rv d1">
+					「祖母は庭で野菜やハーブを育てていました。薬は使わず、病院にもいかず、具合の悪いところがあれば、それに適したハーブティーを作ってくれました」そんな祖母を身近にして、ジョンも5歳からハーブでお茶を入れ、大学時代は自分で栽培したハーブティーを売って学費を稼ぐことができた。
+				</p>
+				<p class="rv d2">
+					イギリスに引越したのは6歳のとき。新しい家は街中にあったが、すぐ近くに大きな森があり、学校が終わると森で遊んだ。「周りすべてが“自分の庭”。それは、いまでも一緒。森からたくさんの種をもらい、たくさんの種を蒔きました」いまもジョンの一家は、正月に木の種を一人ひとつ埋める。食べ物をもらった自然への年に1度の恩返しだ。フルーツの木を植えることが多いらしいが、どこにどんな木を植えたかは、他の人には秘密にしておくのだという。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('02')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 02</p>
+					<p class="ch-sub">世界の農民と仲良くなる、売れっ子コピーライター</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">教育から広告の道へ。出張先でもいつも植物に興味があった</h2>
+				<p class="rv">
+					イギリスの大学を卒業して、最初に就いたのは教育現場の仕事だった。知能は非常に高いのに他人とのコミュニケーションがうまくとれない子どもたちを集め、ガーデニングを通して、ゆっくりと静かにコミュニケーション力を育てていった。そして、好きな文章を書くことを続けるうちに、ニューヨークの大手広告代理店で働くことに。コピーライターとして、カンヌ国際広告賞など輝かしい成果をあげる。教育と、流行の最先端にある広告。
+				</p>
+				<p class="rv d1">
+					一見正反対の世界だが？という問いに、「そのように、なんでも白と黒で分けて考えようとする思考が問題。広告で伝えることにも、教育と同じ力があるのです」とジョンは穏やかにさとす。
+				</p>
+				<p class="rv d2">
+					やがて、電通にヘッドハンティングされて来日。12年の電通在籍期間中、世界中に出張した。マレーシア、韓国、ニュージーランド、タイ、カンボジア…。それでもジョンの興味はいつも植物にあった。「どこの国でも、仕事の合間に植物を育てる場所に出かけて、現地の人にこんにちはと声をかけて仲良くなった」
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="john-moore-f3">
+				<div class="fa" style={`background-image:url('${fadePair('03').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('03').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 03</p>
+					<p class="ch-sub">大企業の種子コントロールに一人立ち向かう</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">世界中どこでも植物の優れた育て方は、みな共通だった</h2>
+				<p class="rv">
+					「まず、よい土があって、そこにトマトやキュウリなどの野菜と一緒に、コンパニオンプラント（相性のよい種）を植えて育てる。そして、彼らは薬に頼らない生活をしています」昔ながらのサステイナブルな営みが、受け継がれている地域がある一方で、先進国では大企業が種子をコピーして生産し、価格をコントロールしている状況がある。「それは実に変な話」というジョンは、フランスのピレネー山脈にある農場を買い、人工操作されない自然種のための銀行“シーズ・バンク”を作った。
+				</p>
+				<p class="rv d1">
+					商品として購入しなければならない人工の種子ではなく、自分たちの手で採取した生命力の強い自然の種子を蒔き、そこから育て、自分たちの食べ物を作ることが本来の姿といえる。そして、この活動がきっかけで生まれた縁で、ある外資系企業の日本支社の経営に関わることになる。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="john-moore-f4">
+				<div class="fa" style={`background-image:url('${fadePair('04').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('04').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 04</p>
+					<p class="ch-sub">企業でも土壌づくりを重視。ビジネスで高い業績をあげる</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">哲学をもち、本当に信じること。それがアクションにつながっていく</h2>
+				<div class="pull rv">
+					<p>
+						「その会社で実行したのは、ラーニング・オーガニゼーション（Learning Organization）を作ること。まず働く人たちに、『自分たちは何のためにいるのか』と問いかけ、『次の世代のためにいるのだ』という哲学を浸透させていったのです。それは、会社が創立以来持っていた考え方であり、私は本当の話を伝えただけ。そして、自分たちの存在意義は『次世代のためにいる』ことだと信じることができたメンバーたちは、次々にアクションを起こしていきました」
+					</p>
+				</div>
+				<p class="rv d1">
+					哲学を持ち、自らの信念とすること。それは自然と力強いアクションにつながり、ものごとや周囲を大きく変えていく。これがジョンの基本の考え方のようだ。トップダウンでプレッシャーをかけ組織のエネルギーを搾り出すのではなく、社員の心と信念という“土壌”と“種子”づくりを何よりも重視する。ジョンにとって、「オーガニックとは哲学であり、Way of Life＝生き方」なのである。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="john-moore-f5">
+				<div class="fa" style={`background-image:url('${fadePair('05').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('05').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 05</p>
+					<p class="ch-sub">都心の庭の土も、3ヶ月で生き返る</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">大事なのは土であり、DNAの強い種子。手をかけすぎることの方が問題だ</h2>
+				<p class="rv">
+					都心にあるジョンの家の庭には、実にさまざまな植物が生き生きと育っている。この家に越してきた10カ月前、庭の土の状態はひどいものだった。しかし、ジョンと家族に育てられ土は3カ月で生き返った。植えたときには1メートル半だったミモザは、わずか4か月で2階の屋根を超えるまで伸びた。「大事なのは土です」。一軒家のさほど広くない庭は、いまや、500種の植物が共生する濃密で豊かな場所となった。
+				</p>
+				<p class="rv d1">
+					「水は必要に応じてスプレーであげる程度。自生して15～20年の種はDNAが強く、自分で水を探すために力強く根をはり育っていくし、余分な堆肥も必要ありません。忙しく一生懸命やらねばと、人間が手をかけすぎることの方が問題でしょう」
+				</p>
+				<p class="rv d2">
+					相性のよい植物を同時に植えるコンパニオンプランティングや、表土を保護し、微生物の繁殖を促すためにクローバーなどを意図的に蒔くなど、自然農法、有機農法のリーダーたちが提唱してきたものと全く共通の考えと手法が、ジョンの「100%オーガニック」には凝縮されている。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-fade" id="john-moore-f6">
+				<div class="fa" style={`background-image:url('${fadePair('06').a}')`}></div>
+				<div class="fb" style={`background-image:url('${fadePair('06').b}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 06</p>
+					<p class="ch-sub">市販の肥料は使わない。『100%オーガニック』</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">自然の種子から自分たちの食べ物を作るラーニングモデルを作っていく</h2>
+				<p class="rv">
+					庭の土をつくるときも、ジョンは市販の堆肥は決して使わない。なぜならそれは、何を食べさせられたかわからない家畜が素だから。自分たちで作る自然の種子から育てた作物の生ごみと、飼いウサギの糞、そして自分たちの尿が庭の一番の堆肥なのだ。人工的な種子ではなく、生命力の強い自然の種子を蒔き、そこから育てて、自分たちの食べ物を作る。それはジョンにとってはごく当たり前で、家族のためにもずっとやってきたことだ。
+				</p>
+				<p class="rv d1">
+					「外資系企業日本支社長だったときには、鎌倉山に400坪の自分の畑を持ち、にわとりやウサギやヤギを飼って、お米以外はすべて自分たちで作って食べていました」
+				</p>
+				<p class="rv d2">
+					ジョンが長年かけて熟成させてきた、オーガニックの理念と手法を広く社会に普及させ、ラーニングモデルとしての役割・仕組みを作っていく。それが「100％オーガニック」の活動だ。ビジネスマンとして常に第一線で活躍してきたジョンは、いま社会企業家として自分の時間を惜しみなく提供しようとしている。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('07')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 07</p>
+					<p class="ch-sub">「私のモデルを皆に見てもらい、広がればそれでよい」</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">講座やファームづくりなど、多彩に広がる「100％オーガニック」活動</h2>
+				<p class="rv">
+					「オーガニックは生き方そのものであり、哲学」というジョンの、「100％オーガニック」の活動は、「自由大学」内の講座や、3万坪の広大なファームプロジェクトなど、多彩な展開を見せている。自由大学の講座の参加者は、18歳から60歳までというように年齢も職業経験も幅広い。卵パックやスプーン、はさみなど、家にあるものや100円ショップで購入したもので、種子からオーガニックな栽培を体験する。「『土とは何か』を徹底的に伝えます。教える私にとっても毎回が勉強です」
+				</p>
+				<p class="rv d1">
+					また、兵庫県加西市では3万坪規模のプロジェクトも始動した。「いい土があり、水もいい。そこで採れた100％オーガニックな野菜はカフェ4店舗、スーパーマーケット6店舗に納品されます」。同様のプロジェクトが静岡や千葉、鎌倉、品川などでも予定されている。ジョンは、自分のファームビジネスの拡大としてではなく、ラーニングモデルとして理念と手法を広げる役割を担うことができればよいと思っている。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('08')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 08</p>
+					<p class="ch-sub">「もっと土で手を汚そう」</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">高い意識ですることだけが、次世代へつながる生き方となる</h2>
+				<p class="rv">
+					「100％オーガニックとは大きなRevolution。『意識』の戦いだと思う。高い意識ですることだけが次の世代につながります」どんな行いも高い意識が持てないなら、しない方がいいとジョンは言い切る。また、「質問の答えは自分の中にある」と、よく対象を見つめ、自分で考えることの大切さも説く。日本人は他との会話にすぐ答えを求める傾向があるが「沈黙も大切。自分の目でちゃんと見て考える。たとえば、庭に鳥が何時にくるのか、何を食べ、なぜ食べるのか。30分じっと見て考える。そうすればわかることがたくさんあるのです」
+				</p>
+				<p class="rv d1">
+					オーガニックは“かっこよく”なければと語るジョンだが、巷にいるおしゃれなオーガニックブーム仕掛け人などではない。「健康で幸せな暮らしの秘訣は？」との問いに、「もっと土で手を汚すこと」とすぐさま笑顔で答える深いまなざしは、哲学者のようでもあり、若い頃から土に親しみ、世界中の農を見続けてきた老練なファーマーそのものなのだ。
+				</p>
+			</div>
+		</article>
+
+		<section class="profile">
+			<div
+				class="profile-img rv"
+				style={`background-image:url('${imgProfile}');background-position:center 25%;background-size:cover;`}
+			>
+			</div>
+			<div class="profile-in">
+				<span class="profile-label rv">Profile</span>
+				<h2 class="profile-title rv">ジョン・ムーアの歩み</h2>
+				<div class="tl">
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■出生</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1951年</div><div class="tl-txt">アイルランド　ウォーターフォード近くに生まれる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">小学生時代</div><div class="tl-txt">学校が終わると大きな森で遊ぶ日々</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">中高生時代</div><div class="tl-txt">イギリス　リバプールでティーン時代を過ごす</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">大学生時代</div><div class="tl-txt">シェフィールド大学に入学。教育学を専攻する</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■教育者、ビジネスパーソンから社会企業家への歩み</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">20代</div><div class="tl-txt">初等教育に4年間携わる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">26歳</div><div class="tl-txt">米国大手広告代理店の仕事に就く</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">30代</div><div class="tl-txt">電通への移籍をきっかけに来日。海外出張では各国の農業を視察。フランスに「ピレネー・シード・バンク」を創設する</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">43歳</div><div class="tl-txt">外資系企業の日本支社長となる。約3年間経営にあたる</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">2010年現在</div><div class="tl-txt">ジョン・ムーア・アソシエイツおよび100%オーガニック代表。自由大学において講師を務める。兵庫県加西市、他に静岡、千葉、鎌倉、品川でオーガニック移行計画を推進中。</div>
+					</div>
+				</div>
+				<p class="rv d2" style="margin-top: 16px; font-size: 12px; color: #7a6858">
+					◎ 2010年、東京目黒区でインタビューを実施。
+				</p>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<p class="footer-copy">©Natural Quest</p>
+		</footer>
+
+		<script src="/scripts/interview.js" defer></script>
+	</body>
+</html>

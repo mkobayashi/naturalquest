@@ -103,6 +103,19 @@
       }
     ]
   },
+  "es_60": {
+    "name": "ローズマリー",
+    "products": [
+      {
+        "brand": "プラナロム",
+        "quality": "ケモタイプ",
+        "name": "エッセンシャルオイル ローズマリー・シネオール 10ml",
+        "volume": "10ml",
+        "amazon_url": "https://www.amazon.co.jp/dp/B000FQRMRI/?tag=naturalquesto-22",
+        "rakuten_url": "https://item.rakuten.co.jp/etoile-life/ar-prm-p-160/?scid=af_pc_etc&sc2id=aroma-rakuten"
+      }
+    ]
+  },
   "es_41": {
     "name": "ベルガモット",
     "products": [

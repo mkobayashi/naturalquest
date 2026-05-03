@@ -11,7 +11,7 @@ categories:
 heroImage: 'https://images.naturalquest.org/2018/09/IMG_2908.jpg'
 ---
 
-### チェンマイで夏休み
+## チェンマイで夏休み
 
 こんにちは、NQスタッフTです。
 

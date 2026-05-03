@@ -10,7 +10,7 @@ categories:
 heroImage: 'https://images.naturalquest.org/2011/04/img_049.jpg'
 ---
 
-#### 和のアロマで虫よけ、消臭
+## 和のアロマで虫よけ、消臭
 
 ##### 月桃は、沖縄の家庭の香り
 

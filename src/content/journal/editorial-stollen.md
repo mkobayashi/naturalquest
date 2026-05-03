@@ -42,7 +42,7 @@ heroImage: 'https://images.naturalquest.org/2017/11/story_03.jpg'
 安定の美味しさ、作り手の正直な思い、みなさん健やかにとの願いがギュッと詰まった、ポタジェララのシュトーレン、
 皆様の食卓や大切な方への贈り物にチョイスしてみてはいかがでしょうか？
 
-### ポタジェララのシュトーレン、好評販売中です。
+## ポタジェララのシュトーレン、好評販売中です。
 
 [![](https://images.naturalquest.org/2017/11/main_02.jpg)](https://naturalquest.org/shopping/food-drink/7479)
 [・　ノーマルタイプはこちら　＞](https://naturalquest.org/shopping/food-drink/7479)

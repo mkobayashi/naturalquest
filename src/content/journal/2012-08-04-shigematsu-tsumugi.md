@@ -9,7 +9,7 @@ categories:
 heroImage: 'https://images.naturalquest.org/2012/08/pict_02.jpg'
 ---
 
-#### 生きるには音楽が必要
+## 生きるには音楽が必要
 
 カフェスローさんから、素敵なCDをご紹介いただきました。
 

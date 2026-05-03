@@ -30,49 +30,49 @@ public: false
 
 ![](https://images.naturalquest.org/2017/01/vol3_img02.jpg)
 
-#### (1) Waterfall Dress　　ウォーターフォール ドレス 　　New!!
+## (1) Waterfall Dress　　ウォーターフォール ドレス 　　New!!
 
 この冬の新作チュニックドレス。前みごろの「流れる滝のような」ドレープがエレガントな雰囲気。インナーにチューブトップを合わせるのもおすすめ。
 11,550円
 
 ![](https://images.naturalquest.org/2017/01/vol3_img03.jpg)
 
-#### (2) Infinity Dress　　インフィニティ ドレス 　　New!!
+## (2) Infinity Dress　　インフィニティ ドレス 　　New!!
 
 新作トップス。背中でクロスになったデザインチュニック。ヨガウェアとしてはレギンス、インナーにはチューブトップというコーディネートがおすすめ。
 9,975円
 
 ![](https://images.naturalquest.org/2017/01/vol3_img04.jpg)
 
-#### (3) Dream Tee　　ドリーム ティー
+## (3) Dream Tee　　ドリーム ティー
 
 久しぶりに入荷したベーシックライン、ドリーム ティー。余計な装飾などはあえて外したシンプルトップス。
 6,510円
 
 ![](https://images.naturalquest.org/2017/01/vol3_img05.jpg)
 
-#### (4) Tie pants　　タイ パンツ 　　New!!
+## (4) Tie pants　　タイ パンツ 　　New!!
 
 新作のすそ絞り2WAYパンツ。下ろしてフリルが揺れる優雅な雰囲気と、絞ってすっきりさせてもどちらもおすすめ。
 15,750円
 
 ![](https://images.naturalquest.org/2017/01/vol3_img06.jpg)
 
-#### (5) Kali Flare Pants カリ フレア パンツ
+## (5) Kali Flare Pants カリ フレア パンツ
 
 定番のカリ フレアパンツ。すその広がりが足長効果あり。ヨガウェアとしてだけでなく、タウン着、ワンマイルウェアとしても人気の1点。
 15,750円
 
 ![](https://images.naturalquest.org/2017/01/vol3_img07.jpg)
 
-#### (6) Genie Pants　ジーニー パンツ
+## (6) Genie Pants　ジーニー パンツ
 
 復刻アイテムの登場。すそが絞られているので足を上げるポーズも安心、リラックスウェアとしても最適。
 16,800円
 
 ![](https://images.naturalquest.org/2017/01/vol3_img08.jpg)
 
-#### (7) Cropped Shakti Pants　　クロップド シャクティ パンツ
+## (7) Cropped Shakti Pants　　クロップド シャクティ パンツ
 
 定番のひざ下ボトム。今年は、新色のライムカラーが登場。明るい色がさわやかな印象。
 \12,600

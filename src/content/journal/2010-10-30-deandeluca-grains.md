@@ -9,7 +9,7 @@ categories:
 heroImage: 'https://images.naturalquest.org/2017/02/D02.jpg'
 ---
 
-#### NY生まれの「DEAN＆DELUCA」も注目する雑穀パワー
+## NY生まれの「DEAN＆DELUCA」も注目する雑穀パワー
 
 「DEAN＆DELUCA」といえばニューヨーク生まれの食品マーケット。本格的なチーズやワイン、生ハムが数多く並ぶ店内に、＜雑穀のセット＞を見つけたときは、正直なところ驚きました。なぜ「DEAN＆DELUCA」が雑穀を？日本法人にお聞きすると、「DEAN＆DELUCA」では、世界中のその土地が育む豊かな食材を生かした伝統的な食文化を尊重しており、「雑穀もそのひとつ」といいます。
 “Living with Food”「食を通して、人生を味わう」という理念をかかげる「DEAN＆DELUCA」にとっては、イタリア伝統のバルサミコ酢とその使い方をいち早く米国で紹介したように、日本の雑穀を洗練されたパッケージに包んで提供することは自然なことだったようです。
@@ -30,7 +30,7 @@ heroImage: 'https://images.naturalquest.org/2017/02/D02.jpg'
 押麦、丸麦、もちあわ、アマランサス、たかきび、ひえ、もろきびの7種をブレンド。しっかり水に漬けてお米とまぜ炊き込んで、麦と小粒種の食感を楽しみたい。
 45g×6本　1,260円
 
-#### ![](https://images.naturalquest.org/2017/02/D03.jpg)
+## ![](https://images.naturalquest.org/2017/02/D03.jpg)
 
 ##### (3) DEAN＆DELUCA　尾田川農園　十種の穀物
 

@@ -4,11 +4,19 @@ import Layout from '../../layouts/Layout.astro';
 const SITE = 'https://naturalquest.org';
 
 const pageDescription =
-	'Natural Quest のインタビュー一覧。オーガニック食品やウェルネス、写真と暮らしに関わる方々との対話を掲載。ジョン・ベリス、エバレット・ブラウン、林サオダ、中島デコ、東城百合子、宮川明子など。';
+	'Natural Quest のインタビュー一覧。オーガニック食品やウェルネス、写真と暮らしに関わる方々との対話を掲載。ジョン・ムーア、ジョン・ベリス、エバレット・ブラウン、林サオダ、中島デコ、東城百合子、宮川明子など。';
 
 const ogImageInterview = 'https://images.naturalquest.org/interview/vol05/alisan_main.jpg';
 
 const interviews = [
+	{
+		href: '/interview/john-moore/',
+		thumb: 'https://images.naturalquest.org/interview/vol06/moore_main.jpg',
+		imgAlt: 'ジョン・ムーア',
+		title: 'ジョン・ムーア',
+		role: '社会企業家',
+		tagline: '『100%オーガニック』という意識革命。',
+	},
 	{
 		href: '/interview/john-bayles/',
 		thumb: ogImageInterview,

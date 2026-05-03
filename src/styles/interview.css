@@ -47,8 +47,9 @@ body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--te
 /* Interview (Tojo Yuriko vol.08-2) — hero box right aligned */
 .tojo-yuriko-2 .hero-body{display:flex;justify-content:flex-end}
 
-/* john-bayles / everett-kennedy-brown — ヒーロー氏名（カタカナ等）の字詰め（共通 .hero-name は 0.12em） */
+/* john-bayles / john-moore / everett-kennedy-brown — ヒーロー氏名（カタカナ等）の字詰め（共通 .hero-name は 0.12em） */
 .john-bayles .hero-name,
+.john-moore .hero-name,
 .everett-kennedy-brown .hero-name{letter-spacing:0.04em}
 
 /* ── INTRO ── */
