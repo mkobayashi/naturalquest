@@ -1,0 +1,330 @@
+---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+/** vol04 配下 */
+const PHOTO = 'https://images.naturalquest.org/interview/vol04';
+
+const interviewTitle = '林 真一郎 | Natural Quest Interview';
+const interviewDesc =
+	'グリーンフラスコ代表・林真一郎氏へのインタビュー。「緑の医学」のエバンジェリストとしてフィトセラピーを広げてきた足がかりと展望。2009年取材。';
+const imgMain = `${PHOTO}/hayashi_home.jpg`;
+const interviewOg = imgMain;
+const imgHero = imgMain;
+const imgChapter = (n: string) => `${PHOTO}/hayashi_${n}.jpg`;
+const imgProfile = `${PHOTO}/hayashi_profile.jpg`;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{interviewTitle}</title>
+		<meta name="description" content={interviewDesc} />
+		<SeoHeadTags
+			title={interviewTitle}
+			description={interviewDesc}
+			path={Astro.url.pathname}
+			ogImage={interviewOg}
+			ogType="article"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/styles/interview.css" />
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: interviewTitle,
+				description: interviewDesc,
+				image: interviewOg,
+				datePublished: '2009-11-01',
+				dateModified: '2026-05-03',
+				inLanguage: 'ja-JP',
+				author: { '@type': 'Person', name: '阪本淳子' },
+				publisher: {
+					'@type': 'Organization',
+					name: 'Natural Quest',
+					url: 'https://naturalquest.org',
+				},
+				mentions: {
+					'@type': 'Person',
+					name: '林真一郎',
+					jobTitle: 'グリーンフラスコ代表',
+					knowsAbout: [
+						'フィトセラピー',
+						'ハーブ',
+						'アロマテラピー',
+						'緑の医学',
+						'ホリスティック医学',
+						'植物療法',
+					],
+				},
+			})}
+		></script>
+	</head>
+	<body class="hayashi-shinichiro">
+		<header class="hd" id="hd">
+			<a class="hd-logo" href="/">NQ Interview</a>
+			<span class="hd-vol">2009</span>
+		</header>
+
+		<section class="hero">
+			<div
+				class="hero-img"
+				id="heroImg"
+				style={`background:url('${imgHero}') center 25%/cover no-repeat`}
+			>
+			</div>
+			<div class="hero-grad"></div>
+			<div class="hero-body">
+				<div class="hero-box">
+					<p class="hero-series">Natural Quest Interview</p>
+					<h1 class="hero-name">林 真一郎</h1>
+					<p class="hero-role">グリーンフラスコ代表</p>
+					<p class="hero-tagline">「緑の医学」のエバンジェリスト</p>
+					<p class="hero-desc">
+						宮川明子氏と並ぶ日本のフィトセラピーの第一人者、林真一郎氏のことを初めて雑誌で見たのは1995年で、この取材は2009年。本当に地道にフィトを普及させてきた人だ。
+					</p>
+				</div>
+			</div>
+			<a class="scroll-cue" href="#ch1"><span class="scroll-line"></span><span class="scroll-txt">Scroll</span></a>
+		</section>
+
+		<div class="intro">
+			<p class="intro-credits rv">文＝阪本淳子&ensp;&emsp;写真＝見米康夫&ensp;</p>
+			<p class="intro-lead rv d1">
+				東京・自由が丘にあるグリーンフラスコは、ハーブ、アロマテラピーをはじめとするフィトセラピー（植物療法）のメカとも言える専門店だ。他を圧倒する豊富な商品、書籍だけでなく、コンシェルジュ・デスクまである。薬剤師であり、日本のフィトセラピーの第一人者として知られる林真一郎が、グリーンフラスコをたった一人ではじめたのは、今から20年以上まえのことだった。
+			</p>
+		</div>
+
+		<article class="chapter" id="ch1">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('01')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 01</p>
+					<p class="ch-sub">父親も、叔父も祖父もみんな薬剤師だった</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">少年時代の夏休みに体験した緑豊かな環境が、今の仕事の原風景かもしれない</h2>
+				<p class="rv">
+					「父親も、叔父も、祖父も、みんな薬剤師だったからね。親から言われたわけでもないし、一応白紙から考えてみたけれど、薬学部への進学はごく自然なことだったかな」実家は、東京の下町・千住の調剤薬局。調剤室で遊んでいた林少年の思い出は、毎年夏休みに家族で一か月近くを過ごす千葉の海辺だ。「夏のひと月、仕事をしなくちゃいけない親父を除いたみんなで海の家みたいなところに移り住むわけ。
+				</p>
+				<p class="rv d1">
+					ちょうどゲームの『ぼくの夏休み』みたいな感じの風景で、海があって、土手があって、緑豊かな環境で、釣りばっかりして遊んでいた。別に小さい頃から植物好きだったわけではないけれど、今思うと、あのゆるい夏休みが、植物療法に関わる自分の原風景になっているのかもしれないね」
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('02')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 02</p>
+					<p class="ch-sub">大学の授業で、林の心を捉えた「薬業経営論」</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">在学中から、薬局経営をすると決意。店の名前は「グリーンフラスコ」</h2>
+				<p class="rv">
+					大学の授業で林の心をとらえたのは「薬業経営論」だった。「薬って、半分はサイエンスだけど、残りの半分は、富山の薬売りがそうであるように、ビジネスだと思っていたわけです。医療の人の中には、ビジネスというものを一段低く見ている人も少なからずいるかもしれない。医者は医療を提供するのが仕事だから。でも薬剤師である僕からすれば、薬は『命』に関わりながらも、お客さんがいなければ成立しない。そこが面白いと思いました」
+				</p>
+				<p class="rv d1">
+					ビジネスをやることになんのためらいも引け目も持たなかった林は、在学中から開業しようと思い、簿記の学校に通ったり、マーケティングを勉強したりする。心の内ではすでに、グリーンフラスコという名の調剤薬局をやろうと思っていたのである。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('03')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 03</p>
+					<p class="ch-sub">役所に拒否された、「ハーブティー」を飲める薬局</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">前例がないと役所と衝突。薬かハーブか、選択をせまられた</h2>
+				<p class="rv">
+					大学卒業から数年後、薬局の開業へと動きだした林はいきなり壁にぶつかった。「患者さんに、調剤を待っている間にハーブティを出して飲んでいてもらいたいと思って、そういう薬局の図面を書いたわけ。そうしたら役所がノーと」。薬業と喫茶業の管轄が違う、さらに前例がないというのが理由だった。「前例がないからこそ、やりたいのに。薬局と、喫茶をはっきり分けるならいいと言うが、それでは、喫茶店と隣り合わせのただの薬局（笑）」
+				</p>
+				<p class="rv d1">
+					順調な見込みの薬をとり、ハーブをあきらめるのか。しかし、林はハーブに賭けた。当時、世の中はバブル崩壊に向かいつつあり、それまでの「病気」とは違う次元で、ストレスから体調を崩す人が増えていた。「もともと、僕自身ハーブティが好きで、凝り性だった。今のようにインターネットもない中、一生懸命情報を探しているうちに、そうしたストレスにも効果のある『ハーブの持つ力』に気がついたところだった」
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('04')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 04</p>
+					<p class="ch-sub">何よりも「いいものだ」という確信があった</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">「ようやくこんな店が日本にもできたのね」というお客様の声に励まされた</h2>
+				<p class="rv">
+					こうして、薬剤師がハーブを売る店、グリーンフラスコは誕生した。「そもそも、ハーブは薬のもとになっているもので、ハーブを学ぶことは薬学とルーツが一緒だから。薬剤師という仕事と、ハーブを扱うことは何の矛盾もなかった。何より、いいものだという確信があったね」開店当初は、美容室と間違われたり、チャーハンを注文されたり、何をやっている店なのか、なかなか理解されない日々が続く。
+				</p>
+				<p class="rv d1">
+					「それでも、『こういうお店が、日本でもようやく始まったのね』という、喜んで理解してくれる人が次第に現れる。この指とまれ方式で、着実に1人づつ増えてくれていたから、先行きに不安はなかった。ひとりでやっていて、出るお金と入るお金のバランスさえ取れていれば、たとえ低空飛行でも安定して経営できた」前例も何もないところから始まった林のビジネスは、そこに集まる人たちと情報交換をするかたちで、一歩また一歩と進んでいった。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('05')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 05</p>
+					<p class="ch-sub">そもそも、医薬品のオリジンはハーブだった</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">ホリスティック医学の観点から、ハーブの位置づけが見えてきた</h2>
+				<p class="rv">
+					「試行錯誤もありました。知り合ったハーブ園のお米10kgをかついで近所を配達したりもしましたね。ハーブの店をやることを、父親は反対もしませんでしたが、どうせ、すぐつぶれて、自分の薬局に戻ってくると思っていたみたいで」しかし、日本ホリスティック医学協会との出会いで、林はグリーンフラスコでやっていることに確信を深める。
+				</p>
+				<p class="rv d1">
+					「それまでは、薬学とハーブのつながりだけでみていたのが、ホリスティック医学の観点からみたハーブの位置が見えてきました。西洋医学の補完としてのハーブではなく、そもそも医薬品のオリジンがハーブであるという全体像がクリアになったのです。たとえば、今でも地球上の3/4の国では、ハーブが薬として普通に使われているんですから。調薬とハーブをわざわざ分けておいて、その二つを合わせて改めて統合医療と呼ぶ日本のような状況の方が特殊かもしれない」
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('06')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 06</p>
+					<p class="ch-sub">間違ったモノや情報を提供することは許されない</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">いいモノを正しい使い方で、使っていただく。そのために自分たちがいる</h2>
+				<p class="rv">
+					林自身は特に意識していなかったが、時期を同じくして、ニューヨークなどでも同時多発的にグリーンフラスコのような企業が生まれつつあった。医療従事者たちも、それまでの西洋医学一辺倒だけではなく、ハーブやアロマテラピーの医学的効用について改めて目を向け、関心を持つようになっていた。グリーンフラスコは、一言でいえば「植物療法の会社」だと林はいう。植物療法に関わるモノはすべて扱っていく。林はまた自らが啓蒙する「緑の医学」について、こう語る。
+				</p>
+				<div class="pull rv d1">
+					<p>
+						「緑の医学とは、要は“モノと使い方”を伝えていくことだと思っている。いいモノをちゃんとした使い方で使ってもらう。そのために、グリーンフラスコがあると思うんです。たとえばホメオパシーのようなエナジーメディスンにも、個人的にとても興味があるけれど、目に見えないものを扱うということには大変な慎重さが要求されると考えている。取り組み方や紹介の仕方を間違えると、せっかくのよいモノもその良さを発揮できない」
+					</p>
+				</div>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('07')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 07</p>
+					<p class="ch-sub">ハーブティーが治療家の役割を果たしてくれる</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">気になるいいモノとは、自然に出会いがある</h2>
+				<p class="rv">
+					「たとえば、治療家というと生身のその人自身で勝負となるけれど、僕の場合は、ハーブティが治療家の役割を果たしてくれる。“本物のモノ＝優秀な治療家”を選ぶのが自分の仕事だから、思いを込めて作っているものを探していきたい。不思議なことに、気になっているいいモノとは自然に出会いがあって、向こうからアクセスして来てくれる感じで、商品として取り扱うことになるんだよ」林はまた、植物療法の学校の代表を務め、教育や後進育成にも力をいれている。
+				</p>
+				<p class="rv d1">
+					最近では、薬学部で必須になった植物療法学の講師を母校で務めている。「本質的なこと、大事なことをわかりやすく伝えていきたい。そうすれば、次の人はそこからスタートできるじゃない。それが“緑の医学”が広がっていく力にもなる。だから、積極的に異業種や異分野の人とも付き合うようにしています。本来は、おいしいお茶とケーキで楽しくのんびりと過ごすのが幸せな（笑）タイプの人間なんだけどね」
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${imgChapter('08')}')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 08</p>
+					<p class="ch-sub">これからの日本には「サイエンスカフェ」が必要</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">西洋医学と緑の医学が共存し、互いに補完できる世の中をめざす</h2>
+				<p class="rv">
+					今、林は大きな転換期に立ち会っていると感じている。「西洋医学vs代替・自然療法」と対立せず、互いに共存し補完しあうために、信頼できる情報提供者やオピニオンリーダーが必要だと考えているのだ。「欧米のように科学者、研究者、医療従事者と、一般人が気軽に話せる“サイエンスカフェ”のような場が必要だと思う」。また、安易にハーブやアロマだけに頼ることにも警鐘を鳴らす。「今後、自分で健康管理が当たり前となると、何かに過剰に頼ったり、過信する危険もでてくる。セラピー資格ビジネスが横行し、安易な素人医療行為に走る人も増えるかもしれない」
+				</p>
+				<p class="rv d1">
+					「薬剤師は10mgと100mgを間違えることが許されない職業」と語る林は、誤った方向にこの分野が走らないよう、きちんと発言し関わっていこうと心を決めている。「緑の医学」に科学的な光を当て、啓蒙を続ける林真一郎とその協力者たちの活動に、ますます大きな期待が寄せられている。
+				</p>
+			</div>
+		</article>
+
+		<section class="profile">
+			<div
+				class="profile-img rv"
+				style={`background-image:url('${imgProfile}');background-position:center 25%;background-size:cover;`}
+			>
+			</div>
+			<div class="profile-in">
+				<span class="profile-label rv">Profile</span>
+				<h2 class="profile-title rv">林真一郎の歩み</h2>
+				<div class="tl">
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■出生</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1959年</div><div class="tl-txt">東京都足立区に生まれる。生家は薬局。</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">小学生時代</div><div class="tl-txt">昭和な日々。夏休みには家族で千葉の海のそばに滞在。「真一郎の夏」を毎年、満喫する</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">中高生時代</div><div class="tl-txt">自分の進みたい分野を消去法で考えた末、結局残ったのが薬剤師になることだった</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">大学生時代</div><div class="tl-txt">東邦大学薬学部で猛勉強の日々。すでに自分で薬局を経営することを決め、簿記を習いにいった</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■薬剤師、ハーブ、アロマテラピー啓蒙者としての歩み</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">20代</div><div class="tl-txt">東邦大学薬学部薬学科を卒業。薬剤師になる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1985年</div><div class="tl-txt">ハーブティーとアロマテラピーの店、グリーンフラスコを世田谷区瀬田に開店</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1994年</div><div class="tl-txt">グリーンフラスコ自由が丘店をオープン。ハーブ、アロマテラピーの知識を一般にわかりやすく啓蒙普及。同時に、医師・鍼灸マッサージ師・助産師・薬剤師などとネットワークを作り、ホリスティック医学としてのアロマテラピーやハーブ療法の普及に取り組む</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">2001年</div><div class="tl-txt">学術的な研究拠点として、グリーンフラスコ研究所を設立</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">2006年</div><div class="tl-txt">植物療法の総合教育機関、ソフィアフィトセラピーカレッジを開設</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr"></div><div class="tl-txt"><strong>■現在</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr"></div><div class="tl-txt">
+							グリーンフラスコ株式会社代表<br />
+							ソフィアフィトセラピーカレッジ代表<br />
+							薬剤師・臨床検査技師<br />
+							特定非営利活動法人日本ホリスティック医学協会運営委員<br />
+							社団法人日本アロマ環境協会理事<br />
+							社団法人日本アロマ環境協会学術調査研究委員長<br />
+							特定非営利活動法人 日本メディカルハーブ協会 副理事長<br />
+							東邦大学薬学部客員講師
+						</div>
+					</div>
+				</div>
+				<p class="rv d2" style="margin-top: 16px; font-size: 12px; color: #7a6858">
+					◎ このインタビューは2009年、東京・自由が丘のグリーンフラスコ自由が丘店で行なわれた。
+				</p>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<p class="footer-copy">©Natural Quest</p>
+		</footer>
+
+		<script src="/scripts/interview.js" defer></script>
+	</body>
+</html>
