@@ -125,7 +125,7 @@ body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--te
 .profile-img{width:100%;height:clamp(300px,45vw,600px);background:url('https://images.naturalquest.org/interview/vol09/deko_profile.jpg') center 25%/cover no-repeat}
 .profile-label{font-family:var(--en);font-size:11px;letter-spacing:0.55em;color:var(--accent);text-transform:uppercase;text-align:center;margin-bottom:12px;display:block;font-weight:600}
 .profile-title{font-family:var(--serif);font-size:clamp(20px,2.6vw,28px);font-weight:600;letter-spacing:0.1em;text-align:center;margin-bottom:52px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
-.profile-sub{font-family:var(--serif);font-size:0.72em;font-weight:500;letter-spacing:0.08em;color:var(--text-light);margin-left:10px;white-space:nowrap}
+.profile-sub{display:inline-block;font-family:var(--serif);font-size:0.56em;font-weight:500;letter-spacing:0.18em;color:var(--text-mid);margin-left:0.4em;white-space:nowrap;vertical-align:0.14em;opacity:0.92}
 .tl{position:relative;padding-left:36px}
 .tl::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:1px;background:var(--accent);opacity:0.3}
 .tl-row{position:relative;margin-bottom:28px;display:grid;grid-template-columns:100px 1fr;gap:24px;align-items:start}
