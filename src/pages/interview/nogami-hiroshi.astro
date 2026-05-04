@@ -1,0 +1,287 @@
+---
+import SeoHeadTags from '../../components/SeoHeadTags.astro';
+
+const PHOTO = 'https://images.naturalquest.org/interview/vol01';
+
+const interviewTitle = '野上 博 | Natural Quest Interview vol.01';
+const interviewDesc =
+	'治療師・野上博のインタビュー（2008年取材）。ゴッドハンドと呼ばれる手当の世界、シャーマニズムと治癒、クライアントとの信頼について。';
+const interviewOg = `${PHOTO}/nogami_01.jpg`;
+---
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{interviewTitle}</title>
+		<meta name="description" content={interviewDesc} />
+		<SeoHeadTags
+			title={interviewTitle}
+			description={interviewDesc}
+			path={Astro.url.pathname}
+			ogImage={interviewOg}
+			ogType="article"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/styles/interview.css" />
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'Article',
+				headline: interviewTitle,
+				description: interviewDesc,
+				image: interviewOg,
+				datePublished: '2008-01-01',
+				dateModified: '2026-05-04',
+				inLanguage: 'ja-JP',
+				author: { '@type': 'Person', name: '阪本淳子' },
+				publisher: {
+					'@type': 'Organization',
+					name: 'Natural Quest',
+					url: 'https://naturalquest.org',
+				},
+				mentions: {
+					'@type': 'Person',
+					name: '野上博',
+					jobTitle: '治療師',
+					knowsAbout: ['整体', '気功', 'ホリスティック', 'セルフヒーリング', 'シャーマニズム'],
+				},
+			})}
+		></script>
+	</head>
+
+	<body>
+		<header class="hd" id="hd">
+			<a class="hd-logo" href="/">NQ Interview</a>
+			<span class="hd-vol">Vol. 01</span>
+		</header>
+
+		<section class="hero">
+			<div
+				class="hero-img"
+				id="heroImg"
+				style={`background:url('${PHOTO}/nogami_01.jpg') center 25%/cover no-repeat`}
+			>
+			</div>
+			<div class="hero-grad"></div>
+			<div class="hero-body">
+				<div class="hero-box">
+					<p class="hero-series">Natural Quest Interview &nbsp;|&nbsp; vol.01</p>
+					<h1 class="hero-name">野上 博</h1>
+					<p class="hero-role">治療師</p>
+					<p class="hero-tagline">25年目の回答。</p>
+					<p class="hero-desc">
+						心と体を見続けた25年間。現代医学が見落としている、洞察に満ちた手当の世界。2008年、治療院にて取材。
+					</p>
+				</div>
+			</div>
+			<a class="scroll-cue" href="#ch1"><span class="scroll-line"></span><span class="scroll-txt">Scroll</span></a>
+		</section>
+
+		<div class="intro">
+			<p class="intro-credits rv">文＝阪本淳子&ensp;&emsp;写真＝見米康夫&ensp;</p>
+			<p class="intro-lead rv d1">
+				治療師、野上博。その名を知る人は限られている。試しにWebで検索をかけたとしても、なかなかヒットしないだろう。しかし、ゴッドハンドと呼ばれる人の多くがそうであるように、治癒を求める人々のひそやかな口伝えで、彼のもとを訪れる人は今日も絶えない。どこにも属さず、決して偉ぶらず。心と体を見続けた25年間には、現代医学が見落としている、ある種の洞察に満ちた手当の世界が確かにあった。
+			</p>
+		</div>
+
+		<article class="chapter" id="ch1">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${PHOTO}/nogami_02.jpg')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 01</p>
+					<p class="ch-sub">脳内出血も自らのやり方で治癒。治療師になるのは自然な流れだった。</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">請われて治療を行っているうちに、この道へ</h2>
+				<p class="rv">
+					これまで野上はいわゆる治療師としての教育や訓練をどこかで受けたことがいっさいない。治療師を意識して目指したこともまったくなかったという。しかし、自分の手に人とは違う何らかのエネルギーがあることは子供のころから漠然と感じており、広告会社の役員を勤めているころから、知人に乞われて体の不調を治すということがよくあった。
+				</p>
+				<div class="pull rv d1">
+					<p>
+						「そんなことをしているうちに32歳位からかな、なんだか相手のことが、すごくはっきり見えるようになっちゃったんだよね。
+						それで本当はあらゆる体の不調の原因はひもといていくと、その人の考え方にあるから、考え方を変えるのが一番いいと思うようになった。でも、本人にそのことを受け入れる気持ちがないと絶対変われない。それで、逆に俺がまず体を治すことで『受け入れられる』自分になるきっかけをつくってあげられるのもいいかなって」
+					</p>
+				</div>
+				<p class="rv d2">
+					自分の脳内出血を治した時期からしばらくして、特に気負うこともなく、本格的に治療を仕事にしようと、この道に入ったのは自然の流れだった。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${PHOTO}/nogami_03.jpg')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 02</p>
+					<p class="ch-sub">
+						不調の原因はその人の考え方にあるから、考え方を変えるのが一番いいと思う。
+					</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">治療にはシャーマン的要素は無視できない</h2>
+				<p class="rv">
+					野上の治療には、いわゆる能書きがない。『第三の眼』ともいうべき知覚を使ったものだという。しかし、それは結果的に解剖学的にも理にかなったものになっている。「クライアントの体を見ると、自然にこうすべきだという治療方法が浮かんでくるんだよ。そのときはわからなくても、夜寝ているときとかに（笑）」
+					極端にいえば、体や姿を目で見なくても、その人が部屋に入ってきたときから、どこに触れて何をすればいいかがホログラフィックに見えてくるのだという。エビデンスや理屈がなければ納得できないという人には受け入れがたいかもしれないが、実際こうした野上の治療で治った人たちが多くいる事実は消しようがない。
+				</p>
+				<div class="pull rv d1">
+					<p>
+						「昔からよく効く民間療法って、世界どこでもそういう理屈を越えたところがあるじゃない。ある種のシャーマニズムというか。周りが決めることだから、俺がそうだと自分でいうわけじゃないけれど、治療師ってやはりどこかシャーマン的なところがないと駄目じゃない？」
+					</p>
+				</div>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${PHOTO}/nogami_04.jpg')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 03</p>
+					<p class="ch-sub">誰にでも治ろうとする力がある、それを引き出すのが治療だ。</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">「目に見えなければ、治ったとはいえない」</h2>
+				<p class="rv">
+					偉そうなことをいうのが大嫌いな野上だが、治療師としての矜持がひとつある。「目に見えなければ、治ったとはいえないじゃない。」それは、たとえば消えないといわれた傷がまったく目立たなくなることであったり、治らないはずの病変がなくなったり。ある患者は、治療に来る前までは立つことさえままならず、車に寝たまま乗せられてやってきたのに、1時間の治療が終わると、すたすたと歩いて笑顔で帰っていったという。
+				</p>
+				<div class="pull rv d1">
+					<p>
+						「いや別に俺がすごいとかじゃなくてさ、ほんとは誰にでも治ろうとする力が本来備わってるんだよ。ただ、それに気がついていなかったり信じてないから、俺が痛みをとったりして目に見える形でみせてあげて、『ああ、自分は治るんだ。治っていけるんだ』と思わせることを手伝ってるんだよね」
+					</p>
+				</div>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${PHOTO}/nogami_05.jpg')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">Chapter 04</p>
+					<p class="ch-sub">「自分自身で治ろうとする」こと。</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">ゴッドハンドを真に引き出すのはクライアントの心</h2>
+				<p class="rv">
+					現代医学の常識を越えて、さまざまな患者の回復や治癒をてがけてきた野上だが、「本当に信頼して体を委ねてもらわないと、治せない」という。「体は正直だから、緊張してると力を抜いてっていくら言っても抜けないから、治療する俺の手の方が危険だよ。それと、俺はずばずば何でも正直に言うんだけど、それを頭から拒絶するようだとムリだよね。何度もいうけれど、あらゆる体の不調の原因はひもといていくと、その人の考え方にあって、まず、本人にそのことを『受け入れる』気持ちがないと絶対変われないわけだから。俺との関係で信頼関係が作れなければ難しい。まあ、俺も好き嫌いが激しいけれど（笑）」
+				</p>
+				<p class="rv d1">
+					心と体は別々のものではない。否定や疑心暗鬼ではなく、かといって一方的な依存や盲信でもなく。自分の体の声を、心の声を、野上の手を通じて素直に聴いてみようと思うこと。野上に「治してもらう」のではなく、野上を信頼し彼と共に「自分自身で治ろうとする」こと。それが、ゴッドハンドと呼ばれる彼の手を本当の意味で活かす鍵なのではないだろうか。そして、その姿勢はまた私たちが今後多くのこうした治療をうけていくときにも求められるものではないだろうか。
+				</p>
+			</div>
+		</article>
+
+		<article class="chapter">
+			<div class="photo-wrap">
+				<div class="photo-img" style={`background-image:url('${PHOTO}/nogami_06.jpg')`}></div>
+				<div class="ch-sub-box">
+					<p class="ch-num">TIPS</p>
+					<p class="ch-sub">「何よりよく眠ること」</p>
+				</div>
+			</div>
+			<div class="ch-body">
+				<h2 class="ch-title">Ｑ＆Ａ</h2>
+				<p class="rv"><strong>Q.</strong> 健康に暮らすための秘訣とは？</p>
+				<p class="rv d1">
+					<strong>A.</strong>
+					食事は腹六分目でいい。日本人の昔からの生活を見直すこと。シャワーだけとかではなく、風呂にのんびりと入って、何よりよく眠ることでしょう。できれば22時、遅くとも日付が変わる前には寝て、8時間睡眠は確保したいところ。それから、食事はよく腹八分目というけれど、六分目位でいいんじゃないかな。俺は一日一食だけど、昔の人は本来一食が普通だったんだから。
+				</p>
+				<p class="rv"><strong>Q.</strong> 治療師を目指す人へのアドバイスは？</p>
+				<p class="rv d1">
+					<strong>A.</strong>
+					治療師は、とにかく熱意を持って工夫すること。すべての治療師、あるいはそれを目指す人間に、シャーマン的要素があるとは限らない。でも、そういう場合も、誠実に一生懸命患者をなんとかしようという気持ちさえあればカバーできるんじゃないだろうか。とにかく患者に真摯に向き合うことです。そうすれば、自然と知識を身につけようとなるし、工夫もできるし、どんな苦労もいとわず努力できるはず。そうして自分の治療を少しずつでもいいから進化させること。進化しない治療は駄目だよ。
+				</p>
+			</div>
+		</article>
+
+		<section class="profile">
+			<div
+				class="profile-img rv"
+				style={`background-image:url('${PHOTO}/nogami_07.jpg');background-position:center 25%;background-size:cover;`}
+			>
+			</div>
+			<div class="profile-in">
+				<span class="profile-label rv">Profile</span>
+				<h2 class="profile-title rv">野上博の出来上がり方</h2>
+				<div class="tl">
+					<div class="tl-row rv">
+						<div class="tl-yr"></div>
+						<div class="tl-txt"><strong>■出生から大人～整体師へ</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">出生</div>
+						<div class="tl-txt">1952年　東京都大田区に生まれる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1958年</div>
+						<div class="tl-txt">小学校に上がる。ガキ大将</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1970年</div>
+						<div class="tl-txt">社会人になる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1977年</div>
+						<div class="tl-txt">カツオ漁師になる</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1987年</div>
+						<div class="tl-txt">広告制作会社の役員に</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">1993年</div>
+						<div class="tl-txt">気功治療師として活動を開始する</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr"></div>
+						<div class="tl-txt"><strong>■整体師としての歩み</strong></div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1995年</div>
+						<div class="tl-txt">自由が丘に整体治療院を設立</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">1998年</div>
+						<div class="tl-txt">等々力に移転</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">2000年</div>
+						<div class="tl-txt">雪谷に移転</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">2003年</div>
+						<div class="tl-txt">久が原に移転。現在まで継続</div>
+					</div>
+					<div class="tl-row rv d1">
+						<div class="tl-yr">2005年</div>
+						<div class="tl-txt">マイアンサー原型が出来上がる</div>
+					</div>
+					<div class="tl-row rv">
+						<div class="tl-yr">2007年</div>
+						<div class="tl-txt">マイアンサーに米国特許認可が降りる</div>
+					</div>
+				</div>
+				<p class="rv d1" style="margin-top: 16px; font-size: 12px; color: #7a6858">
+					※2018年9月　野上博さんはご逝去されました。謹んでご冥福をお祈り申し上げます。
+				</p>
+				<p class="rv d2" style="font-size: 12px; color: #7a6858">
+					◎ このインタビューは2008年に野上博の治療院で行なわれた。写真の一部は多摩川緑地で撮影された。
+				</p>
+			</div>
+		</section>
+
+		<footer class="footer">
+			<p class="footer-copy">©Natural Quest</p>
+		</footer>
+
+		<script src="/scripts/interview.js" defer></script>
+	</body>
+</html>

@@ -4,11 +4,19 @@ import Layout from '../../layouts/Layout.astro';
 const SITE = 'https://naturalquest.org';
 
 const pageDescription =
-	'Natural Quest のインタビュー一覧。オーガニック食品やウェルネス、写真と暮らしに関わる方々との対話を掲載。ジョン・ムーア、ジョン・ベリス、林真一郎（グリーンフラスコ）、エバレット・ブラウン、林サオダ、中島デコ、東城百合子、宮川明子など。';
+	'Natural Quest のインタビュー一覧。オーガニック食品やウェルネス、写真と暮らしに関わる方々との対話を掲載。野上博、ジョン・ムーア、ジョン・ベリス、林真一郎（グリーンフラスコ）、エバレット・ブラウン、林サオダ、中島デコ、東城百合子、宮川明子など。';
 
 const ogImageInterview = 'https://images.naturalquest.org/interview/vol05/alisan_main.jpg';
 
 const interviews = [
+	{
+		href: '/interview/nogami-hiroshi/',
+		thumb: 'https://images.naturalquest.org/interview/vol01/nogami_01.jpg',
+		imgAlt: '野上博',
+		title: '野上 博',
+		role: '治療師',
+		tagline: '25年目の回答。',
+	},
 	{
 		href: '/interview/john-moore/',
 		thumb: 'https://images.naturalquest.org/interview/vol06/moore_main.jpg',
