@@ -6,7 +6,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://images.naturalquest.org/2009/11/1129_2.jpg'
+heroImage: 'https://images.naturalquest.org/2009/11/1129.jpg'
 ---
 
 アーユルヴェーダを日本に紹介し続けてきた、日本アーユルヴェーダ学会の東京研究総会。

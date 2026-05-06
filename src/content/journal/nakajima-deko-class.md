@@ -7,7 +7,7 @@ tags:
 categories:
   - 食
   - 医食同源
-heroImage: 'https://images.naturalquest.org/2009/05/blog_1023.jpg'
+heroImage: 'https://images.naturalquest.org/2009/05/deko_001.jpg'
 ---
 
 ## 中島デコさんの料理教室＆トークイベント
