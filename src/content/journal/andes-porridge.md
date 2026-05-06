@@ -6,7 +6,7 @@ tags:
 categories:
   - 食
   - 医食同源
-heroImage: 'https://images.naturalquest.org/2017/08/porridge_01.jpg'
+heroImage: 'https://images.naturalquest.org/2017/08/inka_ball.jpg'
 ---
 
 世の中的に、グラノーラの売れ行きが好調らしい。
@@ -41,7 +41,7 @@ heroImage: 'https://images.naturalquest.org/2017/08/porridge_01.jpg'
 
 ナッツ類、いちじくやレーズンなどの果実とあわせ、すりこぎ棒で混ぜ合わせる。
 
-![](https://images.naturalquest.org/2017/08/inka_ball.jpg)
+![](https://images.naturalquest.org/2017/08/inka_ball_00.jpg)
 
 完成品ではわからないけれど、こんなにぜいたくな素材を使っているとは。
 パワフルなローフードです。
