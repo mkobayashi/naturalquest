@@ -6,8 +6,7 @@ tags:
 categories:
   - NOTE
   - エディターより
-heroImage: >-
-  https://images.naturalquest.org/2011/11/tsuchi_hei_koaki_A4omote01.ai_-353x500.jpg
+heroImage: 'https://images.naturalquest.org/2011/11/tsuchi_hei_koaki_A4omote01.ai.jpg'
 ---
 
 「平成の大合併」と称して、市町村の統廃合が1999年から2010年にかけて大々的に行われました。行政がどれほど効率化できたのか検証が必要と思いますが、農村を歩いて実感するのは、歴史的な経緯や風土特性を無視した合併もなきにしもあらずということです。

@@ -8,7 +8,7 @@ tags:
 categories:
   - 食
   - DIY
-heroImage: 'https://naturalquest.org/howto/recipe/images/azuki_00.jpg'
+heroImage: 'https://images.naturalquest.org/2011/09/img_002.jpg'
 ---
 
 調理時間：約60分
