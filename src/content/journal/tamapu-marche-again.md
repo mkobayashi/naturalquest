@@ -6,8 +6,7 @@ tags:
 categories:
   - NOTE
   - エッセイ
-heroImage: >-
-  https://images.naturalquest.org/2017/02/d41096056f78317b993c69cfadf2d727.jpg
+heroImage: 'https://images.naturalquest.org/2017/01/tamaplaza.jpg'
 ---
 
 おーーまさに駅前の一角。
