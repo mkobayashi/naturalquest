@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://images.naturalquest.org/2010/12/img_040.jpg'
+heroImage: 'https://images.naturalquest.org/2010/12/img_006.jpg'
 ---
 
 ## 睡眠は元気の素

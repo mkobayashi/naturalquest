@@ -6,7 +6,7 @@ tags:
 categories:
   - NOTE
   - エディターより
-heroImage: 'https://images.naturalquest.org/2010/09/daylight_02.jpg'
+heroImage: 'https://images.naturalquest.org/2010/09/JMO_9.2.jpg'
 ---
 
 次なるプロジェクトをささやきあう男たち。
