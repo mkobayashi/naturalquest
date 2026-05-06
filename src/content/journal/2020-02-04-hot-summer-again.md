@@ -4,7 +4,7 @@ pubDate: 2020-02-04T00:00:00.000Z
 categories:
   - NOTE
   - エディターより
-heroImage: 'https://images.naturalquest.org/2020/02/2020y02m04d_072026080.jpg'
+heroImage: 'https://images.naturalquest.org/2020/02/climate.webp'
 ---
 
 節分の昨日（2月3日）は、まだ2月初旬だというのに、春が来たかのような陽気でした。

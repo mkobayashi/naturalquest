@@ -6,6 +6,7 @@ tags:
 categories:
   - "NOTE"
   - "エッセイ"
+heroImage: 'https://images.naturalquest.org/2017/04/aoyagi.jpg'
 ---
 
 春になると思い出す

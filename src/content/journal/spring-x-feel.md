@@ -6,7 +6,7 @@ tags:
 categories:
   - NOTE
   - エッセイ
-heroImage: 'https://images.naturalquest.org/2017/05/haru_02.jpg'
+heroImage: 'https://images.naturalquest.org/2017/05/haru_01.jpg'
 ---
 
 暖かい光が差す。4月、新潟県と群馬県にまたがる平標山で。

@@ -6,7 +6,7 @@ tags:
 categories:
   - NOTE
   - エッセイ
-heroImage: 'https://images.naturalquest.org/2017/04/jinno_02.jpg'
+heroImage: 'https://images.naturalquest.org/2017/04/jinno_01.jpg'
 ---
 
 （愛犬といっしょにのんびり山あるき）

@@ -6,6 +6,7 @@ tags:
 categories:
   - "NOTE"
   - "エッセイ"
+heroImage: 'https://images.naturalquest.org/2017/05/20170508.jpg'
 ---
 
 たまたま通りかかった武道館付近

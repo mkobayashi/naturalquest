@@ -8,7 +8,7 @@ tags:
 categories:
   - 健康
   - 読む・観る
-heroImage: 'https://images.naturalquest.org/2009/12/2.jpg'
+heroImage: 'https://images.naturalquest.org/2009/12/img_main.jpg'
 ---
 
 オーガニック拡大の意識づくりに貢献しているフランス映画「未来の食卓」の上映会が小田原で行われました。
