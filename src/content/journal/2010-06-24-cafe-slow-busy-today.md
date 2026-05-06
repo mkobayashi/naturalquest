@@ -6,7 +6,7 @@ tags:
 categories:
   - 食
   - おでかけ
-heroImage: 'https://images.naturalquest.org/2010/06/slow_02.jpg'
+heroImage: 'https://images.naturalquest.org/2010/06/slow_01.jpg'
 ---
 
 **野川を遡るとカフェスローにたどり着く。**
