@@ -4,12 +4,12 @@ pubDate: 2010-01-08T00:00:00.000Z
 categories:
   - 食
   - 医食同源
-heroImage: 'https://naturalquest.org/blog/wp-content/uploads/2010/01/mfm_badge.png'
+heroImage: 'https://images.naturalquest.org/2010/10/R0011816.jpg'
 ---
 
 [new york lottery](http://biolot.org/lottery-new-york)
 
-こんにちは！![mfm_badge](https://naturalquest.org/blog/wp-content/uploads/2010/01/mfm_badge.png)
+こんにちは！![mfm_badge](https://images.naturalquest.org/2010/01/mfm_badge.png)
 
 遅ればせながら、[オノ・ヨーコのつぶやき](http://twitter.com/yokoono/statuses/7123178865)から最近知ったのですが、ポール・マッカートニーがMeat Free Monday（＝月曜日は肉なしの日！）という活動を支援しているそうです。
 
@@ -29,8 +29,4 @@ Support Meat Free Monday（英語）
 
 まずはMFMから始めてみようと思っています。
 
-あ、nQ編集長がこっそりつぶやいています。
 
-[http://twitter.com/Natural_Quest](http://twitter.com/Natural_Quest)
-
-フォロー大歓迎でス！

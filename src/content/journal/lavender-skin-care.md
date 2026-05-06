@@ -7,7 +7,7 @@ tags:
 categories:
   - 健康
   - セルフケア
-heroImage: 'https://images.naturalquest.org/2011/01/img_02.jpg'
+heroImage: 'https://images.naturalquest.org/2011/01/img_039.jpg'
 ---
 
 ## 漬込みに30分。2週間後には使えるチンキ剤の作り方
