@@ -4,7 +4,7 @@ pubDate: 2010-01-18T00:00:00.000Z
 categories:
   - 健康
   - アロマ
-heroImage: 'https://naturalquest.org/blog/wp-content/uploads/2010/01/room.jpg'
+heroImage: 'https://images.naturalquest.org/2010/01/room.jpg'
 ---
 
 [ny lottery](http://biolot.org/lottery-new-york)
@@ -67,9 +67,9 @@ heroImage: 'https://naturalquest.org/blog/wp-content/uploads/2010/01/room.jpg'
 
 お近くの方はぜひ参加してみてください、ほんとおすすめでス！
 
-![](https://naturalquest.org/blog/wp-content/uploads/2010/01/liquor.jpg)
-![](https://naturalquest.org/blog/wp-content/uploads/2010/01/herbs.jpg)
-![](https://naturalquest.org/blog/wp-content/uploads/2010/01/handbath.jpg)
+![](https://images.naturalquest.org/2010/01/liquor.jpg)
+![](https://images.naturalquest.org/2010/01/herbs.jpg)
+![](https://images.naturalquest.org/2010/01/handbath.jpg)
 
 薬酒のびんが並ぶ。
 真ん中のきいろはカレンデュラ。
