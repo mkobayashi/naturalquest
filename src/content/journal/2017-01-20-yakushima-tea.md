@@ -7,7 +7,7 @@ tags:
 categories:
   - 食
   - おすすめ
-heroImage: 'https://images.naturalquest.org/2017/01/ph_01-3.jpg'
+heroImage: 'https://images.naturalquest.org/2017/01/yakushima.jpg'
 ---
 
 ## 命の島、屋久島で栽培される完全無農薬の日本茶

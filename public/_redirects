@@ -1,2 +1,15 @@
 /aroma-chat/   /aroma/   301
 /aroma-chat    /aroma/   301
+
+# 旧ジャーナル → インタビュー再録（重複解消・301）
+/journal/2009-07-30-ishigaki-dye-2 /interview/ishigaki-akiko/ 301
+/journal/2009-07-30-ishigaki-dye-2/ /interview/ishigaki-akiko/ 301
+/journal/2009-12-10-2804 /interview/john-bayles/ 301
+/journal/2009-12-10-2804/ /interview/john-bayles/ 301
+/journal/2010-10-30-togashiro-health-2 /interview/tojo-yuriko-1/ 301
+/journal/2010-10-30-togashiro-health-2/ /interview/tojo-yuriko-1/ 301
+/journal/john-moore-social-2 /interview/john-moore/ 301
+/journal/john-moore-social-2/ /interview/john-moore/ 301
+# アヌサラ記事はインタビュー単体ページなし → 同一人物の関連ノートへ
+/journal/anusara-yoga-2 /journal/yoga-after-all/ 301
+/journal/anusara-yoga-2/ /journal/yoga-after-all/ 301
