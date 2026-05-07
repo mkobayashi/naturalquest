@@ -1,5 +1,29 @@
 // naturalquest redirect worker
 const SLUG_MAP = {
+  // herb-power
+'/journal/herb-aroma-v1-drink': '/journal/herb-power/herb-aroma-v1-drink/',
+'/journal/herb-aroma-v2-sun': '/journal/herb-power/herb-aroma-v2-sun/',
+'/journal/herb-aroma-v3-summer': '/journal/herb-power/herb-aroma-v3-summer/',
+'/journal/herb-aroma-v4-gut': '/journal/herb-power/herb-aroma-v4-gut/',
+'/journal/herb-aroma-v5-sleep': '/journal/herb-power/herb-aroma-v5-sleep/',
+'/journal/herb-aroma-v6-cold': '/journal/herb-power/herb-aroma-v6-cold/',
+'/journal/herb-aroma-v6-neck': '/journal/herb-power/herb-aroma-v6-neck/',
+
+// herb-recipe
+'/journal/herb-aroma-thyme': '/journal/herb-recipe/herb-aroma-thyme/',
+'/journal/herb-aroma-autumn': '/journal/herb-recipe/herb-aroma-autumn/',
+'/journal/herb-aroma-azuki': '/journal/herb-recipe/herb-aroma-azuki/',
+'/journal/herb-aroma-baking': '/journal/herb-recipe/herb-aroma-baking/',
+'/journal/herb-aroma-easy-diy': '/journal/herb-recipe/herb-aroma-easy-diy/',
+'/journal/herb-aroma-essential': '/journal/herb-recipe/herb-aroma-essential/',
+'/journal/herb-aroma-getto': '/journal/herb-recipe/herb-aroma-getto/',
+'/journal/herb-aroma-oil': '/journal/herb-recipe/herb-aroma-oil/',
+'/journal/herb-aroma-pet': '/journal/herb-recipe/herb-aroma-pet/',
+'/journal/herb-aroma-power': '/journal/herb-recipe/herb-aroma-power/',
+'/journal/herb-aroma-protect': '/journal/herb-recipe/herb-aroma-protect/',
+'/journal/herb-aroma-sunburn': '/journal/herb-recipe/herb-aroma-sunburn/',
+'/journal/herb-aroma-sweets': '/journal/herb-recipe/herb-aroma-sweets/',
+'/journal/lavender-skin-care': '/journal/herb-recipe/lavender-skin-care/',
   "1025%ef%bc%88%e6%97%a5%ef%bc%89-%e4%b8%ad%e5%b3%b6%e3%83%87%e3%82%b3%e3%81%95%e3%82%93%ef%bc%86-%e6%b3%a2%e5%a4%9a%e9%87%8e%e6%af%85%e3%81%95%e3%82%93%e8%ac%9b%e6%bc%94%e4%bc%9a%ef%bc%88": "/journal/lecture-1025/",
   "113%e5%9c%9f%ef%bc%89%e5%b1%b1%e5%b4%8e%e5%8f%8b%e7%b4%80%e3%81%95%e3%82%93%e3%82%b9%e3%82%a4%e3%83%bc%e3%83%84%e6%95%99%e5%ae%a4%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b": "/journal/2012-10-10-sweets-class-1113/",
   "2011%e6%9d%b1%e4%ba%ac%e3%83%99%e3%82%b8%e3%83%95%e3%82%a7%e3%82%b9%e3%82%bf": "/journal/tokyo-vegefesta-2011/",
@@ -288,6 +312,8 @@ const SLUG_MAP = {
   "%e9%ab%98%e6%a0%a1%e7%94%9f%e3%81%8c%e3%81%b2%e3%81%a8%e3%82%8a%e3%81%a7%e7%ab%8b%e3%81%a1%e4%b8%8a%e3%81%92%e3%81%9f%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88": "/journal/student-solo-project/",
   "%e9%b0%af%e3%81%a8%e8%93%ac%e3%82%88%e3%82%82%e3%81%8e%e3%81%ae%e3%81%8a%e5%91%b3%e5%99%8c%e6%b1%81-by%e4%ba%95%e5%8f%a3%e5%92%8c%e6%b3%89": "/journal/sardine-yomogi-miso/",
   "%ef%bc%94%ef%bc%8f%ef%bc%97%ef%bc%88%e5%9c%9f%ef%bc%89-%e3%82%b9%e3%82%a4%e3%83%bc%e3%83%84%e6%95%99%e5%ae%a4-%e9%96%8b%e5%82%ac%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b": "/journal/2012-03-27-sweets-class-0407/",
+  '/article/diy/「ハーブアロマの手づくりレシピ」タイムとセー': '/journal/herb-aroma-thyme/',
+'/diy/475/「ハーブアロマの手づくりレシピ」あずきとラベ': '/journal/herb-aroma-azuki/',
 };
 
 export default {
