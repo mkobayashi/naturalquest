@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { isJournalPublic } from '../lib/journalPublic';
+import HerbSeriesCards from '../components/HerbSeriesCards.astro';
 
 /** 同日付の記事が複数あるとき、トップの並び（新着・HERO・カテゴリの最新にも影響） */
 const SAME_DAY_ORDER: string[] = [
@@ -304,6 +305,8 @@ const catLabelClass =
 			}
 		</section>
 
+		<HerbSeriesCards />
+
 		<!-- CATEGORY_SECTION_START -->
 		{
 			false && (
@@ -371,7 +374,7 @@ const catLabelClass =
 		<section class="mt-6 border-t border-nq-border pt-5" aria-label="アロマAIチャット">
 			<div class="hero-aroma">
 				<img
-					src="/images/herbaroma.jpg"
+					src="https://images.naturalquest.org/2017/02/hiyake02.jpg"
 					alt=""
 					class="hero-aroma-img"
 					loading="lazy"

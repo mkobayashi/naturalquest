@@ -1,0 +1,123 @@
+---
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('journal');
+
+const powerPosts = allPosts
+	.filter((p) => p.id.startsWith('herb-power/'))
+	.sort((a, b) => {
+		const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+		const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+		return dateB - dateA;
+	});
+
+const recipePosts = allPosts
+	.filter((p) => p.id.startsWith('herb-recipe/'))
+	.sort((a, b) => {
+		const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+		const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+		return dateB - dateA;
+	});
+
+interface Series {
+	category: string;
+	title: string;
+	count: number;
+	illust: string;
+	illustAlt: string;
+	href: string;
+	illustObjectPosition?: string;
+	articles: { title: string; href: string }[];
+}
+
+const series: Series[] = [
+	{
+		category: '健康',
+		title: 'ハーブとアロマのチカラ',
+		count: powerPosts.length,
+		illust: '/images/herb-power.webp',
+		illustAlt: 'ハーブとアロマのチカラ',
+		href: '/herb-power/',
+		articles: powerPosts.slice(0, 3).map((p) => ({ title: p.data.title ?? '無題', href: `/journal/${p.slug}` })),
+	},
+	{
+		category: '健康',
+		title: 'ハーブ＆アロマの手づくりレシピ',
+		count: recipePosts.length,
+		illust: '/images/recipe.jpg',
+		illustAlt: 'ハーブ＆アロマの手づくりレシピ',
+		href: '/herb-recipe/',
+		articles: recipePosts.slice(0, 3).map((p) => ({ title: p.data.title ?? '無題', href: `/journal/${p.slug}` })),
+		illustObjectPosition: 'center 45%',
+	},
+];
+
+/** カテゴリ名ラベル（TOPページと統一） */
+const catLabelClass =
+	'inline-flex w-fit max-w-full shrink-0 items-center rounded border border-nq-accent-warm/45 bg-nq-accent-warm/12 px-2 py-1 font-sans text-[11px] font-bold leading-tight tracking-[0.08em] text-nq-accent-warm sm:text-xs';
+---
+
+<section class="pt-5 lg:pt-6" aria-label="ハーブシリーズ">
+	<div class="mb-3 flex items-center justify-between">
+		<h2 class="font-serif text-base font-semibold tracking-tight text-nq-ink sm:text-lg">ハーブシリーズ</h2>
+	</div>
+
+	<ul class="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-x-2.5 md:grid-cols-3">
+		{series.map((s) => (
+			<li class="min-w-0">
+				<article class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border bg-white transition-shadow hover:border-nq-accent-warm/45 hover:shadow-[0_6px_18px_rgba(31,26,20,0.06)]">
+					<a href={s.href} class="block">
+						<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-gradient-to-b from-[#fdfcf7] to-[#f6f1e6]">
+							<img
+								src={s.illust}
+								alt={s.illustAlt}
+								class="absolute inset-0 h-full w-full object-cover"
+								style={s.illustObjectPosition ? `object-position: ${s.illustObjectPosition};` : undefined}
+								loading="lazy"
+								decoding="async"
+							/>
+							<span class="absolute right-2.5 top-2.5 inline-flex items-baseline gap-1 rounded-full border border-nq-border bg-white/92 px-2.5 py-[5px] font-serif text-[12px] font-semibold leading-none tracking-wide text-nq-ink backdrop-blur-sm">
+								<strong class="text-[14px] font-bold">{s.count}</strong>
+								<span class="text-[10px] text-nq-muted">articles</span>
+							</span>
+						</div>
+					</a>
+
+					<div class="flex flex-1 flex-col gap-1 px-3.5 pb-5 pt-2.5">
+						<p class:list={[catLabelClass]}>{s.category}</p>
+						<h3 class="mt-0.5 font-serif text-[15px] font-semibold leading-snug tracking-tight text-nq-ink sm:text-base">
+							<a href={s.href} class="transition-colors hover:text-nq-accent-warm">
+								{s.title}
+							</a>
+						</h3>
+
+						<ul class="mt-1 flex flex-col">
+							{s.articles.map((a, i) => (
+								<li class:list={[i === 0 ? '' : 'border-t border-nq-border/70']}>
+									<a
+										href={a.href}
+										class="flex items-center justify-between gap-2 py-2 font-sans text-[13px] font-medium leading-snug text-nq-ink transition-colors hover:text-nq-accent-warm"
+									>
+										<span class="min-w-0 flex-1">
+											<span class="mr-1.5 text-[10px] text-nq-accent-warm">●</span>
+											{a.title}
+										</span>
+										<span class="shrink-0 text-[11px] text-nq-muted">›</span>
+									</a>
+								</li>
+							))}
+						</ul>
+
+						<a
+							href={s.href}
+							class="mt-auto inline-flex w-fit items-center gap-1 border-b border-nq-ink/70 pb-0.5 pt-2.5 font-sans text-[11px] font-bold tracking-[0.12em] text-nq-ink transition-colors hover:border-nq-accent-warm hover:text-nq-accent-warm"
+						>
+							全{s.count}件を見る →
+						</a>
+					</div>
+				</article>
+			</li>
+		))}
+		<li aria-hidden="true" class="hidden md:block" />
+	</ul>
+</section>

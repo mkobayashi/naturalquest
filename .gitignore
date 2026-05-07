@@ -32,6 +32,10 @@ dist/
 .DS_Store
 *.zip
 
+# scratch / handoff assets (not for deploy)
+tmp/
+temp/
+
 
 # wrangler files
 .wrangler

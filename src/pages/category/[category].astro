@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import JournalForbesList from '../../components/JournalForbesList.astro';
 import JournalPagination from '../../components/JournalPagination.astro';
+import HerbSeriesCards from '../../components/HerbSeriesCards.astro';
 import { getCollection } from 'astro:content';
 import {
 	getSortedPostsInCategory,
@@ -65,4 +66,5 @@ const listBasePath = `/category/${encodeURIComponent(category)}`;
 			<p class="font-sans text-sm text-nq-muted">このカテゴリの記事はまだありません。</p>
 		)
 	}
+	{category === '健康' && <HerbSeriesCards />}
 </Layout>

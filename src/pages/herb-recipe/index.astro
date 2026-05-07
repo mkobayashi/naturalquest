@@ -1,0 +1,40 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import JournalForbesList from '../../components/JournalForbesList.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('journal');
+const posts = allPosts
+	.filter((p) => p.id.startsWith('herb-recipe/'))
+	.sort((a, b) => {
+		const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+		const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+		return dateB - dateA;
+	});
+
+const pageTitle = 'ハーブ＆アロマの手づくりレシピ | Natural Quest';
+const pageDescription = '精油・ハーブを使った手づくりレシピ集。';
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+	<nav class="mb-5 font-sans text-xs tracking-wide text-nq-muted sm:text-sm" aria-label="パンくず">
+		<a href="/" class="transition-colors hover:text-nq-accent">トップ</a>
+		<span class="mx-1.5 text-nq-border" aria-hidden="true">›</span>
+		<a href="/category/健康" class="transition-colors hover:text-nq-accent">健康</a>
+		<span class="mx-1.5 text-nq-border" aria-hidden="true">›</span>
+		<span class="text-nq-ink">手づくりレシピ</span>
+	</nav>
+
+	<header class="mb-6 border-b border-nq-border pb-5 sm:mb-8 sm:pb-6">
+		<h1 class="font-serif text-2xl font-semibold tracking-tight text-nq-ink sm:text-3xl">
+			ハーブ＆アロマの手づくりレシピ
+		</h1>
+		<p class="mt-2 font-sans text-xs text-nq-muted sm:text-sm">{posts.length} 件</p>
+	</header>
+
+	{posts.length ? (
+		<JournalForbesList posts={posts} mode="category" />
+	) : (
+		<p class="font-sans text-sm text-nq-muted">記事はまだありません。</p>
+	)}
+</Layout>
