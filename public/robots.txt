@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://naturalquest.org/sitemap-index.xml
