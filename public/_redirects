@@ -1,5 +1,9 @@
 /aroma-chat/   /aroma/   301
 /aroma-chat    /aroma/   301
+/aroma/樟脳/      /aroma/   301
+/aroma/ジャスミン/  /aroma/   301
+/aroma/イランイラン/ /aroma/   301
+/aroma/サンダルウッド/ /aroma/  301
 
 # 旧ジャーナル → インタビュー再録（重複解消・301）
 /journal/2009-07-30-ishigaki-dye-2 /interview/ishigaki-akiko/ 301
@@ -15,3 +19,6 @@
 # アヌサラ記事はインタビュー単体ページなし → 同一人物の関連ノートへ
 /journal/anusara-yoga-2 /journal/yoga-after-all/ 301
 /journal/anusara-yoga-2/ /journal/yoga-after-all/ 301
+
+/category/やけど   /   301
+/category/腰痛    /   301
