@@ -6,7 +6,7 @@ tags:
 categories:
   - 食
   - 医食同源
-heroImage: 'https://images.naturalquest.org/2017/07/ume02.jpg'
+heroImage: 'https://images.naturalquest.org/2017/07/ume_03-1-740x500.jpg'
 ---
 
 朝、起きると親指が痛い。思わぬ部位の筋肉痛。
@@ -84,6 +84,8 @@ heroImage: 'https://images.naturalquest.org/2017/07/ume02.jpg'
 煮詰める作業は時間がかかるということなので、
 作業はここまで。
 
+![](https://images.naturalquest.org/2017/07/ume_04.jpg)
+
 待望のランチの時間！
 
 ![](https://images.naturalquest.org/2017/07/ume_01.jpg)
@@ -103,6 +105,8 @@ heroImage: 'https://images.naturalquest.org/2017/07/ume02.jpg'
 私たちに仕込んでくれた、
 梅の薬効がぎっしり濃縮された
 梅肉エキスをいただいた。
+
+![](https://images.naturalquest.org/2017/07/ume_05.jpg)
 
 エキスにすることで、
 梅の殺菌作用、整腸作用、鎮痛作用などが
