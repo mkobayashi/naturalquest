@@ -6,7 +6,8 @@ tags:
 categories:
   - NOTE
   - エッセイ
-heroImage: 'https://images.naturalquest.org/2017/06/2.jpg'
+heroImage: 'https://images.naturalquest.org/2017/06/1-750.jpg'
+fullWidthImages: true
 ---
 
 梅仕事を耳にする頃になると

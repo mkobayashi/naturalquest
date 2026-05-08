@@ -39,6 +39,8 @@ const journal = defineCollection({
 			/** `false` のとき一覧に出さず、個別URLは「非公開」表示のみ（本文は出さない） */
 			public: z.boolean().optional().default(true),
 			heroImage: z.string().optional(),
+			/** 記事本文内の画像をPCでも幅100%にする（漫画・図解向け） */
+			fullWidthImages: z.boolean().optional(),
 			articleType: z.enum(['default', 'catalog', 'list', 'immersive']).optional().default('default'),
 			/** カタログ記事：`alternate`＝写真交互（既定）、`grid`＝セクション付きカードグリッド */
 			layout: z.enum(['alternate', 'grid']).optional().default('alternate'),
