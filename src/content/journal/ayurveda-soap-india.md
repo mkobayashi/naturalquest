@@ -6,7 +6,7 @@ tags:
 categories:
   - 健康
   - おすすめ
-heroImage: 'https://images.naturalquest.org/2017/02/amaruma130.jpg'
+heroImage: 'https://images.naturalquest.org/2011/06/151207_3188_01.jpg'
 ---
 
 ## インド産ハーブの有効成分を凝縮した石けん
