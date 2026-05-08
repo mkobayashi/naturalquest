@@ -104,7 +104,7 @@ const navItems = [
         } catch (e) {}
 
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        window.gtag = function () { dataLayer.push(arguments); };
         gtag('js', new Date());
         gtag('config', 'G-X3F13LQ43K', {
             traffic_type: isInternal ? 'internal' : undefined
