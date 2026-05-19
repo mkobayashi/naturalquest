@@ -1,78 +1,128 @@
 ---
-import { getCollection } from 'astro:content';
+/**
+ * TOPページ 2行目「シリーズメニュー」カード × 3
+ * 編集部セレクションと同じ 3 列グリッドで配置
+ */
 
-const allPosts = await getCollection('journal');
+interface SeriesArticle {
+	title: string;
+	href: string;
+}
 
-const powerPosts = allPosts
-	.filter((p) => p.id.startsWith('herb-power/'))
-	.sort((a, b) => {
-		const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
-		const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
-		return dateB - dateA;
-	});
+interface Person {
+	name: string;
+	role: string;
+	href: string;
+}
 
-const recipePosts = allPosts
-	.filter((p) => p.id.startsWith('herb-recipe/'))
-	.sort((a, b) => {
-		const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
-		const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
-		return dateB - dateA;
-	});
-
-interface Series {
+interface HerbSeries {
+	kind: 'herb';
 	category: string;
 	title: string;
 	count: number;
 	illust: string;
 	illustAlt: string;
 	href: string;
+	articles: SeriesArticle[];
 	illustObjectPosition?: string;
-	articles: { title: string; href: string }[];
 }
 
-const series: Series[] = [
+interface InterviewSeries {
+	kind: 'interview';
+	category: string;
+	title: string;
+	lead: string;
+	count: number;
+	href: string;
+	illust: string;
+	illustAlt: string;
+	illustAspect?: string;
+	articles: Person[];
+}
+
+type SeriesItem = HerbSeries | InterviewSeries;
+
+const series: SeriesItem[] = [
 	{
+		kind: 'herb',
 		category: '健康',
 		title: 'ハーブとアロマのチカラ',
-		count: powerPosts.length,
+		count: 7,
 		illust: '/images/herb-power.webp',
-		illustAlt: 'ハーブとアロマのチカラ',
+		illustAlt: 'ハーブの森に横たわる女性のイラスト',
 		href: '/herb-power/',
-		articles: powerPosts.slice(0, 3).map((p) => ({ title: p.data.title ?? '無題', href: `/journal/${p.slug}` })),
+		articles: [
+			{ title: '夏バテしないカラダを作ろう', href: '/journal/herb-power/herb-aroma-v3-summer' },
+			{ title: '日焼け対策はハーブとアロマで', href: '/journal/herb-power/herb-aroma-v2-sun' },
+			{ title: 'お酒と上手につきあうためのハーブとアロマ', href: '/journal/herb-power/herb-aroma-v1-drink' },
+		],
 	},
 	{
+		kind: 'herb',
 		category: '健康',
 		title: 'ハーブ＆アロマの手づくりレシピ',
-		count: recipePosts.length,
-		illust: '/images/recipe.jpg',
-		illustAlt: 'ハーブ＆アロマの手づくりレシピ',
+		count: 14,
+		illust: '/images/herb-recipe.jpg',
+		illustAlt: 'キッチンでハーブを使うイラスト',
 		href: '/herb-recipe/',
-		articles: recipePosts.slice(0, 3).map((p) => ({ title: p.data.title ?? '無題', href: `/journal/${p.slug}` })),
+		articles: [
+			{ title: 'アロマの力でダイエット', href: '/journal/herb-recipe/herb-aroma-power' },
+			{ title: '精油を使って「花粉症対策」', href: '/journal/herb-recipe/herb-aroma-essential' },
+			{ title: 'ラベンダーで美肌を育てる', href: '/journal/herb-recipe/lavender-skin-care' },
+		],
 		illustObjectPosition: 'center 45%',
+	},
+	{
+		kind: 'interview',
+		category: 'インタビュー',
+		title: 'NQインタビュー再録',
+		lead: '自然食、代替療法、移住、創作工芸などの第一人者に聞いた。',
+		count: 11,
+		href: '/interview/',
+		illust: '/images/interview-hero.jpg',
+		illustAlt: '原っぱに立つ赤いMAIL BOX（中島デコさん訪問時の風景）',
+		illustAspect: '60 / 31',
+		articles: [
+			{ name: '東城 百合子', role: '「あなたと健康」主宰', href: '/interview/tojo-yuriko-1/' },
+			{ name: '中島 デコ', role: 'マクロビオティック料理研究家', href: '/interview/nakajima-deko/' },
+			{ name: 'エバレット・ブラウン', role: '国際フォトジャーナリスト', href: '/interview/everett-kennedy-brown/' },
+		],
 	},
 ];
 
-/** カテゴリ名ラベル（TOPページと統一） */
 const catLabelClass =
 	'inline-flex w-fit max-w-full shrink-0 items-center rounded border border-nq-accent-warm/45 bg-nq-accent-warm/12 px-2 py-1 font-sans text-[11px] font-bold leading-tight tracking-[0.08em] text-nq-accent-warm sm:text-xs';
 ---
 
-<section class="pt-5 lg:pt-6" aria-label="ハーブシリーズ">
+<section class="pt-5 lg:pt-6" aria-label="シリーズメニュー">
 	<div class="mb-3 flex items-center justify-between">
-		<h2 class="font-serif text-base font-semibold tracking-tight text-nq-ink sm:text-lg">ハーブシリーズ</h2>
+		<h2 class="font-serif text-base font-semibold tracking-tight text-nq-ink sm:text-lg">
+			シリーズメニュー
+		</h2>
 	</div>
 
-	<ul class="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-x-2.5 md:grid-cols-3">
-		{series.map((s) => (
-			<li class="min-w-0">
-				<article class="group flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border bg-white transition-shadow hover:border-nq-accent-warm/45 hover:shadow-[0_6px_18px_rgba(31,26,20,0.06)]">
-					<a href={s.href} class="block">
-						<div class="relative aspect-video w-full shrink-0 overflow-hidden bg-gradient-to-b from-[#fdfcf7] to-[#f6f1e6]">
+	<ul class="grid grid-cols-1 items-start gap-2 sm:grid-cols-2 sm:gap-x-2.5 md:grid-cols-3">
+		{
+			series.map((s) => (
+				<li class="min-w-0">
+					<div class="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-sm border border-nq-border bg-white transition-shadow hover:border-nq-accent-warm/45 hover:shadow-[0_6px_18px_rgba(31,26,20,0.06)]">
+						<a
+							href={s.href}
+							class:list={[
+								'relative block w-full shrink-0 overflow-hidden bg-[#e8e2d2]',
+								s.kind === 'interview' ? '' : 'aspect-video',
+							]}
+							style={s.kind === 'interview' && s.illustAspect ? `aspect-ratio: ${s.illustAspect};` : undefined}
+							aria-label={`${s.title}のシリーズへ`}
+						>
+							{s.kind === 'herb' && (
+								<div class="absolute inset-0 bg-gradient-to-b from-[#fdfcf7] to-[#f6f1e6]" aria-hidden="true" />
+							)}
 							<img
 								src={s.illust}
 								alt={s.illustAlt}
 								class="absolute inset-0 h-full w-full object-cover"
-								style={s.illustObjectPosition ? `object-position: ${s.illustObjectPosition};` : undefined}
+								style={s.kind === 'herb' && s.illustObjectPosition ? `object-position: ${s.illustObjectPosition};` : undefined}
 								loading="lazy"
 								decoding="async"
 							/>
@@ -80,44 +130,66 @@ const catLabelClass =
 								<strong class="text-[14px] font-bold">{s.count}</strong>
 								<span class="text-[10px] text-nq-muted">articles</span>
 							</span>
-						</div>
-					</a>
-
-					<div class="flex flex-1 flex-col gap-1 px-3.5 pb-5 pt-2.5">
-						<p class:list={[catLabelClass]}>{s.category}</p>
-						<h3 class="mt-0.5 font-serif text-[15px] font-semibold leading-snug tracking-tight text-nq-ink sm:text-base">
-							<a href={s.href} class="transition-colors hover:text-nq-accent-warm">
-								{s.title}
-							</a>
-						</h3>
-
-						<ul class="mt-1 flex flex-col">
-							{s.articles.map((a, i) => (
-								<li class:list={[i === 0 ? '' : 'border-t border-nq-border/70']}>
-									<a
-										href={a.href}
-										class="flex items-center justify-between gap-2 py-2 font-sans text-[13px] font-medium leading-snug text-nq-ink transition-colors hover:text-nq-accent-warm"
-									>
-										<span class="min-w-0 flex-1">
-											<span class="mr-1.5 text-[10px] text-nq-accent-warm">●</span>
-											{a.title}
-										</span>
-										<span class="shrink-0 text-[11px] text-nq-muted">›</span>
-									</a>
-								</li>
-							))}
-						</ul>
-
-						<a
-							href={s.href}
-							class="mt-auto inline-flex w-fit items-center gap-1 border-b border-nq-ink/70 pb-0.5 pt-2.5 font-sans text-[11px] font-bold tracking-[0.12em] text-nq-ink transition-colors hover:border-nq-accent-warm hover:text-nq-accent-warm"
-						>
-							全{s.count}件を見る →
 						</a>
+
+						<div class="flex flex-1 flex-col gap-1 px-3.5 pb-5 pt-2.5">
+							<p class:list={[catLabelClass]}>{s.category}</p>
+							<h3 class="mt-0.5 font-serif text-[15px] font-semibold leading-snug tracking-tight text-nq-ink sm:text-base">
+								<a href={s.href} class="transition-colors hover:text-nq-accent-warm">{s.title}</a>
+							</h3>
+							{s.kind === 'interview' && (
+								<p class="mt-0.5 font-sans text-[12px] leading-relaxed text-nq-text/85">{s.lead}</p>
+							)}
+
+							{s.kind === 'herb' ? (
+								<ul class="mt-1 flex flex-col">
+									{s.articles.map((a, i) => (
+										<li class:list={[i === 0 ? '' : 'border-t border-nq-border/70']}>
+											<a
+												href={a.href}
+												class="flex items-center justify-between gap-2 py-2 font-sans text-[13px] font-medium leading-snug text-nq-ink transition-colors hover:text-nq-accent-warm"
+											>
+												<span class="min-w-0 flex-1">
+													<span class="mr-1.5 text-[10px] text-nq-accent-warm">●</span>
+													{a.title}
+												</span>
+												<span class="shrink-0 text-[11px] text-nq-muted">›</span>
+											</a>
+										</li>
+									))}
+								</ul>
+							) : (
+								<ul class="mt-1 flex flex-col">
+									{s.articles.map((p, i) => (
+										<li class:list={[i === 0 ? '' : 'border-t border-nq-border/70']}>
+											<a
+												href={p.href}
+												class="flex items-center justify-between gap-2 py-2 text-nq-ink transition-colors hover:text-nq-accent-warm"
+											>
+												<span class="flex min-w-0 flex-1 flex-col gap-0.5">
+													<span class="font-sans text-[13px] font-semibold leading-snug">
+														<span class="mr-1.5 text-[10px] text-nq-accent-warm">●</span>
+														{p.name}
+													</span>
+													<span class="pl-4 font-sans text-[11px] leading-tight text-nq-muted">{p.role}</span>
+												</span>
+												<span class="shrink-0 text-[11px] text-nq-muted">›</span>
+											</a>
+										</li>
+									))}
+								</ul>
+							)}
+
+							<a
+								href={s.href}
+								class="mt-auto inline-flex w-fit items-center gap-1 border-b border-nq-ink/70 pb-0.5 pt-2.5 font-sans text-[11px] font-bold tracking-[0.12em] text-nq-ink transition-colors hover:border-nq-accent-warm hover:text-nq-accent-warm"
+							>
+								全{s.count}件を見る →
+							</a>
+						</div>
 					</div>
-				</article>
-			</li>
-		))}
-		<li aria-hidden="true" class="hidden md:block" />
+				</li>
+			))
+		}
 	</ul>
 </section>
