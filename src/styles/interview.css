@@ -23,12 +23,6 @@ html{scroll-behavior:smooth}
 }
 body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--text);line-height:1.9;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* ── BACK NAV（記事ページ上部） ── */
-.interview-back-nav{position:fixed;top:0;left:0;right:0;z-index:102;display:flex;align-items:center;height:38px;padding:0 52px;background:rgba(250,248,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
-.interview-back-link{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--text-light);text-decoration:underline;text-decoration-color:rgba(122,104,88,0.45);text-underline-offset:4px;letter-spacing:0.04em;transition:color 0.2s ease,text-decoration-color 0.2s ease}
-.interview-back-link:hover{color:var(--accent);text-decoration-color:var(--accent)}
-body:has(.interview-back-nav) .hd{top:38px}
-
 /* ── BACK TO TOP（記事ページ右下） ── */
 #interview-back-to-top{position:fixed;bottom:20px;right:16px;z-index:103;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(255,255,255,0.2);border-radius:9999px;background:rgba(38,26,15,0.85);color:#faf8f3;box-shadow:0 4px 14px rgba(31,26,20,0.18);backdrop-filter:blur(8px);cursor:pointer;transition:opacity 0.2s ease,background 0.2s ease}
 #interview-back-to-top[hidden]{display:none}
