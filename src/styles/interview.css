@@ -29,6 +29,15 @@ body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--te
 .interview-back-link:hover{color:var(--accent);text-decoration-color:var(--accent)}
 body:has(.interview-back-nav) .hd{top:38px}
 
+/* ── BACK TO TOP（記事ページ右下） ── */
+#interview-back-to-top{position:fixed;bottom:20px;right:16px;z-index:103;display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(255,255,255,0.2);border-radius:9999px;background:rgba(38,26,15,0.85);color:#faf8f3;box-shadow:0 4px 14px rgba(31,26,20,0.18);backdrop-filter:blur(8px);cursor:pointer;transition:opacity 0.2s ease,background 0.2s ease}
+#interview-back-to-top[hidden]{display:none}
+#interview-back-to-top:hover{background:var(--accent)}
+#interview-back-to-top svg{display:block;width:22px;height:22px;fill:currentColor}
+@media(min-width:768px){
+  #interview-back-to-top{bottom:24px;right:24px}
+}
+
 /* ── HEADER ── */
 .hd{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;transition:background 0.4s,backdrop-filter 0.4s}
 .hd.scrolled{background:rgba(250,248,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
