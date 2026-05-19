@@ -6,6 +6,8 @@ import ArticleBodyDefault from '../../components/article/ArticleBodyDefault.astr
 import ArticleBodyCatalog from '../../components/article/ArticleBodyCatalog.astro';
 import ArticleBodyList from '../../components/article/ArticleBodyList.astro';
 import ArticleBodyImmersive from '../../components/article/ArticleBodyImmersive.astro';
+import GuideAmazonTable from '../../components/article/GuideAmazonTable.astro';
+import JournalGuideArticle from '../../components/journal/JournalGuideArticle.astro';
 import Point from '../../components/mdx/Point.astro';
 import Spec from '../../components/mdx/Spec.astro';
 import Label from '../../components/mdx/Label.astro';
@@ -32,6 +34,19 @@ const { post } = Astro.props;
 const isPublic = isJournalPublic(post);
 
 const articleType = post.data.articleType ?? 'default';
+const isGuide = articleType === 'guide';
+
+const guideComponents = {
+	Point,
+	Spec,
+	Label,
+	Caption,
+	FullPhoto,
+	Note,
+	MailCaption,
+	NextNote,
+	GuideAmazonTable,
+};
 
 const allPosts = await getCollection('journal');
 const publicPosts = allPosts.filter(isJournalPublic);
@@ -39,7 +54,17 @@ const publicPosts = allPosts.filter(isJournalPublic);
 let Content: Awaited<ReturnType<typeof post.render>>['Content'] | undefined;
 if (isPublic) {
 	const rendered = await post.render({
-		components: { Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote },
+		components: {
+			Point,
+			Spec,
+			Label,
+			Caption,
+			FullPhoto,
+			Note,
+			MailCaption,
+			NextNote,
+			GuideAmazonTable,
+		},
 	});
 	Content = rendered.Content;
 }
@@ -102,16 +127,29 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 	ogImage={post.data.heroImage}
 	ogType="article"
 >
-	<a
-		href="/journal"
-		class="mb-8 inline-block font-sans text-sm text-nq-muted underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
-	>
-		← ジャーナル一覧へ
-	</a>
-	<article>
-		{
-			isPublic ? (
-				<>
+	{
+		isPublic && isGuide ? (
+			<JournalGuideArticle
+				post={post}
+				Content={Content}
+				components={guideComponents}
+				related={related}
+				prevInCategory={prevInCategory}
+				nextInCategory={nextInCategory}
+				primaryCategory={primaryCategory}
+			/>
+		) : null
+	}
+	{
+		isPublic && !isGuide ? (
+			<>
+				<a
+					href="/journal"
+					class="mb-8 inline-block font-sans text-sm text-nq-muted underline decoration-nq-border decoration-1 underline-offset-4 transition-colors hover:text-nq-accent hover:decoration-nq-accent"
+				>
+					← ジャーナル一覧へ
+				</a>
+				<article>
 					{post.data.pubDate ? (
 						<p class="font-sans text-sm text-nq-muted">
 							{post.data.pubDate.toLocaleDateString('ja-JP', {
@@ -196,7 +234,6 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 										components={{ Point, Spec, Label, Caption, FullPhoto, Note, MailCaption, NextNote }}
 									/>
 								) : null}
-
 								<AdBanner tags={post.data.tags ?? []} slug={post.slug} size="300x250" />
 
 								{SHOW_PARTNER ? (
@@ -318,8 +355,13 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 							</div>
 						</aside>
 					</div>
-				</>
-			) : (
+				</article>
+			</>
+		) : null
+	}
+	{
+		!isPublic ? (
+			<article>
 				<div class="rounded-sm border border-nq-border/80 bg-nq-border/10 px-5 py-8 sm:px-8">
 					<h1 class="font-serif text-2xl font-semibold leading-tight tracking-tight text-nq-ink sm:text-3xl">
 						{post.data.title ?? '無題'}
@@ -339,9 +381,9 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 						</a>
 					</p>
 				</div>
-			)
-		}
-	</article>
+			</article>
+		) : null
+	}
 </Layout>
 
 <style>

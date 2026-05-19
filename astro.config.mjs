@@ -5,15 +5,22 @@ import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import { rehypeNaturalquestHttps } from './src/plugins/rehype-naturalquest-https.mjs';
+import { rehypeGuideLevels } from './src/plugins/rehype-guide-levels.mjs';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
   site: 'https://naturalquest.org',
-  integrations: [mdx(), react(), sitemap()],
+  integrations: [
+    mdx({
+      rehypePlugins: [rehypeNaturalquestHttps, rehypeGuideLevels()],
+    }),
+    react(),
+    sitemap(),
+  ],
 
   markdown: {
-    rehypePlugins: [rehypeNaturalquestHttps],
+    rehypePlugins: [rehypeNaturalquestHttps, rehypeGuideLevels()],
   },
 
   vite: {

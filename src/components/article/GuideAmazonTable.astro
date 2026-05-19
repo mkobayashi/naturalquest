@@ -1,0 +1,16 @@
+---
+import { getEntry } from 'astro:content';
+import AmazonAffiliateTable from './AmazonAffiliateTable.astro';
+import type { AmazonProduct } from './AmazonAffiliateTable.astro';
+
+interface Props {
+	/** ジャーナル記事 slug（例: 2026-04-08-shikkui-materials-guide） */
+	slug: string;
+}
+
+const { slug } = Astro.props;
+const entry = await getEntry('journal', slug);
+const products = (entry?.data.amazonProducts ?? []) as AmazonProduct[];
+---
+
+{products.length > 0 ? <AmazonAffiliateTable products={products} /> : null}

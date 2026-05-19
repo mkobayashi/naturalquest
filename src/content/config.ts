@@ -41,7 +41,34 @@ const journal = defineCollection({
 			heroImage: z.string().optional(),
 			/** 記事本文内の画像をPCでも幅100%にする（漫画・図解向け） */
 			fullWidthImages: z.boolean().optional(),
-			articleType: z.enum(['default', 'catalog', 'list', 'immersive']).optional().default('default'),
+			articleType: z
+				.enum(['default', 'catalog', 'list', 'immersive', 'guide'])
+				.optional()
+				.default('default'),
+			/** ガイド記事：Amazon アフィリエイト表（`<AmazonAffiliateTable />` と併用） */
+			amazonProducts: z
+				.array(
+					z.object({
+						level: z.union([
+							z.literal(1),
+							z.literal(2),
+							z.literal(3),
+							z.literal(4),
+						]),
+						levelLabel: z.string(),
+						name: z.string(),
+						maker: z.string().optional(),
+						capacity: z.string(),
+						price: z.string(),
+						pricePerKg: z.string().optional(),
+						featureTags: z.array(z.string()).optional(),
+						useNote: z.string(),
+						amazonUrl: z.string().url(),
+						officialUrl: z.string().url().optional(),
+						officialLabel: z.string().optional(),
+					})
+				)
+				.optional(),
 			/** カタログ記事：`alternate`＝写真交互（既定）、`grid`＝セクション付きカードグリッド */
 			layout: z.enum(['alternate', 'grid']).optional().default('alternate'),
 			sections: z.array(catalogSectionSchema).optional(),

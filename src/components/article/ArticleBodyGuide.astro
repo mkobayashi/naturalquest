@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import '../../styles/article-guide.css';
+
+interface Props {
+	post: CollectionEntry<'journal'>;
+	Content: any;
+	components?: Record<string, unknown>;
+}
+
+const { Content, components = {} } = Astro.props;
+---
+
+<div class="article-guide">
+	<Content components={components} />
+</div>

@@ -18,6 +18,9 @@
 	--color-nq-green: #6b7c5c;
 	/** カード上の価格バッジなどの薄い下地 */
 	--color-nq-surface: #eceae4;
+	/** Amazon アフィリエイトボタン（精油ショップ・記事表と共通） */
+	--color-nq-amazon: #ff9900;
+	--color-nq-amazon-hover: #e88b00;
 }
 
 @layer base {
@@ -37,6 +40,36 @@
 		font-family: var(--font-serif);
 		@apply font-semibold text-nq-text tracking-tight;
 	}
+}
+
+/**
+ * Amazon アフィリエイトボタン — サイト全体でオレンジ（#ff9900）に統一
+ * 新規の Amazon リンク CTA には .btn-amazon を付与すること
+ */
+.btn-amazon {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 700;
+	padding: 4px 10px;
+	background: var(--color-nq-amazon);
+	color: #fff !important;
+	border-radius: 20px;
+	text-decoration: none !important;
+	transition: background 0.15s ease;
+}
+
+.btn-amazon:hover {
+	background: var(--color-nq-amazon-hover);
+}
+
+/** 記事内 Amazon 表など、ブロック幅の CTA */
+.btn-amazon--block {
+	display: block;
+	text-align: center;
+	font-size: 12px;
+	padding: 9px 8px;
+	border-radius: 4px;
+	letter-spacing: 0.02em;
 }
 
 /* サブタイトル（記事タイトル直下） */
@@ -83,16 +116,12 @@
 	margin-top: 4px;
 }
 
-/* 記事本文の小見出し：ウェイトを強化 */
-.article-body h2 {
+/* 記事本文の小見出し：ウェイトを強化（guide 記事は article-guide.css） */
+.article-body:not(.article-guide) h2,
+.article-body:not(.article-guide) h3,
+.article-body:not(.article-guide) h4 {
 	font-weight: 700;
-  }
-  .article-body h3 {
-	font-weight: 700;
-  }
-  .article-body h4 {
-	font-weight: 700;
-  }
+}
 
 /* 本文画像をPCでも幅100%にする（漫画・図解向け） */
 .article-body.article-full-image img {

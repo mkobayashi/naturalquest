@@ -1,0 +1,100 @@
+---
+export interface AmazonProduct {
+	level: 1 | 2 | 3 | 4;
+	levelLabel: string;
+	name: string;
+	maker?: string;
+	capacity: string;
+	price: string;
+	pricePerKg?: string;
+	featureTags?: string[];
+	useNote: string;
+	amazonUrl: string;
+	officialUrl?: string;
+	officialLabel?: string;
+}
+
+interface Props {
+	products: AmazonProduct[];
+	notes?: string[];
+}
+
+const { products, notes = [] } = Astro.props;
+
+const defaultNotes = [
+	'※ 参考価格は執筆時点の Amazon 表示をもとにした目安です。価格・在庫は変動するため最新情報をリンク先でご確認ください。',
+	'※ 当サイトは Amazon アソシエイト・プログラムの参加者です。リンク経由の購入により紹介料が発生する場合があります。',
+];
+
+const footnotes = notes.length ? notes : defaultNotes;
+
+function meterDots(level: number) {
+	return Array.from({ length: 4 }, (_, i) => i < level);
+}
+---
+
+<div class="amzn-table">
+	<div class="amzn-table__row amzn-table__row--head">
+		<div class="col col-rank">レベル</div>
+		<div class="col col-prod">製品名</div>
+		<div class="col col-cap">容量</div>
+		<div class="col col-price">参考価格<span>税込</span></div>
+		<div class="col col-use">向いている人・用途</div>
+		<div class="col col-cta"></div>
+	</div>
+
+	{
+		products.map((p) => (
+			<div class="amzn-table__row">
+				<div class="col col-rank">
+					<span class="rank-dots" data-level={String(p.level)}>
+						{meterDots(p.level).map((on) => (
+							<i class:list={[on ? 'on' : null]} />
+						))}
+					</span>
+					<span class="rank-label">{p.levelLabel}</span>
+				</div>
+				<div class="col col-prod">
+					<b>{p.name}</b>
+					{p.maker ? <span>{p.maker}</span> : null}
+				</div>
+				<div class="col col-cap">{p.capacity}</div>
+				<div class="col col-price">
+					<b>{p.price}</b>
+					{p.pricePerKg ? <span>{p.pricePerKg}</span> : null}
+				</div>
+				<div class="col col-use">
+					{p.featureTags?.length ? (
+						<ul>
+							{p.featureTags.map((tag) => (
+								<li>{tag}</li>
+							))}
+						</ul>
+					) : null}
+					<p>
+						{p.useNote}
+						{p.officialUrl ? (
+							<>
+								{' '}
+								<a class="inline-link" href={p.officialUrl} rel="noopener noreferrer" target="_blank">
+									{p.officialLabel ?? '公式直販あり →'}
+								</a>
+							</>
+						) : null}
+					</p>
+				</div>
+				<div class="col col-cta">
+					<a href={p.amazonUrl} rel="nofollow sponsored noopener" target="_blank">
+						Amazonで見る →
+					</a>
+				</div>
+			</div>
+		))
+	}
+</div>
+
+<ul class="amzn-notes">
+	{footnotes.map((note) => (
+		<li>{note}</li>
+	))}
+</ul>

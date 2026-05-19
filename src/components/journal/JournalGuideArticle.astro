@@ -1,0 +1,147 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ArticleBodyGuide from '../article/ArticleBodyGuide.astro';
+import JournalForbesList from '../JournalForbesList.astro';
+import AdBanner from '../AdBanner.astro';
+import '../../styles/article-guide.css';
+
+interface Props {
+	post: CollectionEntry<'journal'>;
+	Content: any;
+	components: Record<string, unknown>;
+	related: CollectionEntry<'journal'>[];
+	prevInCategory?: CollectionEntry<'journal'>;
+	nextInCategory?: CollectionEntry<'journal'>;
+	primaryCategory?: string;
+}
+
+const { post, Content, components, related, prevInCategory, nextInCategory, primaryCategory } =
+	Astro.props;
+
+const categories = post.data.categories ?? [];
+const tags = post.data.tags ?? [];
+---
+
+<article class="journal-article--guide">
+	<div class="article-page">
+		<a class="article-page__back" href="/journal">← ジャーナル一覧へ</a>
+
+		<header class="article-page__header">
+			{
+				post.data.pubDate ? (
+					<div class="article-page__meta">
+						<time datetime={post.data.pubDate.toISOString()}>
+							{post.data.pubDate.toLocaleDateString('ja-JP', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})}
+						</time>
+						{categories.map((cat) => (
+							<a class="article-page__cat" href={`/category/${encodeURIComponent(cat)}`}>
+								{cat}
+							</a>
+						))}
+					</div>
+				) : null
+			}
+			<h1 class="article-page__title">{post.data.title}</h1>
+			{
+				tags.length ? (
+					<ul class="article-page__tags">
+						{tags.map((tag) => (
+							<li>
+								<a href={`/tag/${encodeURIComponent(tag)}`}>#{tag}</a>
+							</li>
+						))}
+					</ul>
+				) : null
+			}
+		</header>
+
+		{
+			post.data.heroImage ? (
+				<div class="article-page__hero">
+					<img
+						src={post.data.heroImage}
+						alt=""
+						loading="eager"
+						decoding="async"
+						width="1200"
+						height="675"
+					/>
+				</div>
+			) : null
+		}
+
+		<ArticleBodyGuide post={post} Content={Content} components={components} />
+
+		<AdBanner tags={tags} slug={post.slug} size="300x250" />
+
+		{
+			related.length ? (
+				<section class="article-page__related" aria-labelledby="guide-related-heading">
+					<h2 id="guide-related-heading" class="article-page__related-title">関連記事</h2>
+					<p class="article-page__related-sub">同じタグの記事</p>
+					<JournalForbesList posts={related} mode="tag" currentTags={tags} />
+				</section>
+			) : null
+		}
+
+		{
+			primaryCategory && (prevInCategory || nextInCategory) ? (
+				<nav class="article-page__prevnext" aria-label={`「${primaryCategory}」の前後の記事`}>
+					<p class="article-page__prevnext-label">同じカテゴリ（{primaryCategory}）</p>
+					<div class="article-page__prevnext-grid">
+						<div class="article-page__prevnext-col">
+							{
+								prevInCategory ? (
+									<a href={`/journal/${prevInCategory.slug}`}>
+										<span class="article-page__prevnext-dir">← 前の記事</span>
+										<span class="article-page__prevnext-title">
+											{prevInCategory.data.title ?? '無題'}
+										</span>
+										{
+											prevInCategory.data.pubDate ? (
+												<span class="article-page__prevnext-date">
+													{prevInCategory.data.pubDate.toLocaleDateString('ja-JP', {
+														year: 'numeric',
+														month: 'long',
+														day: 'numeric',
+													})}
+												</span>
+											) : null
+										}
+									</a>
+								) : null
+							}
+						</div>
+						<div class="article-page__prevnext-col article-page__prevnext-col--right">
+							{
+								nextInCategory ? (
+									<a href={`/journal/${nextInCategory.slug}`}>
+										<span class="article-page__prevnext-dir">次の記事 →</span>
+										<span class="article-page__prevnext-title">
+											{nextInCategory.data.title ?? '無題'}
+										</span>
+										{
+											nextInCategory.data.pubDate ? (
+												<span class="article-page__prevnext-date">
+													{nextInCategory.data.pubDate.toLocaleDateString('ja-JP', {
+														year: 'numeric',
+														month: 'long',
+														day: 'numeric',
+													})}
+												</span>
+											) : null
+										}
+									</a>
+								) : null
+							}
+						</div>
+					</div>
+				</nav>
+			) : null
+		}
+	</div>
+</article>
