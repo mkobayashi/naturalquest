@@ -60,7 +60,7 @@ const oils = orderedOilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[i
 			{oils.map((oil) => (
 				<div class="sidebar-oil-item">
 					<p class="sidebar-oil-name">{oil.name}</p>
-					<a href={`/aroma/shop/${oil.id}/`} class="sidebar-shop-btn">
+					<a href={`/aroma/shop/${oil.id}/`} class="btn-amazon sidebar-shop-btn">
 						{oil.name}精油を選ぶ →
 					</a>
 				</div>
@@ -121,19 +121,9 @@ const oils = orderedOilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[i
 	}
 
 	.sidebar-shop-btn {
-		display: inline-block;
-		padding: 4px 10px;
 		font-size: 10px;
 		border-radius: 16px;
-		background: #FF9900;
-		color: white;
-		text-decoration: none;
 		white-space: nowrap;
-		transition: background 0.15s ease;
-	}
-
-	.sidebar-shop-btn:hover {
-		background: #e68900;
 	}
 
 	@media (max-width: 767px) {

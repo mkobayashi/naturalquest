@@ -16,9 +16,6 @@
 	--ag-moss-tint: color-mix(in srgb, var(--color-nq-accent) 10%, var(--color-nq-bg));
 	--ag-amber: var(--color-nq-accent-warm);
 	--ag-amber-deep: color-mix(in srgb, var(--color-nq-accent-warm) 82%, #1a1a18);
-	/** 精油ショップの .btn-amazon と同じ Amazon オレンジ */
-	--ag-amazon: #ff9900;
-	--ag-amazon-hover: #e88b00;
 	--ag-bg-alt: var(--color-nq-surface);
 	--ag-bg-warm: color-mix(in srgb, var(--color-nq-bg) 55%, var(--color-nq-surface));
 	--ag-card: #ffffff;
@@ -221,9 +218,6 @@
 	--ag-moss-tint: color-mix(in srgb, var(--color-nq-accent) 10%, var(--color-nq-bg));
 	--ag-amber: var(--color-nq-accent-warm);
 	--ag-amber-deep: color-mix(in srgb, var(--color-nq-accent-warm) 82%, #1a1a18);
-	/** 精油ショップの .btn-amazon と同じ Amazon オレンジ */
-	--ag-amazon: #ff9900;
-	--ag-amazon-hover: #e88b00;
 	--ag-bg-alt: var(--color-nq-surface);
 	--ag-bg-warm: color-mix(in srgb, var(--color-nq-bg) 55%, var(--color-nq-surface));
 	--ag-card: #ffffff;
@@ -806,24 +800,6 @@
 	color: var(--ag-moss);
 	text-decoration: none;
 	border-bottom: 1px dotted var(--ag-moss);
-}
-
-.article-guide .col-cta a {
-	display: block;
-	text-align: center;
-	background: var(--ag-amazon);
-	color: #fff !important;
-	text-decoration: none !important;
-	font-weight: 700;
-	font-size: 12px;
-	padding: 9px 8px;
-	border-radius: 4px;
-	letter-spacing: 0.02em;
-	transition: background 0.15s;
-}
-
-.article-guide .col-cta a:hover {
-	background: var(--ag-amazon-hover);
 }
 
 @media (max-width: 720px) {

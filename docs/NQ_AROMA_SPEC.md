@@ -186,7 +186,7 @@ herb-aroma-v6-neck, lavender-skin-care, tachibana-aroma, herbtea-throat
 
 ### ボタン仕様
 - チャット精油カード：「〇〇精油を探す →」（オレンジ）→ ショップページへ
-- ショップページ：Amazon（オレンジ）・楽天（赤）の個別ボタン
+- ショップページ：Amazon（`#ff9900` / `.btn-amazon`）・楽天（赤）の個別ボタン。Amazon 色は `global.css` の `--color-nq-amazon` で全ページ統一
 - 記事サイドバー：「〇〇精油を選ぶ →」（オレンジ）→ ショップページへ
 
 ### 収益化ロードマップ
