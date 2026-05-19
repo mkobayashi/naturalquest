@@ -19,6 +19,17 @@ type OilShop = { name: string; products: Product[] };
 const mapping = articleMapping as ArticleMapping;
 const shop = shopData as Record<string, OilShop>;
 
+/** journal の post.slug（例: herb-recipe/herb-aroma-power）と mapping の slug を照合 */
+function slugMatchesArticle(articleSlug: string, pageSlug: string): boolean {
+	const article = articleSlug.trim();
+	const page = pageSlug.trim();
+	if (article === page) return true;
+	const base = page.split('/').pop() ?? page;
+	return article === base;
+}
+
+const slugKey = slug.includes('/') ? (slug.split('/').pop() ?? slug) : slug;
+
 /** oil_to_articles のキー順では希望順にならない記事のみ指定 */
 const SIDEBAR_OIL_ORDER_BY_SLUG: Record<string, string[]> = {
 	'herb-aroma-v4-gut': ['es_40', 'es_60', 'es_61', 'es_53'],
@@ -29,16 +40,14 @@ const SIDEBAR_OIL_ORDER_BY_SLUG: Record<string, string[]> = {
 // この記事に登場する精油IDを取得
 const oilIds = mapping.oil_to_articles
 	? Object.entries(mapping.oil_to_articles)
-			.filter(([, articles]) => articles.some((a) => a.slug === slug))
+			.filter(([, articles]) => articles.some((a) => slugMatchesArticle(a.slug, slug)))
 			.map(([id]) => id)
 	: [];
 
-const order = SIDEBAR_OIL_ORDER_BY_SLUG[slug];
+const order = SIDEBAR_OIL_ORDER_BY_SLUG[slugKey];
 const orderedOilIds = order
 	? [...order.filter((id) => oilIds.includes(id)), ...oilIds.filter((id) => !order.includes(id))]
 	: oilIds;
-
-console.log('[ArticleAromaSidebar] oilIds', JSON.stringify({ slug, oilIds: orderedOilIds }));
 
 // ショップデータがある精油だけ絞り込む
 const oils = orderedOilIds.filter((id) => shop[id]).map((id) => ({ id, ...shop[id] }));
