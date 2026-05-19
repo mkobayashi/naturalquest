@@ -23,6 +23,12 @@ html{scroll-behavior:smooth}
 }
 body{font-family:var(--sans);font-weight:400;background:var(--bg);color:var(--text);line-height:1.9;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
+/* ── BACK NAV（記事ページ上部） ── */
+.interview-back-nav{position:fixed;top:0;left:0;right:0;z-index:102;display:flex;align-items:center;height:38px;padding:0 52px;background:rgba(250,248,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.interview-back-link{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--text-light);text-decoration:underline;text-decoration-color:rgba(122,104,88,0.45);text-underline-offset:4px;letter-spacing:0.04em;transition:color 0.2s ease,text-decoration-color 0.2s ease}
+.interview-back-link:hover{color:var(--accent);text-decoration-color:var(--accent)}
+body:has(.interview-back-nav) .hd{top:38px}
+
 /* ── HEADER ── */
 .hd{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 52px;transition:background 0.4s,backdrop-filter 0.4s}
 .hd.scrolled{background:rgba(250,248,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}

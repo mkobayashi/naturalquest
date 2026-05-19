@@ -1,0 +1,12 @@
+---
+interface Props {
+	href?: string;
+	label?: string;
+}
+
+const { href = '/interview/', label = '← インタビュー一覧へ' } = Astro.props;
+---
+
+<nav class="interview-back-nav" aria-label="戻る">
+	<a href={href} class="interview-back-link">{label}</a>
+</nav>
