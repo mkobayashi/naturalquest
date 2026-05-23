@@ -18,7 +18,28 @@ import NextNote from '../../components/mdx/NextNote.astro';
 import FullPhoto from '../../components/FullPhoto.astro';
 import AdBanner from '../../components/AdBanner.astro';
 import ArticleAromaSidebar from '../../components/aroma/ArticleAromaSidebar.astro';
+import ArticleSidebarAmazonCard from '../../components/article/ArticleSidebarAmazonCard.astro';
+import herbSidebarAmazon from '../../data/herb_sidebar_amazon.json';
 import { isJournalPublic } from '../../lib/journalPublic';
+
+const herbSidebarAmazonConfig = herbSidebarAmazon as {
+	label: string;
+	slugPrefixes: string[];
+	product: {
+		title: string;
+		brand?: string;
+		volume?: string;
+		priceNote?: string;
+		description: string;
+		amazonUrl: string;
+		imageUrl: string;
+		imageAlt: string;
+	};
+};
+
+function showHerbSidebarAmazon(slug: string): boolean {
+	return herbSidebarAmazonConfig.slugPrefixes.some((prefix) => slug.startsWith(prefix));
+}
 
 export async function getStaticPaths() {
 	const posts = await getCollection('journal');
@@ -352,6 +373,19 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 						<aside class="journal-article-sidebar min-w-0">
 							<div class="md:sticky md:top-24">
 								<ArticleAromaSidebar slug={post.slug} />
+								{showHerbSidebarAmazon(post.slug) ? (
+									<ArticleSidebarAmazonCard
+										label={herbSidebarAmazonConfig.label}
+										title={herbSidebarAmazonConfig.product.title}
+										brand={herbSidebarAmazonConfig.product.brand}
+										volume={herbSidebarAmazonConfig.product.volume}
+										priceNote={herbSidebarAmazonConfig.product.priceNote}
+										description={herbSidebarAmazonConfig.product.description}
+										amazonUrl={herbSidebarAmazonConfig.product.amazonUrl}
+										imageUrl={herbSidebarAmazonConfig.product.imageUrl}
+										imageAlt={herbSidebarAmazonConfig.product.imageAlt}
+									/>
+								) : null}
 							</div>
 						</aside>
 					</div>

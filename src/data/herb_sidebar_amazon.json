@@ -1,0 +1,15 @@
+{
+	"label": "人気のキャリアオイル",
+	"slugPrefixes": ["herb-power/", "herb-recipe/"],
+	"product": {
+		"asin": "B08PVCQCGB",
+		"title": "ゴールデンホホバオイル 300ml",
+		"brand": "SAKURA & NATURAL",
+		"volume": "300ml",
+		"priceNote": "参考 ¥2,830",
+		"description": "精油を薄めるキャリアオイル。マッサージやボディケアのベースに。",
+		"amazonUrl": "https://www.amazon.co.jp/dp/B08PVCQCGB?tag=naturalquesto-22",
+		"imageUrl": "https://m.media-amazon.com/images/I/41aO5RNQbpL._AC_SL160_.jpg",
+		"imageAlt": "SAKURA&NATURAL ゴールデンホホバオイル 300ml"
+	}
+}

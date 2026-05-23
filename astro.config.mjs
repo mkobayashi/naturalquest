@@ -8,9 +8,12 @@ import { rehypeNaturalquestHttps } from './src/plugins/rehype-naturalquest-https
 import { rehypeGuideLevels } from './src/plugins/rehype-guide-levels.mjs';
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   output: 'static',
   site: 'https://naturalquest.org',
+
   integrations: [
     mdx({
       rehypePlugins: [rehypeNaturalquestHttps, rehypeGuideLevels()],
@@ -27,8 +30,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
+  // adapter: cloudflare() ← 削除
   server: {
     allowedHosts: ['unstridulating-hemizygous-samara.ngrok-free.dev'],
   },
-  // adapter: cloudflare() ← 削除
+
+  adapter: cloudflare()
 });
