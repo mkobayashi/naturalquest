@@ -23,9 +23,9 @@ import herbSidebarAmazon from '../../data/herb_sidebar_amazon.json';
 import { isJournalPublic } from '../../lib/journalPublic';
 
 const herbSidebarAmazonConfig = herbSidebarAmazon as {
-	label: string;
 	slugPrefixes: string[];
-	product: {
+	products: {
+		label: string;
 		title: string;
 		brand?: string;
 		volume?: string;
@@ -34,7 +34,7 @@ const herbSidebarAmazonConfig = herbSidebarAmazon as {
 		amazonUrl: string;
 		imageUrl: string;
 		imageAlt: string;
-	};
+	}[];
 };
 
 function showHerbSidebarAmazon(slug: string): boolean {
@@ -373,19 +373,21 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 						<aside class="journal-article-sidebar min-w-0">
 							<div class="md:sticky md:top-24">
 								<ArticleAromaSidebar slug={post.slug} />
-								{showHerbSidebarAmazon(post.slug) ? (
-									<ArticleSidebarAmazonCard
-										label={herbSidebarAmazonConfig.label}
-										title={herbSidebarAmazonConfig.product.title}
-										brand={herbSidebarAmazonConfig.product.brand}
-										volume={herbSidebarAmazonConfig.product.volume}
-										priceNote={herbSidebarAmazonConfig.product.priceNote}
-										description={herbSidebarAmazonConfig.product.description}
-										amazonUrl={herbSidebarAmazonConfig.product.amazonUrl}
-										imageUrl={herbSidebarAmazonConfig.product.imageUrl}
-										imageAlt={herbSidebarAmazonConfig.product.imageAlt}
-									/>
-								) : null}
+								{showHerbSidebarAmazon(post.slug)
+									? herbSidebarAmazonConfig.products.map((product) => (
+											<ArticleSidebarAmazonCard
+												label={product.label}
+												title={product.title}
+												brand={product.brand}
+												volume={product.volume}
+												priceNote={product.priceNote}
+												description={product.description}
+												amazonUrl={product.amazonUrl}
+												imageUrl={product.imageUrl}
+												imageAlt={product.imageAlt}
+											/>
+										))
+									: null}
 							</div>
 						</aside>
 					</div>

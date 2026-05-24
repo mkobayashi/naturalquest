@@ -1,15 +1,41 @@
 {
-	"label": "人気のキャリアオイル",
 	"slugPrefixes": ["herb-power/", "herb-recipe/"],
-	"product": {
-		"asin": "B08PVCQCGB",
-		"title": "ゴールデンホホバオイル 300ml",
-		"brand": "SAKURA & NATURAL",
-		"volume": "300ml",
-		"priceNote": "参考 ¥2,830",
-		"description": "精油を薄めるキャリアオイル。マッサージやボディケアのベースに。",
-		"amazonUrl": "https://www.amazon.co.jp/dp/B08PVCQCGB?tag=naturalquesto-22",
-		"imageUrl": "https://m.media-amazon.com/images/I/41aO5RNQbpL._AC_SL160_.jpg",
-		"imageAlt": "SAKURA&NATURAL ゴールデンホホバオイル 300ml"
-	}
+	"products": [
+		{
+			"label": "人気のキャリアオイル",
+			"asin": "B08PVCQCGB",
+			"title": "ゴールデンホホバオイル 300ml",
+			"brand": "SAKURA & NATURAL",
+			"volume": "300ml",
+			"priceNote": "参考 ¥2,830",
+			"description": "精油を薄めるキャリアオイル。マッサージやボディケアのベースに。",
+			"amazonUrl": "https://www.amazon.co.jp/dp/B08PVCQCGB?tag=naturalquesto-22",
+			"imageUrl": "https://m.media-amazon.com/images/I/41aO5RNQbpL._AC_SL160_.jpg",
+			"imageAlt": "SAKURA&NATURAL ゴールデンホホバオイル 300ml"
+		},
+		{
+			"label": "人気のアロマディフューザー",
+			"asin": "B0FWRMC2VG",
+			"title": "FLIRVA L30000 ネブライザー式",
+			"brand": "FLIRVA",
+			"volume": "水なし · 4000mAh",
+			"priceNote": "参考 ¥19,999",
+			"description": "精油をそのまま超微細ミストで拡散。芳香浴や空間の香りづけに。",
+			"amazonUrl": "https://www.amazon.co.jp/dp/B0FWRMC2VG?tag=naturalquesto-22",
+			"imageUrl": "https://m.media-amazon.com/images/I/61q5+5JbCmL._AC_SL160_.jpg",
+			"imageAlt": "FLIRVA L30000 アロマディフューザー ネブライザー式"
+		},
+		{
+			"label": "人気のアロマセット",
+			"asin": "B0FWZC2CP7",
+			"title": "SERENIQⅡ ネブライザー式",
+			"brand": "ARIANRHOD JAPAN",
+			"volume": "精油4本付属 · 75時間連続",
+			"priceNote": "参考 ¥10,980",
+			"description": "ディフューザーと精油4本のセット。車載・卓上どちらも使える。",
+			"amazonUrl": "https://www.amazon.co.jp/dp/B0FWZC2CP7?tag=naturalquesto-22",
+			"imageUrl": "https://m.media-amazon.com/images/I/71WgOMUzSBL._AC_SL160_.jpg",
+			"imageAlt": "SERENIQⅡ アロマディフューザー エッセンシャルオイル4本セット"
+		}
+	]
 }
