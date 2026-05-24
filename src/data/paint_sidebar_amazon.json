@@ -1,0 +1,53 @@
+{
+	"slugs": ["2026-04-08-natural-paint-guide"],
+	"products": [
+		{
+			"label": "無臭柿渋",
+			"asin": "B00ETRD0C0",
+			"title": "ターナー色彩 無臭柿渋 1L",
+			"brand": "Turner Color",
+			"volume": "1L",
+			"priceNote": "参考 ¥1,991",
+			"description": "臭いを抑えた柿渋。古民家の柱や家具、布にも使える。",
+			"amazonUrl": "https://www.amazon.co.jp/dp/B00ETRD0C0?tag=naturalquesto-22",
+			"imageUrl": "https://images-na.ssl-images-amazon.com/images/P/B00ETRD0C0.01._SL160_.jpg",
+			"imageAlt": "ターナー色彩 無臭柿渋 1L"
+		},
+		{
+			"label": "オスモカラー",
+			"asin": "B0FRD4NYTL",
+			"title": "フロアカラー #3071 750ml",
+			"brand": "OSMO COLOR",
+			"volume": "750ml · 半艶",
+			"priceNote": "参考 ¥6,800",
+			"description": "無垢フローリング向け。木の内部に浸透する自然塗料。",
+			"amazonUrl": "https://www.amazon.co.jp/dp/B0FRD4NYTL?tag=naturalquesto-22",
+			"imageUrl": "https://images-na.ssl-images-amazon.com/images/P/B0FRD4NYTL.01._SL160_.jpg",
+			"imageAlt": "オスモカラー フロアカラー 3071 750ml"
+		},
+		{
+			"label": "オスモカラー",
+			"asin": "B002ABTN64",
+			"title": "ノーマルクリアー #3101 750ml",
+			"brand": "OSMO COLOR",
+			"volume": "750ml · 3分艶",
+			"priceNote": "参考 ¥7,640",
+			"description": "室内木部・家具向け。木の質感を活かしたクリア仕上げ。",
+			"amazonUrl": "https://www.amazon.co.jp/dp/B002ABTN64?tag=naturalquesto-22",
+			"imageUrl": "https://images-na.ssl-images-amazon.com/images/P/B002ABTN64.01._SL160_.jpg",
+			"imageAlt": "オスモカラー ノーマルクリアー 3101 750ml"
+		},
+		{
+			"label": "リボス",
+			"asin": "B00JMPMAD4",
+			"title": "Livos 270 カルデット 0.75L",
+			"brand": "LIVOS",
+			"volume": "0.75L · 木部用",
+			"priceNote": "参考 ¥5,500",
+			"description": "亜麻仁油ベースの自然健康塗料。木部の保護・仕上げに。",
+			"amazonUrl": "https://www.amazon.co.jp/dp/B00JMPMAD4?tag=naturalquesto-22",
+			"imageUrl": "https://images-na.ssl-images-amazon.com/images/P/B00JMPMAD4.01._SL160_.jpg",
+			"imageAlt": "リボス Livos 270 カルデット 0.75L"
+		}
+	]
+}

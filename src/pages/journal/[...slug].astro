@@ -20,26 +20,19 @@ import AdBanner from '../../components/AdBanner.astro';
 import ArticleAromaSidebar from '../../components/aroma/ArticleAromaSidebar.astro';
 import ArticleSidebarAmazonCard from '../../components/article/ArticleSidebarAmazonCard.astro';
 import herbSidebarAmazon from '../../data/herb_sidebar_amazon.json';
+import shikkuiSidebarAmazon from '../../data/shikkui_sidebar_amazon.json';
+import paintSidebarAmazon from '../../data/paint_sidebar_amazon.json';
 import { isJournalPublic } from '../../lib/journalPublic';
+import {
+	getSidebarAmazonProducts,
+	type SidebarAmazonConfig,
+} from '../../lib/sidebarAmazon';
 
-const herbSidebarAmazonConfig = herbSidebarAmazon as {
-	slugPrefixes: string[];
-	products: {
-		label: string;
-		title: string;
-		brand?: string;
-		volume?: string;
-		priceNote?: string;
-		description: string;
-		amazonUrl: string;
-		imageUrl: string;
-		imageAlt: string;
-	}[];
-};
-
-function showHerbSidebarAmazon(slug: string): boolean {
-	return herbSidebarAmazonConfig.slugPrefixes.some((prefix) => slug.startsWith(prefix));
-}
+const sidebarAmazonConfigs = [
+	herbSidebarAmazon,
+	shikkuiSidebarAmazon,
+	paintSidebarAmazon,
+] as SidebarAmazonConfig[];
 
 export async function getStaticPaths() {
 	const posts = await getCollection('journal');
@@ -373,21 +366,19 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 						<aside class="journal-article-sidebar min-w-0">
 							<div class="md:sticky md:top-24">
 								<ArticleAromaSidebar slug={post.slug} />
-								{showHerbSidebarAmazon(post.slug)
-									? herbSidebarAmazonConfig.products.map((product) => (
-											<ArticleSidebarAmazonCard
-												label={product.label}
-												title={product.title}
-												brand={product.brand}
-												volume={product.volume}
-												priceNote={product.priceNote}
-												description={product.description}
-												amazonUrl={product.amazonUrl}
-												imageUrl={product.imageUrl}
-												imageAlt={product.imageAlt}
-											/>
-										))
-									: null}
+								{getSidebarAmazonProducts(post.slug, sidebarAmazonConfigs).map((product) => (
+									<ArticleSidebarAmazonCard
+										label={product.label}
+										title={product.title}
+										brand={product.brand}
+										volume={product.volume}
+										priceNote={product.priceNote}
+										description={product.description}
+										amazonUrl={product.amazonUrl}
+										imageUrl={product.imageUrl}
+										imageAlt={product.imageAlt}
+									/>
+								))}
 							</div>
 						</aside>
 					</div>
