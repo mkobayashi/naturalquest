@@ -131,6 +131,7 @@ if (isPublic && primaryCategory) {
 
 const layoutTitle = post.data.title ? `${post.data.title} | Natural Quest` : 'Natural Quest';
 const layoutDescription = isPublic ? post.data.description : undefined;
+const sidebarAmazonProducts = getSidebarAmazonProducts(post.slug, sidebarAmazonConfigs);
 ---
 
 <Layout
@@ -151,6 +152,7 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 				prevInCategory={prevInCategory}
 				nextInCategory={nextInCategory}
 				primaryCategory={primaryCategory}
+				sidebarAmazonProducts={sidebarAmazonProducts}
 			/>
 		) : null
 	}
@@ -366,7 +368,7 @@ const layoutDescription = isPublic ? post.data.description : undefined;
 						<aside class="journal-article-sidebar min-w-0">
 							<div class="md:sticky md:top-24">
 								<ArticleAromaSidebar slug={post.slug} />
-								{getSidebarAmazonProducts(post.slug, sidebarAmazonConfigs).map((product) => (
+								{sidebarAmazonProducts.map((product) => (
 									<ArticleSidebarAmazonCard
 										label={product.label}
 										title={product.title}

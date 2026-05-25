@@ -34,6 +34,40 @@
 	padding: 0 28px 64px;
 }
 
+.article-page-shell {
+	max-width: 720px;
+	margin: 0 auto;
+}
+
+.article-page-shell--with-sidebar {
+	max-width: 960px;
+	display: grid;
+	gap: 2rem;
+	align-items: start;
+}
+
+@media (min-width: 768px) {
+	.article-page-shell--with-sidebar {
+		grid-template-columns: minmax(0, 720px) 200px;
+	}
+}
+
+.article-page-shell--with-sidebar .article-page {
+	max-width: none;
+	margin: 0;
+}
+
+.article-page__sidebar {
+	min-width: 0;
+}
+
+@media (min-width: 768px) {
+	.article-page__sidebar-inner {
+		position: sticky;
+		top: 6rem;
+	}
+}
+
 .article-page__back {
 	font-size: 13px;
 	color: var(--ag-muted);

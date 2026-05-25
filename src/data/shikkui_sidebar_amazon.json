@@ -1,5 +1,9 @@
 {
-	"slugs": ["2026-04-04-shikkui", "2026-04-11-shikkui-materials"],
+	"slugs": [
+		"2026-04-04-shikkui",
+		"2026-04-08-shikkui-materials-guide",
+		"2026-04-11-shikkui-materials"
+	],
 	"products": [
 		{
 			"label": "初心者向け漆喰",
@@ -22,7 +26,7 @@
 			"priceNote": "参考 ¥7,865",
 			"description": "淡路島の塩焼き消石灰。古民家DIY向けの本格漆喰。",
 			"amazonUrl": "https://www.amazon.co.jp/dp/B09YCYM79J?tag=naturalquesto-22",
-			"imageUrl": "https://images-na.ssl-images-amazon.com/images/P/B09YCYM79J.01._SL160_.jpg",
+			"imageUrl": "https://m.media-amazon.com/images/I/51g+luGKJDL._AC_SL160_.jpg",
 			"imageAlt": "島かべしっくい 20kg"
 		},
 		{
@@ -58,7 +62,7 @@
 			"priceNote": "参考 ¥4,200",
 			"description": "小容量の練り済み漆喰。部分塗りや試し塗りに。",
 			"amazonUrl": "https://www.amazon.co.jp/dp/B00W6UXGS0?tag=naturalquesto-22",
-			"imageUrl": "https://images-na.ssl-images-amazon.com/images/P/B00W6UXGS0.01._SL160_.jpg",
+			"imageUrl": "https://m.media-amazon.com/images/I/71opj8TUWcL._AC_SL160_.jpg",
 			"imageAlt": "ベジタウォール 漆喰 4kg"
 		},
 		{
@@ -70,7 +74,7 @@
 			"priceNote": "参考 ¥9,800",
 			"description": "高知の消石灰を使った本格漆喰。プロ仕様の仕上がり。",
 			"amazonUrl": "https://www.amazon.co.jp/dp/B004EX8CYA?tag=naturalquesto-22",
-			"imageUrl": "https://images-na.ssl-images-amazon.com/images/P/B004EX8CYA.01._SL160_.jpg",
+			"imageUrl": "https://m.media-amazon.com/images/I/81SJLS5IwvL._AC_SL160_.jpg",
 			"imageAlt": "土佐しっくい 白亞 20kg"
 		},
 		{
@@ -82,7 +86,7 @@
 			"priceNote": "参考 ¥7,200",
 			"description": "城壁仕上げの本格漆喰。古民家や外壁にも。",
 			"amazonUrl": "https://www.amazon.co.jp/dp/B01FEW0Z2Q?tag=naturalquesto-22",
-			"imageUrl": "https://images-na.ssl-images-amazon.com/images/P/B01FEW0Z2Q.01._SL160_.jpg",
+			"imageUrl": "https://m.media-amazon.com/images/I/91+uotN9vzL._AC_SL160_.jpg",
 			"imageAlt": "田川産業 城かべ漆喰 20kg"
 		}
 	]
