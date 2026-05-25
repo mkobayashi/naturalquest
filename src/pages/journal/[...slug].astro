@@ -22,6 +22,7 @@ import ArticleSidebarAmazonCard from '../../components/article/ArticleSidebarAma
 import herbSidebarAmazon from '../../data/herb_sidebar_amazon.json';
 import shikkuiSidebarAmazon from '../../data/shikkui_sidebar_amazon.json';
 import paintSidebarAmazon from '../../data/paint_sidebar_amazon.json';
+import solarSidebarAmazon from '../../data/solar_sidebar_amazon.json';
 import { isJournalPublic } from '../../lib/journalPublic';
 import {
 	getSidebarAmazonProducts,
@@ -32,6 +33,7 @@ const sidebarAmazonConfigs = [
 	herbSidebarAmazon,
 	shikkuiSidebarAmazon,
 	paintSidebarAmazon,
+	solarSidebarAmazon,
 ] as SidebarAmazonConfig[];
 
 export async function getStaticPaths() {

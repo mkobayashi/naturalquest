@@ -1,0 +1,17 @@
+{
+	"slugs": ["2026-04-23-solar-estimate-01", "2026-04-25-solar-estimate-02"],
+	"products": [
+		{
+			"label": "停電対策のポータブル電源",
+			"asin": "B0FPCD866Z",
+			"title": "DELTA 3 Max 2048Wh",
+			"brand": "EcoFlow",
+			"volume": "2000W · 瞬間4400W",
+			"priceNote": "参考 ¥109,799",
+			"description": "大容量リン酸鉄リチウム。防災・停電時の家電稼働や車中泊に。",
+			"amazonUrl": "https://www.amazon.co.jp/dp/B0FPCD866Z?tag=naturalquesto-22",
+			"imageUrl": "https://m.media-amazon.com/images/I/51dhaJi7PDL._AC_SL160_.jpg",
+			"imageAlt": "EcoFlow ポータブル電源 DELTA 3 Max 2048Wh"
+		}
+	]
+}
