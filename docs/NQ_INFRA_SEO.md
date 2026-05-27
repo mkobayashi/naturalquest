@@ -1,6 +1,6 @@
 # NQ_INFRA_SEO.md
 ## naturalquest.org インフラ・SEO 統合仕様書
-### 最終更新：2026年5月3日
+### 最終更新：2026年5月27日
 
 ---
 
@@ -23,7 +23,7 @@
 | Worker名 | URL | 役割 |
 |---|---|---|
 | aroma-api | aroma-api.kobayashi-ece.workers.dev | アロマAIチャットAPIプロキシ |
-| nq-redirect | （redirect-worker） | WordPress→Astroリダイレクト |
+| nq-redirect | workers/nq-redirect/ | WordPress→Astroリダイレクト |
 | nq-ads | nq-ads.kobayashi-ece.workers.dev | 自社広告システム |
 
 ### デプロイコマンド（共通パターン）
@@ -40,7 +40,7 @@ wrangler deploy --config wrangler.toml
 1. **GONE_PREFIXES**（410 Gone）→ WooCommerce遺物（/product/, /cart/ など）
 2. **JOURNAL_JP_SLUGS**（301）→ 旧journal日本語スラグ
 3. **アロマページ**（301）→ `/aroma/` チャット
-4. **SLUG_MAP**（301）→ 新 /journal/ URL（294件）
+4. **SLUG_MAP**（301）→ 新 /journal/ URL（294件）および旧 `/interview/*` → `/journal/interview-*`
 
 ### Cloudflare Pages `_redirects`（シンプル構成）
 ```
@@ -50,7 +50,7 @@ wrangler deploy --config wrangler.toml
 
 ### Workerデプロイ
 ```bash
-cd ~/Desktop/naturalquest/workers/redirect-worker
+cd ~/Desktop/naturalquest/workers/nq-redirect
 wrangler deploy
 ```
 
@@ -97,10 +97,11 @@ wrangler deploy
 ### 記事（journal）
 - 形式：`/journal/YYYY-MM-DD-{slug}/`
 - 総件数：294件（WordPress移行時に英語スラグに統一）
-- 旧WordPress日本語スラグ → redirect-workerで301転送
+- 旧WordPress日本語スラグ → nq-redirect Worker（`workers/nq-redirect/`）で301転送
 
 ### インタビュー
-- 形式：`/interview/{person-slug}/`
+- 形式：`/journal/interview-{person-slug}/`（一覧：`/journal/interview/`）
+- 旧URL `/interview/{person-slug}/` → SLUG_MAP で301（同上 Worker）
 
 ### アロマ
 - `/aroma/`（チャット）

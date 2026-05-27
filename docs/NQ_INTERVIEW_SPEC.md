@@ -1,29 +1,33 @@
 # NQ_INTERVIEW_SPEC.md
 ## naturalquest.org インタビューシリーズ 統合仕様書
-### 最終更新：2026年5月3日
+### 最終更新：2026年5月27日
 
 ---
 
 ## 1. サイト構成方針
 
 - インタビューは独立カテゴリ（NOTEカテゴリとは別）
-- URL構造：`/interview/{slug}/`
+- URL構造：`/journal/interview-{slug}/`（一覧：`/journal/interview/`）
+- 旧URL `/interview/{slug}/` は301で新URLへ（`workers/nq-redirect/` の SLUG_MAP）
 - ナビに「インタビュー」追加済み
-- スタンドアロンページ（Layout.astro不使用）
+- 一覧のみ Layout.astro 使用。個別記事はスタンドアロンページ
 
 ### ファイル構成
 ```
 src/
   pages/
     interview/
-      index.astro              ← 一覧ページ
-      hayashi-saodah.astro     ← 林サオダ vol.11
-      nakajima-deko.astro      ← 中島デコ vol.09
-      miyakawa-akiko.astro     ← 宮川明子 vol.03
-      tojo-yuriko-1.astro      ← 東城百合子 vol.08 前編
-      tojo-yuriko-2.astro      ← 東城百合子 vol.08 後編
-      john-bayles.astro        ← ジョン・ベリス vol.05
-      everett-kennedy-brown.astro ← エバレット・ブラウン vol.10
+      index.astro              ← 旧一覧URLから /journal/interview/ へ301
+    journal/
+      interview/
+        index.astro            ← 一覧ページ
+      interview-hayashi-saodah.astro     ← 林サオダ vol.11
+      interview-nakajima-deko.astro      ← 中島デコ vol.09
+      interview-miyakawa-akiko.astro     ← 宮川明子 vol.03
+      interview-tojo-yuriko-1.astro      ← 東城百合子 vol.08 前編
+      interview-tojo-yuriko-2.astro      ← 東城百合子 vol.08 後編
+      interview-john-bayles.astro        ← ジョン・ベリス vol.05
+      interview-everett-kennedy-brown.astro ← エバレット・ブラウン vol.10
   styles/
     interview.css              ← 正本（src/ 以下）
 public/
@@ -290,12 +294,13 @@ URL: https://images.naturalquest.org/interview/vol09/deko_main.jpg
 
 1. R2に画像をアップロード（`interview/vol{NN}/`）
 2. Cloudflareキャッシュをカスタムパージ
-3. `src/pages/interview/{slug}.astro` を作成
-   - 既存ページ（nakajima-deko.astro）をベースにコンテンツを差し替え
+3. `src/pages/journal/interview-{slug}.astro` を作成
+   - 既存ページ（interview-nakajima-deko.astro）をベースにコンテンツを差し替え
    - `<head>` はテンプレートのまま（vol番号・title・descriptionのみ変更）
-4. `src/pages/interview/index.astro` にカードを追加
-5. `npm run build` でエラーがないことを確認
-6. `git push` でデプロイ
+4. `src/pages/journal/interview/index.astro` にカードを追加
+5. 旧URL互換が必要なら `workers/nq-redirect/redirect-worker.js` の SLUG_MAP に `/interview/{slug}/` → `/journal/interview-{slug}/` を追加し、`workers/nq-redirect/` で `wrangler deploy`
+6. `npm run build` でエラーがないことを確認
+7. `git push` でデプロイ
 
 ---
 
