@@ -1,5 +1,17 @@
 // naturalquest redirect worker
 const SLUG_MAP = {
+  '/interview/everett-kennedy-brown/': '/journal/interview-everett-kennedy-brown/',
+  '/interview/hayashi-saodah/': '/journal/interview-hayashi-saodah/',
+  '/interview/hayashi-shinichiro/': '/journal/interview-hayashi-shinichiro/',
+  '/interview/hayashi-shinishiro/': '/journal/interview-hayashi-shinishiro/',
+  '/interview/ishigaki-akiko/': '/journal/interview-ishigaki-akiko/',
+  '/interview/john-bayles/': '/journal/interview-john-bayles/',
+  '/interview/john-moore/': '/journal/interview-john-moore/',
+  '/interview/miyakawa-akiko/': '/journal/interview-miyakawa-akiko/',
+  '/interview/nakajima-deko/': '/journal/interview-nakajima-deko/',
+  '/interview/nogami-hiroshi/': '/journal/interview-nogami-hiroshi/',
+  '/interview/tojo-yuriko-1/': '/journal/interview-tojo-yuriko-1/',
+  '/interview/tojo-yuriko-2/': '/journal/interview-tojo-yuriko-2/',
   // herb-power
 '/journal/herb-aroma-v1-drink': '/journal/herb-power/herb-aroma-v1-drink/',
 '/journal/herb-aroma-v2-sun': '/journal/herb-power/herb-aroma-v2-sun/',
@@ -38,7 +50,7 @@ const SLUG_MAP = {
   "2026-04-09-test-list": "/journal/2026-04-09-test-list/",
   "2026-04-11-paint-catalog": "/journal/2026-04-11-paint-catalog/",
   "2026-04-11-shikkui-materials": "/journal/2026-04-11-shikkui-materials/",
-  "2804": "/interview/john-bayles/",
+  "2804": "/journal/interview-john-bayles/",
   "50%e2%84%83%e6%b4%97%e3%81%84": "/journal/2012-08-07-50c-washing/",
   "545": "/journal/2011-02-18-545/",
   "721-%e5%b1%b1%e5%b4%8e%e5%8f%8b%e7%b4%80%e3%81%95%e3%82%93%e3%82%b9%e3%82%a4%e3%83%bc%e3%83%84%e6%95%99%e5%ae%a4": "/journal/2012-07-24-sweets-class-721/",
@@ -68,7 +80,7 @@ const SLUG_MAP = {
   "visions%e3%81%ae%e9%ad%94%e5%a5%b3%e3%81%ab%e4%bc%9a%e3%81%84%e3%81%ab%e3%81%84%e3%81%8f%e3%80%82": "/journal/2016-11-18-visions-witch-visit/",
   "vol-2-%e3%82%a2%e3%83%bc%e3%82%b9%e3%83%87%e3%82%a4%e6%9d%b1%e4%ba%ac2009-%e4%bb%a3%e3%80%85%e6%9c%a8%e5%85%ac%e5%9c%92": "/journal/earth-day-tokyo-2009/",
   "walk-off-the-earth": "/journal/2021-02-02-walk-off-the-earth/",
-  "%e3%80%8c%e3%81%82%e3%81%aa%e3%81%9f%e3%81%a8%e5%81%a5%e5%ba%b7%e3%80%8d%e4%b8%bb%e5%ae%b0-%e6%9d%b1%e5%9f%8e%e7%99%be%e5%90%88%e5%ad%90-2": "/interview/tojo-yuriko-1/",
+  "%e3%80%8c%e3%81%82%e3%81%aa%e3%81%9f%e3%81%a8%e5%81%a5%e5%ba%b7%e3%80%8d%e4%b8%bb%e5%ae%b0-%e6%9d%b1%e5%9f%8e%e7%99%be%e5%90%88%e5%ad%90-2": "/journal/interview-tojo-yuriko-1/",
   "%e3%80%8c%e3%82%a2%e3%83%8c%e3%82%b5%e3%83%a9%e3%83%a8%e3%82%ac%e3%80%8d%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%a9%e3%82%af%e3%82%bf%e3%83%bc-%e3%82%b8%e3%83%a3%e3%83%83%e3%82%ad%e3%83%bc-2": "/journal/yoga-after-all/",
   "%e3%80%8c%e3%82%a2%e3%83%9e%e3%83%ab%e3%83%9e%e3%80%8d%e3%83%9f%e3%82%b7%e3%83%a5%e3%83%a9%e4%ba%ac%e5%ad%90%e3%81%95%e3%82%93%e3%81%ae%e3%80%8c%e3%82%a4%e3%83%b3%e3%83%89%e3%83%9e%e3%83%9e%e3%82%ad": "/journal/amalma-india-food/",
   "%e3%80%8c%e3%82%a2%e3%83%ac%e3%83%ab%e3%82%ae%e3%83%bc%e3%83%bb%e7%82%8e%e7%97%87%e8%aa%98%e7%99%ba%e4%bd%93%e8%b3%aa%e3%80%8d%e3%81%a8%e3%81%84%e3%81%86%e4%b8%80%e8%a8%80%e3%81%ae%e9%87%8d%e3%81%95": "/journal/allergy-inflammation/",
@@ -263,7 +275,7 @@ const SLUG_MAP = {
   "%e6%9d%b1%e4%ba%ac%e3%83%99%e3%82%b8%e3%83%95%e3%83%bc%e3%83%89%e3%83%95%e3%82%a7%e3%82%b9%e3%82%bf2009": "/journal/tokyo-vegefood-2009/",
   "%e6%9d%b1%e4%ba%ac%e6%9c%9d%e5%b8%82%e3%82%a2%e3%83%bc%e3%82%b9%e3%83%87%e3%82%a4%e3%83%9e%e3%83%bc%e3%82%b1%e3%83%83%e3%83%88": "/journal/earth-day-market/",
   "%e6%9e%97%e6%aa%8e%e3%81%ae%e3%82%b7%e3%83%ad%e3%83%83%e3%83%97%e6%bc%ac%e3%81%91-by%e4%ba%95%e5%8f%a3%e5%92%8c%e6%b3%89": "/journal/apple-syrup-preserve/",
-  "%e6%9f%93%e7%89%a9%e4%bd%9c%e5%ae%b6-%e7%9f%b3%e5%9e%a3%e6%98%ad%e5%ad%90-2": "/interview/ishigaki-akiko/",
+  "%e6%9f%93%e7%89%a9%e4%bd%9c%e5%ae%b6-%e7%9f%b3%e5%9e%a3%e6%98%ad%e5%ad%90-2": "/journal/interview-ishigaki-akiko/",
   "%e6%a1%91%e3%81%ae%e5%ae%9f%e3%82%b8%e3%83%a3%e3%83%a0%e5%87%ba%e6%9d%a5%e4%b8%8a%e3%81%8c%e3%82%8a%e3%80%82": "/journal/mulberry-jam-done/",
   "%e6%a1%91%e3%81%ae%e8%91%89%e8%8c%b6": "/journal/2016-06-22-mulberry-leaf-tea/",
   "%e6%a2%85%e8%82%89%e3%82%a8%e3%82%ad%e3%82%b9%e4%bd%9c%e3%82%8a%e3%83%af%e3%83%bc%e3%82%af%e3%82%b7%e3%83%a7%e3%83%83%e3%83%97%e3%81%ae%e3%81%8a%e7%9f%a5%e3%82%89%e3%81%9b": "/journal/ume-extract-workshop/",
@@ -281,7 +293,7 @@ const SLUG_MAP = {
   "%e7%8f%be%e5%a0%b4%e3%81%ae%e3%83%97%e3%83%a9%e3%82%a4%e3%83%89%e3%80%82": "/journal/field-pride/",
   "%e7%94%9f%e3%82%b4%e3%83%9f%e3%82%92%e5%a0%86%e8%82%a5%e3%81%ab%e5%a4%89%e3%81%88%e3%82%8b%e3%80%82%e3%83%80%e3%83%b3%e3%83%9c%e3%83%bc%e3%83%ab%e3%83%bb%e3%82%b3%e3%83%b3%e3%83%9d%e3%82%b9%e3%83%88": "/journal/cardboard-compost/",
   "%e7%9b%9b%e5%a4%8f%e3%81%ae%e6%a5%b5%e4%b8%8a%e8%aa%bf%e5%91%b3%e6%96%99%e3%80%81%e6%a2%85%e9%85%a2%e3%81%a7%e3%81%99%e3%80%82": "/journal/summer-ume-vinegar/",
-  "%e7%a4%be%e4%bc%9a%e4%bc%81%e6%a5%ad%e5%ae%b6-%e3%82%b8%e3%83%a7%e3%83%b3%e3%83%bb%e3%83%a0%e3%83%bc%e3%82%a2-2": "/interview/john-moore/",
+  "%e7%a4%be%e4%bc%9a%e4%bc%81%e6%a5%ad%e5%ae%b6-%e3%82%b8%e3%83%a7%e3%83%b3%e3%83%bb%e3%83%a0%e3%83%bc%e3%82%a2-2": "/journal/interview-john-moore/",
   "%e7%a6%8f%e5%b3%b6%e3%81%a8%e3%83%81%e3%82%a7%e3%83%ab%e3%83%8e%e3%83%96%e3%82%a4%e3%83%aa%e3%81%8c%e3%81%a4%e3%81%aa%e3%81%8c%e3%82%8b": "/journal/fukushima-chernobyl/",
   "%e7%a7%8b%e3%81%ae%e3%83%94%e3%82%bf%e3%82%b5%e3%83%b3%e3%83%89-by-%e4%b8%ad%e5%b3%b6%e3%83%87%e3%82%b3": "/journal/autumn-pita-sandwich/",
   "%e7%a7%8b%e3%81%ae%e3%83%a9%e3%82%a4%e3%82%b9%e3%82%b5%e3%83%a9%e3%83%80-by-%e4%b8%ad%e5%b3%b6%e3%83%87%e3%82%b3": "/journal/autumn-rice-salad/",
@@ -320,6 +332,16 @@ export default {
   async fetch(request) {
     const url = new URL(request.url);
     const pathname = url.pathname;
+
+    if (pathname.startsWith('/interview')) {
+      const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+      const destination =
+        SLUG_MAP[normalized] || SLUG_MAP[pathname.replace(/\/$/, '')];
+      if (destination) {
+        return Response.redirect('https://naturalquest.org' + destination, 301);
+      }
+    }
+
     if (!pathname.startsWith('/article/')) return fetch(request);
     const slug = pathname.replace(/\/$/, '').split('/').pop();
     const destination = SLUG_MAP[slug];

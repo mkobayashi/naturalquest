@@ -5,3 +5,7 @@ compatibility_date = "2024-01-01"
 [[routes]]
 pattern = "naturalquest.org/article/*"
 zone_name = "naturalquest.org"
+
+[[routes]]
+pattern = "naturalquest.org/interview/*"
+zone_name = "naturalquest.org"
