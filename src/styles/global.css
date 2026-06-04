@@ -110,10 +110,16 @@
 	text-decoration: none !important;
 	margin: 14px 0 12px;
 }
-.article-body .solar-cta p:last-child {
+.article-body .solar-cta p:last-child:not(.solar-cta-checks) {
 	font-size: 11px;
 	color: #888;
 	margin-top: 4px;
+}
+.article-body .solar-cta .solar-cta-checks {
+	font-size: 0.82rem;
+	color: #4a7c59;
+	margin-top: 0.5rem;
+	letter-spacing: 0.03em;
 }
 
 /* 記事本文の小見出し：ウェイトを強化（guide 記事は article-guide.css） */
