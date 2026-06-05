@@ -137,3 +137,18 @@
 	margin-left: 0;
 	margin-right: 0;
 }
+.article-body.article-full-image .article-figure-native img {
+	width: auto;
+	max-width: 100%;
+	height: auto;
+}
+.article-body .article-figure-native {
+	margin: 1.5rem 0 0.25rem;
+}
+.article-body .article-figure-native img {
+	display: block;
+	width: 340px;
+	max-width: 100%;
+	height: auto;
+	image-rendering: auto;
+}
