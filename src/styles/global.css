@@ -145,10 +145,22 @@
 .article-body .article-figure-native {
 	margin: 1.5rem 0 0.25rem;
 }
-.article-body .article-figure-native img {
+.article-body .article-figure-pair {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin: 1.5rem 0 0.25rem;
+}
+.article-body .article-figure-pair .article-figure-native {
+	flex: 1 1 280px;
+	margin: 0;
+	min-width: 0;
+}
+.article-body .article-figure-native img,
+.article-body .article-figure-pair .article-figure-native img {
 	display: block;
-	width: 340px;
-	max-width: 100%;
+	width: 100%;
+	max-width: 340px;
 	height: auto;
 	image-rendering: auto;
 }
