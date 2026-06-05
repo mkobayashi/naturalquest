@@ -22,7 +22,7 @@ const homePickSlugs: string[] = [
 /** サイドバー：人気の記事（3件・手動指定） */
 const popularSlugs: string[] = [
 	'garlic-ajoene-oil',
-	'herb-aroma-azuki',
+	'2026-06-05-neonico',
 	'herb-aroma-v1-drink',
 ];
 
@@ -85,9 +85,9 @@ const popularPosts = popularSlugs
 	.filter((p): p is JournalPost => p != null && isJournalPublic(p));
 
 const SELECTION_SLUGS: string[] = [
+	'2026-06-05-neonico',
 	'2026-04-25-solar-estimate-02',
 	'2026-04-23-solar-estimate-01',
-	'2026-04-04-shikkui',
 ];
 
 const selectionPosts = SELECTION_SLUGS
